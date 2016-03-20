@@ -1,24 +1,23 @@
-package com.skpcp.elista.uzytkownik_grupy.ob;
+package com.skpcp.elista.uzytkownik_grupy.dto;
 
-import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.base.dto.BaseDTO;
+import io.swagger.annotations.ApiModel;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by  Tomek on 2016-03-20.
  */
-@Entity
-@Table(name = "uzytkownik_grupy")
-@SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_UZYT_GRUPY_ID")
-public class Uzytkownik_GrupyOB extends BaseOB implements Serializable {
+@ApiModel
+public class UzytkownikGrupyDTO extends BaseDTO {
     private Long idUzytkownika;
     private Long idGrupy;
 
-    public Uzytkownik_GrupyOB() {
+    public UzytkownikGrupyDTO() {
     }
 
-    public Uzytkownik_GrupyOB(Long idUzytkownika, Long idGrupy) {
+    public UzytkownikGrupyDTO(Long id, Date techDate, Long idUzytkownika, Long idGrupy) {
+        super(id,techDate);
         this.idUzytkownika = idUzytkownika;
         this.idGrupy = idGrupy;
     }

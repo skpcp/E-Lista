@@ -1,31 +1,28 @@
-package com.skpcp.elista.nieobecnosci.ob;
+package com.skpcp.elista.nieobecnosci.dto;
 
-import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.nieobecnosci.EJednostka;
+import io.swagger.annotations.ApiModel;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by  Tomek on 2016-03-19.
+ * Created by  Tomek on 2016-03-20.
  */
-@Entity
-@Table(name = "nieobecnosci")
-@SequenceGenerator(allocationSize = 1, name="SEQ",sequenceName = "GEN_NIEOBECNOSC_ID")
-public class NieobecnosciOB extends BaseOB implements Serializable
-{
+@ApiModel
+public class NieobecnosciDTO extends BaseDTO {
     private Long idUzytkownika;
     private Date data;
     private Long ilosc;
     private EJednostka typ;
 
-    public NieobecnosciOB() {
+    public NieobecnosciDTO() {
     }
 
-    public NieobecnosciOB(Long idUzytkownika, Date date, Long ilosc, EJednostka typ) {
+    public NieobecnosciDTO(Long id, Date techDate, Long idUzytkownika, Date data, Long ilosc, EJednostka typ) {
+        super(id, techDate);
         this.idUzytkownika = idUzytkownika;
-        this.data = date;
+        this.data = data;
         this.ilosc = ilosc;
         this.typ = typ;
     }
@@ -34,16 +31,16 @@ public class NieobecnosciOB extends BaseOB implements Serializable
         return idUzytkownika;
     }
 
-    public void setIdUzytkownika(Long userID) {
-        this.idUzytkownika = userID;
+    public void setIdUzytkownika(Long idUzytkownika) {
+        this.idUzytkownika = idUzytkownika;
     }
 
     public Date getData() {
         return data;
     }
 
-    public void setData(Date date) {
-        this.data = date;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public Long getIlosc() {
@@ -61,4 +58,6 @@ public class NieobecnosciOB extends BaseOB implements Serializable
     public void setTyp(EJednostka typ) {
         this.typ = typ;
     }
+
+
 }

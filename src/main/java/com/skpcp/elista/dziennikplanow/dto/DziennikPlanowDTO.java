@@ -1,29 +1,27 @@
-package com.skpcp.elista.dziennikplanow.ob;
+package com.skpcp.elista.dziennikplanow.dto;
 
-import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.dziennikplanow.EDniTygodnia;
+import io.swagger.annotations.ApiModel;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by   Tomek on 2016-03-19.
+ * Created by  Tomek on 2016-03-20.
  */
-@Entity
-@Table(name="dziennik_planow")
-@SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_DZIENNIK_PLANOW_ID")
-public class DziennikPlanowOB extends BaseOB implements Serializable{
+@ApiModel
+public class DziennikPlanowDTO extends BaseDTO {
     private Long idUzytkownika;
     private EDniTygodnia dzienTygodnia;
     private Date planOd;
     private Date planDo;
 
-    public DziennikPlanowOB() {
+    public DziennikPlanowDTO() {
 
     }
 
-    public DziennikPlanowOB(Long idUzytkownika, EDniTygodnia dzienTygodnia, Date planOd, Date planDo) {
+    public DziennikPlanowDTO(Long id,Date techDate,Long idUzytkownika, EDniTygodnia dzienTygodnia, Date planOd, Date planDo) {
+        super(id,techDate);
         this.idUzytkownika = idUzytkownika;
         this.dzienTygodnia = dzienTygodnia;
         this.planOd = planOd;
@@ -62,3 +60,5 @@ public class DziennikPlanowOB extends BaseOB implements Serializable{
         this.planDo = planDo;
     }
 }
+
+

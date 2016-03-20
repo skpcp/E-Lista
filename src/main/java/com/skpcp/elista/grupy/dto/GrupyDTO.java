@@ -1,24 +1,23 @@
-package com.skpcp.elista.grupy.ob;
+package com.skpcp.elista.grupy.dto;
 
-import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.base.dto.BaseDTO;
+import io.swagger.annotations.ApiModel;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
 /**
- * Created by  Tomek on 2016-03-19.
+ * Created by  Tomek on 2016-03-20.
  */
-@Entity
-@Table(name = "grupy")
-@SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_GRUPY_ID")
-public class GrupyOB extends BaseOB implements Serializable {
+@ApiModel
+public class GrupyDTO extends BaseDTO {
     private Long idUzytkownika;
     private String nazwaGrupy;
 
-    public GrupyOB() {
+    public GrupyDTO() {
     }
 
-    public GrupyOB(Long idUzytkownika, String nazwaGrupy) {
+    public GrupyDTO(Long id, Date techDate, Long idUzytkownika, String nazwaGrupy) {
+        super(id,techDate);
         this.idUzytkownika = idUzytkownika;
         this.nazwaGrupy = nazwaGrupy;
     }

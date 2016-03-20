@@ -1,28 +1,26 @@
-package com.skpcp.elista.czaspracy.ob;
+package com.skpcp.elista.czaspracy.dto;
 
-import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.base.dto.BaseDTO;
+import io.swagger.annotations.ApiModel;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by  Tomek on 2016-03-19.
+ * Created by  Tomek on 2016-03-20.
  */
-@Entity
-@Table(name = "czas_pracy")
-@SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_CZAS_PRACY_ID")
-public class CzasPracyOB extends BaseOB implements Serializable{
+@ApiModel
+public class CzasPracyDTO extends BaseDTO {
     private Long idUzytkownika;
     private Date dzien;
     private Date rozpoczecie;
     private Date zakonczenie;
     private String zakresPracy;
 
-    public CzasPracyOB() {
+    public CzasPracyDTO() {
     }
 
-    public CzasPracyOB(Long idUzytkownika, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
+    public CzasPracyDTO(Long id,Date techDate,Long idUzytkownika, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
+        super(id,techDate);
         this.idUzytkownika = idUzytkownika;
         this.dzien = dzien;
         this.rozpoczecie = rozpoczecie;

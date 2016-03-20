@@ -1,4 +1,4 @@
-package com.skpcp.elista;
+package com.skpcp.elista.base.ob;
 
 import javax.persistence.*;
 

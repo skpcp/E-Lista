@@ -1,13 +1,13 @@
 package com.skpcp.elista.uzytkownik.ob;
 
-import com.skpcp.elista.BaseOB;
+import com.skpcp.elista.base.ob.BaseOB;
 import com.skpcp.elista.uzytkownik.EStan;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by  Tomek on 2016-03-19.
+ * Created by   Tomek on 2016-03-19.
  */
 @Entity
 @Table (name = "uzytkownik")
