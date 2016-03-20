@@ -7,13 +7,13 @@ import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
  * Created by Tomek on 2016-03-20.
  */
 public class UzytkownikConverter {
-    public static UzytkownikOB userDTOtoOB(UzytkownikDTO aUzytkownikDTO){
-        if(aUzytkownikDTO == null)
+    public static UzytkownikOB uzytDTOdoUzytkOB(UzytkownikDTO aUzytkownikDTO){
+        if(aUzytkownikDTO == null)//zapezpieczenie
             return null;
         return new UzytkownikOB(aUzytkownikDTO.getImie(),aUzytkownikDTO.getNazwisko());
     }
 
-    public static UzytkownikDTO userOBtoDTO(UzytkownikOB aUzytkownikOB){
+    public static UzytkownikDTO uzytOBdoUzytkDTO(UzytkownikOB aUzytkownikOB){
         if(aUzytkownikOB ==null) return null;
         return new UzytkownikDTO(aUzytkownikOB.getId(),aUzytkownikOB.getTechDate(),aUzytkownikOB.getImie(),aUzytkownikOB.getNazwisko());
     }

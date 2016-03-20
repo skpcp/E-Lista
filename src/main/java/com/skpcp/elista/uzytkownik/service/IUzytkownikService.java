@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface IUzytkownikService {
     UzytkownikDTO znajdzUzytkownikaPoId(Long aId);
-    List<UzytkownikDTO> findAllUsers();
-    List<UzytkownikDTO> findUsersByName(String aImie);
-    List<UzytkownikDTO> findUsersByLastName(String aNazwisko);
-    List<UzytkownikDTO> findUsersByNames(String aImie,String aNazwisko);
-    UzytkownikDTO saveUser(UzytkownikDTO aUzytkownikDTO);
-    void deleteUser(Long aId);
+    List<UzytkownikDTO> znajdzWszystkichUzytkownikow();
+    List<UzytkownikDTO> znajdzUzytkownikaPoImieniu(String aImie);
+    List<UzytkownikDTO> znajdzUzytkownikaPoNazwisku(String aNazwisko);
+    List<UzytkownikDTO> znajdzUzytkownikaPoImieniuINazwisku(String aImie,String aNazwisko);
+    UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO);
+    void usunUzytkownika(Long aId);
 
 }
