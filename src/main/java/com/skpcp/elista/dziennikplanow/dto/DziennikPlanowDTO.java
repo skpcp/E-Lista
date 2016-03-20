@@ -4,13 +4,14 @@ import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.dziennikplanow.EDniTygodnia;
 import io.swagger.annotations.ApiModel;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by  Tomek on 2016-03-20.
  */
 @ApiModel
-public class DziennikPlanowDTO extends BaseDTO {
+public class DziennikPlanowDTO extends BaseDTO implements Serializable {
     private Long idUzytkownika;
     private EDniTygodnia dzienTygodnia;
     private Date planOd;

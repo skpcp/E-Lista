@@ -4,13 +4,14 @@ import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import io.swagger.annotations.ApiModel;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by  Tomek on 2016-03-20.
  */
 @ApiModel
-public class UzytkownikDTO extends BaseDTO {
+public class UzytkownikDTO extends BaseDTO implements Serializable{
     private String imie;
     private String nazwisko;
     private String email;

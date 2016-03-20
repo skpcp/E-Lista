@@ -3,13 +3,14 @@ package com.skpcp.elista.grupy.dto;
 import com.skpcp.elista.base.dto.BaseDTO;
 import io.swagger.annotations.ApiModel;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by  Tomek on 2016-03-20.
  */
 @ApiModel
-public class GrupyDTO extends BaseDTO {
+public class GrupyDTO extends BaseDTO implements Serializable {
     private Long idUzytkownika;
     private String nazwaGrupy;
 
