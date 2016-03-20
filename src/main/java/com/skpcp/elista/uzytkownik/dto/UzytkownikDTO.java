@@ -14,69 +14,37 @@ import java.util.Date;
 public class UzytkownikDTO extends BaseDTO implements Serializable{
     private String imie;
     private String nazwisko;
-    private String email;
-    private String haslo;
-    private String telefon;
-    private EStan aktywnosc;
+
 
     public UzytkownikDTO() {
     }
 
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc) {
-        super(id,techDate);
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.email = email;
-        this.haslo = haslo;
-        this.telefon = telefon;
-        this.aktywnosc = aktywnosc;
+
+
+    //konstruktor do userconverter
+    public UzytkownikDTO(Long aId,Date aTechDate,String aImie, String aNazwisko) {
+        super(aId,aTechDate);
+        this.imie = aImie;
+        this.nazwisko = aNazwisko;
     }
+
+
 
     public String getImie() {
         return imie;
     }
 
-    public void setImie(String imie) {
-        this.imie = imie;
+    public void setImie(String aImie) {
+        this.imie = aImie;
     }
 
     public String getNazwisko() {
         return nazwisko;
     }
 
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
+    public void setNazwisko(String aNazwisko) {
+        this.nazwisko = aNazwisko;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getHaslo() {
-        return haslo;
-    }
-
-    public void setHaslo(String haslo) {
-        this.haslo = haslo;
-    }
-
-    public String getTelefon() {
-        return telefon;
-    }
-
-    public void setTelefon(String telefon) {
-        this.telefon = telefon;
-    }
-
-    public EStan getAktywnosc() {
-        return aktywnosc;
-    }
-
-    public void setAktywnosc(EStan aktywnosc) {
-        this.aktywnosc = aktywnosc;
-    }
 }

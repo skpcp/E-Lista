@@ -20,6 +20,9 @@ public abstract class BaseOB implements Serializable{
         @Temporal(value = TemporalType.TIMESTAMP)
         private Date techDate;
 
+        public BaseOB() {
+        }
+
         public Long getId() {
                 return id;
         }
