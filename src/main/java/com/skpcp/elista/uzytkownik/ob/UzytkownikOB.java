@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Entity
 @Table (name = "uzytkownicy")
 @SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_UZYTKOWNIK_ID")
-public class UzytkownikOB extends BaseOB {
+public class UzytkownikOB extends BaseOB implements Serializable {
     private String imie;
     private String nazwisko;
 

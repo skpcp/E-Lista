@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.ws.rs.Path;
 import java.util.List;
 
 /**
@@ -49,5 +50,18 @@ public class UzytkownikController {
     @ResponseBody
     public ResponseEntity<List<UzytkownikDTO>> znajdzPoImieniuINazwisku(@PathVariable("imie")String aImie,@PathVariable("nazwisko") String aNazwisko){
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoImieniuINazwisku(aImie,aNazwisko),HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/zapiszUzytkownika",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    @ResponseBody
+    public ResponseEntity<UzytkownikDTO> zapiszUzytkownika(@RequestBody UzytkownikDTO aUzytkownikDTO){
+        return new ResponseEntity<>(serwisUzytkownika.zapiszUzytkownika(aUzytkownikDTO),HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "usunPoId/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseEntity<Void> usunUzytkownika(@PathVariable("id")Long aId){
+        serwisUzytkownika.usunUzytkownika(aId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -16,7 +16,7 @@ public abstract class BaseOB implements Serializable{
         @Column(name = "ID")
         @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ")
         private Long id;
-        @Column(name = "TECHDATE",columnDefinition = "TIMESTAMP DEFAULT CURRENT")
+        @Column(name = "TECHDATE",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
         @Temporal(value = TemporalType.TIMESTAMP)
         private Date techDate;
 
