@@ -15,14 +15,29 @@ import java.io.Serializable;
 public class UzytkownikOB extends BaseOB implements Serializable {
     private String imie;
     private String nazwisko;
+    private String email;
+    private String haslo;
+    @Column(length = 14)
+    private String telefon;
+    private EStan aktywnosc;
 
     public UzytkownikOB() {
 
     }
 
+
     public UzytkownikOB(String imie, String nazwisko) {
         this.imie = imie;
         this.nazwisko = nazwisko;
+    }
+
+    public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.email = email;
+        this.haslo = haslo;
+        this.telefon = telefon;
+        this.aktywnosc = aktywnosc;
     }
 
     public String getImie() {
@@ -41,5 +56,35 @@ public class UzytkownikOB extends BaseOB implements Serializable {
         this.nazwisko = aNazwisko;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getHaslo() {
+        return haslo;
+    }
+
+    public void setHaslo(String haslo) {
+        this.haslo = haslo;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public EStan getAktywnosc() {
+        return aktywnosc;
+    }
+
+    public void setAktywnosc(EStan aktywnosc) {
+        this.aktywnosc = aktywnosc;
+    }
 }

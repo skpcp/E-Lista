@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * Created by  Tomek on 2016-03-20.
  */
+
 public abstract class BaseDTO {
     private Long id;
     private Date techDate;

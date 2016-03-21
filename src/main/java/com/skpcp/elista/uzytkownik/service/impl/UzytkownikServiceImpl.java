@@ -88,12 +88,18 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         }
         //sprawdzam czy dany rekord z OB już istnieje
         UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(aUzytkownikDTO.getId());
+
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
             return UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));
         }
+        //tutaj odwołując się do obiektu pUzytkownikOB mogę zrobić walidację danych po stronie serwera (na OB)
         //edytuj istniejącego
         pUzytkownikOB.setImie(aUzytkownikDTO.getImie());
         pUzytkownikOB.setNazwisko(aUzytkownikDTO.getNazwisko());
+        pUzytkownikOB.setEmail(aUzytkownikDTO.getEmail());
+        pUzytkownikOB.setHaslo(aUzytkownikDTO.getHaslo());
+        pUzytkownikOB.setTelefon(aUzytkownikDTO.getTelefon());
+        pUzytkownikOB.setAktywnosc(aUzytkownikDTO.getAktywnosc());
         return UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(pUzytkownikOB));
     }
 
