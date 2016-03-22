@@ -18,7 +18,7 @@ public class GrupyOB extends BaseOB implements Serializable {
     public GrupyOB() {
     }
 
-    public GrupyOB(Long idUzytkownika, String nazwaGrupy) {
+    public GrupyOB(String idUzytkownika, Long nazwaGrupy) {
         this.idUzytkownika = idUzytkownika;
         this.nazwaGrupy = nazwaGrupy;
     }

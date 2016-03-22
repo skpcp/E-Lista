@@ -14,7 +14,7 @@ public class GrupyDTO extends BaseDTO implements Serializable {
     private Long idUzytkownika;
     private String nazwaGrupy;
 
-    public GrupyDTO() {
+    public GrupyDTO(String nazwaGrupy, Long id) {
     }
 
     public GrupyDTO(Long id, Date techDate, Long idUzytkownika, String nazwaGrupy) {
