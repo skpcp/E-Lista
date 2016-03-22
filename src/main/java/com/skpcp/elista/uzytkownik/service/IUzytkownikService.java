@@ -18,5 +18,7 @@ public interface IUzytkownikService {
     UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO);
     void usunUzytkownika(Long aId);
     List<UzytkownikDTO> znajdzUzytkownikowPoAktywnosci(EStan aAktywnosc);
-
+    UzytkownikDTO zmienAktywnoscUzytkownikaPoId(Long aId, EStan Aktywnosc);
+    UzytkownikDTO zmienDaneOsobowePoId(Long aId, String aImie, String aNazwisko, String aTelefon);
+    UzytkownikDTO zmienDaneDostepuPoId(Long aId, String aEmail, String aHaslo);
 }
