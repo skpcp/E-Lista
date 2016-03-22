@@ -20,7 +20,7 @@ public class GrupyConverter
     {
         if(aGrupyOB == null )
             return null;
-        return new GrupyDTO(aGrupyOB.getNazwaGrupy(), aGrupyOB.getIdUzytkownika()));
+        return new GrupyDTO(aGrupyOB.getNazwaGrupy(), aGrupyOB.getIdUzytkownika());
     }
 }
 
