@@ -22,7 +22,7 @@ public class GrupyDTO extends BaseDTO implements Serializable {
         this.idUzytkownika = idUzytkownika;
         this.nazwaGrupy = nazwaGrupy;
     }
-
+qq
     public Long getIdUzytkownika() {
         return idUzytkownika;
     }
