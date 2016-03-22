@@ -1,5 +1,6 @@
 package com.skpcp.elista.uzytkownik.api;
 
+import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.service.IUzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.ws.rs.Path;
 import java.util.List;
 
 /**
@@ -37,19 +37,19 @@ public class UzytkownikController {
     @RequestMapping(value ="/pobierzPoImieniu/{imie}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<UzytkownikDTO>> znajdzPoImieniu(@PathVariable("imie")String aImie ){
-        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoImieniu(aImie),HttpStatus.OK);
+        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoImieniu(aImie),HttpStatus.OK);
     }
 
     @RequestMapping(value ="/pobierzPoNazwisku/{nazwisku}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<UzytkownikDTO>> znajdzPoNazwisku(@PathVariable("naziwsko")String aNazwisko){
-        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoNazwisku(aNazwisko),HttpStatus.OK);
+        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoNazwisku(aNazwisko),HttpStatus.OK);
     }
 
     @RequestMapping(value = "pobierzPoImieniuINazwisku/{imie},{nazwisko}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<UzytkownikDTO>> znajdzPoImieniuINazwisku(@PathVariable("imie")String aImie,@PathVariable("nazwisko") String aNazwisko){
-        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoImieniuINazwisku(aImie,aNazwisko),HttpStatus.OK);
+        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoImieniuINazwisku(aImie,aNazwisko),HttpStatus.OK);
     }
 
     @RequestMapping(value = "/zapiszUzytkownika",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
@@ -63,5 +63,11 @@ public class UzytkownikController {
     public ResponseEntity<Void> usunUzytkownika(@PathVariable("id")Long aId){
         serwisUzytkownika.usunUzytkownika(aId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "pobierzPoAktywnosci/{aktywnosc}",method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<List<UzytkownikDTO>> znajdzWszystkichPoAktywnosci(@PathVariable("aktywnosc")EStan aAktywnosc){
+        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoAktywnosci(aAktywnosc),HttpStatus.OK);
     }
 }

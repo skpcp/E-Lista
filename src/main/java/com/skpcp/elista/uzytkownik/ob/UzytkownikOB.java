@@ -25,12 +25,6 @@ public class UzytkownikOB extends BaseOB implements Serializable {
 
     }
 
-
-    public UzytkownikOB(String imie, String nazwisko) {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-    }
-
     public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc) {
         this.imie = imie;
         this.nazwisko = nazwisko;

@@ -1,5 +1,6 @@
 package com.skpcp.elista.uzytkownik.service;
 
+import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 
 import java.util.List;
@@ -11,10 +12,11 @@ import java.util.List;
 public interface IUzytkownikService {
     UzytkownikDTO znajdzUzytkownikaPoId(Long aId);
     List<UzytkownikDTO> znajdzWszystkichUzytkownikow();
-    List<UzytkownikDTO> znajdzUzytkownikaPoImieniu(String aImie);
-    List<UzytkownikDTO> znajdzUzytkownikaPoNazwisku(String aNazwisko);
-    List<UzytkownikDTO> znajdzUzytkownikaPoImieniuINazwisku(String aImie,String aNazwisko);
+    List<UzytkownikDTO> znajdzUzytkownikowPoImieniu(String aImie);
+    List<UzytkownikDTO> znajdzUzytkownikowPoNazwisku(String aNazwisko);
+    List<UzytkownikDTO> znajdzUzytkownikowPoImieniuINazwisku(String aImie, String aNazwisko);
     UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO);
     void usunUzytkownika(Long aId);
+    List<UzytkownikDTO> znajdzUzytkownikowPoAktywnosci(EStan aAktywnosc);
 
 }

@@ -1,6 +1,7 @@
 package com.skpcp.elista.uzytkownik.service.impl;
 
 import com.skpcp.elista.utils.UzytkownikConverter;
+import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
@@ -52,7 +53,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     }
 
     @Override
-    public List<UzytkownikDTO> znajdzUzytkownikaPoImieniu(String aImie) {
+    public List<UzytkownikDTO> znajdzUzytkownikowPoImieniu(String aImie) {
         List<UzytkownikDTO> listaWynikowaUzytkownikowDTO = new ArrayList<>();//utworzenie pojemnika
         List<UzytkownikOB> listaUzytkownikowOB = iUzytkownikRepository.findByImieStartsWith(aImie);//zwróc mi wszystkich użytkowników
         //przepisanie moich użytkowników
@@ -62,7 +63,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     }
 
     @Override
-    public List<UzytkownikDTO> znajdzUzytkownikaPoNazwisku(String aNazwisko) {
+    public List<UzytkownikDTO> znajdzUzytkownikowPoNazwisku(String aNazwisko) {
         List<UzytkownikDTO> listaWynikowaUzytkownikowDTO = new ArrayList<>();//utworzenie pojemnika
         List<UzytkownikOB> listaUzytkownikowOB = iUzytkownikRepository.findByNazwiskoStartsWith(aNazwisko);//zwróc mi wszystkich użytkowników
         //przepisanie moich użytkowników
@@ -72,7 +73,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     }
 
     @Override
-    public List<UzytkownikDTO> znajdzUzytkownikaPoImieniuINazwisku(String aImie, String aNazwisko) {
+    public List<UzytkownikDTO> znajdzUzytkownikowPoImieniuINazwisku(String aImie, String aNazwisko) {
         List<UzytkownikDTO> listaWynikowaUzytkownikowDTO = new ArrayList<>();//utworzenie pojemnika
         List<UzytkownikOB> listaUzytkownikowOB = iUzytkownikRepository.findByFullImie(aImie,aNazwisko);
         //przepisanie moich użytkowników
@@ -106,5 +107,15 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     @Override
     public void usunUzytkownika(Long aId) {
         iUzytkownikRepository.delete(aId);//i tyle xD
+    }
+
+    @Override
+    public List<UzytkownikDTO> znajdzUzytkownikowPoAktywnosci(EStan aAktywnosc) {
+        List<UzytkownikDTO> listaWynikowaUzytkownikowDTO = new ArrayList<>();//utworzenie pojemnika
+        List<UzytkownikOB> listaUzytkownikowOB = iUzytkownikRepository.znajdzPoAktywnosci(aAktywnosc);
+        //przepisanie moich użytkowników
+        for(UzytkownikOB uzytkownik : listaUzytkownikowOB) listaWynikowaUzytkownikowDTO.add(UzytkownikConverter.uzytOBdoUzytkDTO(uzytkownik)); //zmień każdą instancję UzytkownikOB do instancji DTO
+
+        return listaWynikowaUzytkownikowDTO;//zwróć DTO
     }
 }
