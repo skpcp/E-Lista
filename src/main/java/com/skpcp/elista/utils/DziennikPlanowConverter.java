@@ -16,7 +16,7 @@ public class DziennikPlanowConverter {
 
         public static DziennikPlanowDTO dziennikplanowOBdoDziennikPlanowowDTO(DziennikPlanowOB aDziennikPlanowOB){
             if(aDziennikPlanowOB ==null) return null;
-            return new DziennikPlanowDTO(aDziennikPlanowOB.getIdUzytkownika(),aDziennikPlanowOB.getDzienTygodnia(),aDziennikPlanowOB.getPlanOd(),aDziennikPlanowOB.getPlanDo());
+            return new DziennikPlanowDTO(aDziennikPlanowOB.getId(),aDziennikPlanowOB.getTechDate(),aDziennikPlanowOB.getIdUzytkownika(),aDziennikPlanowOB.getDzienTygodnia(),aDziennikPlanowOB.getPlanOd(),aDziennikPlanowOB.getPlanDo());
 
         }
 }
