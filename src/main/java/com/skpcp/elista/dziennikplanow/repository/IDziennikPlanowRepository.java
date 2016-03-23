@@ -13,9 +13,9 @@ import java.util.List;
 @Repository
 public interface IDziennikPlanowRepository extends JpaRepository<DziennikPlanowOB,Long> {
 
-    @Query("select u from DziennikPlanowOB u where u.idUzytkownika=?1")
-    List<DziennikPlanowOB> findByIdUzytkownikaStartsWith(Long aIdUzytkownika);
-    List<DziennikPlanowOB> znajdzPoDniuTygodnia(EDniTygodnia aDzienTygodnia);
+    //@Query("select u from DziennikPlanowOB u where u.idUzytkownika=?1")
+   // List<DziennikPlanowOB> findByIdUzytkownikaStartsWith(Long aIdUzytkownika);
+   // List<DziennikPlanowOB> znajdzPoDniuTygodnia(EDniTygodnia aDzienTygodnia);
 
 
 }

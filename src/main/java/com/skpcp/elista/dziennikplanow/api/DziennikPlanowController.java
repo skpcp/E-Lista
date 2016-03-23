@@ -2,7 +2,6 @@ package com.skpcp.elista.dziennikplanow.api;
 import com.skpcp.elista.dziennikplanow.EDniTygodnia;
 import com.skpcp.elista.dziennikplanow.service.IDziennikPlanowService;
 import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
-import com.skpcp.elista.dziennikplanow.service.IDziennikPlanowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,12 +39,12 @@ public class DziennikPlanowController {
         return new ResponseEntity<>(serwisDziennikaPlanow.znajdzDziennikPlanowPoIdUzytkownika(aIdUzytkownika), HttpStatus.OK);
 
     }
-    @RequestMapping(value = "pobierzPoDniuTygodnia/{dzienTygodnia}",method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<List<DziennikPlanowDTO>> znajdzDziennikPoDniuTygodnia(@PathVariable("dzienTygodnia")EDniTygodnia eDzien){
-        return new ResponseEntity<>(serwisDziennikaPlanow.znajdzDziennikPoDniuTygodnia(eDzien),HttpStatus.OK);
-    }
-    @RequestMapping(value = "/zapiszUzytkownika",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    //@RequestMapping(value = "pobierzPoDniuTygodnia/{dzienTygodnia}",method = RequestMethod.GET)
+   // @ResponseBody
+   // public ResponseEntity<List<DziennikPlanowDTO>> znajdzDziennikPoDniuTygodnia(@PathVariable("dzienTygodnia")EDniTygodnia eDzien){
+   //     return new ResponseEntity<>(serwisDziennikaPlanow.znajdzDziennikPoDniuTygodnia(eDzien),HttpStatus.OK);
+   // }
+    @RequestMapping(value = "/zapiszDziennikPlanow",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<DziennikPlanowDTO> zapiszDziennikPlanow(@RequestBody DziennikPlanowDTO aDziennikPlanowDTO){
         return new ResponseEntity<>(serwisDziennikaPlanow.zapiszDziennikPlanow(aDziennikPlanowDTO),HttpStatus.OK);

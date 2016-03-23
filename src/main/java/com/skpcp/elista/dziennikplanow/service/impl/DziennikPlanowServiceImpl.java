@@ -46,15 +46,15 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
         return DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(pDziennikPlanowOB);
 
     }
-    @Override
-    public List<DziennikPlanowDTO> znajdzDziennikPoDniuTygodnia(EDniTygodnia aDzienTygodnia){
-        List<DziennikPlanowDTO> listaWynikowaDziennikowPlanowDTO = new ArrayList<>();//utworzenie pojemnika
-        List<DziennikPlanowOB> listaDziennikowPlanowOB = iDziennikPlanowRepository.znajdzPoDniuTygodnia(aDzienTygodnia);
-        //przepisanie moich użytkowników
-        for(DziennikPlanowOB dziennik : listaDziennikowPlanowOB) listaWynikowaDziennikowPlanowDTO .add(DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(dziennik));
+ //   @Override
+ //   public List<DziennikPlanowDTO> znajdzDziennikPoDniuTygodnia(EDniTygodnia aDzienTygodnia){
+   //     List<DziennikPlanowDTO> listaWynikowaDziennikowPlanowDTO = new ArrayList<>();//utworzenie pojemnika
+     //   List<DziennikPlanowOB> listaDziennikowPlanowOB = iDziennikPlanowRepository.znajdzPoDniuTygodnia(aDzienTygodnia);
+       // //przepisanie moich użytkowników
+       // for(DziennikPlanowOB dziennik : listaDziennikowPlanowOB) listaWynikowaDziennikowPlanowDTO .add(DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(dziennik));
 
-        return listaWynikowaDziennikowPlanowDTO;//zwróć DTO
-    }
+      //  return listaWynikowaDziennikowPlanowDTO;//zwróć DTO/
+   // }
     @Override
     public DziennikPlanowDTO zapiszDziennikPlanow(DziennikPlanowDTO aDziennikPlanowDTO){
         if(aDziennikPlanowDTO == null){

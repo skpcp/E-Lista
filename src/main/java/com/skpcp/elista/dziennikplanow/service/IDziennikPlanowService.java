@@ -14,7 +14,7 @@ public interface IDziennikPlanowService {
     DziennikPlanowDTO znajdzDziennikPlanowPoId(Long aId);
     List<DziennikPlanowDTO> znajdzWszystkieDziennikiPlanow();
     DziennikPlanowDTO znajdzDziennikPlanowPoIdUzytkownika(Long aIdUzytkownika);
-    List<DziennikPlanowDTO> znajdzDziennikPoDniuTygodnia(EDniTygodnia aDzienTygodnia);
+   // List<DziennikPlanowDTO> znajdzDziennikPoDniuTygodnia(EDniTygodnia aDzienTygodnia);
     DziennikPlanowDTO zapiszDziennikPlanow(DziennikPlanowDTO aDziennikPlanowDTO);
     void usunDziennikPlanow(Long aId);
     DziennikPlanowDTO zmienDziennikPlanuPoIdUzytkownika(Long aIdUzytkownika, EDniTygodnia aDniTygodnia, Date aPlanOd, Date aPlanDo);
