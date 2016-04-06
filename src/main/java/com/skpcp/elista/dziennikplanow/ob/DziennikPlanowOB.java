@@ -15,7 +15,7 @@ import java.util.Date;
 @SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_DZIENNIK_PLANOW_ID")
 public class DziennikPlanowOB extends BaseOB implements Serializable{
     private Long idUzytkownika;
-    private EDniTygodnia dzienTygodnia;
+    private EDniTygodnia dzienTygodnia;//tutaj możliwe , że będzie lepszy zwykły string ?
     private Date planOd;
     private Date planDo;
 
