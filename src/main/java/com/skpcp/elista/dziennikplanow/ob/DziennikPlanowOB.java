@@ -11,11 +11,11 @@ import java.util.Date;
  * Created by   Tomek on 2016-03-19.
  */
 @Entity
-@Table(name="dziennik_planow")
+@Table(name="dziennikplanow")
 @SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_DZIENNIK_PLANOW_ID")
 public class DziennikPlanowOB extends BaseOB implements Serializable{
     private Long idUzytkownika;
-    private EDniTygodnia dzienTygodnia;
+    private EDniTygodnia dzienTygodnia;//tutaj możliwe , że będzie lepszy zwykły string ?
     private Date planOd;
     private Date planDo;
 

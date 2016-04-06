@@ -28,6 +28,10 @@ public class DziennikPlanowDTO extends BaseDTO implements Serializable {
         this.planOd = planOd;
         this.planDo = planDo;
     }
+    // konstruktor pod DziennikPlanowConverter
+
+
+
 
     public Long getIdUzytkownika() {
         return idUzytkownika;

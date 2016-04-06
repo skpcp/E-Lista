@@ -8,6 +8,7 @@ public enum EDniTygodnia {
     WTOREK,
     SRODA,
     CZWARTEK,
+    Piątek,
     SOBOTA,
     NIEDZIELA
 }
