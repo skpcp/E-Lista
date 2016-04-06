@@ -75,7 +75,7 @@ public class NieobecnosciController {
     public ResponseEntity<NieobecnosciDTO> zmienNieobecnoscPoDacie(@PathVariable("id")Date aId, @PathVariable("data") Date aData){
         return new ResponseEntity<>(serwisNieobecnosci.zmienDateNieobecnosciPoId(aId,aNieobecnosci),HttpStatus.OK);
     }
-    
+
 
 
 
