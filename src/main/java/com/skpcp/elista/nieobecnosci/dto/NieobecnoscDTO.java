@@ -1,39 +1,38 @@
 package com.skpcp.elista.nieobecnosci.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
-import com.skpcp.elista.nieobecnosci.EJednostka;
+import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import io.swagger.annotations.ApiModel;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by  Tomek on 2016-03-20.
  */
 @ApiModel
-public class NieobecnosciDTO extends BaseDTO implements Serializable{
-    private Long idUzytkownika;
+public class NieobecnoscDTO extends BaseDTO {
+    private UzytkownikDTO uzytkownik;
     private Date data;
     private Long ilosc;
-    private EJednostka typ;
+    private String typ;
 
-    public NieobecnosciDTO() {
+    public NieobecnoscDTO() {
     }
 
-    public NieobecnosciDTO(Long id, Date techDate, Long idUzytkownika, Date data, Long ilosc, EJednostka typ) {
+    public NieobecnoscDTO(Long id, Date techDate, UzytkownikDTO uzytkownik, Date data, Long ilosc, String typ) {
         super(id, techDate);
-        this.idUzytkownika = idUzytkownika;
+        this.uzytkownik = uzytkownik;
         this.data = data;
         this.ilosc = ilosc;
         this.typ = typ;
     }
 
-    public Long getIdUzytkownika() {
-        return idUzytkownika;
+    public UzytkownikDTO getUzytkownik() {
+        return uzytkownik;
     }
 
-    public void setIdUzytkownika(Long idUzytkownika) {
-        this.idUzytkownika = idUzytkownika;
+    public void setUzytkownik(UzytkownikDTO uzytkownik) {
+        this.uzytkownik = uzytkownik;
     }
 
     public Date getData() {
@@ -52,11 +51,11 @@ public class NieobecnosciDTO extends BaseDTO implements Serializable{
         this.ilosc = ilosc;
     }
 
-    public EJednostka getTyp() {
+    public String getTyp() {
         return typ;
     }
 
-    public void setTyp(EJednostka typ) {
+    public void setTyp(String typ) {
         this.typ = typ;
     }
 

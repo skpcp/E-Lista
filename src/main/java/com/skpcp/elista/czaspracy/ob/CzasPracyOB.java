@@ -1,41 +1,50 @@
 package com.skpcp.elista.czaspracy.ob;
 
 import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
  * Created by  Tomek on 2016-03-19.
  */
 @Entity
-@Table(name = "czas_pracy")
+@Table(name = "czasypracy")
 @SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_CZAS_PRACY_ID")
-public class CzasPracyOB extends BaseOB implements Serializable{
-    private Long idUzytkownika;
+public class CzasPracyOB extends BaseOB{
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "UZYTKOWNIK_ID",referencedColumnName = "ID")
+    @NotNull
+    private UzytkownikOB uzytkownik;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dzien;
+    @DateTimeFormat(pattern = "HH:mm")
     private Date rozpoczecie;
+    @DateTimeFormat(pattern = "HH:mm")
     private Date zakonczenie;
     private String zakresPracy;
 
     public CzasPracyOB() {
     }
 
-    public CzasPracyOB(Long idUzytkownika, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
-        this.idUzytkownika = idUzytkownika;
+    public CzasPracyOB(UzytkownikOB uzytkownik, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
+        this.uzytkownik = uzytkownik;
         this.dzien = dzien;
         this.rozpoczecie = rozpoczecie;
         this.zakonczenie = zakonczenie;
         this.zakresPracy = zakresPracy;
     }
 
-    public Long getIdUzytkownika() {
-        return idUzytkownika;
+
+    public UzytkownikOB getUzytkownik() {
+        return uzytkownik;
     }
 
-    public void setIdUzytkownika(Long idUzytkownika) {
-        this.idUzytkownika = idUzytkownika;
+    public void setUzytkownik(UzytkownikOB uzytkownik) {
+        this.uzytkownik = uzytkownik;
     }
 
     public Date getDzien() {

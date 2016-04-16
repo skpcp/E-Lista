@@ -2,6 +2,8 @@ package com.skpcp.elista.dziennikplanow.repository;
 
 import com.skpcp.elista.dziennikplanow.EDniTygodnia;
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
+import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
+import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,9 +15,11 @@ import java.util.List;
 @Repository
 public interface IDziennikPlanowRepository extends JpaRepository<DziennikPlanowOB,Long> {
 
-    //@Query("select u from DziennikPlanowOB u where u.idUzytkownika=?1")
-   // List<DziennikPlanowOB> findByIdUzytkownikaStartsWith(Long aIdUzytkownika);
-   // List<DziennikPlanowOB> znajdzPoDniuTygodnia(EDniTygodnia aDzienTygodnia);
+    @Query("SELECT d FROM DziennikPlanowOB d WHERE d.uzytkownik.id=?1")
+    List<DziennikPlanowOB> znajdzDziennikiPlanowPoUzytkowniku(Long aId);
+    @Query("SELECT d FROM DziennikPlanowOB d WHERE d.dzienTygodnia=?1 AND d.uzytkownik=?2")
+    DziennikPlanowOB znajdzPoDniuTygodnia(String aDzienTygodnia, UzytkownikOB aUzytkownikOB);
+
 
 
 }

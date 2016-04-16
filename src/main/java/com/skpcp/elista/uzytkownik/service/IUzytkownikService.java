@@ -1,5 +1,6 @@
 package com.skpcp.elista.uzytkownik.service;
 
+import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 

@@ -1,5 +1,6 @@
 package com.skpcp.elista.uzytkownik.api;
 
+import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.service.IUzytkownikService;
@@ -16,7 +17,6 @@ import java.util.List;
  * Created by Tomek on 2016-03-20.
  */
 @RestController
-@Transactional
 @RequestMapping(value = "elista/uzytkownicy")
 public class UzytkownikController {
     @Autowired
@@ -55,6 +55,8 @@ public class UzytkownikController {
     @RequestMapping(value = "/zapiszUzytkownika",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<UzytkownikDTO> zapiszUzytkownika(@RequestBody UzytkownikDTO aUzytkownikDTO){
+      //  List<DziennikPlanowDTO> pDziennikiPlanowDTO = aUzytkownikDTO.getDziennikiPlanow();
+      //  pDziennikiPlanowDTO.clear();
         return new ResponseEntity<>(serwisUzytkownika.zapiszUzytkownika(aUzytkownikDTO),HttpStatus.OK);
     }
 

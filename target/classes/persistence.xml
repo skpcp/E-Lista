@@ -5,10 +5,9 @@
 				 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
     <persistence-unit name="default">
         <class>com.skpcp.elista.uzytkownik.ob.UzytkownikOB</class>
-        <class>com.skpcp.elista.nieobecnosci.ob.NieobecnosciOB</class>
+        <class>com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB</class>
         <class>com.skpcp.elista.czaspracy.ob.CzasPracyOB</class>
         <class>com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB</class>
-        <class>com.skpcp.elista.grupy.ob.GrupyOB</class>
-        <class>com.skpcp.elista.uzytkownik_grupy.ob.Uzytkownik_GrupyOB</class>
+        <class>com.skpcp.elista.grupa.ob.GrupaOB</class>
     </persistence-unit>
 </persistence>

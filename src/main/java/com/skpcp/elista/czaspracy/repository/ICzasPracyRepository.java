@@ -2,6 +2,7 @@ package com.skpcp.elista.czaspracy.repository;
 
 
 import com.skpcp.elista.czaspracy.ob.CzasPracyOB;
+import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @Repository
 public interface ICzasPracyRepository extends JpaRepository<CzasPracyOB, Long> {
-    @Query("SELECT u FROM CzasPracyOB u WHERE u.idUzytkownika=?1")
-    List<CzasPracyOB> findByIdUzytkownika(Long aIdUzytkownika);
+
+    @Query("SELECT c FROM CzasPracyOB AS c  WHERE c.uzytkownik.id=?1 ")
+    List<CzasPracyOB> znajdzCzasPracyPoUzytkowniku(Long aIdUzytkownika);
 }

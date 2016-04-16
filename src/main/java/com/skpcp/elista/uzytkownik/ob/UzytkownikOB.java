@@ -1,10 +1,15 @@
 package com.skpcp.elista.uzytkownik.ob;
 
 import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
+import com.skpcp.elista.grupy.ob.GrupaOB;
 import com.skpcp.elista.uzytkownik.EStan;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by   Tomek on 2016-03-19.
@@ -12,7 +17,7 @@ import java.io.Serializable;
 @Entity
 @Table (name = "uzytkownicy")
 @SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_UZYTKOWNIK_ID")
-public class UzytkownikOB extends BaseOB implements Serializable {
+public class UzytkownikOB extends BaseOB {
     private String imie;
     private String nazwisko;
     private String email;
@@ -20,6 +25,7 @@ public class UzytkownikOB extends BaseOB implements Serializable {
     @Column(length = 14)
     private String telefon;
     private EStan aktywnosc;
+
 
     public UzytkownikOB() {
 
@@ -32,6 +38,7 @@ public class UzytkownikOB extends BaseOB implements Serializable {
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
+
     }
 
     public String getImie() {
@@ -81,4 +88,6 @@ public class UzytkownikOB extends BaseOB implements Serializable {
     public void setAktywnosc(EStan aktywnosc) {
         this.aktywnosc = aktywnosc;
     }
+
+
 }

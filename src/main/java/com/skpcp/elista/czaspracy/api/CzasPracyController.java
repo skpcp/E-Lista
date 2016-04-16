@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Achilles on 2016-03-22.
@@ -20,45 +20,34 @@ public class CzasPracyController {
     @Autowired
     ICzasPracyService serwisCzasPracy;
 
-    @RequestMapping(value = "wyswietlPoIdUzytkownika/{idUzytkownika}", method = RequestMethod.GET)
+    @RequestMapping(value = "/pobierzWszystkieCzasyPracyUzytkownika/{uzytkownik.id}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> wyswietlCzasPracyPoIdUzytkownika(@PathVariable("idUzytkownika") Long aIdUzytkownika) {
-        return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasPracyPoIdUzytkownika(aIdUzytkownika), HttpStatus.OK);
+    public ResponseEntity<List<CzasPracyDTO>> pobierzCzasPracyUzytkownika(@PathVariable("uzytkownik.id") Long aIdUzytkownika){
+        return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasyPracyPoUzytkowniku(aIdUzytkownika),HttpStatus.OK);
     }
 
-    @RequestMapping(value = "wprowadzGodzineRozpoczecia/{idUzytkownika},{rozpoczecie}", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> wprowadzGodzineRozpoczeciaPoIdUzytkownika(@PathVariable("idUzytkownika") Long aIdUzytkownika, @PathVariable("rozpoczecie") Date aRozpoczecie) {
-        return new ResponseEntity<>(serwisCzasPracy.wprowadzGodzineRozpoczeciaPoIdUzytkownika(aIdUzytkownika, aRozpoczecie), HttpStatus.OK);
+    public ResponseEntity<CzasPracyDTO> zapiszCzasPracy(@RequestBody CzasPracyDTO aCzasPracyDTO){
+        return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracy(aCzasPracyDTO),HttpStatus.OK);
     }
 
-    @RequestMapping(value = "wprowadzGodzineZakonczenia/{idUzytkownika},{zakonczenie}", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(value = "/zapiszCzasPracyWedlugPlanu",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> wprowadzGodzineZakonczeniaPoIdUzytkownika(@PathVariable("idUzytkownika") Long aIdUzytkownika, @PathVariable("zakonczenie") Date aZakonczenie) {
-        return new ResponseEntity<>(serwisCzasPracy.wprowadzGodzineZakonczeniaPoIdUzytkownika(aIdUzytkownika, aZakonczenie), HttpStatus.OK);
+    public ResponseEntity<CzasPracyDTO> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTO aCzasPracyDTO){
+        return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(aCzasPracyDTO),HttpStatus.OK);
     }
 
-    @RequestMapping(value = "wprowadzZakresPracy/{idUzytkownika},{zakresPracy}", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(value = "usunCzasPracy/{id}",method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> wprowadzZakresPracyPoIdUzytkownika(@PathVariable("idUzytkownika") Long aIdUzytkownika, @PathVariable("zakresPracy") String aZakresPracy) {
-        return new ResponseEntity<>(serwisCzasPracy.wprowadzZakresPracyPoIdUzytkownika(aIdUzytkownika, aZakresPracy), HttpStatus.OK);
+    public ResponseEntity<Void> usunCzasPracy(@PathVariable("id") Long aId){
+        serwisCzasPracy.usunCzasPracy(aId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "wyswietlGodzineRozpoczecia/{idUzytkownika}", method = RequestMethod.GET)
+    @RequestMapping(value = "pobierzCzasPracy/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> wyswietlGodzineRozpoczeciaPoIdUzytkownika(@PathVariable("idUzytkownika") Long aIdUzytkownika) {
-        return new ResponseEntity<>(serwisCzasPracy.wyswietlGodzineRozpoczeciaPoIdUzytkownika(aIdUzytkownika), HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "wyswietlGodzineZakonczenia/{idUzytkownika}", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<CzasPracyDTO> wyswietlGodzineZakonczeniaPoIdUzytkownika(@PathVariable("idUzytkownika") Long aIdUzytkownika) {
-        return new ResponseEntity<>(serwisCzasPracy.wyswietlGodzineZakonczeniaPoIdUzytkownika(aIdUzytkownika), HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "wyswietlZakresPracy/{idUzytkownika}", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<CzasPracyDTO> wyswietlZakresPracyPoIdUzytkownika(@PathVariable("idUzytkownika") Long aIdUzytkownika) {
-        return new ResponseEntity<>(serwisCzasPracy.wyswietlZakresPracyPoIdUzytkownika(aIdUzytkownika), HttpStatus.OK);
+    public ResponseEntity<CzasPracyDTO> pobierzCzasPracy(@PathVariable("id") Long aId){
+        return new ResponseEntity<>(serwisCzasPracy.znajdzCzasPracyPoId(aId),HttpStatus.OK);
     }
 }

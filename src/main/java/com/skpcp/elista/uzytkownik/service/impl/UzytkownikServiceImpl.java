@@ -1,5 +1,10 @@
 package com.skpcp.elista.uzytkownik.service.impl;
 
+import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
+import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
+import com.skpcp.elista.grupy.respository.IGrupyRespository;
+import com.skpcp.elista.grupy.service.IGrupyService;
+import com.skpcp.elista.utils.DziennikPlanowConverter;
 import com.skpcp.elista.utils.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
@@ -10,7 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +31,11 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     @Autowired
     IUzytkownikRepository iUzytkownikRepository;
 
+    @Autowired
+    IDziennikPlanowRepository iDziennikPlanowRepository;
+
+    @Autowired
+    IGrupyRespository iGrupyRespository;
     /* Mała rozkmina
      * Obiekt DTO - data transfer object pośredniczy
      * w wywołaniach, jest to tak jakby kontener? Nie działam
@@ -89,11 +102,35 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         }
         //sprawdzam czy dany rekord z OB już istnieje
         UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(aUzytkownikDTO.getId());
-
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
-            return UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));
+            aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
+            pUzytkownikOB = UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO);//stwórz instancje do przypisania do dziennika
+            //przepisz wiadomo
+
+            //tworzenia pięciu standardowych dzienników planów
+
+            SimpleDateFormat pMojFormat = new SimpleDateFormat("hh:mm");
+            String nGodzinaOd = "8:00";
+            String nGodzinaDo = "15:00";
+            Date dPoczatekPracy;
+            Date dKoniecPracy;
+
+            try {
+                dPoczatekPracy = DziennikPlanowConverter.fCzas.parse(nGodzinaOd);
+                dKoniecPracy = DziennikPlanowConverter.fCzas.parse(nGodzinaDo);
+            }catch (ParseException e){
+                return null;
+            }
+
+            String[] pDniTygodnia = {"poniedziałek","wtorek","środa","czwartek","piątek"};
+            List<DziennikPlanowOB> listaDziennikow = new ArrayList<>();
+            for(String dzienTygodnia : pDniTygodnia) {
+                DziennikPlanowOB pDziennikPlanowOB = new DziennikPlanowOB(pUzytkownikOB,dzienTygodnia,dPoczatekPracy,dKoniecPracy);
+                listaDziennikow.add(pDziennikPlanowOB);
+            }
+            iDziennikPlanowRepository.save(listaDziennikow);//zapisuje listę
+            return aUzytkownikDTO;
         }
-        //tutaj odwołując się do obiektu pUzytkownikOB mogę zrobić walidację danych po stronie serwera (na OB)
         //edytuj istniejącego
         pUzytkownikOB.setImie(aUzytkownikDTO.getImie());
         pUzytkownikOB.setNazwisko(aUzytkownikDTO.getNazwisko());
@@ -106,6 +143,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
 
     @Override
     public void usunUzytkownika(Long aId) {
+        //TO DO dopisać usuwanie dzienników
         iUzytkownikRepository.delete(aId);
     }
 
@@ -157,5 +195,6 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
 
         return pUzytkownikDTO;
     }
+
 }
 

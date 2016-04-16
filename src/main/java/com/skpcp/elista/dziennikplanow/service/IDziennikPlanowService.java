@@ -2,8 +2,11 @@ package com.skpcp.elista.dziennikplanow.service;
 
 import com.skpcp.elista.dziennikplanow.EDniTygodnia;
 import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
+import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
+import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -13,10 +16,10 @@ import java.util.List;
 public interface IDziennikPlanowService {
     DziennikPlanowDTO znajdzDziennikPlanowPoId(Long aId);
     List<DziennikPlanowDTO> znajdzWszystkieDziennikiPlanow();
-    DziennikPlanowDTO znajdzDziennikPlanowPoIdUzytkownika(Long aIdUzytkownika);
-   // List<DziennikPlanowDTO> znajdzDziennikPoDniuTygodnia(EDniTygodnia aDzienTygodnia);
+    List<DziennikPlanowDTO> znajdzDziennikiPlanowPoUzytkowniku(Long aIdUzytkownika);
+  //  List<DziennikPlanowDTO> znajdzDziennikPoDniuTygodnia(EDniTygodnia aDzienTygodnia);//to się później zrobi ! ;)
     DziennikPlanowDTO zapiszDziennikPlanow(DziennikPlanowDTO aDziennikPlanowDTO);
     void usunDziennikPlanow(Long aId);
-    DziennikPlanowDTO zmienDziennikPlanuPoIdUzytkownika(Long aIdUzytkownika, EDniTygodnia aDniTygodnia, Date aPlanOd, Date aPlanDo);
-    DziennikPlanowDTO zmienDziennikPlanuPoId(Long aId, EDniTygodnia aDniTygodnia, Date aPlanOd, Date aPlanDo);
+    //DziennikPlanowDTO zmienDziennikPlanuPoId(Long aId, EDniTygodnia aDzienTygodnia, Date aPlanOd, Date aPlanDo);
+     //DziennikPlanowDTO dopiszUzytkownikaDoDziennikaPlanow(Long aId, UzytkownikDTO aUzytkownikDTO);
 }

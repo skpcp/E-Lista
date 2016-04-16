@@ -1,7 +1,9 @@
 package com.skpcp.elista.grupy.service;
 
-import com.skpcp.elista.grupy.dto.GrupyDTO;
-import com.sun.xml.internal.ws.api.message.saaj.SAAJFactory;
+
+import com.skpcp.elista.grupy.dto.GrupaDTO;
+import com.skpcp.elista.grupy.ob.GrupaOB;
+import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 
 import java.util.List;
 
@@ -10,10 +12,10 @@ import java.util.List;
  */
 public interface IGrupyService
 {
-    GrupyDTO znajdzGrupePoNazwie (String anazwaGrupy);
-    GrupyDTO znajdzUzytkownikaPoGrupie (Long aId, String anazwaGrupy);
-    List<GrupyDTO> znajdzWszystkieGrupy();
-    void usunGrupe (String anazwaGrupy);
-    GrupyDTO zapiszGrupe (GrupyDTO aGrupyDTO);
+    GrupaDTO znajdzGrupePoNazwie (String aNazwa);
+   // GrupaDTO znajdzGrupeUzytkownika(Long aIdUzytkownika);
+    List<GrupaDTO> znajdzWszystkieGrupy();
+    void usunGrupe (Long aId);
+    GrupaDTO zapiszGrupe (GrupaDTO aGrupaDTO);
 
 }

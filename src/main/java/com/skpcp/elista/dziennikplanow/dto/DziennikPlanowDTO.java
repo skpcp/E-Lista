@@ -2,8 +2,11 @@ package com.skpcp.elista.dziennikplanow.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.dziennikplanow.EDniTygodnia;
+import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
+import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import io.swagger.annotations.ApiModel;
 
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,41 +14,39 @@ import java.util.Date;
  * Created by  Tomek on 2016-03-20.
  */
 @ApiModel
-public class DziennikPlanowDTO extends BaseDTO implements Serializable {
-    private Long idUzytkownika;
-    private EDniTygodnia dzienTygodnia;
+public class DziennikPlanowDTO extends BaseDTO {
+    private UzytkownikDTO uzytkownik;
+    private String dzienTygodnia;
+    //to do zmienic na date
     private Date planOd;
     private Date planDo;
 
     public DziennikPlanowDTO() {
-
     }
 
-    public DziennikPlanowDTO(Long id,Date techDate,Long idUzytkownika, EDniTygodnia dzienTygodnia, Date planOd, Date planDo) {
+    public DziennikPlanowDTO(Long id, Date techDate, UzytkownikDTO uzytkownik, String dzienTygodnia, Date planOd, Date planDo) {
         super(id,techDate);
-        this.idUzytkownika = idUzytkownika;
+        this.uzytkownik = uzytkownik;
         this.dzienTygodnia = dzienTygodnia;
         this.planOd = planOd;
         this.planDo = planDo;
     }
-    // konstruktor pod DziennikPlanowConverter
 
 
 
-
-    public Long getIdUzytkownika() {
-        return idUzytkownika;
+    public UzytkownikDTO getUzytkownik() {
+        return uzytkownik;
     }
 
-    public void setIdUzytkownika(Long idUzytkownika) {
-        this.idUzytkownika = idUzytkownika;
+    public void setUzytkownik(UzytkownikDTO uzytkownik) {
+        this.uzytkownik = uzytkownik;
     }
 
-    public EDniTygodnia getDzienTygodnia() {
+    public String getDzienTygodnia() {
         return dzienTygodnia;
     }
 
-    public void setDzienTygodnia(EDniTygodnia dzienTygodnia) {
+    public void setDzienTygodnia(String dzienTygodnia) {
         this.dzienTygodnia = dzienTygodnia;
     }
 

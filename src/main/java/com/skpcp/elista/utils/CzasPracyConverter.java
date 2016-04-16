@@ -10,13 +10,14 @@ public class CzasPracyConverter {
     public static CzasPracyOB czprDTOdoCzprOB(CzasPracyDTO aCzasPracyDTO) {
         if (aCzasPracyDTO == null)
             return null;
-        return new CzasPracyOB(aCzasPracyDTO.getIdUzytkownika(), aCzasPracyDTO.getDzien(), aCzasPracyDTO.getRozpoczecie(), aCzasPracyDTO.getZakonczenie(), aCzasPracyDTO.getZakresPracy());
+
+        return new CzasPracyOB(UzytkownikConverter.uzytDTOdoUzytkOB(aCzasPracyDTO.getUzytkownik()), aCzasPracyDTO.getDzien(), aCzasPracyDTO.getRozpoczecie(),aCzasPracyDTO.getZakonczenie(), aCzasPracyDTO.getZakresPracy());
     }
 
     public static CzasPracyDTO czprOBdoCzprDTO(CzasPracyOB aCzasPracyOB) {
         if (aCzasPracyOB == null)
             return null;
-        return new CzasPracyDTO(aCzasPracyOB.getId(),aCzasPracyOB.getTechDate(), aCzasPracyOB.getIdUzytkownika(), aCzasPracyOB.getDzien(), aCzasPracyOB.getRozpoczecie(), aCzasPracyOB.getZakonczenie(), aCzasPracyOB.getZakresPracy());
+        return new CzasPracyDTO(aCzasPracyOB.getId(),aCzasPracyOB.getTechDate(),UzytkownikConverter.uzytOBdoUzytkDTO(aCzasPracyOB.getUzytkownik()),aCzasPracyOB.getDzien(), aCzasPracyOB.getRozpoczecie(), aCzasPracyOB.getZakonczenie(), aCzasPracyOB.getZakresPracy());
     }
 }
 

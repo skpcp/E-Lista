@@ -1,9 +1,13 @@
 package com.skpcp.elista.grupy.service.impl;
 
-import com.skpcp.elista.grupy.dto.GrupyDTO;
-import com.skpcp.elista.grupy.ob.GrupyOB;
+import com.skpcp.elista.grupy.dto.GrupaDTO;
+import com.skpcp.elista.grupy.ob.GrupaOB;
 import com.skpcp.elista.grupy.respository.IGrupyRespository;
-import com.skpcp.elista.utils.GrupyConverter;
+import com.skpcp.elista.grupy.service.IGrupyService;
+import com.skpcp.elista.utils.GrupaConverter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,51 +15,55 @@ import java.util.List;
 /**
  * Created by padyyajs on 22.03.2016.
  */
-public class GrupyServiceImpl {
+@Service
+@Transactional
+public class GrupyServiceImpl implements IGrupyService {
+    @Autowired
+    IGrupyRespository iGrupyRespository;
+
     @Override
-    public GrupyDTO znajdzGrupePoNazwie(String anazwaGrupy)
+    public GrupaDTO znajdzGrupePoNazwie(String aNazwa)
     {
-        GrupyOB pGrupyOB = iGrupyRespository.findOne(anazwaGrupy);
+        GrupaOB pGrupyOB = iGrupyRespository.znajdzPoNazwieGrupy(aNazwa);
         if (pGrupyOB == null)
             return null;
-        return GrupyConverter.grupyOBdogrupyDTO(pGrupyOB);
+        return GrupaConverter.grupyOBdogrupyDTO(pGrupyOB);
     }
 
+//    @Override
+//    public GrupaDTO znajdzGrupeUzytkownika(Long aIdUzytkownika)
+//    {
+//        GrupaOB pGrupaOB = iGrupyRespository.znajdzGrupeUzytkownika(aIdUzytkownika);
+//        if(pGrupaOB == null) return null;
+//        return GrupaConverter.grupyOBdogrupyDTO(pGrupaOB);
+//    }
+
     @Override
-    public GrupyDTO znajdzUzytkownikaPoGrupie(long aId, String anazwaGrupy)
+    public List<GrupaDTO> znajdzWszystkieGrupy()
     {
-        List<GrupyDTO> listaWynikowaGrupyDTO = new ArrayList<>();
-        List<GrupyOB> listaGrupyOB = iGrupyRespository.findUserBynazwagrupy(aId, anazwaGrupy);
-        for (GrupyOB grupa : listaGrupyOB) listaWynikowaGrupyDTO.add(GrupyConverter.grupyOBdogrupyDTO(grupa));
+        List<GrupaDTO> listaWynikowaGrupyDTO = new ArrayList<>();
+        List<GrupaOB> listaGrupyOB = iGrupyRespository.findAll();
+        for (GrupaOB grupa : listaGrupyOB) listaWynikowaGrupyDTO.add(GrupaConverter.grupyOBdogrupyDTO(grupa));
         return listaWynikowaGrupyDTO;
     }
-
+//
     @Override
-    public GrupyDTO znajdzWszystkieGrupy(String anazwaGrupy)
+    public GrupaDTO zapiszGrupe(GrupaDTO aGrupaDTO)
     {
-        List<GrupyDTO> listaWynikowaGrupyDTO = new ArrayList<>();
-        List<GrupyDTO> listaGrupyOB = iGrupyRespository.finAll();
-        for (GrupyOB grupa : listaGrupyOB) listaWynikowaGrupyDTO.add(GrupyConverter.grupyOBdogrupyDTO(grupa));
-        return listaWynikowaGrupyDTO;
-    }
-
-    @Override
-    public GrupyDTO zapiszGrupe(GrupyDTO anazwaGrupyDTO)
-    {
-        if (anazwaGrupyDTO == null) {
+        if (aGrupaDTO == null) {
             return null;
         }
-        GrupyOB pGrupyOB = anazwaGrupyDTO.getnazwaGrupy() == null ? null : iGrupyRespository.findOne(anazwaGrupyDTO.getNazwaGrupy()));
+        GrupaOB pGrupyOB = aGrupaDTO.getId() == null ? null : iGrupyRespository.findOne(aGrupaDTO.getId());
 
         if (pGrupyOB == null) {
-            return GrupyConverter.grupyOBdogrupyDTO(iGrupyRespository.save(GrupyConverter.grupyDTOdogrupyOB(anazwaGrupyDTO)));
+            return GrupaConverter.grupyOBdogrupyDTO(iGrupyRespository.save(GrupaConverter.grupyDTOdogrupyOB(aGrupaDTO)));
         }
-        pGrupyOB.setNazwaGrupy(anazwaGrupyDTO.getNazwaGrupy());
-        return GrupyConverter.grupyOBdogrupyDTO(IGrupyRespository.save(pGrupyOB));
+        pGrupyOB.setNazwa(aGrupaDTO.getNazwa());
+        return GrupaConverter.grupyOBdogrupyDTO(iGrupyRespository.save(pGrupyOB));
     }
 
     @Override
-    public void usunGrupe(String anazwaGrupy) {
-        iGrupyRespository.delete(anazwaGrupy);
+    public void usunGrupe(Long aId) {
+        iGrupyRespository.delete(aId);
     }
 }
