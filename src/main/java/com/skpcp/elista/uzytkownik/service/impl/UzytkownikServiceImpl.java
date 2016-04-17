@@ -169,44 +169,11 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         return listaWynikowaUzytkownikowDTO;//zwróć DTO
     }
 
-//    @Override
-//    public UzytkownikDTO zmienAktywnoscUzytkownikaPoId(Long aId, EStan aAktywnosc) {
-//        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
-//        if(pUzytkownikOB == null){
-//            return null;
-//        }
-//        pUzytkownikOB.setAktywnosc(aAktywnosc);
-//        UzytkownikDTO pUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB);
-//        return pUzytkownikDTO;
-//    }
-//
-//
-//    @Override
-//    public UzytkownikDTO zmienDaneOsobowePoId(Long aId, String aImie, String aNazwisko, String aTelefon) {
-//        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
-//        if(pUzytkownikOB == null){
-//            return null;
-//        }
-//        pUzytkownikOB.setImie(aImie);
-//        pUzytkownikOB.setNazwisko(aNazwisko);
-//        pUzytkownikOB.setTelefon(aTelefon);
-//        UzytkownikDTO pUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB);
-//
-//        return pUzytkownikDTO;
-//    }
-//
-//    @Override
-//    public UzytkownikDTO zmienDaneDostepuPoId(Long aId, String aEmail, String aHaslo) {
-//        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
-//        if(pUzytkownikOB == null){
-//            return null;
-//        }
-//        pUzytkownikOB.setEmail(aEmail);
-//        pUzytkownikOB.setHaslo(aHaslo);
-//        UzytkownikDTO pUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB);
-//
-//        return pUzytkownikDTO;
-//    }
-
+    @Override
+    public List<UzytkownikDTO> znajdzUzytkownikowPoGrupie(String aNazwa) {
+        List<UzytkownikOB> listaUzytkownikOB = new ArrayList<>();
+        listaUzytkownikOB = iUzytkownikRepository.znajdzPoGrupie(aNazwa);
+        return UzytkownikConverter.listUzytkOBdoUzytkDTO(listaUzytkownikOB);
+    }
 }
 

@@ -24,7 +24,7 @@ public class GrupaServiceImpl implements IGrupaService {
     @Override
     public GrupaDTO znajdzGrupaPoNazwie(String aNazwa)
     {
-        GrupaOB pGrupaOB = iGrupaRespository.znajdzPoNazwieRoli(aNazwa);
+        GrupaOB pGrupaOB = iGrupaRespository.znajdzPoNazwieGrupy(aNazwa);
         if (pGrupaOB == null)
             return null;
         return GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB);

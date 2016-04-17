@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface IGrupaRespository extends JpaRepository <GrupaOB, Long>
 {
     @Query("SELECT u FROM GrupaOB u WHERE u.nazwa LIKE ?1")
-    GrupaOB znajdzPoNazwieRoli(String aNazwa);
+    GrupaOB znajdzPoNazwieGrupy(String aNazwa);
 //    @Query("SELECT u FROM GrupaOB.uzytkownicy u WHERE u.id=?1")
 //    GrupaOB znajdzGrupeUzytkownika(Long aIdUzytkownika);
 //    @Query("SELECT u FROM GrupaOB u WHERE u.id =?1 AND u.nazwa =?2")

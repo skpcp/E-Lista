@@ -73,5 +73,8 @@ public class UzytkownikController {
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoAktywnosci(aAktywnosc),HttpStatus.OK);
     }
 
-
+    @RequestMapping(value = "pobierzPoNazwieGrupy/{grupa.nazwa}",method = RequestMethod.GET)
+    public ResponseEntity<List<UzytkownikDTO>> znajdzWszystkichUzytkownikowWGrupie(@PathVariable("grupa.nazwa")String aNazwa){
+        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoGrupie(aNazwa),HttpStatus.OK);
+    }
 }

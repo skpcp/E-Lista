@@ -99,6 +99,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         NieobecnoscOB pNieobecnosciOB = aNieobecnosciDTO.getId() == null ? null : iNieobecnosciRepository.findOne(aNieobecnosciDTO.getId());
 
         if(pNieobecnosciOB == null){//gdy nie ma takiego to zapisz
+            aNieobecnosciDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUztkownikOB));
             return NieobecnoscConverter.nieoOBdonieoDTO(iNieobecnosciRepository.save(NieobecnoscConverter.nieoDTOdoNieoOB(aNieobecnosciDTO)));
         }
 

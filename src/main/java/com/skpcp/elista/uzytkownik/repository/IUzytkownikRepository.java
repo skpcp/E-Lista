@@ -21,4 +21,6 @@ public interface IUzytkownikRepository extends JpaRepository<UzytkownikOB,Long> 
     List<UzytkownikOB> findByFullImie(String aImie,String aNazwisko);
     @Query("SELECT u FROM UzytkownikOB u WHERE u.aktywnosc=?1")
     List<UzytkownikOB> znajdzPoAktywnosci(EStan aAktywnosc);
+    @Query("SELECT u FROM UzytkownikOB u WHERE u.grupa.nazwa LIKE ?1")
+    List<UzytkownikOB> znajdzPoGrupie(String aNazwa);
 }

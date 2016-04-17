@@ -77,12 +77,13 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if (pCzasPracyOB == null) {
             //nie istnieje to zapisuje
             //aCzasPracyDTO.setDzien(dDzisiajJest);
-
+            aCzasPracyDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUztkownikOB));
             aCzasPracyDTO.setRozpoczecie(dRozpoczecie);
             aCzasPracyDTO.setZakonczenie(dZakonczenie);
             return CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(CzasPracyConverter.czprDTOdoCzprOB(aCzasPracyDTO)));
         }
         //edytuje istniejący
+        pCzasPracyOB.setUzytkownik(pUztkownikOB);
         pCzasPracyOB.setDzien(aCzasPracyDTO.getDzien());
         pCzasPracyOB.setRozpoczecie(dRozpoczecie);
         pCzasPracyOB.setZakonczenie(dZakonczenie);
@@ -106,8 +107,10 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         CzasPracyOB pCzasPracyOB = aCzasPracyDTO.getId() == null ? null : iCzasPracyRepository.findOne(aCzasPracyDTO.getId());
         if (pCzasPracyOB == null) {
             //jeżeli takiego nie ma to zapisujemy
+            aCzasPracyDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB));
             return CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(CzasPracyConverter.czprDTOdoCzprOB(aCzasPracyDTO)));
         }
+        pCzasPracyOB.setUzytkownik(pUzytkownikOB);
         pCzasPracyOB.setDzien(aCzasPracyDTO.getDzien());
         pCzasPracyOB.setRozpoczecie(aCzasPracyDTO.getRozpoczecie());
         pCzasPracyOB.setZakonczenie(aCzasPracyDTO.getZakonczenie());
