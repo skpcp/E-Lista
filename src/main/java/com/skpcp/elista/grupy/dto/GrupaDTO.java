@@ -14,21 +14,19 @@ import java.util.List;
 @ApiModel
 public class GrupaDTO extends BaseDTO{
     private String nazwa;
-    private List<UzytkownikDTO> uzytkownicy;
+
     private List<UprawnienieDTO> uprawnienia;
     public GrupaDTO(){
     }
 
-    public GrupaDTO(String nazwa, List<UzytkownikDTO> uzytkownicy, List<UprawnienieDTO> uprawnienia) {
+    public GrupaDTO(String nazwa, List<UprawnienieDTO> uprawnienia) {
         this.nazwa = nazwa;
-        this.uzytkownicy = uzytkownicy;
         this.uprawnienia = uprawnienia;
     }
 
-    public GrupaDTO(Long id, Date techDate, String nazwa, List<UzytkownikDTO> uzytkownicy, List<UprawnienieDTO> uprawnienia) {
+    public GrupaDTO(Long id, Date techDate, String nazwa, List<UprawnienieDTO> uprawnienia) {
         super(id, techDate);
         this.nazwa = nazwa;
-        this.uzytkownicy = uzytkownicy;
         this.uprawnienia = uprawnienia;
     }
 
@@ -48,11 +46,4 @@ public class GrupaDTO extends BaseDTO{
         this.nazwa = nazwa;
     }
 
-    public List<UzytkownikDTO> getUzytkownicy() {
-        return uzytkownicy;
-    }
-
-    public void setUzytkownicy(List<UzytkownikDTO> uzytkownicy) {
-        this.uzytkownicy = uzytkownicy;
-    }
 }

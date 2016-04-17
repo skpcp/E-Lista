@@ -15,9 +15,6 @@ import java.util.List;
 @SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_GRUPY_ID")
 public class GrupaOB extends BaseOB  {
     private String nazwa;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="GRUPA_ID", referencedColumnName = "ID")
-    private List<UzytkownikOB> uzytkownicy;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "UPRAWNIENIE_ID", referencedColumnName = "ID")
     private List<UprawnienieOB> uprawnienia;
@@ -25,9 +22,8 @@ public class GrupaOB extends BaseOB  {
     public GrupaOB() {
     }
 
-    public GrupaOB(String nazwa, List<UzytkownikOB> uzytkownicy, List<UprawnienieOB> uprawnienia) {
+    public GrupaOB(String nazwa, List<UprawnienieOB> uprawnienia) {
         this.nazwa = nazwa;
-        this.uzytkownicy = uzytkownicy;
         this.uprawnienia = uprawnienia;
     }
 
@@ -47,11 +43,5 @@ public class GrupaOB extends BaseOB  {
         this.nazwa = nazwa;
     }
 
-    public List<UzytkownikOB> getUzytkownicy() {
-        return uzytkownicy;
-    }
 
-    public void setUzytkownicy(List<UzytkownikOB> uzytkownicy) {
-        this.uzytkownicy = uzytkownicy;
-    }
 }

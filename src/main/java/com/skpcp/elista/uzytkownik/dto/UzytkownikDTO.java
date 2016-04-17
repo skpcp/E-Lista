@@ -24,6 +24,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
     //co do walidacji telefonu długość nie może przekraczać 14 , i muszą być cyframi
     private String telefon;
     private EStan aktywnosc;
+    private GrupaDTO grupa;
 
     public UzytkownikDTO() {
     }
@@ -39,6 +40,27 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
 
+    }
+
+    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.email = email;
+        this.haslo = haslo;
+        this.telefon = telefon;
+        this.aktywnosc = aktywnosc;
+        this.grupa = grupa;
+    }
+
+    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
+        super(id, techDate);
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.email = email;
+        this.haslo = haslo;
+        this.telefon = telefon;
+        this.aktywnosc = aktywnosc;
+        this.grupa = grupa;
     }
 
     public String getImie() {
@@ -89,5 +111,11 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.aktywnosc = aktywnosc;
     }
 
+    public GrupaDTO getGrupa() {
+        return grupa;
+    }
 
+    public void setGrupa(GrupaDTO grupa) {
+        this.grupa = grupa;
+    }
 }

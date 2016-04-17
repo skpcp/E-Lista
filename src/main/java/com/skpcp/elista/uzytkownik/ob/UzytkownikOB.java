@@ -25,7 +25,9 @@ public class UzytkownikOB extends BaseOB {
     @Column(length = 14)
     private String telefon;
     private EStan aktywnosc;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "GURPA_ID", referencedColumnName = "ID")
+    private GrupaOB grupa;
 
     public UzytkownikOB() {
 
@@ -39,6 +41,16 @@ public class UzytkownikOB extends BaseOB {
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
 
+    }
+
+    public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaOB grupa) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.email = email;
+        this.haslo = haslo;
+        this.telefon = telefon;
+        this.aktywnosc = aktywnosc;
+        this.grupa = grupa;
     }
 
     public String getImie() {
@@ -89,5 +101,11 @@ public class UzytkownikOB extends BaseOB {
         this.aktywnosc = aktywnosc;
     }
 
+    public GrupaOB getGrupa() {
+        return grupa;
+    }
 
+    public void setGrupa(GrupaOB grupa) {
+        this.grupa = grupa;
+    }
 }
