@@ -1,8 +1,7 @@
-package com.skpcp.elista.grupy.dto;
+package com.skpcp.elista.role.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.uprawnienia.dto.UprawnienieDTO;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import io.swagger.annotations.ApiModel;
 
 import java.util.Date;
@@ -12,19 +11,19 @@ import java.util.List;
  * Created by  Tomek on 2016-03-20.
  */
 @ApiModel
-public class GrupaDTO extends BaseDTO{
+public class RolaDTO extends BaseDTO{
     private String nazwa;
 
     private List<UprawnienieDTO> uprawnienia;
-    public GrupaDTO(){
+    public RolaDTO(){
     }
 
-    public GrupaDTO(String nazwa, List<UprawnienieDTO> uprawnienia) {
+    public RolaDTO(String nazwa, List<UprawnienieDTO> uprawnienia) {
         this.nazwa = nazwa;
         this.uprawnienia = uprawnienia;
     }
 
-    public GrupaDTO(Long id, Date techDate, String nazwa, List<UprawnienieDTO> uprawnienia) {
+    public RolaDTO(Long id, Date techDate, String nazwa, List<UprawnienieDTO> uprawnienia) {
         super(id, techDate);
         this.nazwa = nazwa;
         this.uprawnienia = uprawnienia;

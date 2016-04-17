@@ -2,8 +2,7 @@ package com.skpcp.elista.uzytkownik.service.impl;
 
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
 import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
-import com.skpcp.elista.grupy.respository.IGrupyRespository;
-import com.skpcp.elista.grupy.service.IGrupyService;
+import com.skpcp.elista.role.respository.IRolaRespository;
 import com.skpcp.elista.utils.DziennikPlanowConverter;
 import com.skpcp.elista.utils.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.EStan;
@@ -35,7 +34,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     IDziennikPlanowRepository iDziennikPlanowRepository;
 
     @Autowired
-    IGrupyRespository iGrupyRespository;
+    IRolaRespository iRolaRespository;
     /* Mała rozkmina
      * Obiekt DTO - data transfer object pośredniczy
      * w wywołaniach, jest to tak jakby kontener? Nie działam

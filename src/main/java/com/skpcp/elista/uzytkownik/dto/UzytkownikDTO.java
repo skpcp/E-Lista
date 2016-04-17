@@ -1,15 +1,12 @@
 package com.skpcp.elista.uzytkownik.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
-import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
-import com.skpcp.elista.grupy.dto.GrupaDTO;
+import com.skpcp.elista.role.dto.RolaDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import io.swagger.annotations.ApiModel;
 
-import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by  Tomek on 2016-03-20.
@@ -24,7 +21,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
     //co do walidacji telefonu długość nie może przekraczać 14 , i muszą być cyframi
     private String telefon;
     private EStan aktywnosc;
-    private GrupaDTO grupa;
+    private RolaDTO rola;
 
     public UzytkownikDTO() {
     }
@@ -42,17 +39,17 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
 
     }
 
-    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
+    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-        this.grupa = grupa;
+        this.rola = rola;
     }
 
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
+    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
         super(id, techDate);
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -60,7 +57,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-        this.grupa = grupa;
+        this.rola = rola;
     }
 
     public String getImie() {
@@ -111,11 +108,11 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.aktywnosc = aktywnosc;
     }
 
-    public GrupaDTO getGrupa() {
-        return grupa;
+    public RolaDTO getRola() {
+        return rola;
     }
 
-    public void setGrupa(GrupaDTO grupa) {
-        this.grupa = grupa;
+    public void setRola(RolaDTO rola) {
+        this.rola = rola;
     }
 }

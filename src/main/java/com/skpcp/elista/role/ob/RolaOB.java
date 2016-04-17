@@ -1,8 +1,7 @@
-package com.skpcp.elista.grupy.ob;
+package com.skpcp.elista.role.ob;
 
 import com.skpcp.elista.base.ob.BaseOB;
 import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;
-import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,16 +12,16 @@ import java.util.List;
 @Entity
 @Table(name = "grupy")
 @SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_GRUPY_ID")
-public class GrupaOB extends BaseOB  {
+public class RolaOB extends BaseOB  {
     private String nazwa;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "UPRAWNIENIE_ID", referencedColumnName = "ID")
     private List<UprawnienieOB> uprawnienia;
 
-    public GrupaOB() {
+    public RolaOB() {
     }
 
-    public GrupaOB(String nazwa, List<UprawnienieOB> uprawnienia) {
+    public RolaOB(String nazwa, List<UprawnienieOB> uprawnienia) {
         this.nazwa = nazwa;
         this.uprawnienia = uprawnienia;
     }
