@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="413d5ac0-65f8-4320-8c1f-65e682d6fa12" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/EListaApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/EListaApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/api/UzytkownikController.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/api/UzytkownikController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/IUzytkownikService.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/IUzytkownikService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/respository/IGrupaRespository.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/respository/IGrupaRespository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/impl/GrupaServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/impl/GrupaServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/nieobecnosci/service/impl/NieobecnoscServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/nieobecnosci/service/impl/NieobecnoscServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
     </list>
     <ignored path="E-Lista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -151,7 +139,7 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ee7ff5ea-9dc2-48c6-9af1-65a2ec33f64a/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.38857144">
-              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <caret line="8" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="83" />
               <folding>
                 <marker date="1460911598549" expanded="true" signature="0:62" placeholder="INSERT INTO uprawnienia... " />
                 <marker date="1460911598549" expanded="true" signature="64:114" placeholder="INSERT INTO grupy... " />
@@ -1482,7 +1470,7 @@
       <workItem from="1460875458248" duration="1689000" />
       <workItem from="1460894173392" duration="6729000" />
       <workItem from="1460901084998" duration="2346000" />
-      <workItem from="1460909971740" duration="2623000" />
+      <workItem from="1460909971740" duration="3245000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki">
       <created>1458840986205</created>
@@ -1550,7 +1538,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460910196945</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Poprawki zwracaia użytkownikaDTO">
+      <created>1460912622705</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1460912622705</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1559,7 +1553,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202321000" />
+    <option name="totallyTimeSpent" value="202943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1650,7 +1644,8 @@
     <MESSAGE value="Przygotowanie do grup i uprawnien, zmiana miejsca przechowywania klucza." />
     <MESSAGE value="Z grup na role" />
     <MESSAGE value="Z grup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Z grup" />
+    <MESSAGE value="Poprawki zwracaia użytkownikaDTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawki zwracaia użytkownikaDTO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2076,7 +2071,7 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ee7ff5ea-9dc2-48c6-9af1-65a2ec33f64a/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38857144">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <caret line="8" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="83" />
           <folding>
             <marker date="1460911598549" expanded="true" signature="0:62" placeholder="INSERT INTO uprawnienia... " />
             <marker date="1460911598549" expanded="true" signature="64:114" placeholder="INSERT INTO grupy... " />
