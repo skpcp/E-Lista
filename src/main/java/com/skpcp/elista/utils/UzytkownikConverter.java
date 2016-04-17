@@ -13,12 +13,12 @@ import java.util.List;
 public class UzytkownikConverter {
     public static UzytkownikDTO uzytOBdoUzytkDTO(UzytkownikOB aUzytkownikOB){
         if(aUzytkownikOB ==null) return null;
-        return new UzytkownikDTO(aUzytkownikOB.getId(),aUzytkownikOB.getTechDate(),aUzytkownikOB.getImie(),aUzytkownikOB.getNazwisko(),aUzytkownikOB.getEmail(),aUzytkownikOB.getHaslo(),aUzytkownikOB.getTelefon(),aUzytkownikOB.getAktywnosc(), RolaConverter.rolaOBdoRoliDTO(aUzytkownikOB.getRola()));
+        return new UzytkownikDTO(aUzytkownikOB.getId(),aUzytkownikOB.getTechDate(),aUzytkownikOB.getImie(),aUzytkownikOB.getNazwisko(),aUzytkownikOB.getEmail(),aUzytkownikOB.getHaslo(),aUzytkownikOB.getTelefon(),aUzytkownikOB.getAktywnosc(), GrupaConverter.grupaOBdoGrupaDTO(aUzytkownikOB.getGrupa()));
     }
 
     public static UzytkownikOB uzytDTOdoUzytkOB(UzytkownikDTO aUzytkownikDTO){
         if(aUzytkownikDTO == null) return null;
-        UzytkownikOB pUzytkownikOB = new UzytkownikOB(aUzytkownikDTO.getImie(),aUzytkownikDTO.getNazwisko(),aUzytkownikDTO.getEmail(),aUzytkownikDTO.getHaslo(),aUzytkownikDTO.getTelefon(),aUzytkownikDTO.getAktywnosc(), RolaConverter.rolaDTOdoRoliOB(aUzytkownikDTO.getRola()));
+        UzytkownikOB pUzytkownikOB = new UzytkownikOB(aUzytkownikDTO.getImie(),aUzytkownikDTO.getNazwisko(),aUzytkownikDTO.getEmail(),aUzytkownikDTO.getHaslo(),aUzytkownikDTO.getTelefon(),aUzytkownikDTO.getAktywnosc(), GrupaConverter.grupaDTOdoGrupaOB(aUzytkownikDTO.getGrupa()));
         pUzytkownikOB.setId(aUzytkownikDTO.getId());
         pUzytkownikOB.setTechDate(aUzytkownikDTO.getTechDate());
         return pUzytkownikOB;

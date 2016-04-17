@@ -1,7 +1,7 @@
 package com.skpcp.elista.uzytkownik.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
-import com.skpcp.elista.role.dto.RolaDTO;
+import com.skpcp.elista.grupa.dto.GrupaDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import io.swagger.annotations.ApiModel;
 
@@ -18,10 +18,9 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
     private String nazwisko;
     private String email;
     private String haslo;
-    //co do walidacji telefonu długość nie może przekraczać 14 , i muszą być cyframi
     private String telefon;
     private EStan aktywnosc;
-    private RolaDTO rola;
+    private GrupaDTO grupa;
 
     public UzytkownikDTO() {
     }
@@ -39,17 +38,17 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
 
     }
 
-    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
+    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-        this.rola = rola;
+        this.grupa = grupa;
     }
 
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
+    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
         super(id, techDate);
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -57,7 +56,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-        this.rola = rola;
+        this.grupa = grupa;
     }
 
     public String getImie() {
@@ -108,11 +107,11 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.aktywnosc = aktywnosc;
     }
 
-    public RolaDTO getRola() {
-        return rola;
+    public GrupaDTO getGrupa() {
+        return grupa;
     }
 
-    public void setRola(RolaDTO rola) {
-        this.rola = rola;
+    public void setGrupa(GrupaDTO grupa) {
+        this.grupa = grupa;
     }
 }

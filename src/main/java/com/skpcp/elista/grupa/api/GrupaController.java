@@ -1,8 +1,8 @@
-package com.skpcp.elista.role.api;
+package com.skpcp.elista.grupa.api;
 
 
-import com.skpcp.elista.role.dto.RolaDTO;
-import com.skpcp.elista.role.service.IRoleService;
+import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.service.IGrupaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,23 +18,23 @@ import java.util.List;
 @RestController
 @Transactional
 @RequestMapping(value = "elista/grupy")
-public class RolaController
+public class GrupaController
 {
     @Autowired
-    IRoleService serwisRola;
+    IGrupaService serwisRola;
 
     @RequestMapping(value = "znajdzRolePoNazwie/{nazwa}",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity <RolaDTO> znajdzRolePoNazwie(@PathVariable("nazwa") String aNazwa)
+    public ResponseEntity <GrupaDTO> znajdzRolePoNazwie(@PathVariable("nazwa") String aNazwa)
     {
-        return new ResponseEntity<>(serwisRola.znajdzRolePoNazwie(aNazwa), HttpStatus.OK);
+        return new ResponseEntity<>(serwisRola.znajdzGrupaPoNazwie(aNazwa), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/pobierzWszystkieRole", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<List<RolaDTO>> znajdzWszystkieRole()
+    public ResponseEntity<List<GrupaDTO>> znajdzWszystkieRole()
     {
-        return new ResponseEntity<>(serwisRola.znajdzWszystkieRole(), HttpStatus.OK);
+        return new ResponseEntity<>(serwisRola.znajdzWszystkieGrupa(), HttpStatus.OK);
     }
 
 

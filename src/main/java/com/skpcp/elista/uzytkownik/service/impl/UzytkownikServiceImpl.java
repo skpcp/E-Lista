@@ -2,7 +2,8 @@ package com.skpcp.elista.uzytkownik.service.impl;
 
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
 import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
-import com.skpcp.elista.role.respository.IRolaRespository;
+import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.respository.IGrupaRespository;
 import com.skpcp.elista.utils.DziennikPlanowConverter;
 import com.skpcp.elista.utils.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.EStan;
@@ -34,7 +35,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     IDziennikPlanowRepository iDziennikPlanowRepository;
 
     @Autowired
-    IRolaRespository iRolaRespository;
+    IGrupaRespository iGrupaRespository;
     /* Mała rozkmina
      * Obiekt DTO - data transfer object pośredniczy
      * w wywołaniach, jest to tak jakby kontener? Nie działam
@@ -97,6 +98,10 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     @Override
     public UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO) {
         if(aUzytkownikDTO == null){
+            return null;
+        }
+        GrupaDTO pGrupaDTO = aUzytkownikDTO.getGrupa();
+        if(pGrupaDTO == null) {
             return null;
         }
         //sprawdzam czy dany rekord z OB już istnieje

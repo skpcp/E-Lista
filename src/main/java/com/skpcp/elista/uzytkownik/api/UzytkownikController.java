@@ -73,22 +73,5 @@ public class UzytkownikController {
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoAktywnosci(aAktywnosc),HttpStatus.OK);
     }
 
-    @RequestMapping(value ="zmienPoIdAktywnosc/{id},{aktywnosc}",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
-    @ResponseBody
-    public ResponseEntity<UzytkownikDTO> zmienAktywnoscPoId(@PathVariable("id")Long aId,@PathVariable("aktywnosc") EStan aAktywnosc){
-        return new ResponseEntity<>(serwisUzytkownika.zmienAktywnoscUzytkownikaPoId(aId,aAktywnosc),HttpStatus.OK);
-    }
-
-    @RequestMapping(value="zmienDaneOsobowe/{id},{imie},{nazwisko},{telefon}",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
-    @ResponseBody
-    public ResponseEntity<UzytkownikDTO> zmienDaneOsobowePoId(@PathVariable("id")Long aId,@PathVariable("imie") String aImie,@PathVariable("nazwisko") String aNazwisko, @PathVariable("telefon")String aTelefon){
-        return new ResponseEntity<>(serwisUzytkownika.zmienDaneOsobowePoId(aId,aImie,aNazwisko,aTelefon),HttpStatus.OK);
-    }
-
-    @RequestMapping(value="zmienDaneDostepuPoId/{id},{email},{haslo}",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
-    @ResponseBody
-    public ResponseEntity<UzytkownikDTO> zmienDaneDostepuPoId(@PathVariable("id")Long aId,@PathVariable("email") String aEmail,@PathVariable("haslo") String aHaslo){
-        return new ResponseEntity<>(serwisUzytkownika.zmienDaneDostepuPoId(aId,aEmail,aHaslo),HttpStatus.OK);
-    }
 
 }

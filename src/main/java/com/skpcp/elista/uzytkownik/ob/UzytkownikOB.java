@@ -1,7 +1,7 @@
 package com.skpcp.elista.uzytkownik.ob;
 
 import com.skpcp.elista.base.ob.BaseOB;
-import com.skpcp.elista.role.ob.RolaOB;
+import com.skpcp.elista.grupa.ob.GrupaOB;
 import com.skpcp.elista.uzytkownik.EStan;
 
 import javax.persistence.*;
@@ -22,7 +22,7 @@ public class UzytkownikOB extends BaseOB {
     private EStan aktywnosc;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GURPA_ID", referencedColumnName = "ID")
-    private RolaOB rola;
+    private GrupaOB grupa;
 
     public UzytkownikOB() {
 
@@ -38,14 +38,14 @@ public class UzytkownikOB extends BaseOB {
 
     }
 
-    public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaOB rola) {
+    public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaOB grupa) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-        this.rola = rola;
+        this.grupa = grupa;
     }
 
     public String getImie() {
@@ -96,11 +96,11 @@ public class UzytkownikOB extends BaseOB {
         this.aktywnosc = aktywnosc;
     }
 
-    public RolaOB getRola() {
-        return rola;
+    public GrupaOB getGrupa() {
+        return grupa;
     }
 
-    public void setRola(RolaOB grupa) {
-        this.rola = grupa;
+    public void setGrupa(GrupaOB grupa) {
+        this.grupa = grupa;
     }
 }
