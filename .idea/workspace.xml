@@ -1,31 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d5ac0-65f8-4320-8c1f-65e682d6fa12" name="Default" comment="Z grup na role">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/dto/GrupaDTO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/ob/GrupaOB.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/respository/IGrupaRespository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/IGrupaService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/impl/GrupaServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uprawnienia/api/UprawnienieController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uprawnienia/repository/IUprawnienieRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uprawnienia/service/IUprawnienieService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uprawnienia/service/impl/IUprawnienieServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/GrupaConverter.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/api/RolaController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/respository/IRolaRespository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/service/IRoleService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/service/impl/RoleServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/RolaConverter.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/api/RolaController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/api/GrupaController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/package-info.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/package-info.java" />
+    <list default="true" id="413d5ac0-65f8-4320-8c1f-65e682d6fa12" name="Default" comment="Z grup">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/UzytkownikConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/UzytkownikConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/persistence.xml" />
     </list>
     <ignored path="E-Lista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,8 +89,18 @@
       <file leaf-file-name="UzytkownikServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72773975">
-              <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+            <state vertical-scroll-proportion="1.6986301">
+              <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IUzytkownikService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="81" selection-start-line="21" selection-start-column="5" selection-end-line="23" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -121,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="46" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
+              <caret line="95" column="63" selection-start-line="95" selection-start-column="63" selection-end-line="95" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -135,16 +124,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IUprawnienieServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uprawnienia/service/impl/IUprawnienieServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -256,7 +235,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupy/service/IGrupyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupy/respository/IGrupyRespository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupy/service/impl/GrupyServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupy/api/GrupaController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/UzytkownikConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupy/ob/GrupaOB.java" />
@@ -276,6 +254,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/GrupaConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" />
       </list>
     </option>
   </component>
@@ -1497,7 +1476,7 @@
       <workItem from="1460790176952" duration="27002000" />
       <workItem from="1460828412201" duration="11274000" />
       <workItem from="1460875458248" duration="1689000" />
-      <workItem from="1460894173392" duration="3429000" />
+      <workItem from="1460894173392" duration="3750000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki">
       <created>1458840986205</created>
@@ -1535,7 +1514,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460896380334</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Z grup na role">
+      <created>1460897644826</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1460897644826</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1544,7 +1529,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194052000" />
+    <option name="totallyTimeSpent" value="194373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1631,7 +1616,8 @@
     <MESSAGE value="Bckend 4,5 serwisów ( Bez grup i uprawnień)" />
     <MESSAGE value="Przygotowanie do grup i uprawnien, zmiana miejsca przechowywania klucza." />
     <MESSAGE value="Z grup na role" />
-    <option name="LAST_COMMIT_MESSAGE" value="Z grup na role" />
+    <MESSAGE value="Z grup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Z grup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1878,13 +1864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2048,15 +2027,23 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="46" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
+          <caret line="95" column="63" selection-start-line="95" selection-start-column="63" selection-end-line="95" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="81" selection-start-line="21" selection-start-column="5" selection-end-line="23" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72773975">
-          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+        <state vertical-scroll-proportion="1.6986301">
+          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding />
         </state>
       </provider>
