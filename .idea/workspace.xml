@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d5ac0-65f8-4320-8c1f-65e682d6fa12" name="Default" comment="Z grup">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/dto/RolaDTO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/role/ob/RolaOB.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/EListaApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/EListaApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/utils/UzytkownikConverter.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/utils/UzytkownikConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/api/UzytkownikController.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/api/UzytkownikController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/IUzytkownikService.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/IUzytkownikService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+    <list default="true" id="413d5ac0-65f8-4320-8c1f-65e682d6fa12" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/api/GrupaController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/api/GrupaController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/nieobecnosci/service/impl/NieobecnoscServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/nieobecnosci/service/impl/NieobecnoscServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/GrupaConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/GrupaConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/persistence.xml" afterPath="$PROJECT_DIR$/target/classes/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
     </list>
     <ignored path="E-Lista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,14 +49,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GrupaServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GrupaServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/impl/GrupaServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0479453">
+            <state vertical-scroll-proportion="0.0">
               <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UzytkownikServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.50598294">
+              <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -155,10 +146,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="dbtable:/f9d5f862/ee7ff5ea-9dc2-48c6-9af1-65a2ec33f64a/elista.public.grupy_uprawnienia" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/ee7ff5ea-9dc2-48c6-9af1-65a2ec33f64a/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/GrupaConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/api/GrupaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -296,8 +287,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1457,7 +1448,8 @@
       <workItem from="1460828412201" duration="11274000" />
       <workItem from="1460875458248" duration="1689000" />
       <workItem from="1460894173392" duration="6729000" />
-      <workItem from="1460901084998" duration="2157000" />
+      <workItem from="1460901084998" duration="2346000" />
+      <workItem from="1460909971740" duration="125000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki">
       <created>1458840986205</created>
@@ -1507,7 +1499,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460897961629</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Z grup">
+      <created>1460903287570</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1460903287570</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1516,7 +1514,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199509000" />
+    <option name="totallyTimeSpent" value="199823000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1527,14 +1525,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39542484" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="544" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33496732" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21895425" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25074404" sideWeight="0.50570965" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2700454" sideWeight="0.49429038" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1542,16 +1537,19 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.49429038" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4509804" sideWeight="0.49394855" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.50570965" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="JPA Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4509804" sideWeight="0.49394855" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33496732" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3251634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1681,9 +1679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1708,9 +1703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1753,9 +1745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1823,7 +1812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1831,6 +1819,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.4905663">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1846,7 +1835,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1862,7 +1850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="21" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1870,7 +1857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1878,7 +1864,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1891,7 +1876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.296296">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1899,7 +1883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.296296">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1907,15 +1890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.740741">
           <caret line="620" column="0" selection-start-line="620" selection-start-column="0" selection-end-line="620" selection-end-column="0" />
-          <folding>
-            <element signature="e#5209#5210#0" expanded="true" />
-            <element signature="e#5285#5286#0" expanded="true" />
-            <element signature="e#19815#19816#0" expanded="true" />
-            <element signature="e#19857#19858#0" expanded="true" />
-            <element signature="e#20859#20860#0" expanded="true" />
-            <element signature="e#20905#20906#0" expanded="true" />
-            <element signature="e#21514#21515#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1923,9 +1897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.4444444">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#465#466#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1933,7 +1904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.4444444">
           <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1941,11 +1911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.9259257">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="e#2091#2092#0" expanded="true" />
-            <element signature="e#2152#2153#0" expanded="true" />
-            <element signature="e#2276#2277#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1953,10 +1918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7777777">
           <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding>
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#789#790#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1964,10 +1925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36624774">
           <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding>
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#593#594#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1975,7 +1932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42728904">
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1983,10 +1939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30520648">
           <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding>
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1994,10 +1946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30520648">
           <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding>
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#744#745#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2005,7 +1953,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38958707">
           <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2013,9 +1960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56335616">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#491#492#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2023,7 +1967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33096084">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2031,13 +1974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.4444444">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding>
-            <element signature="e#3249#3250#0" expanded="true" />
-            <element signature="e#5003#5004#0" expanded="true" />
-            <element signature="e#5043#5044#0" expanded="true" />
-            <element signature="e#14953#14954#0" expanded="true" />
-            <element signature="e#14997#14998#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2045,7 +1981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19748653">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2087,10 +2022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <marker date="1460901362176" expanded="true" signature="0:62" placeholder="INSERT INTO uprawnienia... " />
-            <marker date="1460901362176" expanded="true" signature="64:114" placeholder="INSERT INTO grupy... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2098,14 +2029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8831169">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2120,11 +2043,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/impl/GrupaServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0479453">
+        <state vertical-scroll-proportion="0.0">
           <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50598294">
+          <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>

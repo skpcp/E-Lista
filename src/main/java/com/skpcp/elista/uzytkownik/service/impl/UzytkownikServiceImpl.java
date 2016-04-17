@@ -110,7 +110,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         //sprawdzam czy dany rekord z OB już istnieje
         UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(aUzytkownikDTO.getId());
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
-            GrupaOB pGrupaOB=iGrupaRespository.znajdzPoNazwieRoli("Pracownik");//domyslna rola
+            GrupaOB pGrupaOB=iGrupaRespository.findOne(1L);//domyslna rola
            // aUzytkownikDTO.setGrupa(GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB));
             aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
             pUzytkownikOB = UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO);//stwórz instancje do przypisania do dziennika
