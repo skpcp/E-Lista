@@ -101,7 +101,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         if(pNieobecnosciOB == null){//gdy nie ma takiego to zapisz
             return NieobecnoscConverter.nieoOBdonieoDTO(iNieobecnosciRepository.save(NieobecnoscConverter.nieoDTOdoNieoOB(aNieobecnosciDTO)));
         }
-        //tutaj odwołując się do obiektu pNieobecnosciOB mogę zrobić walidację danych po stronie serwera (na OB)
+
         //edytuj istniejącego
         pNieobecnosciOB.setUzytkownik(UzytkownikConverter.uzytDTOdoUzytkOB(aNieobecnosciDTO.getUzytkownik()));
         pNieobecnosciOB.setData(aNieobecnosciDTO.getData());

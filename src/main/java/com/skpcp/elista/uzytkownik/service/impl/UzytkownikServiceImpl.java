@@ -3,8 +3,10 @@ package com.skpcp.elista.uzytkownik.service.impl;
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
 import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
 import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.ob.GrupaOB;
 import com.skpcp.elista.grupa.respository.IGrupaRespository;
 import com.skpcp.elista.utils.DziennikPlanowConverter;
+import com.skpcp.elista.utils.GrupaConverter;
 import com.skpcp.elista.utils.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
@@ -108,6 +110,8 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         //sprawdzam czy dany rekord z OB już istnieje
         UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(aUzytkownikDTO.getId());
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
+            GrupaOB pGrupaOB=iGrupaRespository.znajdzPoNazwieRoli("Pracownik");//domyslna rola
+           // aUzytkownikDTO.setGrupa(GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB));
             aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
             pUzytkownikOB = UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO);//stwórz instancje do przypisania do dziennika
             //przepisz wiadomo
@@ -137,6 +141,9 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
             return aUzytkownikDTO;
         }
         //edytuj istniejącego
+        GrupaOB grupaOB = pGrupaDTO.getId() == null ? null : iGrupaRespository.findOne(pGrupaDTO.getId());
+        if(grupaOB == null ) return null; //nie znalazło no to null! xD
+        pUzytkownikOB.setGrupa(grupaOB);
         pUzytkownikOB.setImie(aUzytkownikDTO.getImie());
         pUzytkownikOB.setNazwisko(aUzytkownikDTO.getNazwisko());
         pUzytkownikOB.setEmail(aUzytkownikDTO.getEmail());

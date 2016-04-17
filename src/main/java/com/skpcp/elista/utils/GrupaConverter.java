@@ -11,7 +11,10 @@ public class GrupaConverter
     public static GrupaOB grupaDTOdoGrupaOB(GrupaDTO aGrupaDTO) {
         if (aGrupaDTO == null)
             return null;
-        return new GrupaOB(aGrupaDTO.getNazwa(),UprawnienieConverter.uprawnienieListDTOdoUprwnienOB(aGrupaDTO.getUprawnienia()));
+        GrupaOB pGrupaOB = new GrupaOB(aGrupaDTO.getNazwa(),UprawnienieConverter.uprawnienieListDTOdoUprwnienOB(aGrupaDTO.getUprawnienia()));
+        pGrupaOB.setId(aGrupaDTO.getId());
+        pGrupaOB.setTechDate(aGrupaDTO.getTechDate());
+        return pGrupaOB;
     }
 
     public static GrupaDTO grupaOBdoGrupaDTO(GrupaOB aGrupaOB) {

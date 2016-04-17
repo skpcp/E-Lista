@@ -9,5 +9,6 @@
         <class>com.skpcp.elista.czaspracy.ob.CzasPracyOB</class>
         <class>com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB</class>
         <class>com.skpcp.elista.grupa.ob.GrupaOB</class>
+        <class>com.skpcp.elista.uprawnienia.ob.UprawnienieOB</class>
     </persistence-unit>
 </persistence>
