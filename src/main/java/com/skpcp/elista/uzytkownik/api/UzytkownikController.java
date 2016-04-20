@@ -40,9 +40,9 @@ public class UzytkownikController {
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoImieniu(aImie),HttpStatus.OK);
     }
 
-    @RequestMapping(value ="/pobierzPoNazwisku/{nazwisku}",method = RequestMethod.GET)
+    @RequestMapping(value ="/pobierzPoNazwisku/{nazwisko}",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<List<UzytkownikDTO>> znajdzPoNazwisku(@PathVariable("naziwsko")String aNazwisko){
+    public ResponseEntity<List<UzytkownikDTO>> znajdzPoNazwisku(@PathVariable("nazwisko")String aNazwisko){
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoNazwisku(aNazwisko),HttpStatus.OK);
     }
 

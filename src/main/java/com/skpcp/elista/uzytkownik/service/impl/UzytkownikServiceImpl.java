@@ -111,7 +111,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(aUzytkownikDTO.getId());
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
             GrupaOB pGrupaOB=iGrupaRespository.findOne(1L);//domyslna rola
-           // aUzytkownikDTO.setGrupa(GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB));
+            aUzytkownikDTO.setGrupa(GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB));
             aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
             pUzytkownikOB = UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO);//stwórz instancje do przypisania do dziennika
             //przepisz wiadomo
@@ -120,13 +120,13 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
 
             SimpleDateFormat pMojFormat = new SimpleDateFormat("hh:mm");
             String nGodzinaOd = "8:00";
-            String nGodzinaDo = "15:00";
+            String nGodzinaDo = "16:00";
             Date dPoczatekPracy;
             Date dKoniecPracy;
 
             try {
-                dPoczatekPracy = DziennikPlanowConverter.fCzas.parse(nGodzinaOd);
-                dKoniecPracy = DziennikPlanowConverter.fCzas.parse(nGodzinaDo);
+                dPoczatekPracy = pMojFormat.parse(nGodzinaOd);
+                dKoniecPracy = pMojFormat.parse(nGodzinaDo);
             }catch (ParseException e){
                 return null;
             }

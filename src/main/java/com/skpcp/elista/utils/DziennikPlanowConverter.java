@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
  */
 public class DziennikPlanowConverter {
 
-        public static SimpleDateFormat fCzas = new SimpleDateFormat("HH:mm");
+
         public static DziennikPlanowDTO dziennikplanowOBdoDziennikPlanowowDTO(DziennikPlanowOB aDziennikPlanowOB){
             if(aDziennikPlanowOB == null) return null;
 
