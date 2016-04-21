@@ -10,94 +10,94 @@
       <schema id="2" parent="1" name="public">
         <object-id>2200</object-id>
         <comment>standard public schema</comment>
-        <introspection-state-number>11756</introspection-state-number>
-        <introspection-timestamp>2016-04-17.15:52:42.484</introspection-timestamp>
+        <introspection-state-number>20318</introspection-state-number>
+        <introspection-timestamp>2016-04-21.21:55:45.745</introspection-timestamp>
       </schema>
       <sequence id="3" parent="2" name="gen_czas_pracy_id">
-        <object-id>38814</object-id>
-        <state-number>11751</state-number>
+        <object-id>63893</object-id>
+        <state-number>20313</state-number>
       </sequence>
       <sequence id="4" parent="2" name="gen_dziennik_planow_id">
-        <object-id>38816</object-id>
-        <state-number>11752</state-number>
+        <object-id>63895</object-id>
+        <state-number>20314</state-number>
       </sequence>
       <sequence id="5" parent="2" name="gen_grupy_id">
-        <object-id>38818</object-id>
-        <state-number>11753</state-number>
+        <object-id>63897</object-id>
+        <state-number>20315</state-number>
       </sequence>
       <sequence id="6" parent="2" name="gen_nieobecnosc_id">
-        <object-id>38820</object-id>
-        <state-number>11754</state-number>
+        <object-id>63899</object-id>
+        <state-number>20316</state-number>
       </sequence>
       <sequence id="7" parent="2" name="gen_uprawnienie_id">
-        <object-id>38822</object-id>
-        <state-number>11755</state-number>
+        <object-id>63901</object-id>
+        <state-number>20317</state-number>
       </sequence>
       <sequence id="8" parent="2" name="gen_uzytkownik_id">
-        <object-id>38824</object-id>
-        <state-number>11756</state-number>
+        <object-id>63903</object-id>
+        <state-number>20318</state-number>
       </sequence>
       <table id="9" parent="2" name="czasypracy">
-        <object-id>38742</object-id>
-        <state-number>11745</state-number>
+        <object-id>63821</object-id>
+        <state-number>20307</state-number>
       </table>
       <table id="10" parent="2" name="dziennikiplanow">
-        <object-id>38748</object-id>
-        <state-number>11746</state-number>
+        <object-id>63827</object-id>
+        <state-number>20308</state-number>
       </table>
       <table id="11" parent="2" name="grupy">
-        <object-id>38754</object-id>
-        <state-number>11750</state-number>
+        <object-id>63833</object-id>
+        <state-number>20312</state-number>
       </table>
       <table id="12" parent="2" name="grupy_uprawnienia">
-        <object-id>38760</object-id>
-        <state-number>11748</state-number>
+        <object-id>63839</object-id>
+        <state-number>20310</state-number>
       </table>
       <table id="13" parent="2" name="nieobecnosci">
-        <object-id>38763</object-id>
-        <state-number>11749</state-number>
+        <object-id>63842</object-id>
+        <state-number>20311</state-number>
       </table>
       <table id="14" parent="2" name="uprawnienia">
-        <object-id>38769</object-id>
-        <state-number>11747</state-number>
+        <object-id>63848</object-id>
+        <state-number>20309</state-number>
       </table>
       <table id="15" parent="2" name="uzytkownicy">
-        <object-id>38775</object-id>
-        <state-number>11750</state-number>
+        <object-id>63854</object-id>
+        <state-number>20312</state-number>
       </table>
       <column id="16" parent="9" name="id">
-        <state-number>11738</state-number>
+        <state-number>20300</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="17" parent="9" name="techdate">
-        <state-number>11738</state-number>
+        <state-number>20300</state-number>
         <data-type>timestamp</data-type>
         <default-expression>now()</default-expression>
       </column>
       <column id="18" parent="9" name="dzien">
-        <state-number>11738</state-number>
-        <data-type>timestamp</data-type>
+        <state-number>20300</state-number>
+        <data-type>date</data-type>
       </column>
       <column id="19" parent="9" name="rozpoczecie">
-        <state-number>11738</state-number>
-        <data-type>timestamp</data-type>
+        <state-number>20300</state-number>
+        <data-type>time</data-type>
       </column>
       <column id="20" parent="9" name="zakonczenie">
-        <state-number>11738</state-number>
-        <data-type>timestamp</data-type>
+        <state-number>20300</state-number>
+        <data-type>time</data-type>
       </column>
       <column id="21" parent="9" name="zakres_pracy">
-        <state-number>11738</state-number>
+        <state-number>20300</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="22" parent="9" name="uzytkownik_id">
-        <state-number>11738</state-number>
+        <state-number>20300</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <index id="23" parent="9" name="czasypracy_pkey">
-        <object-id>38746</object-id>
+        <object-id>63825</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
@@ -114,34 +114,34 @@
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
       <column id="26" parent="10" name="id">
-        <state-number>11739</state-number>
+        <state-number>20301</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="27" parent="10" name="techdate">
-        <state-number>11739</state-number>
+        <state-number>20301</state-number>
         <data-type>timestamp</data-type>
         <default-expression>now()</default-expression>
       </column>
       <column id="28" parent="10" name="dzien_tygodnia">
-        <state-number>11739</state-number>
+        <state-number>20301</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="29" parent="10" name="plan_do">
-        <state-number>11739</state-number>
-        <data-type>timestamp</data-type>
+        <state-number>20301</state-number>
+        <data-type>time</data-type>
       </column>
       <column id="30" parent="10" name="plan_od">
-        <state-number>11739</state-number>
-        <data-type>timestamp</data-type>
+        <state-number>20301</state-number>
+        <data-type>time</data-type>
       </column>
       <column id="31" parent="10" name="uzytkownik_id">
-        <state-number>11739</state-number>
+        <state-number>20301</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <index id="32" parent="10" name="dziennikiplanow_pkey">
-        <object-id>38752</object-id>
+        <object-id>63831</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
@@ -158,21 +158,21 @@
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
       <column id="35" parent="11" name="id">
-        <state-number>11740</state-number>
+        <state-number>20302</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="36" parent="11" name="techdate">
-        <state-number>11740</state-number>
+        <state-number>20302</state-number>
         <data-type>timestamp</data-type>
         <default-expression>now()</default-expression>
       </column>
       <column id="37" parent="11" name="nazwa">
-        <state-number>11740</state-number>
+        <state-number>20302</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <index id="38" parent="11" name="grupy_pkey">
-        <object-id>38758</object-id>
+        <object-id>63837</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
@@ -183,12 +183,12 @@
         <primary>1</primary>
       </key>
       <column id="40" parent="12" name="grupy_id">
-        <state-number>11741</state-number>
+        <state-number>20303</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="41" parent="12" name="uprawnienia_id">
-        <state-number>11741</state-number>
+        <state-number>20303</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
@@ -205,34 +205,34 @@
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
       <column id="44" parent="13" name="id">
-        <state-number>11742</state-number>
+        <state-number>20304</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="45" parent="13" name="techdate">
-        <state-number>11742</state-number>
+        <state-number>20304</state-number>
         <data-type>timestamp</data-type>
         <default-expression>now()</default-expression>
       </column>
       <column id="46" parent="13" name="data">
-        <state-number>11742</state-number>
-        <data-type>timestamp</data-type>
+        <state-number>20304</state-number>
+        <data-type>date</data-type>
       </column>
       <column id="47" parent="13" name="ilosc_godzin">
-        <state-number>11742</state-number>
+        <state-number>20304</state-number>
         <data-type>bigint</data-type>
       </column>
       <column id="48" parent="13" name="typ">
-        <state-number>11742</state-number>
+        <state-number>20304</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="49" parent="13" name="uzytkownik_id">
-        <state-number>11742</state-number>
+        <state-number>20304</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <index id="50" parent="13" name="nieobecnosci_pkey">
-        <object-id>38767</object-id>
+        <object-id>63846</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
@@ -249,21 +249,21 @@
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
       <column id="53" parent="14" name="id">
-        <state-number>11743</state-number>
+        <state-number>20305</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="54" parent="14" name="techdate">
-        <state-number>11743</state-number>
+        <state-number>20305</state-number>
         <data-type>timestamp</data-type>
         <default-expression>now()</default-expression>
       </column>
       <column id="55" parent="14" name="nazwa">
-        <state-number>11743</state-number>
+        <state-number>20305</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <index id="56" parent="14" name="uprawnienia_pkey">
-        <object-id>38773</object-id>
+        <object-id>63852</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
@@ -274,45 +274,45 @@
         <primary>1</primary>
       </key>
       <column id="58" parent="15" name="id">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <mandatory>1</mandatory>
         <data-type>bigint</data-type>
       </column>
       <column id="59" parent="15" name="techdate">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>timestamp</data-type>
         <default-expression>now()</default-expression>
       </column>
       <column id="60" parent="15" name="aktywnosc">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>integer</data-type>
       </column>
       <column id="61" parent="15" name="email">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="62" parent="15" name="haslo">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="63" parent="15" name="imie">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="64" parent="15" name="nazwisko">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>varchar(255)</data-type>
       </column>
       <column id="65" parent="15" name="telefon">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>varchar(14)</data-type>
       </column>
       <column id="66" parent="15" name="gurpa_id">
-        <state-number>11744</state-number>
+        <state-number>20306</state-number>
         <data-type>bigint</data-type>
       </column>
       <index id="67" parent="15" name="uzytkownicy_pkey">
-        <object-id>38782</object-id>
+        <object-id>63861</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>

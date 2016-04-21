@@ -22,9 +22,9 @@ public class DziennikPlanowOB extends BaseOB {
     @NotNull
     private UzytkownikOB uzytkownik;
     private String dzienTygodnia;//tutaj możliwe , że będzie lepszy zwykły string ?
-    @DateTimeFormat(pattern = "HH:mm" )
+    @Column(columnDefinition = "TIME")
     private Date planOd;
-    @DateTimeFormat(pattern = "HH:mm")
+    @Column(columnDefinition = "TIME")
     private Date planDo;
 
 

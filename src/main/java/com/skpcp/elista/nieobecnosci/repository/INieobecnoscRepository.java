@@ -18,6 +18,8 @@ public interface INieobecnoscRepository extends JpaRepository<NieobecnoscOB,Long
 
       @Query("SELECT u FROM NieobecnoscOB u WHERE u.uzytkownik.id=?1")
       List<NieobecnoscOB> znajdzNieobecnosciPoUzytkowniku(Long aIdUzytkownika);
+      @Query("SELECT u FROM NieobecnoscOB u WHERE u.data=?1")
+      List<NieobecnoscOB> znajdzNieobecnosciPoDacie(Date aData);
       @Query("SELECT u FROM NieobecnoscOB u WHERE u.data=?1 AND u.uzytkownik.id=?2")
       NieobecnoscOB znajdzNieobecnoscPoDacieIUzytkowniku(Date date,Long aIdUzytkownika);
       @Query("SELECT u FROM NieobecnoscOB  u WHERE u.typ LIKE ?1")

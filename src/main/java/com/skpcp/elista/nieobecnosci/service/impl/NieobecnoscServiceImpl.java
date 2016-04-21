@@ -1,6 +1,9 @@
 package com.skpcp.elista.nieobecnosci.service.impl;
 
 
+import com.skpcp.elista.czaspracy.ob.CzasPracyOB;
+import com.skpcp.elista.czaspracy.repository.ICzasPracyRepository;
+import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTO;
 import com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB;
 import com.skpcp.elista.nieobecnosci.repository.INieobecnoscRepository;
@@ -31,6 +34,9 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
 
     @Autowired
     IUzytkownikRepository iUzytkownikRepository;
+
+    @Autowired
+    ICzasPracyRepository iCzasPracyRepository;
 
     @Override
     public NieobecnoscDTO znajdzNieobecnoscPoId(Long aId){
@@ -95,10 +101,22 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         if(pUztkownikOB == null){
             return null; //coś poszło nie tak
         }
+
+        CzasPracyOB pCzasPracyOB = iCzasPracyRepository.znajdzCzasPracyPoDacieOrazUzytkowniku(pUzytkownikDTO.getId(),aNieobecnosciDTO.getData());
+        if(pCzasPracyOB != null){
+            return null;
+        }
         //sprawdzam czy dany rekord z OB już istnieje
+
+        Boolean flaga=false;
+        NieobecnoscOB pNieobecnosciOBDzien = aNieobecnosciDTO.getData() == null ? null : iNieobecnosciRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aNieobecnosciDTO.getData(),pUzytkownikDTO.getId());
+        if(pNieobecnosciOBDzien != null){
+            flaga = true; //nie można dodać więcej niż jedną nieobecność
+        }
         NieobecnoscOB pNieobecnosciOB = aNieobecnosciDTO.getId() == null ? null : iNieobecnosciRepository.findOne(aNieobecnosciDTO.getId());
 
         if(pNieobecnosciOB == null){//gdy nie ma takiego to zapisz
+            if(flaga) return  null; //nieuprawnione dodanie tego samego dnia kolejnej nieobecnosci do tego samego uzytkownika , ej!
             aNieobecnosciDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUztkownikOB));
             return NieobecnoscConverter.nieoOBdonieoDTO(iNieobecnosciRepository.save(NieobecnoscConverter.nieoDTOdoNieoOB(aNieobecnosciDTO)));
         }

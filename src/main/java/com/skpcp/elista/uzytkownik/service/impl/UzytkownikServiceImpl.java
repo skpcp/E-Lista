@@ -5,7 +5,6 @@ import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
 import com.skpcp.elista.grupa.dto.GrupaDTO;
 import com.skpcp.elista.grupa.ob.GrupaOB;
 import com.skpcp.elista.grupa.respository.IGrupaRespository;
-import com.skpcp.elista.utils.DziennikPlanowConverter;
 import com.skpcp.elista.utils.GrupaConverter;
 import com.skpcp.elista.utils.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.EStan;

@@ -3,6 +3,8 @@ package com.skpcp.elista.czaspracy.ob;
 import com.skpcp.elista.base.ob.BaseOB;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.datetime.DateTimeFormatAnnotationFormatterFactory;
+import org.springframework.format.datetime.joda.DateTimeParser;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,11 +21,11 @@ public class CzasPracyOB extends BaseOB{
     @JoinColumn(name = "UZYTKOWNIK_ID",referencedColumnName = "ID")
     @NotNull
     private UzytkownikOB uzytkownik;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(columnDefinition = "DATE")
     private Date dzien;
-    @DateTimeFormat(pattern = "HH:mm")
+    @Column(columnDefinition = "TIME")
     private Date rozpoczecie;
-    @DateTimeFormat(pattern = "HH:mm")
+    @Column(columnDefinition = "TIME")
     private Date zakonczenie;
     private String zakresPracy;
 
@@ -33,6 +35,7 @@ public class CzasPracyOB extends BaseOB{
     public CzasPracyOB(UzytkownikOB uzytkownik, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
         this.uzytkownik = uzytkownik;
         this.dzien = dzien;
+
         this.rozpoczecie = rozpoczecie;
         this.zakonczenie = zakonczenie;
         this.zakresPracy = zakresPracy;

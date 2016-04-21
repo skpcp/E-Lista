@@ -8,6 +8,8 @@ import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import com.skpcp.elista.dziennikplanow.api.DziennikPlanowController;
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
 import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
+import com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB;
+import com.skpcp.elista.nieobecnosci.repository.INieobecnoscRepository;
 import com.skpcp.elista.utils.CzasPracyConverter;
 import com.skpcp.elista.utils.DziennikPlanowConverter;
 import com.skpcp.elista.utils.UzytkownikConverter;
@@ -35,6 +37,9 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     ICzasPracyRepository iCzasPracyRepository;
 
     @Autowired
+    INieobecnoscRepository iNieobecnoscRepository;
+
+    @Autowired
     IUzytkownikRepository iUzytkownikRepository;
 
     @Autowired
@@ -59,6 +64,12 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if (pUztkownikOB == null) {
             return null; //coś poszło nie tak
+        }
+
+        //tutaj sprawdzam czy jest nieobecnosc dla danego uzytkownika w konkretnym dniu !
+        NieobecnoscOB pNieobecnoscOB = iNieobecnoscRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aCzasPracyDTO.getDzien(),pUzytkownikDTO.getId());
+        if(pNieobecnoscOB != null){
+            return  null; //nie ma oszukiwania !
         }
         Date dDzisiajJest = new Date(); //wiem jaki dzisiaj dzień!
         String napis = String.format("%1$tA", dDzisiajJest);//dzien tygodnia
@@ -104,8 +115,19 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         }
         //w tym momencie użytkownik na pewno istnieje
         //sprawdzam swój czas pracy
+        NieobecnoscOB pNieobecnoscOB = iNieobecnoscRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aCzasPracyDTO.getDzien(),pUzytkownikDTO.getId());
+        if(pNieobecnoscOB != null){
+            return  null; //nie ma oszukiwania !
+        }
+        //sprawdzam czy taki czas pracy już nie istnieje
+        Boolean flaga = false;
+        CzasPracyOB pCzasPracyOBDzien = aCzasPracyDTO.getDzien() == null ? null : iCzasPracyRepository.znajdzCzasPracyPoDacie(pUzytkownikDTO.getId(),aCzasPracyDTO.getDzien());
+        if(pCzasPracyOBDzien != null ){
+            flaga = true;
+        }
         CzasPracyOB pCzasPracyOB = aCzasPracyDTO.getId() == null ? null : iCzasPracyRepository.findOne(aCzasPracyDTO.getId());
         if (pCzasPracyOB == null) {
+            if(flaga) return  null; //czas pracy zapisujemy tylko raz, jednego konkretnego dnia dla jednego konkretnego uzytkownika
             //jeżeli takiego nie ma to zapisujemy
             aCzasPracyDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB));
             return CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(CzasPracyConverter.czprDTOdoCzprOB(aCzasPracyDTO)));

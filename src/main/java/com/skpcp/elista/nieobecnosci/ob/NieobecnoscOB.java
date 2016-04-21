@@ -20,7 +20,7 @@ public class NieobecnoscOB extends BaseOB
     @JoinColumn(name = "UZYTKOWNIK_ID",referencedColumnName = "ID")
     @NotNull
     private UzytkownikOB uzytkownik;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(columnDefinition = "DATE")
     private Date data;
     private Long iloscGodzin;
     private String typ;
