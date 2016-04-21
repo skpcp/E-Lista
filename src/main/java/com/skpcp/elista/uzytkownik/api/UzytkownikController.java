@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Tomek on 2016-03-20.
  */
 @RestController
-@RequestMapping(value = "elista/uzytkownicy")
+@RequestMapping(value = "/elista/uzytkownicy")
 public class UzytkownikController {
     @Autowired
     IUzytkownikService serwisUzytkownika;
@@ -55,8 +55,7 @@ public class UzytkownikController {
     @RequestMapping(value = "/zapiszUzytkownika",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<UzytkownikDTO> zapiszUzytkownika(@RequestBody UzytkownikDTO aUzytkownikDTO){
-      //  List<DziennikPlanowDTO> pDziennikiPlanowDTO = aUzytkownikDTO.getDziennikiPlanow();
-      //  pDziennikiPlanowDTO.clear();
+
         return new ResponseEntity<>(serwisUzytkownika.zapiszUzytkownika(aUzytkownikDTO),HttpStatus.OK);
     }
 

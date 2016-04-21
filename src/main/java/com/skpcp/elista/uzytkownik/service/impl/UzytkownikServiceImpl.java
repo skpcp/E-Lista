@@ -155,8 +155,9 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
 
     @Override
     public void usunUzytkownika(Long aId) {
-        //TO DO dopisać usuwanie dzienników
-        iUzytkownikRepository.delete(aId);
+        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
+        pUzytkownikOB.setAktywnosc(EStan.NIEAKTYWNY);
+        iUzytkownikRepository.save(pUzytkownikOB);
     }
 
     @Override

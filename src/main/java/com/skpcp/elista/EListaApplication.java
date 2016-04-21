@@ -1,8 +1,10 @@
 package com.skpcp.elista;
 
+import com.skpcp.elista.grupa.respository.IGrupaRespository;
 import com.skpcp.elista.uprawnienia.dto.UprawnienieDTO;
 import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;
 import com.skpcp.elista.uprawnienia.repository.IUprawnienieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,6 +20,8 @@ import java.util.Map;
 @SpringBootApplication
 public class EListaApplication {
 
-	public static void main(String[] args) {SpringApplication.run(EListaApplication.class, args);
+
+	public static void main(String[] args) {
+		SpringApplication.run(EListaApplication.class, args);
 	}
 }
