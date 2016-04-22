@@ -71,6 +71,11 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if(pNieobecnoscOB != null){
             return  null; //nie ma oszukiwania !
         }
+        Boolean flaga = false;
+        CzasPracyOB pCzasPracyOBDzien = aCzasPracyDTO.getDzien() == null ? null : iCzasPracyRepository.znajdzCzasPracyPoDacie(pUzytkownikDTO.getId(),aCzasPracyDTO.getDzien());
+        if(pCzasPracyOBDzien != null ){
+            flaga = true;
+        }
         Date dDzisiajJest = new Date(); //wiem jaki dzisiaj dzień!
         String napis = String.format("%1$tA", dDzisiajJest);//dzien tygodnia
         DziennikPlanowOB pDziennikPlanowOB = iDziennikPlanowRepository.znajdzPoDniuTygodnia(
@@ -88,6 +93,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if (pCzasPracyOB == null) {
             //nie istnieje to zapisuje
             //aCzasPracyDTO.setDzien(dDzisiajJest);
+            if(flaga) return null;
             aCzasPracyDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUztkownikOB));
             aCzasPracyDTO.setRozpoczecie(dRozpoczecie);
             aCzasPracyDTO.setZakonczenie(dZakonczenie);
