@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class UzytkownikOB extends BaseOB {
     private String imie;
     private String nazwisko;
+    @Column(unique = true)
     private String email;
     private String haslo;
     @Column(length = 14)

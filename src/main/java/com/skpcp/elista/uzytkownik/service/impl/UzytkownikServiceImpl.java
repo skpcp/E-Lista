@@ -107,8 +107,11 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         }
 
         //sprawdzam czy dany rekord z OB już istnieje
+
         UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(aUzytkownikDTO.getId());
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
+            UzytkownikOB pUzytkonikOBEmailVeryfication = aUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(aUzytkownikDTO.getEmail());
+            if(pUzytkonikOBEmailVeryfication != null) return null; //nie można stworzyć ponieważ już jest taki eamil;
             GrupaOB pGrupaOB=iGrupaRespository.findOne(1L);//domyslna rola
             aUzytkownikDTO.setGrupa(GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB));
             aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
