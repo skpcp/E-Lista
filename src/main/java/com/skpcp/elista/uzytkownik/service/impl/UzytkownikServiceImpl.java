@@ -112,7 +112,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
             UzytkownikOB pUzytkonikOBEmailVeryfication = aUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(aUzytkownikDTO.getEmail());
             if(pUzytkonikOBEmailVeryfication != null) return null; //nie można stworzyć ponieważ już jest taki eamil;
-            GrupaOB pGrupaOB=iGrupaRespository.findOne(1L);//domyslna rola
+            GrupaOB pGrupaOB=iGrupaRespository.znajdzPoNazwieGrupy("Pracownik");//domyslna rola
             aUzytkownikDTO.setGrupa(GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB));
             aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
             pUzytkownikOB = UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO);//stwórz instancje do przypisania do dziennika

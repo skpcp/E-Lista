@@ -23,6 +23,7 @@ public class UzytkownikController {
     IUzytkownikService serwisUzytkownika;
 
 
+
     @RequestMapping(value = "pobierzPoId/{id}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<UzytkownikDTO> znajdzUzytkownikaPoId(@PathVariable("id") Long aId){

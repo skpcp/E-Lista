@@ -21,7 +21,7 @@ public class UzytkownikOB extends BaseOB {
     @Column(length = 14)
     private String telefon;
     private EStan aktywnosc;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "GURPA_ID", referencedColumnName = "ID")
     private GrupaOB grupa;
 

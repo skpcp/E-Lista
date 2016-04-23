@@ -13,8 +13,9 @@ import java.util.List;
 @Table(name = "grupy")
 @SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_GRUPY_ID")
 public class GrupaOB extends BaseOB  {
+    @Column(unique = true)
     private String nazwa;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "UPRAWNIENIE_ID", referencedColumnName = "ID")
     private List<UprawnienieOB> uprawnienia;
 

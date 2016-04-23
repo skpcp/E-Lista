@@ -32,24 +32,38 @@ public class EListaApplication {
 
 	@Bean
 	public CommandLineRunner demoUzytkownik(IUzytkownikRepository uzytkownikRepository, IGrupaRespository grupaRespository, IUprawnienieRepository uprawnienieRepository)  {
-		UprawnienieOB pUprawnienie = new UprawnienieOB();
-		pUprawnienie.setNazwa("Możesz wszystko");
-		if(uprawnienieRepository.count()==0) uprawnienieRepository.save(pUprawnienie);
+		List<UprawnienieOB> listaUprawnien = new ArrayList<>();
+		UprawnienieOB uprawnienieAdmina =new UprawnienieOB("ADMIN");
+		UprawnienieOB uprawnienieLidera = new UprawnienieOB("LIDER");
+		UprawnienieOB uprawnieniePracownika = new UprawnienieOB("PRACOWNIK");
+		listaUprawnien.add(uprawnienieAdmina);
+		listaUprawnien.add(uprawnienieLidera);
+		listaUprawnien.add(uprawnieniePracownika);
+		if(uprawnienieRepository.count()==0) uprawnienieRepository.save(listaUprawnien);
 		else return null;
 		GrupaOB grupaOB = new GrupaOB();
-		List<UprawnienieOB> ListaUprawnien = new ArrayList<>();
-		ListaUprawnien.add(pUprawnienie);
+		List<UprawnienieOB> listaUprawnienDlaGrupy = listaUprawnien;
 		grupaOB.setNazwa("Szef");
-		grupaOB.setUprawnienia(ListaUprawnien);
-		if(grupaRespository.count()==0) grupaRespository.save(grupaOB);
+		grupaOB.setUprawnienia(listaUprawnienDlaGrupy);
+
+		GrupaOB pgrupaOB = new GrupaOB();
+		pgrupaOB.setNazwa("Pracownik");
+		List<UprawnienieOB> listaPracownicza = new ArrayList<>();
+		listaPracownicza.add(uprawnieniePracownika);
+		pgrupaOB.setUprawnienia(listaPracownicza);
+
+		List<GrupaOB> listaGrup = new ArrayList<>();
+		listaGrup.add(grupaOB);
+		listaGrup.add(pgrupaOB);
+		if(grupaRespository.count()==0) grupaRespository.save(listaGrup);
 		else return null;
 		UzytkownikOB uzytkownikOB = new UzytkownikOB();
 		uzytkownikOB.setAktywnosc(EStan.AKTYWNY);
 		uzytkownikOB.setGrupa(grupaOB);
-		uzytkownikOB.setImie("Pan Administrator");
-		uzytkownikOB.setNazwisko("Pan i Władca");
-		uzytkownikOB.setEmail("admin@elista.pl");
-		uzytkownikOB.setHaslo("babajagapatrzy");
+		uzytkownikOB.setImie("Polak");
+		uzytkownikOB.setNazwisko("Mały");
+		uzytkownikOB.setEmail("admin");
+		uzytkownikOB.setHaslo("123");
 		uzytkownikOB.setTelefon("444-444-444");
 		if(uzytkownikRepository.count()==0) uzytkownikRepository.save(uzytkownikOB);
 		return null;
