@@ -23,4 +23,6 @@ public interface IUzytkownikRepository extends JpaRepository<UzytkownikOB,Long> 
     List<UzytkownikOB> znajdzPoAktywnosci(EStan aAktywnosc);
     @Query("SELECT u FROM UzytkownikOB u WHERE u.grupa.nazwa LIKE ?1")
     List<UzytkownikOB> znajdzPoGrupie(String aNazwa);
+    @Query("SELECT u FROM UzytkownikOB u WHERE u.email =?1")
+    UzytkownikOB znajdzPoEmailu(String aEmail);
 }

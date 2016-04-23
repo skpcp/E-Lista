@@ -28,6 +28,11 @@ public class UzytkownikOB extends BaseOB {
 
     }
 
+    public UzytkownikOB(String email,String haslo){
+        this.email = email;
+        this.haslo = haslo;
+    }
+
     public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc) {
         this.imie = imie;
         this.nazwisko = nazwisko;

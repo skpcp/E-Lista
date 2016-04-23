@@ -25,7 +25,10 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
     public UzytkownikDTO() {
     }
 
-
+    public UzytkownikDTO(String email,String haslo){
+        this.email = email;
+        this.haslo = haslo;
+    }
 
     public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc) {
         super(id, techDate);
