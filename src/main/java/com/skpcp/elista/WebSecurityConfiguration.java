@@ -34,7 +34,7 @@ public class WebSecurityConfiguration  extends GlobalAuthenticationConfigurerAda
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
                 UzytkownikOB uzytkownikOB = uzytkownikRepository.znajdzPoEmailu(username);
                         if(uzytkownikOB!= null){
-                            return new User(uzytkownikOB.getEmail(),uzytkownikOB.getHaslo(),true,true,true,true,   AuthorityUtils.createAuthorityList("USER"));
+                            return new User(uzytkownikOB.getEmail(),uzytkownikOB.getHaslo(),true,true,true,true,   AuthorityUtils.createAuthorityList("SZEF"));
                         }
                         else {
                             throw new  UsernameNotFoundException("Nie znalazlo uzytkownika '"
