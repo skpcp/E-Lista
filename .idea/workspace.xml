@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="413d5ac0-65f8-4320-8c1f-65e682d6fa12" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/api/CzasPracyController.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/api/CzasPracyController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.java" />
     </list>
     <ignored path="E-Lista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -180,7 +180,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -191,21 +191,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="143" column="9" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="elista.public.czasypracy" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/f9d5f862/ee7ff5ea-9dc2-48c6-9af1-65a2ec33f64a/elista.public.czasypracy">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -231,11 +216,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CzasPracyController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CzasPracyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53968257">
-              <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -261,11 +246,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="WebSecurityConfiguration.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3469388">
+              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CzasPracyServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="165" selection-start-line="63" selection-start-column="165" selection-end-line="63" selection-end-column="165" />
+              <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -353,14 +348,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/ob/GrupaOB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/MyUzytkownikDetailService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java" />
       </list>
     </option>
   </component>
@@ -1947,7 +1942,7 @@
       <workItem from="1461416605646" duration="14444000" />
       <workItem from="1461493647545" duration="4361000" />
       <workItem from="1461509304863" duration="1726000" />
-      <workItem from="1461512998693" duration="3197000" />
+      <workItem from="1461512998693" duration="5553000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki">
       <created>1458840986205</created>
@@ -2087,7 +2082,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461514855004</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Czas pracy autentykacja">
+      <created>1461516223975</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1461516223975</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2096,7 +2097,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274788000" />
+    <option name="totallyTimeSpent" value="277144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -2122,7 +2123,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.50570965" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4232026" sideWeight="0.49394855" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42973855" sideWeight="0.49394855" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2193,7 +2194,8 @@
     <MESSAGE value="Autentykacja użytkownika" />
     <MESSAGE value="Uwierzytelnianie zapewnione / zapis emiala dla tego samego użytkownika niemożliwy" />
     <MESSAGE value="Obsługa rejestracji spring secruity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Obsługa rejestracji spring secruity" />
+    <MESSAGE value="Czas pracy autentykacja" />
+    <option name="LAST_COMMIT_MESSAGE" value="Czas pracy autentykacja" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2210,7 +2212,7 @@
           <option name="timeStamp" value="139" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="141" />
+      <option name="time" value="144" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2480,8 +2482,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
           <folding>
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#869#870#0" expanded="false" />
+            <element signature="e#915#916#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2528,16 +2530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2554,14 +2546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/dto/CzasPracyDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/f9d5f862/ee7ff5ea-9dc2-48c6-9af1-65a2ec33f64a/elista.public.czasypracy">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -2571,22 +2555,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -2623,18 +2591,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/dto/CzasPracyDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="165" selection-start-line="63" selection-start-column="165" selection-end-line="63" selection-end-column="165" />
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53968257">
-          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="40" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3469388">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
           <folding />
         </state>
       </provider>

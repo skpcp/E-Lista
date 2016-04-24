@@ -17,9 +17,13 @@ import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMessage;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.HttpStatusCodeException;
 
+import javax.xml.ws.http.HTTPException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -61,9 +65,9 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik() == null ? null : aCzasPracyDTO.getUzytkownik();
         if (pUzytkownikDTO == null) return null;// coś poszło nie tak
         //skoro nie jest nullem przystępujemy do pracy
-        UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.znajdzPoIdIEmailu(pUzytkownikDTO.getId(),pUzytkownikDTO.getEmail());
+        UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if (pUztkownikOB == null) {
-            return null; //coś poszło nie tak
+            throw new HTTPException(403); //coś poszło nie tak
         }
 
         //tutaj sprawdzam czy jest nieobecnosc dla danego uzytkownika w konkretnym dniu !
@@ -113,12 +117,11 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if (aCzasPracyDTO == null) return null;
         if (aCzasPracyDTO.getUzytkownik() == null) return null;
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik();
-        UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getId() == null ? null :
-                iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
+        UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.znajdzPoEmailu(pUzytkownikDTO.getEmail());
         if (pUzytkownikOB == null) {
-            //coś poszło nie tak przecież użytkownik powinien być!
-            return null;
+            return null; //coś poszło nie tak
         }
+
         //w tym momencie użytkownik na pewno istnieje
         //sprawdzam swój czas pracy
         NieobecnoscOB pNieobecnoscOB = iNieobecnoscRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aCzasPracyDTO.getDzien(),pUzytkownikDTO.getId());
