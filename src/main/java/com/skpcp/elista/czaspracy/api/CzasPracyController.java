@@ -27,7 +27,7 @@ public class CzasPracyController {
         return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasyPracyPoUzytkowniku(aIdUzytkownika),HttpStatus.OK);
     }
 
-    @PreAuthorize("#aCzasPracyDTO.uzytkownik.email == authentication.name")
+    @PreAuthorize("#aCzasPracyDTO.uzytkownik.email == authentication.name OR hasAuthority('ADMIN')")
     @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> zapiszCzasPracy(@RequestBody CzasPracyDTO aCzasPracyDTO){

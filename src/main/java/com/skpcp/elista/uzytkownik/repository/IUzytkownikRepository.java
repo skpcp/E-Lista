@@ -25,4 +25,6 @@ public interface IUzytkownikRepository extends JpaRepository<UzytkownikOB,Long> 
     List<UzytkownikOB> znajdzPoGrupie(String aNazwa);
     @Query("SELECT u FROM UzytkownikOB u WHERE u.email =?1")
     UzytkownikOB znajdzPoEmailu(String aEmail);
+    @Query("SELECT u FROM UzytkownikOB u WHERE u.id = ?1 AND u.email =?2")
+    UzytkownikOB znajdzPoIdIEmailu(Long aId,String aEmail);
 }

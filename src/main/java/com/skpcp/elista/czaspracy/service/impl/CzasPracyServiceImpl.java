@@ -61,7 +61,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik() == null ? null : aCzasPracyDTO.getUzytkownik();
         if (pUzytkownikDTO == null) return null;// coś poszło nie tak
         //skoro nie jest nullem przystępujemy do pracy
-        UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
+        UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.znajdzPoIdIEmailu(pUzytkownikDTO.getId(),pUzytkownikDTO.getEmail());
         if (pUztkownikOB == null) {
             return null; //coś poszło nie tak
         }
