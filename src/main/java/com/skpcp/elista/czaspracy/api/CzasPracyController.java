@@ -5,6 +5,7 @@ import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ public class CzasPracyController {
         return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasyPracyPoUzytkowniku(aIdUzytkownika),HttpStatus.OK);
     }
 
+    @PreAuthorize("#aCzasPracyDTO.uzytkownik.email == authentication.name")
     @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> zapiszCzasPracy(@RequestBody CzasPracyDTO aCzasPracyDTO){

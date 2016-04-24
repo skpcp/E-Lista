@@ -42,7 +42,8 @@ public class EListaApplication {
 		if(uprawnienieRepository.count()==0) uprawnienieRepository.save(listaUprawnien);
 		else return null;
 		GrupaOB grupaOB = new GrupaOB();
-		List<UprawnienieOB> listaUprawnienDlaGrupy = listaUprawnien;
+		List<UprawnienieOB> listaUprawnienDlaGrupy = new ArrayList<>();
+		listaUprawnienDlaGrupy.add(uprawnienieAdmina);
 		grupaOB.setNazwa("Szef");
 		grupaOB.setUprawnienia(listaUprawnienDlaGrupy);
 

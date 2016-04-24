@@ -143,7 +143,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
             return aUzytkownikDTO;
         }
         //edytuj istniejącego
-        GrupaOB grupaOB = pGrupaDTO.getId() == null ? null : iGrupaRespository.findOne(pGrupaDTO.getId());
+        GrupaOB grupaOB = pGrupaDTO.getId() == null ? null : iGrupaRespository.znajdzPoNazwieGrupy(pGrupaDTO.getNazwa());
         if(grupaOB == null ) return null; //nie znalazło no to null! xD
         pUzytkownikOB.setGrupa(grupaOB);
         pUzytkownikOB.setImie(aUzytkownikDTO.getImie());
