@@ -117,7 +117,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if (aCzasPracyDTO == null) return null;
         if (aCzasPracyDTO.getUzytkownik() == null) return null;
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik();
-        UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.znajdzPoEmailu(pUzytkownikDTO.getEmail());
+        UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.znajdzPoIdIEmailu(pUzytkownikDTO.getId(),pUzytkownikDTO.getEmail());
         if (pUzytkownikOB == null) {
             return null; //coś poszło nie tak
         }
