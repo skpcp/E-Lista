@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.http.HTTPException;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class CzasPracyController {
         return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasyPracyPoUzytkowniku(aIdUzytkownika),HttpStatus.OK);
     }
 
+   
 //    @PreAuthorize("#aCzasPracyDTO.uzytkownik.email == authentication.name OR hasAuthority('ADMIN')")
     @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody

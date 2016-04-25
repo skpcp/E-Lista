@@ -16,13 +16,19 @@ import com.skpcp.elista.utils.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.HttpStatusCodeException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.InternalServerErrorException;
 import javax.xml.ws.http.HTTPException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -67,7 +73,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         //skoro nie jest nullem przystępujemy do pracy
         UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if (pUztkownikOB == null) {
-            throw new HTTPException(403); //coś poszło nie tak
+            return null; //coś poszło nie tak
         }
 
         //tutaj sprawdzam czy jest nieobecnosc dla danego uzytkownika w konkretnym dniu !
@@ -119,7 +125,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik();
         UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.znajdzPoIdIEmailu(pUzytkownikDTO.getId(),pUzytkownikDTO.getEmail());
         if (pUzytkownikOB == null) {
-            return null; //coś poszło nie tak
+            return null;
         }
 
         //w tym momencie użytkownik na pewno istnieje
