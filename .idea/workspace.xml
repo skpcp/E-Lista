@@ -2,53 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="413d5ac0-65f8-4320-8c1f-65e682d6fa12" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/dto/GrupaBezUDTO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/repository/IGrupaRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/rola/api/RolaController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/rola/dto/RolaDTO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/rola/ob/RolaOB.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/rola/package-info.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/rola/respository/IRolaRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/rola/service/IRolaService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/rola/service/impl/RolaServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/RolaConverter.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/WebSecurityConfiguration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/respository/IGrupaRespository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/GrupaConverter.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/EListaApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/EListaApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/api/CzasPracyController.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/api/CzasPracyController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/czaspracy/service/impl/CzasPracyServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/utils/UzytkownikConverter.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/utils/UzytkownikConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/api/UzytkownikController.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/api/UzytkownikController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/IUzytkownikService.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/IUzytkownikService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/EListaApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/czaspracy/api/CzasPracyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/api/GrupaController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/api/GrupaController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/dto/GrupaDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/dto/GrupaDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/ob/GrupaOB.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/ob/GrupaOB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/package-info.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/package-info.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/IGrupaService.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/IGrupaService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/impl/GrupaServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/grupa/service/impl/GrupaServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/UzytkownikConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/utils/UzytkownikConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/api/UzytkownikController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/dto/UzytkownikDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/ob/UzytkownikOB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/repository/IUzytkownikRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/IUzytkownikService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/skpcp/elista/uzytkownik/service/impl/UzytkownikServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/persistence.xml" afterPath="$PROJECT_DIR$/target/classes/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
     </list>
     <ignored path="E-Lista.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1673,7 +1627,7 @@
       <workItem from="1461577917069" duration="175000" />
       <workItem from="1461578122578" duration="621000" />
       <workItem from="1461589119455" duration="1836000" />
-      <workItem from="1461752462476" duration="4880000" />
+      <workItem from="1461752462476" duration="5329000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki">
       <created>1458840986205</created>
@@ -1825,7 +1779,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461518572675</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Nowe zarządzanie grupami&#10;">
+      <created>1461757390410</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1461757390410</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1834,20 +1794,21 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285946000" />
+    <option name="totallyTimeSpent" value="286395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23491028" sideWeight="0.5121029" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21895425" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18627451" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18627451" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25074404" sideWeight="0.50570965" order="3" side_tool="true" content_ui="tabs" />
@@ -1866,7 +1827,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="JPA Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="16" y="330" width="1182" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1932,7 +1892,8 @@
     <MESSAGE value="Uwierzytelnianie zapewnione / zapis emiala dla tego samego użytkownika niemożliwy" />
     <MESSAGE value="Obsługa rejestracji spring secruity" />
     <MESSAGE value="Czas pracy autentykacja" />
-    <option name="LAST_COMMIT_MESSAGE" value="Czas pracy autentykacja" />
+    <MESSAGE value="Nowe zarządzanie grupami&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nowe zarządzanie grupami&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
