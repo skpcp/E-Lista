@@ -67,14 +67,15 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
 
     @Override
     public CzasPracyDTO zapiszCzasPracyWedlugPlanu(CzasPracyDTO aCzasPracyDTO) {
-        if (aCzasPracyDTO == null) return null;
+        if (aCzasPracyDTO == null) return  null;
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik() == null ? null : aCzasPracyDTO.getUzytkownik();
         if (pUzytkownikDTO == null) return null;// coś poszło nie tak
         //skoro nie jest nullem przystępujemy do pracy
         UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if (pUztkownikOB == null) {
-            return null; //coś poszło nie tak
+            return null;
         }
+
 
         //tutaj sprawdzam czy jest nieobecnosc dla danego uzytkownika w konkretnym dniu !
         NieobecnoscOB pNieobecnoscOB = iNieobecnoscRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aCzasPracyDTO.getDzien(),pUzytkownikDTO.getId());
@@ -86,7 +87,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if(pCzasPracyOBDzien != null ){
             flaga = true;
         }
-        Date dDzisiajJest = new Date(); //wiem jaki dzisiaj dzień!
+        Date dDzisiajJest = aCzasPracyDTO.getDzien(); //wiem jaki dzisiaj dzień!
         String napis = String.format("%1$tA", dDzisiajJest);//dzien tygodnia
         DziennikPlanowOB pDziennikPlanowOB = iDziennikPlanowRepository.znajdzPoDniuTygodnia(
                 napis

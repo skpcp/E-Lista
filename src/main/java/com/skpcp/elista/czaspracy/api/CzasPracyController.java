@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpServerErrorException;
 
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class CzasPracyController {
     @RequestMapping(value = "/zapiszCzasPracyWedlugPlanu",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTO aCzasPracyDTO){
-        return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(aCzasPracyDTO),HttpStatus.OK);
+            return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(aCzasPracyDTO),HttpStatus.OK);
     }
 
     @RequestMapping(value = "usunCzasPracy/{id}",method = RequestMethod.PUT)
