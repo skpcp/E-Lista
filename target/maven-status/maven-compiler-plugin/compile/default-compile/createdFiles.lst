@@ -19,6 +19,7 @@ com\skpcp\elista\utils\UprawnienieConverter.class
 com\skpcp\elista\grupa\repository\IGrupaRepository.class
 com\skpcp\elista\uzytkownik\ob\UzytkownikOB.class
 com\skpcp\elista\uprawnienia\ob\UprawnienieOB.class
+com\skpcp\elista\grupa\dto\GrupaBezUDTO.class
 com\skpcp\elista\rola\api\RolaController.class
 com\skpcp\elista\uprawnienia\repository\IUprawnienieRepository.class
 com\skpcp\elista\nieobecnosci\repository\INieobecnoscRepository.class

@@ -36,6 +36,7 @@ public class CzasPracyController {
         return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracy(aCzasPracyDTO),HttpStatus.OK);
     }
 
+    @ExceptionHandler(HttpServerErrorException.class)
     @RequestMapping(value = "/zapiszCzasPracyWedlugPlanu",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTO aCzasPracyDTO){

@@ -73,7 +73,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         //skoro nie jest nullem przystępujemy do pracy
         UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if (pUztkownikOB == null) {
-            return null;
+            throw new HttpServerErrorException(HttpStatus.NO_CONTENT,"Nie znaleziono użytkownika");
         }
 
 
