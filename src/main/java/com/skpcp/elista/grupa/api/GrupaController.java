@@ -53,6 +53,12 @@ public class GrupaController {
         return new ResponseEntity<>(iGrupaService.znajdzGrupePoLiderzeId(aId), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/usunGrupePoId/{id}",method = RequestMethod.PUT)
+    @ResponseBody
+    ResponseEntity<GrupaDTO> usunGrupePoId(@PathVariable("id")Long aId){
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 
 }

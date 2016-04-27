@@ -15,11 +15,13 @@ public class GrupaServiceImpl implements IGrupaService {
 
     @Override
     public GrupaDTO dodajUzytkownikDoGrupy(Long aIdGrupy, Long aIdUzytkownika) {
+
         return null;
     }
 
     @Override
     public GrupaDTO zapiszGrupe(GrupaBezUDTO aGrupa) {
+
         return null;
     }
 
@@ -30,11 +32,13 @@ public class GrupaServiceImpl implements IGrupaService {
 
     @Override
     public GrupaDTO znajdzGrupePoNazwie(String aNazwa) {
+
         return null;
     }
 
     @Override
     public GrupaDTO znajdzGrupePoLiderzeId(Long aIdLidera) {
+
         return null;
     }
 
