@@ -1,8 +1,8 @@
 package com.skpcp.elista;
 
 
-import com.skpcp.elista.grupa.ob.GrupaOB;
-import com.skpcp.elista.grupa.respository.IGrupaRespository;
+import com.skpcp.elista.rola.ob.RolaOB;
+import com.skpcp.elista.rola.respository.IRolaRepository;
 import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;
 import com.skpcp.elista.uprawnienia.repository.IUprawnienieRepository;
 import com.skpcp.elista.uzytkownik.EStan;
@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -31,7 +30,7 @@ public class EListaApplication {
 }
 
 	@Bean
-	public CommandLineRunner demoUzytkownik(IUzytkownikRepository uzytkownikRepository, IGrupaRespository grupaRespository, IUprawnienieRepository uprawnienieRepository)  {
+	public CommandLineRunner demoUzytkownik(IUzytkownikRepository uzytkownikRepository, IRolaRepository grupaRespository, IUprawnienieRepository uprawnienieRepository)  {
 		List<UprawnienieOB> listaUprawnien = new ArrayList<>();
 		UprawnienieOB uprawnienieAdmina =new UprawnienieOB("ADMIN");
 		UprawnienieOB uprawnienieLidera = new UprawnienieOB("LIDER");
@@ -41,26 +40,26 @@ public class EListaApplication {
 		listaUprawnien.add(uprawnieniePracownika);
 		if(uprawnienieRepository.count()==0) uprawnienieRepository.save(listaUprawnien);
 		else return null;
-		GrupaOB grupaOB = new GrupaOB();
+		RolaOB rolaOB = new RolaOB();
 		List<UprawnienieOB> listaUprawnienDlaGrupy = new ArrayList<>();
 		listaUprawnienDlaGrupy.add(uprawnienieAdmina);
-		grupaOB.setNazwa("Szef");
-		grupaOB.setUprawnienia(listaUprawnienDlaGrupy);
+		rolaOB.setNazwa("Szef");
+		rolaOB.setUprawnienia(listaUprawnienDlaGrupy);
 
-		GrupaOB pgrupaOB = new GrupaOB();
+		RolaOB pgrupaOB = new RolaOB();
 		pgrupaOB.setNazwa("Pracownik");
 		List<UprawnienieOB> listaPracownicza = new ArrayList<>();
 		listaPracownicza.add(uprawnieniePracownika);
 		pgrupaOB.setUprawnienia(listaPracownicza);
 
-		List<GrupaOB> listaGrup = new ArrayList<>();
-		listaGrup.add(grupaOB);
+		List<RolaOB> listaGrup = new ArrayList<>();
+		listaGrup.add(rolaOB);
 		listaGrup.add(pgrupaOB);
 		if(grupaRespository.count()==0) grupaRespository.save(listaGrup);
 		else return null;
 		UzytkownikOB uzytkownikOB = new UzytkownikOB();
 		uzytkownikOB.setAktywnosc(EStan.AKTYWNY);
-		uzytkownikOB.setGrupa(grupaOB);
+		uzytkownikOB.setRola(rolaOB);
 		uzytkownikOB.setImie("Polak");
 		uzytkownikOB.setNazwisko("Mały");
 		uzytkownikOB.setEmail("admin");

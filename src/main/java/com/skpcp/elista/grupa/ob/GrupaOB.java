@@ -1,38 +1,33 @@
 package com.skpcp.elista.grupa.ob;
 
+
 import com.skpcp.elista.base.ob.BaseOB;
-import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;
+import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 
 import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created by  Tomek on 2016-03-19.
+ * Created by Tomasz Komoszeski on 2016-04-27.
  */
 @Entity
 @Table(name = "grupy")
-@SequenceGenerator(initialValue = 1,name = "SEQ",sequenceName = "GEN_GRUPY_ID")
-public class GrupaOB extends BaseOB  {
+@SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_GRUPA_ID")
+public class GrupaOB extends BaseOB {
     @Column(unique = true)
-    private String nazwa;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "UPRAWNIENIE_ID", referencedColumnName = "ID")
-    private List<UprawnienieOB> uprawnienia;
+    String nazwa;
+    @ManyToOne
+    UzytkownikOB lider;
+    @OneToMany
+    List<UzytkownikOB> uzytkownicy;
 
     public GrupaOB() {
     }
 
-    public GrupaOB(String nazwa, List<UprawnienieOB> uprawnienia) {
+    public GrupaOB(String nazwa, UzytkownikOB lider, List<UzytkownikOB> uzytkownicy) {
         this.nazwa = nazwa;
-        this.uprawnienia = uprawnienia;
-    }
-
-    public List<UprawnienieOB> getUprawnienia() {
-        return uprawnienia;
-    }
-
-    public void setUprawnienia(List<UprawnienieOB> uprawnienia) {
-        this.uprawnienia = uprawnienia;
+        this.lider = lider;
+        this.uzytkownicy = uzytkownicy;
     }
 
     public String getNazwa() {
@@ -43,5 +38,19 @@ public class GrupaOB extends BaseOB  {
         this.nazwa = nazwa;
     }
 
+    public UzytkownikOB getLider() {
+        return lider;
+    }
 
+    public void setLider(UzytkownikOB lider) {
+        this.lider = lider;
+    }
+
+    public List<UzytkownikOB> getUzytkownicy() {
+        return uzytkownicy;
+    }
+
+    public void setUzytkownicy(List<UzytkownikOB> uzytkownicy) {
+        this.uzytkownicy = uzytkownicy;
+    }
 }

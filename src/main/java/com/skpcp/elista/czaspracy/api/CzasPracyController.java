@@ -5,11 +5,10 @@ import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.http.HTTPException;
+
 import java.util.List;
 
 /**
@@ -29,7 +28,7 @@ public class CzasPracyController {
     }
 
    
-//    @PreAuthorize("#aCzasPracyDTO.uzytkownik.email == authentication.name OR hasAuthority('ADMIN')")
+
     @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> zapiszCzasPracy(@RequestBody CzasPracyDTO aCzasPracyDTO){

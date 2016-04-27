@@ -2,10 +2,10 @@ package com.skpcp.elista.uzytkownik.service.impl;
 
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
 import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
-import com.skpcp.elista.grupa.dto.GrupaDTO;
-import com.skpcp.elista.grupa.ob.GrupaOB;
-import com.skpcp.elista.grupa.respository.IGrupaRespository;
-import com.skpcp.elista.utils.GrupaConverter;
+import com.skpcp.elista.rola.dto.RolaDTO;
+import com.skpcp.elista.rola.ob.RolaOB;
+import com.skpcp.elista.rola.respository.IRolaRepository;
+import com.skpcp.elista.utils.RolaConverter;
 import com.skpcp.elista.utils.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
@@ -36,7 +36,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     IDziennikPlanowRepository iDziennikPlanowRepository;
 
     @Autowired
-    IGrupaRespository iGrupaRespository;
+    IRolaRepository iRolaRepository;
     /* Mała rozkmina
      * Obiekt DTO - data transfer object pośredniczy
      * w wywołaniach, jest to tak jakby kontener? Nie działam
@@ -101,7 +101,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         if(aUzytkownikDTO == null){
             return null;
         }
-        GrupaDTO pGrupaDTO = aUzytkownikDTO.getGrupa();
+        RolaDTO pGrupaDTO = aUzytkownikDTO.getGrupa();
         if(pGrupaDTO == null) {
             return null;
         }
@@ -112,8 +112,8 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
             UzytkownikOB pUzytkonikOBEmailVeryfication = aUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(aUzytkownikDTO.getEmail());
             if(pUzytkonikOBEmailVeryfication != null) return null; //nie można stworzyć ponieważ już jest taki eamil;
-            GrupaOB pGrupaOB=iGrupaRespository.znajdzPoNazwieGrupy("Pracownik");//domyslna rola
-            aUzytkownikDTO.setGrupa(GrupaConverter.grupaOBdoGrupaDTO(pGrupaOB));
+            RolaOB pRolaOB = iRolaRepository.znajdzPoNazwieGrupy("Pracownik");//domyslna rola
+            aUzytkownikDTO.setGrupa(RolaConverter.rolaOBdoRolaDTO(pRolaOB));
             aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
             pUzytkownikOB = UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO);//stwórz instancje do przypisania do dziennika
             //przepisz wiadomo
@@ -143,9 +143,9 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
             return aUzytkownikDTO;
         }
         //edytuj istniejącego
-        GrupaOB grupaOB = pGrupaDTO.getId() == null ? null : iGrupaRespository.znajdzPoNazwieGrupy(pGrupaDTO.getNazwa());
-        if(grupaOB == null ) return null; //nie znalazło no to null! xD
-        pUzytkownikOB.setGrupa(grupaOB);
+        RolaOB rolaOB = pGrupaDTO.getId() == null ? null : iRolaRepository.znajdzPoNazwieGrupy(pGrupaDTO.getNazwa());
+        if(rolaOB == null ) return null; //nie znalazło no to null! xD
+        pUzytkownikOB.setRola(rolaOB);
         pUzytkownikOB.setImie(aUzytkownikDTO.getImie());
         pUzytkownikOB.setNazwisko(aUzytkownikDTO.getNazwisko());
         pUzytkownikOB.setEmail(aUzytkownikDTO.getEmail());
@@ -173,9 +173,9 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     }
 
     @Override
-    public List<UzytkownikDTO> znajdzUzytkownikowPoGrupie(String aNazwa) {
+    public List<UzytkownikDTO> znajdzUzytkownikowPoNazwieRoli(String aNazwa) {
         List<UzytkownikOB> listaUzytkownikOB = new ArrayList<>();
-        listaUzytkownikOB = iUzytkownikRepository.znajdzPoGrupie(aNazwa);
+        listaUzytkownikOB = iUzytkownikRepository.znajdzPoRoli(aNazwa);
         return UzytkownikConverter.listUzytkOBdoUzytkDTO(listaUzytkownikOB);
     }
 }

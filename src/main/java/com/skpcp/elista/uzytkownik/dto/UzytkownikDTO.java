@@ -1,7 +1,7 @@
 package com.skpcp.elista.uzytkownik.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
-import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import io.swagger.annotations.ApiModel;
 
@@ -20,7 +20,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
     private String haslo;
     private String telefon;
     private EStan aktywnosc;
-    private GrupaDTO grupa;
+    private RolaDTO grupa;
 
     public UzytkownikDTO() {
     }
@@ -41,7 +41,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
 
     }
 
-    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
+    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO grupa) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
@@ -51,7 +51,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.grupa = grupa;
     }
 
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, GrupaDTO grupa) {
+    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO grupa) {
         super(id, techDate);
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -110,11 +110,11 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.aktywnosc = aktywnosc;
     }
 
-    public GrupaDTO getGrupa() {
+    public RolaDTO getGrupa() {
         return grupa;
     }
 
-    public void setGrupa(GrupaDTO grupa) {
+    public void setGrupa(RolaDTO grupa) {
         this.grupa = grupa;
     }
 }

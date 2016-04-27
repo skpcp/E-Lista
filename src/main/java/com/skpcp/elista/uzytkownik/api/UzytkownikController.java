@@ -1,19 +1,12 @@
 package com.skpcp.elista.uzytkownik.api;
 
-import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.service.IUzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.security.access.annotation.Secured;
-//import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-
-import javax.persistence.Entity;
 import java.util.List;
 
 /**
@@ -33,7 +26,7 @@ public class UzytkownikController {
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoId(aId), HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasAuthority('ADMIN')")
+
     @RequestMapping(value = "/pobierzWszystkich",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<UzytkownikDTO>> znajdzWszystkich(){
@@ -58,7 +51,6 @@ public class UzytkownikController {
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoImieniuINazwisku(aImie,aNazwisko),HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/zapiszUzytkownika",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<UzytkownikDTO> zapiszUzytkownika(@RequestBody UzytkownikDTO aUzytkownikDTO){
@@ -79,8 +71,8 @@ public class UzytkownikController {
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoAktywnosci(aAktywnosc),HttpStatus.OK);
     }
 
-    @RequestMapping(value = "pobierzPoNazwieGrupy/{grupa.nazwa}",method = RequestMethod.GET)
-    public ResponseEntity<List<UzytkownikDTO>> znajdzWszystkichUzytkownikowWGrupie(@PathVariable("grupa.nazwa")String aNazwa){
-        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoGrupie(aNazwa),HttpStatus.OK);
+    @RequestMapping(value = "pobierzPoNazwieRoli/{rola.nazwa}",method = RequestMethod.GET)
+    public ResponseEntity<List<UzytkownikDTO>> znajdzWszystkichUzytkownikowPoNazwieRoli(@PathVariable("rola.nazwa")String aNazwa){
+        return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoNazwieRoli(aNazwa),HttpStatus.OK);
     }
 }

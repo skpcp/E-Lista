@@ -5,28 +5,24 @@ import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import io.swagger.annotations.ApiModel;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Tomasz Komoszeski on 2016-04-27.
  */
 @ApiModel
-public class GrupaDTO extends BaseDTO {
+public class GrupaBezUDTO extends BaseDTO {
     String nazwa;
     UzytkownikDTO lider;
-    List<UzytkownikDTO> uzytkownicy;
 
-    public GrupaDTO(String nazwa, UzytkownikDTO lider, List<UzytkownikDTO> uzytkownicy) {
+    public GrupaBezUDTO(String nazwa, UzytkownikDTO lider) {
         this.nazwa = nazwa;
         this.lider = lider;
-        this.uzytkownicy = uzytkownicy;
     }
 
-    public GrupaDTO(Long id, Date techDate, String nazwa, UzytkownikDTO lider, List<UzytkownikDTO> uzytkownicy) {
+    public GrupaBezUDTO(Long id, Date techDate, String nazwa, UzytkownikDTO lider) {
         super(id, techDate);
         this.nazwa = nazwa;
         this.lider = lider;
-        this.uzytkownicy = uzytkownicy;
     }
 
     public String getNazwa() {
@@ -43,13 +39,5 @@ public class GrupaDTO extends BaseDTO {
 
     public void setLider(UzytkownikDTO lider) {
         this.lider = lider;
-    }
-
-    public List<UzytkownikDTO> getUzytkownicy() {
-        return uzytkownicy;
-    }
-
-    public void setUzytkownicy(List<UzytkownikDTO> uzytkownicy) {
-        this.uzytkownicy = uzytkownicy;
     }
 }
