@@ -1688,7 +1688,7 @@
       <workItem from="1461577917069" duration="175000" />
       <workItem from="1461578122578" duration="621000" />
       <workItem from="1461589119455" duration="1836000" />
-      <workItem from="1461752462476" duration="12112000" />
+      <workItem from="1461752462476" duration="12420000" />
     </task>
     <task id="LOCAL-00001" summary="poprawki">
       <created>1458840986205</created>
@@ -1876,7 +1876,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461766540126</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="openshift profile&#10;">
+      <created>1461767053546</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1461767053546</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1885,7 +1891,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293178000" />
+    <option name="totallyTimeSpent" value="293486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
