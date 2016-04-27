@@ -18,7 +18,7 @@ public class UzytkownikConverter {
 
     public static UzytkownikOB uzytDTOdoUzytkOB(UzytkownikDTO aUzytkownikDTO){
         if(aUzytkownikDTO == null) return null;
-        UzytkownikOB pUzytkownikOB = new UzytkownikOB(aUzytkownikDTO.getImie(),aUzytkownikDTO.getNazwisko(),aUzytkownikDTO.getEmail(),aUzytkownikDTO.getHaslo(),aUzytkownikDTO.getTelefon(),aUzytkownikDTO.getAktywnosc(), RolaConverter.rolaDTOdoRolaOB(aUzytkownikDTO.getGrupa()));
+        UzytkownikOB pUzytkownikOB = new UzytkownikOB(aUzytkownikDTO.getImie(),aUzytkownikDTO.getNazwisko(),aUzytkownikDTO.getEmail(),aUzytkownikDTO.getHaslo(),aUzytkownikDTO.getTelefon(),aUzytkownikDTO.getAktywnosc(), RolaConverter.rolaDTOdoRolaOB(aUzytkownikDTO.getRola()));
         pUzytkownikOB.setId(aUzytkownikDTO.getId());
         pUzytkownikOB.setTechDate(aUzytkownikDTO.getTechDate());
         return pUzytkownikOB;

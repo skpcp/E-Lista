@@ -20,7 +20,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
     private String haslo;
     private String telefon;
     private EStan aktywnosc;
-    private RolaDTO grupa;
+    private RolaDTO rola;
 
     public UzytkownikDTO() {
     }
@@ -41,17 +41,17 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
 
     }
 
-    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO grupa) {
+    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-        this.grupa = grupa;
+        this.rola = rola;
     }
 
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO grupa) {
+    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
         super(id, techDate);
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -59,7 +59,7 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-        this.grupa = grupa;
+        this.rola = rola;
     }
 
     public String getImie() {
@@ -110,11 +110,11 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.aktywnosc = aktywnosc;
     }
 
-    public RolaDTO getGrupa() {
-        return grupa;
+    public RolaDTO getRola() {
+        return rola;
     }
 
-    public void setGrupa(RolaDTO grupa) {
-        this.grupa = grupa;
+    public void setRola(RolaDTO rola) {
+        this.rola = rola;
     }
 }

@@ -22,7 +22,7 @@ public class UzytkownikOB extends BaseOB {
     private String telefon;
     private EStan aktywnosc;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "GURPA_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "ROLA_ID", referencedColumnName = "ID")
     private RolaOB rola;
 
     public UzytkownikOB() {
