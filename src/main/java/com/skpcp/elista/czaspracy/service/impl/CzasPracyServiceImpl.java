@@ -40,7 +40,7 @@ import java.util.List;
  * Created by Achilles on 2016-03-22.
  */
 @Service
-@Transactional
+@Transactional(noRollbackFor = HttpServerErrorException.class)
 public class CzasPracyServiceImpl implements ICzasPracyService {
 
     @Autowired
@@ -66,14 +66,14 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     }
 
     @Override
-    public CzasPracyDTO zapiszCzasPracyWedlugPlanu(CzasPracyDTO aCzasPracyDTO) {
+    public CzasPracyDTO zapiszCzasPracyWedlugPlanu(CzasPracyDTO aCzasPracyDTO) throws HttpServerErrorException {
         if (aCzasPracyDTO == null) return  null;
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik() == null ? null : aCzasPracyDTO.getUzytkownik();
         if (pUzytkownikDTO == null) return null;// coś poszło nie tak
         //skoro nie jest nullem przystępujemy do pracy
         UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if (pUztkownikOB == null) {
-            throw new HttpServerErrorException(HttpStatus.NO_CONTENT,"Nie znaleziono użytkownika");
+            throw new HttpServerErrorException(HttpStatus.NO_CONTENT,"Nie znaleziono uzytkownika");
         }
 
 
