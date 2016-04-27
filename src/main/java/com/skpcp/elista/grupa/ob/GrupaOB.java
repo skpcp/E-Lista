@@ -16,9 +16,11 @@ import java.util.List;
 public class GrupaOB extends BaseOB {
     @Column(unique = true)
     String nazwa;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "LIDER_ID", referencedColumnName = "ID")
     UzytkownikOB lider;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name ="GRUPA_ID",referencedColumnName = "ID")
     List<UzytkownikOB> uzytkownicy;
 
     public GrupaOB() {

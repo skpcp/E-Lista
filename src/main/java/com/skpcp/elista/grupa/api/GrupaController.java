@@ -1,8 +1,10 @@
 package com.skpcp.elista.grupa.api;
 
-import com.skpcp.elista.grupa.dto.GrupaBezUDTO;
 import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.dto.GrupaUzytkownikDTO;
 import com.skpcp.elista.grupa.service.IGrupaService;
+import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
+import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -30,14 +32,14 @@ public class GrupaController {
 
     @RequestMapping(value = "/zapiszGrupe",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<GrupaDTO> zapiszGrupe(@RequestBody GrupaBezUDTO aGrupa){
+    public ResponseEntity<GrupaDTO> zapiszGrupe(@RequestBody GrupaDTO aGrupa){
         return new ResponseEntity<>(iGrupaService.zapiszGrupe(aGrupa),HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/dodajUzytkownikaDoGrupy/{id}",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    @RequestMapping(value = "/dodajUzytkownikaDoGrupy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<GrupaDTO> dodajUzytkownikaDoGrupy(@PathVariable("id") Long aId,Long aIdUzytkownika){
-        return new ResponseEntity<>(iGrupaService.dodajUzytkownikDoGrupy(aId,aIdUzytkownika),HttpStatus.OK);
+    public ResponseEntity<GrupaDTO> dodajUzytkownikaDoGrupy(@RequestBody GrupaUzytkownikDTO aGrupaDTO){
+        return new ResponseEntity<>(iGrupaService.dodajUzytkownikDoGrupy(aGrupaDTO),HttpStatus.OK);
     }
 
     @RequestMapping(value = "/pobierzGrupePoNazwie/{nazwa}", method = RequestMethod.GET)
@@ -56,6 +58,7 @@ public class GrupaController {
     @RequestMapping(value = "/usunGrupePoId/{id}",method = RequestMethod.PUT)
     @ResponseBody
     ResponseEntity<GrupaDTO> usunGrupePoId(@PathVariable("id")Long aId){
+        iGrupaService.usunGrupePoId(aId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

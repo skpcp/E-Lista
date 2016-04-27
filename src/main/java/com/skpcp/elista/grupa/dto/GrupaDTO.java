@@ -16,10 +16,7 @@ public class GrupaDTO extends BaseDTO {
     UzytkownikDTO lider;
     List<UzytkownikDTO> uzytkownicy;
 
-    public GrupaDTO(String nazwa, UzytkownikDTO lider, List<UzytkownikDTO> uzytkownicy) {
-        this.nazwa = nazwa;
-        this.lider = lider;
-        this.uzytkownicy = uzytkownicy;
+    public GrupaDTO(){
     }
 
     public GrupaDTO(Long id, Date techDate, String nazwa, UzytkownikDTO lider, List<UzytkownikDTO> uzytkownicy) {

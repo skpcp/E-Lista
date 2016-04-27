@@ -27,4 +27,5 @@ public interface IUzytkownikRepository extends JpaRepository<UzytkownikOB,Long> 
     UzytkownikOB znajdzPoEmailu(String aEmail);
     @Query("SELECT u FROM UzytkownikOB u WHERE u.id = ?1 AND u.email =?2")
     UzytkownikOB znajdzPoIdIEmailu(Long aId,String aEmail);
+
 }

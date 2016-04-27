@@ -19,7 +19,6 @@ com\skpcp\elista\utils\UprawnienieConverter.class
 com\skpcp\elista\grupa\repository\IGrupaRepository.class
 com\skpcp\elista\uzytkownik\ob\UzytkownikOB.class
 com\skpcp\elista\uprawnienia\ob\UprawnienieOB.class
-com\skpcp\elista\grupa\dto\GrupaBezUDTO.class
 com\skpcp\elista\rola\api\RolaController.class
 com\skpcp\elista\uprawnienia\repository\IUprawnienieRepository.class
 com\skpcp\elista\nieobecnosci\repository\INieobecnoscRepository.class
@@ -31,6 +30,7 @@ com\skpcp\elista\czaspracy\service\impl\CzasPracyServiceImpl.class
 com\skpcp\elista\dziennikplanow\ob\DziennikPlanowOB.class
 com\skpcp\elista\grupa\ob\GrupaOB.class
 com\skpcp\elista\grupa\api\GrupaController.class
+com\skpcp\elista\grupa\dto\GrupaUzytkownikDTO.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTO.class
 com\skpcp\elista\uprawnienia\dto\UprawnienieDTO.class
 com\skpcp\elista\czaspracy\service\ICzasPracyService.class
@@ -48,6 +48,7 @@ com\skpcp\elista\czaspracy\ob\CzasPracyOB.class
 com\skpcp\elista\uzytkownik\service\IUzytkownikService.class
 com\skpcp\elista\dziennikplanow\EDniTygodnia.class
 com\skpcp\elista\utils\UzytkownikConverter.class
+com\skpcp\elista\utils\GrupaConverter.class
 com\skpcp\elista\rola\service\impl\RolaServiceImpl.class
 com\skpcp\elista\dziennikplanow\service\IDziennikPlanowService.class
 com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTO.class
