@@ -55,9 +55,9 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
      * */
 
     @Override
-    public UzytkownikDTO znajdzUzytkownikaPoEmailu(String aEmail) {
+    public UzytkownikDTO znajdzUzytkownikaPoEmailu(String aEmail) throws MyServerException {
         UzytkownikOB pUzytkownikOB = iUzytkownikRepository.znajdzPoEmailu(aEmail);//znajdź po ID, i zwróc instancje obiektu UzytkownikOB
-        if(pUzytkownikOB == null) return null; //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
+        if(pUzytkownikOB == null) throw new MyServerException("Nie ma takiego uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders()); //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
         return UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB);//muszę przekształcić dany typ obiektu OB na DTO by potem móc go wyświetlić albo robić z nim cokolwiek innego
     }
 
