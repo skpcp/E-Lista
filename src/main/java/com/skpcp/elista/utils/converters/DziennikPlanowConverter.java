@@ -1,9 +1,7 @@
-package com.skpcp.elista.utils;
+package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
-
-import java.text.SimpleDateFormat;
 
 /**
  * Created by bidzis on 2016-03-22.

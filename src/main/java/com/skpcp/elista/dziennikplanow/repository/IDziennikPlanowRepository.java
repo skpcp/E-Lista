@@ -1,8 +1,6 @@
 package com.skpcp.elista.dziennikplanow.repository;
 
-import com.skpcp.elista.dziennikplanow.EDniTygodnia;
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

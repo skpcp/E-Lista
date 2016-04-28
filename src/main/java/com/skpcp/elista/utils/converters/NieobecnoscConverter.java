@@ -1,4 +1,4 @@
-package com.skpcp.elista.utils;
+package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTO;
 import com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB;

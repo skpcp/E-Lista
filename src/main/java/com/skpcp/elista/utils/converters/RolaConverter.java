@@ -1,4 +1,4 @@
-package com.skpcp.elista.utils;
+package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.rola.ob.RolaOB;

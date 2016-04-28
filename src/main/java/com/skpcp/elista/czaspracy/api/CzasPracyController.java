@@ -2,13 +2,12 @@ package com.skpcp.elista.czaspracy.api;
 
 import com.skpcp.elista.czaspracy.dto.CzasPracyDTO;
 import com.skpcp.elista.czaspracy.service.ICzasPracyService;
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpServerErrorException;
 
 
 import java.util.List;
@@ -34,7 +33,11 @@ public class CzasPracyController {
     @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> zapiszCzasPracy(@RequestBody CzasPracyDTO aCzasPracyDTO){
-        return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracy(aCzasPracyDTO),HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracy(aCzasPracyDTO), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
 
@@ -42,24 +45,26 @@ public class CzasPracyController {
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTO aCzasPracyDTO){
           try{
-              return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(aCzasPracyDTO),HttpStatus.OK);
-          }catch (HttpServerErrorException e){
-              HttpHeaders head = new HttpHeaders();
-              head.add("powod zatrzymania:",e.getStatusText());
-              return new ResponseEntity<>(head,e.getStatusCode());
+              return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(aCzasPracyDTO),HttpStatus.CREATED);
+          }catch (MyServerException e){
+              return new ResponseEntity<>(e.getHeaders(),e.getStatus());
           }
     }
 
     @RequestMapping(value = "usunCzasPracy/{id}",method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<Void> usunCzasPracy(@PathVariable("id") Long aId){
-        serwisCzasPracy.usunCzasPracy(aId);
-        return new ResponseEntity<>(HttpStatus.OK);
+            serwisCzasPracy.usunCzasPracy(aId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "pobierzCzasPracy/{id}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<CzasPracyDTO> pobierzCzasPracy(@PathVariable("id") Long aId){
-        return new ResponseEntity<>(serwisCzasPracy.znajdzCzasPracyPoId(aId),HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(serwisCzasPracy.znajdzCzasPracyPoId(aId), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 }

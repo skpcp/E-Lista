@@ -5,33 +5,23 @@ import com.skpcp.elista.czaspracy.dto.CzasPracyDTO;
 import com.skpcp.elista.czaspracy.ob.CzasPracyOB;
 import com.skpcp.elista.czaspracy.repository.ICzasPracyRepository;
 import com.skpcp.elista.czaspracy.service.ICzasPracyService;
-import com.skpcp.elista.dziennikplanow.api.DziennikPlanowController;
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
 import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
 import com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB;
 import com.skpcp.elista.nieobecnosci.repository.INieobecnoscRepository;
-import com.skpcp.elista.utils.CzasPracyConverter;
-import com.skpcp.elista.utils.DziennikPlanowConverter;
-import com.skpcp.elista.utils.UzytkownikConverter;
+import com.skpcp.elista.utils.converters.CzasPracyConverter;
+import com.skpcp.elista.utils.exceptions.MyServerException;
+import com.skpcp.elista.utils.converters.UzytkownikConverter;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.client.HttpServerErrorException;
-import org.springframework.web.client.HttpStatusCodeException;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.InternalServerErrorException;
-import javax.xml.ws.http.HTTPException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -40,7 +30,7 @@ import java.util.List;
  * Created by Achilles on 2016-03-22.
  */
 @Service
-@Transactional(noRollbackFor = HttpServerErrorException.class)
+@Transactional(noRollbackFor = MyServerException.class)
 public class CzasPracyServiceImpl implements ICzasPracyService {
 
     @Autowired
@@ -56,7 +46,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     IDziennikPlanowRepository iDziennikPlanowRepository;
 
     @Override
-    public List<CzasPracyDTO> wyswietlCzasyPracyPoUzytkowniku(Long aIdUzytkownika) {
+    public List<CzasPracyDTO> wyswietlCzasyPracyPoUzytkowniku(Long aIdUzytkownika)  {
         List<CzasPracyDTO> pListCzasyPracyDTO = new ArrayList<>();
         List<CzasPracyOB> pListCzasyPracyOB = iCzasPracyRepository.znajdzCzasPracyPoUzytkowniku(aIdUzytkownika);
         for (CzasPracyOB czasPracy : pListCzasyPracyOB) {
@@ -66,21 +56,22 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     }
 
     @Override
-    public CzasPracyDTO zapiszCzasPracyWedlugPlanu(CzasPracyDTO aCzasPracyDTO) throws HttpServerErrorException {
-        if (aCzasPracyDTO == null) return  null;
+    public CzasPracyDTO zapiszCzasPracyWedlugPlanu(CzasPracyDTO aCzasPracyDTO) throws MyServerException {
+        if (aCzasPracyDTO == null) throw new MyServerException("Puste pole czas pracy",HttpStatus.NOT_FOUND,new HttpHeaders());
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik() == null ? null : aCzasPracyDTO.getUzytkownik();
-        if (pUzytkownikDTO == null) return null;// coś poszło nie tak
+        if (pUzytkownikDTO == null) throw new MyServerException("Puste pole uzytkownik",HttpStatus.NOT_FOUND,new HttpHeaders());
         //skoro nie jest nullem przystępujemy do pracy
         UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if (pUztkownikOB == null) {
-            throw new HttpServerErrorException(HttpStatus.NO_CONTENT,"Nie znaleziono uzytkownika");
+            throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
+
 
 
         //tutaj sprawdzam czy jest nieobecnosc dla danego uzytkownika w konkretnym dniu !
         NieobecnoscOB pNieobecnoscOB = iNieobecnoscRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aCzasPracyDTO.getDzien(),pUzytkownikDTO.getId());
         if(pNieobecnoscOB != null){
-            return  null; //nie ma oszukiwania !
+           throw new MyServerException("Nie mozna zapisac czasu, pracy jezeli jest zapisana nieboecnosc",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders()); //nie ma oszukiwania !
         }
         Boolean flaga = false;
         CzasPracyOB pCzasPracyOBDzien = aCzasPracyDTO.getDzien() == null ? null : iCzasPracyRepository.znajdzCzasPracyPoDacie(pUzytkownikDTO.getId(),aCzasPracyDTO.getDzien());
@@ -93,7 +84,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
                 napis
                 , pUztkownikOB);
         if (pDziennikPlanowOB == null) {
-            return null; //coś poszło nie tak!!! //a konkretnie nie ten dzień!!! nie można pracować w weekend no chyba, że się chce !
+           throw new MyServerException("Nie istnieje dziennik planow",HttpStatus.NOT_FOUND,new HttpHeaders()); //coś poszło nie tak!!! //a konkretnie nie ten dzień!!! nie można pracować w weekend no chyba, że się chce !
         }
         //pobieram moje czasy pracy
         Date dRozpoczecie = pDziennikPlanowOB.getPlanOd() == null ? null : pDziennikPlanowOB.getPlanOd();
@@ -104,7 +95,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if (pCzasPracyOB == null) {
             //nie istnieje to zapisuje
             //aCzasPracyDTO.setDzien(dDzisiajJest);
-            if(flaga) return null;
+            if(flaga) throw new MyServerException("Istnieje juz zapisany ten dzien pracy dla danego uzytkownika",HttpStatus.METHOD_NOT_ALLOWED, new HttpHeaders());
             aCzasPracyDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUztkownikOB));
             aCzasPracyDTO.setRozpoczecie(dRozpoczecie);
             aCzasPracyDTO.setZakonczenie(dZakonczenie);
@@ -120,20 +111,20 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     }
 
     @Override
-    public CzasPracyDTO zapiszCzasPracy(CzasPracyDTO aCzasPracyDTO) {
-        if (aCzasPracyDTO == null) return null;
-        if (aCzasPracyDTO.getUzytkownik() == null) return null;
+    public CzasPracyDTO zapiszCzasPracy(CzasPracyDTO aCzasPracyDTO) throws MyServerException {
+        if (aCzasPracyDTO == null) throw new MyServerException("Puste pole czas pracy",HttpStatus.NOT_FOUND,new HttpHeaders());
+        if (aCzasPracyDTO.getUzytkownik() == null) throw new MyServerException("Puste pole uzytkownik",HttpStatus.NOT_FOUND,new HttpHeaders());
         UzytkownikDTO pUzytkownikDTO = aCzasPracyDTO.getUzytkownik();
         UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.znajdzPoIdIEmailu(pUzytkownikDTO.getId(),pUzytkownikDTO.getEmail());
         if (pUzytkownikOB == null) {
-            return null;
+            throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
 
         //w tym momencie użytkownik na pewno istnieje
         //sprawdzam swój czas pracy
         NieobecnoscOB pNieobecnoscOB = iNieobecnoscRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aCzasPracyDTO.getDzien(),pUzytkownikDTO.getId());
         if(pNieobecnoscOB != null){
-            return  null; //nie ma oszukiwania !
+            throw new MyServerException("Nie mozna zapisac czasu, pracy jezeli jest zapisana nieboecnosc",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders()); //nie ma oszukiwania !
         }
         //sprawdzam czy taki czas pracy już nie istnieje
         Boolean flaga = false;
@@ -143,7 +134,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         }
         CzasPracyOB pCzasPracyOB = aCzasPracyDTO.getId() == null ? null : iCzasPracyRepository.findOne(aCzasPracyDTO.getId());
         if (pCzasPracyOB == null) {
-            if(flaga) return  null; //czas pracy zapisujemy tylko raz, jednego konkretnego dnia dla jednego konkretnego uzytkownika
+            if(flaga)  throw new MyServerException("Istnieje juz zapisany ten dzien pracy dla danego uzytkownika",HttpStatus.METHOD_NOT_ALLOWED, new HttpHeaders()); //czas pracy zapisujemy tylko raz, jednego konkretnego dnia dla jednego konkretnego uzytkownika
             //jeżeli takiego nie ma to zapisujemy
             aCzasPracyDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB));
             return CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(CzasPracyConverter.czprDTOdoCzprOB(aCzasPracyDTO)));
@@ -165,10 +156,10 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     }
 
     @Override
-    public CzasPracyDTO znajdzCzasPracyPoId(Long aId) {
+    public CzasPracyDTO znajdzCzasPracyPoId(Long aId) throws MyServerException {
         CzasPracyOB pCzasPracyOB = iCzasPracyRepository.findOne(aId);
         if (pCzasPracyOB == null) {
-            return null;
+            throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
         return CzasPracyConverter.czprOBdoCzprDTO(pCzasPracyOB);
     }

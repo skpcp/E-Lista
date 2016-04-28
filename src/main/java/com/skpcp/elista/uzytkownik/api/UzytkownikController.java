@@ -1,5 +1,6 @@
 package com.skpcp.elista.uzytkownik.api;
 
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.service.IUzytkownikService;
@@ -23,7 +24,11 @@ public class UzytkownikController {
     @RequestMapping(value = "pobierzPoId/{id}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<UzytkownikDTO> znajdzUzytkownikaPoId(@PathVariable("id") Long aId){
+        try{
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoId(aId), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
 
@@ -54,8 +59,11 @@ public class UzytkownikController {
     @RequestMapping(value = "/zapiszUzytkownika",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<UzytkownikDTO> zapiszUzytkownika(@RequestBody UzytkownikDTO aUzytkownikDTO){
-
-        return new ResponseEntity<>(serwisUzytkownika.zapiszUzytkownika(aUzytkownikDTO),HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(serwisUzytkownika.zapiszUzytkownika(aUzytkownikDTO), HttpStatus.OK);
+        }catch (MyServerException e) {
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value = "usunPoId/{id}", method = RequestMethod.PUT)
@@ -76,10 +84,14 @@ public class UzytkownikController {
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoNazwieRoli(aNazwa),HttpStatus.OK);
     }
 
-
     @RequestMapping(value = "pobierzPoEmailuId/{email}",method = RequestMethod.GET)
     @ResponseBody
-        public ResponseEntity<UzytkownikDTO> znajdzUzytkownikaPoEmailu(@PathVariable("email") String aEmail){
-                return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoEmailu(aEmail), HttpStatus.OK);
+    public ResponseEntity<UzytkownikDTO> znajdzUzytkownikaPoEmailu(@PathVariable("email") String aEmail){
+        try{
+            return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoEmailu(aEmail), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+
     }
 }

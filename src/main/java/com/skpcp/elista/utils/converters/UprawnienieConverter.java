@@ -1,4 +1,4 @@
-package com.skpcp.elista.utils;
+package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.uprawnienia.dto.UprawnienieDTO;
 import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;

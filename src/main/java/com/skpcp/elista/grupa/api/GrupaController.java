@@ -3,6 +3,7 @@ package com.skpcp.elista.grupa.api;
 import com.skpcp.elista.grupa.dto.GrupaDTO;
 import com.skpcp.elista.grupa.dto.GrupaUzytkownikDTO;
 import com.skpcp.elista.grupa.service.IGrupaService;
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,32 +28,54 @@ public class GrupaController {
     @RequestMapping(value = "/pobierzGrupePoId/{id}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GrupaDTO> znajdzGrupePoId(@PathVariable("id") Long aId){
-        return new ResponseEntity<>(iGrupaService.znajdzGrupePoId(aId), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(iGrupaService.znajdzGrupePoId(aId), HttpStatus.OK);
+        }catch (MyServerException e){
+            return  new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value = "/zapiszGrupe",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<GrupaDTO> zapiszGrupe(@RequestBody GrupaDTO aGrupa){
-        return new ResponseEntity<>(iGrupaService.zapiszGrupe(aGrupa),HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(iGrupaService.zapiszGrupe(aGrupa), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value = "/dodajUzytkownikaDoGrupy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<GrupaDTO> dodajUzytkownikaDoGrupy(@RequestBody GrupaUzytkownikDTO aGrupaDTO){
+        try{
         return new ResponseEntity<>(iGrupaService.dodajUzytkownikDoGrupy(aGrupaDTO),HttpStatus.OK);
+        } catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+
     }
 
     @RequestMapping(value = "/pobierzGrupePoNazwie/{nazwa}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GrupaDTO> znajdzGrupePoNazwie(@PathVariable("nazwa") String aNazwa){
+        try{
         return new ResponseEntity<>(iGrupaService.znajdzGrupePoNazwie(aNazwa), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
+
 
 
     @RequestMapping(value = "/pobierzGrupePoLiderze/{lider.id}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GrupaDTO> znajdzGrupePoLiderze(@PathVariable("lider.id") Long aId){
+        try{
         return new ResponseEntity<>(iGrupaService.znajdzGrupePoLiderzeId(aId), HttpStatus.OK);
+        }catch(MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value = "/usunGrupePoId/{id}",method = RequestMethod.PUT)

@@ -1,11 +1,7 @@
-package com.skpcp.elista.utils;
+package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.czaspracy.dto.CzasPracyDTO;
 import com.skpcp.elista.czaspracy.ob.CzasPracyOB;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by Achilles on 2016-03-22.

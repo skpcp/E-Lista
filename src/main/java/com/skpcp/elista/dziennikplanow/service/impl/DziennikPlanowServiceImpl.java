@@ -4,16 +4,17 @@ import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
 import com.skpcp.elista.dziennikplanow.ob.DziennikPlanowOB;
 import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
 import com.skpcp.elista.dziennikplanow.service.IDziennikPlanowService;
-import com.skpcp.elista.utils.DziennikPlanowConverter;
+import com.skpcp.elista.utils.converters.DziennikPlanowConverter;
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -33,9 +34,9 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
 
 
     @Override
-    public DziennikPlanowDTO znajdzDziennikPlanowPoId(Long aId){
+    public DziennikPlanowDTO znajdzDziennikPlanowPoId(Long aId) throws MyServerException{
         DziennikPlanowOB pDziennikPlanowOB = iDziennikPlanowRepository.findOne(aId);//znajdź po ID, i zwróc instancje obiektu UzytkownikOB
-        if(pDziennikPlanowOB == null) return null; //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
+        if(pDziennikPlanowOB == null) throw new MyServerException("Nie znaleziono dziennika planow", HttpStatus.NOT_FOUND,new HttpHeaders()); //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
         return DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(pDziennikPlanowOB);
     }
     @Override
@@ -58,28 +59,20 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
         return listaWynikowaDziennikowPlanowDTO ;
 
     }
-//    @Override
-//    public List<DziennikPlanowDTO> znajdzDziennikPoDniuTygodnia(EDniTygodnia aDzienTygodnia){
-//        List<DziennikPlanowDTO> listaWynikowaDziennikowPlanowDTO = new ArrayList<>();//utworzenie pojemnika
-//        List<DziennikPlanowOB> listaDziennikowPlanowOB = iDziennikPlanowRepository.znajdzPoDniuTygodnia(aDzienTygodnia);
-//        //przepisanie moich użytkowników
-//        for(DziennikPlanowOB dziennik : listaDziennikowPlanowOB) listaWynikowaDziennikowPlanowDTO .add(DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(dziennik));
-//
-//        return listaWynikowaDziennikowPlanowDTO;//zwróć DTO/
-//    }
+
 
     @Override
-    public DziennikPlanowDTO zapiszDziennikPlanow(DziennikPlanowDTO aDziennikPlanowDTO) {//CREATE and EDIT
+    public DziennikPlanowDTO zapiszDziennikPlanow(DziennikPlanowDTO aDziennikPlanowDTO) throws MyServerException {//CREATE and EDIT
         UzytkownikDTO pUzytkownikDTO = aDziennikPlanowDTO.getUzytkownik();
-        if (pUzytkownikDTO == null) return null;
+        if (pUzytkownikDTO == null)  throw new MyServerException("Nie znaleziono pola uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getId() == null ? null :
                 iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
-        if(pUzytkownikOB == null) return null; //gdy nie istnieje użytkownik nie ma sensu przechodzić dalej!
+        if(pUzytkownikOB == null)  throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders()); //gdy nie istnieje użytkownik nie ma sensu przechodzić dalej!
 
         DziennikPlanowOB pDziennikPlanowOB = aDziennikPlanowDTO.getId() == null ? null :
                 iDziennikPlanowRepository.findOne(aDziennikPlanowDTO.getId());
         if(pDziennikPlanowOB == null) {//gdy nie ma takiego dziennika planów
-            return null;
+            throw new MyServerException("Nie znaleziono dziennika planow",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
         pDziennikPlanowOB.setTechDate(aDziennikPlanowDTO.getTechDate()); //to akurat wiadomo, że muszę zapisać kiedy to się stało
         pDziennikPlanowOB.setPlanOd(aDziennikPlanowDTO.getPlanOd()); //zmieniam dane!

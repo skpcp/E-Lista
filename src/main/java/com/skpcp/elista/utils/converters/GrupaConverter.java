@@ -1,4 +1,4 @@
-package com.skpcp.elista.utils;
+package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.grupa.dto.GrupaDTO;
 import com.skpcp.elista.grupa.ob.GrupaOB;

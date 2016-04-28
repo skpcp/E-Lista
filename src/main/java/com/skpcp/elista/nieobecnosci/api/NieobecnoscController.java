@@ -4,14 +4,13 @@ package com.skpcp.elista.nieobecnosci.api;
 import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTO;
 
 import com.skpcp.elista.nieobecnosci.service.INieobecnoscService;
-import com.skpcp.elista.utils.CzasPracyConverter;
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +28,11 @@ public class NieobecnoscController {
     @RequestMapping(value = "pobierzPoId/{id}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<NieobecnoscDTO> znajdzNieobecnoscPoId(@PathVariable("id") Long aId){
-        return new ResponseEntity<>(serwisNieobecnosc.znajdzNieobecnoscPoId(aId), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(serwisNieobecnosc.znajdzNieobecnoscPoId(aId), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value = "/pobierzWszystkie",method = RequestMethod.GET)
@@ -47,7 +50,11 @@ public class NieobecnoscController {
     @RequestMapping(value ="/pobierzPoDacie/{data},{uzytkownik.id}",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<NieobecnoscDTO> znajdzPoDacie(@PathVariable("data")Date aData,@PathVariable("uzytkownik.id") Long aIdUzytkownika ){
+        try{
         return new ResponseEntity<>(serwisNieobecnosc.znajdzNieobecnoscPoDacieIUzytkowniku(aData,aIdUzytkownika),HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value ="/pobierzPoTypie/{typ}",method = RequestMethod.GET)
@@ -65,7 +72,12 @@ public class NieobecnoscController {
     @RequestMapping(value = "/zapiszNieobecnosci",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<NieobecnoscDTO> zapiszNieobecnosci(@RequestBody NieobecnoscDTO aNieobecnosciDTO){
-        return new ResponseEntity<>(serwisNieobecnosc.zapiszNieobecnosc(aNieobecnosciDTO),HttpStatus.OK);
+        try
+        {
+            return new ResponseEntity<>(serwisNieobecnosc.zapiszNieobecnosc(aNieobecnosciDTO),HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value = "usunPoId/{id}", method = RequestMethod.PUT)
