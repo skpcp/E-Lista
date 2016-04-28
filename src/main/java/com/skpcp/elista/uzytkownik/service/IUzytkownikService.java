@@ -12,6 +12,7 @@ import java.util.List;
 
 public interface IUzytkownikService {
     UzytkownikDTO znajdzUzytkownikaPoId(Long aId);
+    UzytkownikDTO znajdzUzytkownikaPoEmailu(String aEmail);
     List<UzytkownikDTO> znajdzWszystkichUzytkownikow();
     List<UzytkownikDTO> znajdzUzytkownikowPoImieniu(String aImie);
     List<UzytkownikDTO> znajdzUzytkownikowPoNazwisku(String aNazwisko);
