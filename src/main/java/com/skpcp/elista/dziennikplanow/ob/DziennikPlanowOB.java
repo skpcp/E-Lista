@@ -1,13 +1,10 @@
 package com.skpcp.elista.dziennikplanow.ob;
 
 import com.skpcp.elista.base.ob.BaseOB;
-import com.skpcp.elista.dziennikplanow.EDniTygodnia;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Date;
 
 /**

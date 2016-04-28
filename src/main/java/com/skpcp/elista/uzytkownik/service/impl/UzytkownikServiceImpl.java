@@ -5,14 +5,18 @@ import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
 import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.rola.ob.RolaOB;
 import com.skpcp.elista.rola.respository.IRolaRepository;
-import com.skpcp.elista.utils.RolaConverter;
-import com.skpcp.elista.utils.UzytkownikConverter;
+import com.skpcp.elista.utils.converters.RolaConverter;
+import com.skpcp.elista.utils.converters.UzytkownikConverter;
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 import com.skpcp.elista.uzytkownik.service.IUzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMessage;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,9 +54,9 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
      * żywnie podoba.
      * */
     @Override
-    public UzytkownikDTO znajdzUzytkownikaPoId(Long aId) {
+    public UzytkownikDTO znajdzUzytkownikaPoId(Long aId) throws MyServerException {
         UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);//znajdź po ID, i zwróc instancje obiektu UzytkownikOB
-        if(pUzytkownikOB == null) return null; //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
+        if(pUzytkownikOB == null) throw new MyServerException("Nie ma takiego uzytkownika", HttpStatus.NOT_FOUND,new HttpHeaders()); //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
         return UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB);//muszę przekształcić dany typ obiektu OB na DTO by potem móc go wyświetlić albo robić z nim cokolwiek innego
     }
 
@@ -97,13 +101,13 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     }
 
     @Override
-    public UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO) {
+    public UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO) throws MyServerException {
         if(aUzytkownikDTO == null){
-            return null;
+            throw new MyServerException("Brak pola uzytkownik",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
         RolaDTO pGrupaDTO = aUzytkownikDTO.getRola();
         if(pGrupaDTO == null) {
-            return null;
+            throw new MyServerException("Brak pola rola",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
 
         //sprawdzam czy dany rekord z OB już istnieje
@@ -111,7 +115,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(aUzytkownikDTO.getId());
         if(pUzytkownikOB == null){//gdy nie ma takiego to zapisz
             UzytkownikOB pUzytkonikOBEmailVeryfication = aUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(aUzytkownikDTO.getEmail());
-            if(pUzytkonikOBEmailVeryfication != null) return null; //nie można stworzyć ponieważ już jest taki eamil;
+            if(pUzytkonikOBEmailVeryfication != null) throw new MyServerException("Juz jest taki mail",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders()); //nie można stworzyć ponieważ już jest taki eamil;
             RolaOB pRolaOB = iRolaRepository.znajdzPoNazwieGrupy("Pracownik");//domyslna rola
             aUzytkownikDTO.setRola(RolaConverter.rolaOBdoRolaDTO(pRolaOB));
             aUzytkownikDTO = UzytkownikConverter.uzytOBdoUzytkDTO(iUzytkownikRepository.save(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownikDTO)));//zapisuje
@@ -144,7 +148,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         }
         //edytuj istniejącego
         RolaOB rolaOB = pGrupaDTO.getId() == null ? null : iRolaRepository.znajdzPoNazwieGrupy(pGrupaDTO.getNazwa());
-        if(rolaOB == null ) return null; //nie znalazło no to null! xD
+        if(rolaOB == null ) throw new MyServerException("Nie ma takiej roli!",HttpStatus.NOT_FOUND,new HttpHeaders()); //nie znalazło no to null! xD
         pUzytkownikOB.setRola(rolaOB);
         pUzytkownikOB.setImie(aUzytkownikDTO.getImie());
         pUzytkownikOB.setNazwisko(aUzytkownikDTO.getNazwisko());

@@ -3,19 +3,21 @@ package com.skpcp.elista.nieobecnosci.service.impl;
 
 import com.skpcp.elista.czaspracy.ob.CzasPracyOB;
 import com.skpcp.elista.czaspracy.repository.ICzasPracyRepository;
-import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTO;
 import com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB;
 import com.skpcp.elista.nieobecnosci.repository.INieobecnoscRepository;
 import com.skpcp.elista.nieobecnosci.service.INieobecnoscService;
 
-import com.skpcp.elista.utils.NieobecnoscConverter;
-import com.skpcp.elista.utils.UzytkownikConverter;
+import com.skpcp.elista.utils.converters.NieobecnoscConverter;
+import com.skpcp.elista.utils.converters.UzytkownikConverter;
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,9 +41,9 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
     ICzasPracyRepository iCzasPracyRepository;
 
     @Override
-    public NieobecnoscDTO znajdzNieobecnoscPoId(Long aId){
+    public NieobecnoscDTO znajdzNieobecnoscPoId(Long aId) throws MyServerException{
         NieobecnoscOB pNieobecnosciOB = iNieobecnosciRepository.findOne(aId);
-        if(pNieobecnosciOB == null) return null;
+        if(pNieobecnosciOB == null) throw new MyServerException("Nie ma takiej nieobecnosci", HttpStatus.NOT_FOUND,new HttpHeaders());
         return NieobecnoscConverter.nieoOBdonieoDTO(pNieobecnosciOB);
     }
 
@@ -62,9 +64,9 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         return listaWynikowaNieobecnosciDTO;
     }
     @Override
-    public NieobecnoscDTO znajdzNieobecnoscPoDacieIUzytkowniku(Date aData, Long aIdUzytkownika){
+    public NieobecnoscDTO znajdzNieobecnoscPoDacieIUzytkowniku(Date aData, Long aIdUzytkownika) throws MyServerException{
         NieobecnoscOB pNieobecnoscOB = iNieobecnosciRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aData,aIdUzytkownika);//zwróc mi wszystkie nieobecności
-        if(pNieobecnoscOB == null) return null;
+        if(pNieobecnoscOB == null)  throw new MyServerException("Nie ma takiej nieobecnosci", HttpStatus.NOT_FOUND,new HttpHeaders());
         return NieobecnoscConverter.nieoOBdonieoDTO(pNieobecnoscOB);
 
     }
@@ -89,22 +91,22 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         return listaWynikowaNieobecnosciDTO;//zwróć DTO
     }
     @Override
-    public NieobecnoscDTO zapiszNieobecnosc(NieobecnoscDTO aNieobecnosciDTO){
+    public NieobecnoscDTO zapiszNieobecnosc(NieobecnoscDTO aNieobecnosciDTO) throws MyServerException{
         if(aNieobecnosciDTO == null){
-            return null;
+            throw new MyServerException("Brak pola nieobecnosc",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
 
         UzytkownikDTO pUzytkownikDTO = aNieobecnosciDTO.getUzytkownik() == null ? null : aNieobecnosciDTO.getUzytkownik();
-        if(pUzytkownikDTO == null) return null;// coś poszło nie tak
+        if(pUzytkownikDTO == null) throw new MyServerException("Nie ma takiego użytkownika", HttpStatus.NOT_FOUND,new HttpHeaders());// coś poszło nie tak
         //skoro nie jest nullem przystępujemy do pracy
         UzytkownikOB pUztkownikOB = pUzytkownikDTO.getId() == null ? null : iUzytkownikRepository.findOne(pUzytkownikDTO.getId());
         if(pUztkownikOB == null){
-            return null; //coś poszło nie tak
+            throw new MyServerException("Nie ma takiej nieobecnosci", HttpStatus.NOT_FOUND,new HttpHeaders()); //coś poszło nie tak
         }
 
         CzasPracyOB pCzasPracyOB = iCzasPracyRepository.znajdzCzasPracyPoDacieOrazUzytkowniku(pUzytkownikDTO.getId(),aNieobecnosciDTO.getData());
         if(pCzasPracyOB != null){
-            return null;
+            throw new MyServerException("Nie mozna zapisac nieobecnosci, gdyz istnieje juz zapisany na ten dzien czas pracy",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());
         }
         //sprawdzam czy dany rekord z OB już istnieje
 
@@ -116,7 +118,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         NieobecnoscOB pNieobecnosciOB = aNieobecnosciDTO.getId() == null ? null : iNieobecnosciRepository.findOne(aNieobecnosciDTO.getId());
 
         if(pNieobecnosciOB == null){//gdy nie ma takiego to zapisz
-            if(flaga) return  null; //nieuprawnione dodanie tego samego dnia kolejnej nieobecnosci do tego samego uzytkownika , ej!
+            if(flaga) throw new MyServerException("Nie mozna zapisac nieobecnosci, gdyz istnieje juz zapisana nieobecnosc na ten dzien, dla danego uzytkownika",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders()); //nieuprawnione dodanie tego samego dnia kolejnej nieobecnosci do tego samego uzytkownika , ej!
             aNieobecnosciDTO.setUzytkownik(UzytkownikConverter.uzytOBdoUzytkDTO(pUztkownikOB));
             return NieobecnoscConverter.nieoOBdonieoDTO(iNieobecnosciRepository.save(NieobecnoscConverter.nieoDTOdoNieoOB(aNieobecnosciDTO)));
         }

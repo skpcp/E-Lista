@@ -1,13 +1,9 @@
 package com.skpcp.elista.dziennikplanow.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
-import com.skpcp.elista.dziennikplanow.EDniTygodnia;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
-import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import io.swagger.annotations.ApiModel;
 
-import javax.transaction.Transactional;
-import java.io.Serializable;
 import java.util.Date;
 
 /**

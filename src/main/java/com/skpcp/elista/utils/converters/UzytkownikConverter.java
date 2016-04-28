@@ -1,4 +1,4 @@
-package com.skpcp.elista.utils;
+package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;

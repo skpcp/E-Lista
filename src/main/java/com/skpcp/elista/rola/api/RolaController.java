@@ -3,6 +3,7 @@ package com.skpcp.elista.rola.api;
 
 import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.rola.service.IRolaService;
+import com.skpcp.elista.utils.exceptions.MyServerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,11 @@ public class RolaController
     @ResponseBody
     public ResponseEntity <RolaDTO> znajdzRolePoNazwie(@PathVariable("nazwa") String aNazwa)
     {
-        return new ResponseEntity<>(serwisRola.znajdzRolePoNazwie(aNazwa), HttpStatus.OK);
+        try{
+            return new ResponseEntity<>(serwisRola.znajdzRolePoNazwie(aNazwa), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
     }
 
     @RequestMapping(value = "/pobierzWszystkieRole", method = RequestMethod.GET)
