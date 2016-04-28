@@ -1,7 +1,6 @@
 package com.skpcp.elista.uzytkownik.service;
 
 import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
-import com.skpcp.elista.utils.exceptions.MyServerException;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 
@@ -12,12 +11,12 @@ import java.util.List;
  */
 
 public interface IUzytkownikService {
-    UzytkownikDTO znajdzUzytkownikaPoId(Long aId) throws MyServerException;
+    UzytkownikDTO znajdzUzytkownikaPoId(Long aId);
     List<UzytkownikDTO> znajdzWszystkichUzytkownikow();
     List<UzytkownikDTO> znajdzUzytkownikowPoImieniu(String aImie);
     List<UzytkownikDTO> znajdzUzytkownikowPoNazwisku(String aNazwisko);
     List<UzytkownikDTO> znajdzUzytkownikowPoImieniuINazwisku(String aImie, String aNazwisko);
-    UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO) throws MyServerException;
+    UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO);
     void usunUzytkownika(Long aId);
     List<UzytkownikDTO> znajdzUzytkownikowPoAktywnosci(EStan aAktywnosc);
     List<UzytkownikDTO> znajdzUzytkownikowPoNazwieRoli(String aNazwa);

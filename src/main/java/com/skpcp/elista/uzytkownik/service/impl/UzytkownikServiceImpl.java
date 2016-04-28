@@ -53,6 +53,14 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
      * za pomocą serwius konwertuje je do DTO a potem mogę z nimi robić co mi się
      * żywnie podoba.
      * */
+
+    @Override
+    public UzytkownikDTO znajdzUzytkownikaPoEmailu(String aEmail) {
+        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.znajdzPoEmailu(aEmail);//znajdź po ID, i zwróc instancje obiektu UzytkownikOB
+        if(pUzytkownikOB == null) return null; //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
+        return UzytkownikConverter.uzytOBdoUzytkDTO(pUzytkownikOB);//muszę przekształcić dany typ obiektu OB na DTO by potem móc go wyświetlić albo robić z nim cokolwiek innego
+    }
+
     @Override
     public UzytkownikDTO znajdzUzytkownikaPoId(Long aId) throws MyServerException {
         UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);//znajdź po ID, i zwróc instancje obiektu UzytkownikOB

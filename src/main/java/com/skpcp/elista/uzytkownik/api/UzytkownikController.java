@@ -83,4 +83,11 @@ public class UzytkownikController {
     public ResponseEntity<List<UzytkownikDTO>> znajdzWszystkichUzytkownikowPoNazwieRoli(@PathVariable("rola.nazwa")String aNazwa){
         return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowPoNazwieRoli(aNazwa),HttpStatus.OK);
     }
+
+
+    @RequestMapping(value = "pobierzPoEmailuId/{email}",method = RequestMethod.GET)
+    @ResponseBody
+        public ResponseEntity<UzytkownikDTO> znajdzUzytkownikaPoEmailu(@PathVariable("email") String aEmail){
+                return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikaPoEmailu(aEmail), HttpStatus.OK);
+    }
 }
