@@ -72,6 +72,13 @@ public class UzytkownikController {
         serwisUzytkownika.usunUzytkownika(aId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @RequestMapping(value = "aktywujPoId/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseEntity<Void> aktywujUzytkownika(@PathVariable("id")Long aId){
+        serwisUzytkownika.aktywujUzytkownika(aId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
     @RequestMapping(value = "pobierzPoAktywnosci/{aktywnosc}",method = RequestMethod.GET)
     @ResponseBody

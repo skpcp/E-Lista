@@ -173,6 +173,12 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         pUzytkownikOB.setAktywnosc(EStan.NIEAKTYWNY);
         iUzytkownikRepository.save(pUzytkownikOB);
     }
+    @Override
+    public void aktywujUzytkownika(Long aId) {
+        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
+        pUzytkownikOB.setAktywnosc(EStan.NIEAKTYWNY);
+        iUzytkownikRepository.save(pUzytkownikOB);
+    }
 
     @Override
     public List<UzytkownikDTO> znajdzUzytkownikowPoAktywnosci(EStan aAktywnosc) {

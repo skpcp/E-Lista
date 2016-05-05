@@ -19,6 +19,7 @@ public interface IUzytkownikService {
     List<UzytkownikDTO> znajdzUzytkownikowPoImieniuINazwisku(String aImie, String aNazwisko);
     UzytkownikDTO zapiszUzytkownika(UzytkownikDTO aUzytkownikDTO) throws MyServerException ;
     void usunUzytkownika(Long aId);
+    void aktywujUzytkownika(Long aId);
     List<UzytkownikDTO> znajdzUzytkownikowPoAktywnosci(EStan aAktywnosc);
     List<UzytkownikDTO> znajdzUzytkownikowPoNazwieRoli(String aNazwa);
     UzytkownikDTO znajdzUzytkownikaPoEmailu(String aEmail) throws  MyServerException;
