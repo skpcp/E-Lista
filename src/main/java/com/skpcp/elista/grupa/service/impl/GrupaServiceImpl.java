@@ -1,7 +1,6 @@
 package com.skpcp.elista.grupa.service.impl;
 
 import com.skpcp.elista.grupa.dto.GrupaDTO;
-import com.skpcp.elista.grupa.dto.GrupaUzytkownikDTO;
 import com.skpcp.elista.grupa.ob.GrupaOB;
 import com.skpcp.elista.grupa.repository.IGrupaRepository;
 import com.skpcp.elista.grupa.service.IGrupaService;
@@ -15,6 +14,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,21 +33,14 @@ public class GrupaServiceImpl implements IGrupaService {
     IUzytkownikRepository uzytkownikRepository;
 
     @Override
-    public GrupaDTO dodajUzytkownikDoGrupy(GrupaUzytkownikDTO aGrupaDTO) throws MyServerException {
+    public GrupaDTO dodajUzytkownikDoGrupy(GrupaDTO aGrupaDTO) throws MyServerException {
         GrupaOB pGrupaOB = aGrupaDTO.getId() == null ? null : grupaRepository.findOne(aGrupaDTO.getId());
-        if(pGrupaOB == null)
-           throw new MyServerException("Nie ma takiej grupy", HttpStatus.NOT_FOUND,new HttpHeaders());//nie ma takiej grupy;
-
-        UzytkownikOB pUzytkownikOB = aGrupaDTO.getUzytkownik().getId() == null ? null : uzytkownikRepository.findOne(aGrupaDTO.getUzytkownik().getId());
-        if(pUzytkownikOB == null) throw new MyServerException("Nie ma takiej grupy", HttpStatus.NOT_FOUND,new HttpHeaders());//nie ma takiego użytkownika
-        List<UzytkownikOB> uzytkownicy = pGrupaOB.getUzytkownicy();
-        if(!uzytkownicy.isEmpty()) for(UzytkownikOB uzytkownikOB : uzytkownicy){ //jeżeli nie jest pusta
-            if(uzytkownikOB.getId() == pUzytkownikOB.getId()) throw new MyServerException("Nie można dodać użytkownika do listy ponieważ już istnieje ", HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());//dany użytkownik istnieje już w grupie
-        }
-        //istnieje oraz nie ma go w liście więc go dodaj
-        pGrupaOB.getUzytkownicy().add(pUzytkownikOB);
-
-
+        if(pGrupaOB == null) throw new MyServerException("Nie ma takiej grupy",HttpStatus.NOT_FOUND, new HttpHeaders());
+        UzytkownikOB uzytkownikOB = aGrupaDTO.getLider().getId() == null ? null : uzytkownikRepository.findOne(aGrupaDTO.getLider().getId());
+        if(uzytkownikOB == null) throw new MyServerException("Nie ma takiego uzytkownika",HttpStatus.NOT_FOUND, new HttpHeaders());
+        List<UzytkownikOB> uzytkownikOBs = pGrupaOB.getUzytkownicy();
+        if(uzytkownikOBs.contains(uzytkownikOB)) throw new MyServerException("Istnieje taki uzytkownik",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());
+        uzytkownikOBs.add(uzytkownikOB);
         return GrupaConverter.grupaOBdoGrupyDTO(grupaRepository.save(pGrupaOB));
 
     }

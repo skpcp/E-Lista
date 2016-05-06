@@ -1,11 +1,8 @@
 package com.skpcp.elista.grupa.api;
 
 import com.skpcp.elista.grupa.dto.GrupaDTO;
-import com.skpcp.elista.grupa.dto.GrupaUzytkownikDTO;
 import com.skpcp.elista.grupa.service.IGrupaService;
 import com.skpcp.elista.utils.exceptions.MyServerException;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
-import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -47,7 +44,7 @@ public class GrupaController {
 
     @RequestMapping(value = "/dodajUzytkownikaDoGrupy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<GrupaDTO> dodajUzytkownikaDoGrupy(@RequestBody GrupaUzytkownikDTO aGrupaDTO){
+    public ResponseEntity<GrupaDTO> dodajUzytkownikaDoGrupy(@RequestBody GrupaDTO aGrupaDTO){
         try{
         return new ResponseEntity<>(iGrupaService.dodajUzytkownikDoGrupy(aGrupaDTO),HttpStatus.OK);
         } catch (MyServerException e){

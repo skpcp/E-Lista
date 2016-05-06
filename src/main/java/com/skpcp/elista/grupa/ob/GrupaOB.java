@@ -14,7 +14,6 @@ import java.util.List;
 @Table(name = "grupy")
 @SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_GRUPA_ID")
 public class GrupaOB extends BaseOB {
-    @Column(unique = true)
     String nazwa;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LIDER_ID", referencedColumnName = "ID")
