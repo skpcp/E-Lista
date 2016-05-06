@@ -176,7 +176,7 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     @Override
     public void aktywujUzytkownika(Long aId) {
         UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
-        pUzytkownikOB.setAktywnosc(EStan.NIEAKTYWNY);
+        pUzytkownikOB.setAktywnosc(EStan.AKTYWNY);
         iUzytkownikRepository.save(pUzytkownikOB);
     }
 

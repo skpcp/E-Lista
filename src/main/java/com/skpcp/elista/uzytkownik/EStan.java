@@ -5,5 +5,6 @@ package com.skpcp.elista.uzytkownik;
  */
 public enum EStan {
     AKTYWNY,
+    OCZEKUJACY,
     NIEAKTYWNY
 }
