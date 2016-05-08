@@ -163,6 +163,7 @@ public class UzytkownikController {
             return new ResponseEntity<>(serwisUzytkownika.znajdzUzytkownikowWGrupiePoAktywnosci(aGrupaNazwa,aAktywnosc),HttpStatus.OK);
         }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/zmienGrupeUzytkownika/{id},{grupa.nazwa}",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
     public ResponseEntity<UzytkownikDTOBezHasla> zmienGrupeUzytkownika(@PathVariable("id") Long aIdUzytkownika, @PathVariable("grupa.nazwa") String aNazwaGrupy){
@@ -173,4 +174,14 @@ public class UzytkownikController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/zmienRoleUzytkownika/{id},{rola.nazwa}",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<UzytkownikDTOBezHasla> zmaienRoleUzytkownika(@PathVariable("id") Long aIdUzytkownika, @PathVariable("rola.nazwa") String aNazwaRoli){
+        try{
+            return new ResponseEntity<>(serwisUzytkownika.ustawRoleDlaUzytkownika(aIdUzytkownika,aNazwaRoli),HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+    }
 }

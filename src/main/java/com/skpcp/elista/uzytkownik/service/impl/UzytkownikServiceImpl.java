@@ -302,5 +302,15 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         pUzytkownikOB.setGrupa(pGrupaOB);
         return UzytkownikConverter.uzytkownikOBDoUzytkownikaDTOBezHasla(iUzytkownikRepository.save(pUzytkownikOB));
     }
+
+    @Override
+    public UzytkownikDTOBezHasla ustawRoleDlaUzytkownika(Long aIdUzytkownika, String aNazwaRoli) throws MyServerException {
+        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aIdUzytkownika);
+        if(pUzytkownikOB == null) throw  new MyServerException("Nie ma takiego uzytkownka",HttpStatus.NOT_FOUND,new HttpHeaders());
+        RolaOB pRolaOB = iRolaRepository.znajdzPoNazwieRoli(aNazwaRoli);
+        if(pRolaOB == null) throw new MyServerException("Nie ma takiej roli",HttpStatus.NOT_FOUND,new HttpHeaders());
+        pUzytkownikOB.setRola(pRolaOB);
+        return UzytkownikConverter.uzytkownikOBDoUzytkownikaDTOBezHasla(iUzytkownikRepository.save(pUzytkownikOB));
+    }
 }
 
