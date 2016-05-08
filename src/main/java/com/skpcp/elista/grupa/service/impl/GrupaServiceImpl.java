@@ -1,6 +1,6 @@
 package com.skpcp.elista.grupa.service.impl;
 
-import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.dto.*;
 import com.skpcp.elista.grupa.ob.GrupaOB;
 import com.skpcp.elista.grupa.repository.IGrupaRepository;
 import com.skpcp.elista.grupa.service.IGrupaService;
@@ -32,59 +32,58 @@ public class GrupaServiceImpl implements IGrupaService {
     @Autowired
     IUzytkownikRepository uzytkownikRepository;
 
-    @Override
-    public GrupaDTO dodajUzytkownikDoGrupy(GrupaDTO aGrupaDTO) throws MyServerException {
-        GrupaOB pGrupaOB = aGrupaDTO.getId() == null ? null : grupaRepository.findOne(aGrupaDTO.getId());
-        if(pGrupaOB == null) throw new MyServerException("Nie ma takiej grupy",HttpStatus.NOT_FOUND, new HttpHeaders());
-        UzytkownikOB uzytkownikOB = aGrupaDTO.getLider().getId() == null ? null : uzytkownikRepository.findOne(aGrupaDTO.getLider().getId());
-        if(uzytkownikOB == null) throw new MyServerException("Nie ma takiego uzytkownika",HttpStatus.NOT_FOUND, new HttpHeaders());
-        List<UzytkownikOB> uzytkownikOBs = pGrupaOB.getUzytkownicy();
-        if(uzytkownikOBs.contains(uzytkownikOB)) throw new MyServerException("Istnieje taki uzytkownik",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());
-        uzytkownikOBs.add(uzytkownikOB);
-        return GrupaConverter.grupaOBdoGrupyDTO(grupaRepository.save(pGrupaOB));
-
-    }
 
     @Override
-    public GrupaDTO zapiszGrupe(GrupaDTO aGrupaDTO) throws MyServerException{
+    public GrupaDTONazwaLider zapiszGrupe(GrupaDTOBezIdTechDate aGrupaDTO) throws MyServerException{
         if(aGrupaDTO == null) throw new MyServerException("Nie znaleziono pola", HttpStatus.NOT_FOUND,new HttpHeaders());
 
-        UzytkownikOB pUzytkownikOB = aGrupaDTO.getLider().getId() == null ? null : uzytkownikRepository.findOne(aGrupaDTO.getLider().getId());
+        UzytkownikOB pUzytkownikOB = aGrupaDTO.getLider().getEmail() == null ? null : uzytkownikRepository.znajdzPoEmailu(aGrupaDTO.getLider().getEmail());
         if(pUzytkownikOB == null) throw new MyServerException("Nie znaleziono uzytkownika", HttpStatus.NOT_FOUND,new HttpHeaders());//nie ma użytkownika który by mógł założyć grupe
 
-        GrupaOB pGrupaOB = (aGrupaDTO.getId() == null && aGrupaDTO.getNazwa() == null) ? null : grupaRepository.znajdzGrupePoIdOrazNazwie(aGrupaDTO.getId(),aGrupaDTO.getNazwa());
+        GrupaOB pGrupaOB = aGrupaDTO.getNazwa() == null ? null : grupaRepository.znajdzGrupePoNazwie(aGrupaDTO.getNazwa());
         if(pGrupaOB == null){
-            //zapisz grupę nową grupe
-            List<UzytkownikOB> uzytkownicyOB = new ArrayList<>();
-            uzytkownicyOB.add(pUzytkownikOB);
-            aGrupaDTO.setUzytkownicy(UzytkownikConverter.listUzytkOBdoUzytkDTO(uzytkownicyOB));
-            return GrupaConverter.grupaOBdoGrupyDTO(grupaRepository.save(GrupaConverter.grupaDTOdoGrupyOB(aGrupaDTO)));
+            pGrupaOB = new GrupaOB(aGrupaDTO.getNazwa(),pUzytkownikOB);
+            return GrupaConverter.grupaDTOdoGrupaDTONazwaLider(GrupaConverter.grupaOBdoGrupyDTO(grupaRepository.save(pGrupaOB)));
         }
         //jeżeli istniała to edytuj
         pGrupaOB.setLider(pUzytkownikOB); //zmieniam lidera
 
-        return GrupaConverter.grupaOBdoGrupyDTO(grupaRepository.save(pGrupaOB));
+        return GrupaConverter.grupaDTOdoGrupaDTONazwaLider(GrupaConverter.grupaOBdoGrupyDTO(grupaRepository.save(pGrupaOB)));
     }
 
     @Override
-    public GrupaDTO znajdzGrupePoId(Long aId) throws MyServerException {
+    public GrupaDTONazwaLider znajdzGrupePoId(Long aId) throws MyServerException {
         GrupaOB pGrupaOB = grupaRepository.findOne(aId);
         if(pGrupaOB == null) throw new MyServerException("Nie ma takiej grupy", HttpStatus.NOT_FOUND,new HttpHeaders());
-        return GrupaConverter.grupaOBdoGrupyDTO(pGrupaOB);
+        return GrupaConverter.grupaDTOdoGrupaDTONazwaLider(GrupaConverter.grupaOBdoGrupyDTO(pGrupaOB));
     }
 
     @Override
-    public GrupaDTO znajdzGrupePoNazwie(String aNazwa) throws MyServerException {
+    public GrupaDTONazwaLider znajdzGrupePoNazwie(String aNazwa) throws MyServerException {
         GrupaOB pGrupaOB = grupaRepository.znajdzGrupePoNazwie(aNazwa);
         if(pGrupaOB == null) throw new MyServerException("Nie ma takiej grupy", HttpStatus.NOT_FOUND,new HttpHeaders());
-        return GrupaConverter.grupaOBdoGrupyDTO(pGrupaOB);
+        return  GrupaConverter.grupaDTOdoGrupaDTONazwaLider(GrupaConverter.grupaOBdoGrupyDTO(pGrupaOB));
     }
 
     @Override
-    public GrupaDTO znajdzGrupePoLiderzeId(Long aIdLidera) throws MyServerException {
-        GrupaOB pGrupaOB = grupaRepository.znajdzGrupePoIdLidera(aIdLidera);
-        if(pGrupaOB == null) throw new MyServerException("Nie ma takiej grupy", HttpStatus.NOT_FOUND,new HttpHeaders());
-        return GrupaConverter.grupaOBdoGrupyDTO(pGrupaOB);
+    public List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoIdLidera(Long aIdLidera) {
+            List<GrupaOB> listaGrupaOB = grupaRepository.znajdzGrupePoIdLidera(aIdLidera);
+            List<GrupaDTOBezLiderAleZIdTechDate> listaGrupaDTO = new ArrayList<>();
+            for(GrupaOB pGrupaOB : listaGrupaOB){
+                listaGrupaDTO.add(GrupaConverter.grupaDTOdoGrupaDTOBezLiderAleZIdTechDate(GrupaConverter.grupaOBdoGrupyDTO(pGrupaOB)));
+            }
+            return listaGrupaDTO;
+        }
+
+
+    @Override
+    public List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoNazwieLidera(String aEmail)  {
+        List<GrupaOB> listaGrupaOB = grupaRepository.znajdzGrupePoEmailuLidera(aEmail);
+        List<GrupaDTOBezLiderAleZIdTechDate> listaGrupaDTO = new ArrayList<>();
+        for(GrupaOB pGrupaOB : listaGrupaOB){
+            listaGrupaDTO.add(GrupaConverter.grupaDTOdoGrupaDTOBezLiderAleZIdTechDate(GrupaConverter.grupaOBdoGrupyDTO(pGrupaOB)));
+        }
+        return listaGrupaDTO;
     }
 
     @Override

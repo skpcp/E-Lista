@@ -1,6 +1,8 @@
 package com.skpcp.elista.utils.converters;
 
 import com.skpcp.elista.rola.dto.RolaDTO;
+import com.skpcp.elista.rola.dto.RolaDTOBezIdTechDate;
+import com.skpcp.elista.rola.dto.RolaDTOBezUprawnien;
 import com.skpcp.elista.rola.ob.RolaOB;
 
 /**
@@ -21,6 +23,26 @@ public class RolaConverter
         if (aRolaOB == null)
             return null;
         return new RolaDTO(aRolaOB.getId(), aRolaOB.getTechDate(), aRolaOB.getNazwa(),UprawnienieConverter.uprawnienieListOBdoUprawnienDTO(aRolaOB.getUprawnienia()));
+    }
+
+    public static RolaDTOBezUprawnien rolaOBDoRolaDTOBezUprawnien(RolaOB aRolaOB){
+        if(aRolaOB == null) return null;
+        return new RolaDTOBezUprawnien(aRolaOB.getNazwa());
+    }
+
+    public static RolaDTO rolaDTOBezIDTechDateDoRoliDTO(RolaDTOBezIdTechDate aRolaDTO){
+        if(aRolaDTO == null) return null;
+        return new RolaDTO(aRolaDTO.getNazwa(),aRolaDTO.getUprawnienia());
+    }
+
+    public static RolaDTO rolaDTOBezUprawnienDoRoliDTO(RolaDTOBezUprawnien aRolaDTO){
+        if(aRolaDTO == null) return null;
+        return new RolaDTO(aRolaDTO.getNazwa(),null);
+    }
+
+    public static RolaDTOBezUprawnien rolaDTOdoRolaDTOBezUprawnien(RolaDTO aRolaDTO){
+        if(aRolaDTO == null) return null;
+        return new RolaDTOBezUprawnien(aRolaDTO.getNazwa());
     }
 }
 

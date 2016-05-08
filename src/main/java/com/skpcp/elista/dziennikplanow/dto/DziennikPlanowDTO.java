@@ -13,7 +13,6 @@ import java.util.Date;
 public class DziennikPlanowDTO extends BaseDTO {
     private UzytkownikDTO uzytkownik;
     private String dzienTygodnia;
-    //to do zmienic na date
     private Date planOd;
     private Date planDo;
 

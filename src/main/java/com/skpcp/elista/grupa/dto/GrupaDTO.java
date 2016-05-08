@@ -14,16 +14,20 @@ import java.util.List;
 public class GrupaDTO extends BaseDTO {
     String nazwa;
     UzytkownikDTO lider;
-    List<UzytkownikDTO> uzytkownicy;
+
 
     public GrupaDTO(){
     }
 
-    public GrupaDTO(Long id, Date techDate, String nazwa, UzytkownikDTO lider, List<UzytkownikDTO> uzytkownicy) {
+    public GrupaDTO(String nazwa, UzytkownikDTO lider) {
+        this.nazwa = nazwa;
+        this.lider = lider;
+    }
+
+    public GrupaDTO(Long id, Date techDate, String nazwa, UzytkownikDTO lider) {
         super(id, techDate);
         this.nazwa = nazwa;
         this.lider = lider;
-        this.uzytkownicy = uzytkownicy;
     }
 
     public String getNazwa() {
@@ -42,11 +46,5 @@ public class GrupaDTO extends BaseDTO {
         this.lider = lider;
     }
 
-    public List<UzytkownikDTO> getUzytkownicy() {
-        return uzytkownicy;
-    }
 
-    public void setUzytkownicy(List<UzytkownikDTO> uzytkownicy) {
-        this.uzytkownicy = uzytkownicy;
-    }
 }

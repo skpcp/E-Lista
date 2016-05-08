@@ -1,7 +1,9 @@
 package com.skpcp.elista.grupa.service;
 
-import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.dto.*;
 import com.skpcp.elista.utils.exceptions.MyServerException;
+
+import java.util.List;
 
 
 /**
@@ -9,10 +11,11 @@ import com.skpcp.elista.utils.exceptions.MyServerException;
  */
 public interface IGrupaService {
 
-    GrupaDTO zapiszGrupe(GrupaDTO aGrupa) throws MyServerException;
-    GrupaDTO znajdzGrupePoId(Long aId) throws MyServerException;
-    GrupaDTO dodajUzytkownikDoGrupy(GrupaDTO aGrupaDTO) throws MyServerException;
-    GrupaDTO znajdzGrupePoNazwie(String aNazwa) throws MyServerException;
-    GrupaDTO znajdzGrupePoLiderzeId(Long aIdLidera)throws MyServerException;
+    GrupaDTONazwaLider zapiszGrupe(GrupaDTOBezIdTechDate aGrupa) throws MyServerException;
+    GrupaDTONazwaLider znajdzGrupePoId(Long aId) throws MyServerException;
+
+    GrupaDTONazwaLider znajdzGrupePoNazwie(String aNazwa) throws MyServerException;
+    List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoIdLidera(Long aIdLidera)throws MyServerException;
+    List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoNazwieLidera(String aEmail) ;
     void usunGrupePoId(Long aId);
 }

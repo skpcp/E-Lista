@@ -4,6 +4,7 @@ package com.skpcp.elista.uprawnienia.dto;
 import com.skpcp.elista.base.dto.BaseDTO;
 import io.swagger.annotations.ApiModel;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -15,6 +16,10 @@ public class UprawnienieDTO extends BaseDTO {
     private String nazwa;
 
     public UprawnienieDTO() {
+    }
+
+    public UprawnienieDTO(String nazwa) {
+        this.nazwa = nazwa;
     }
 
     public UprawnienieDTO(Long id, Date techDate, String nazwa) {

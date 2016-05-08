@@ -4,6 +4,7 @@ import com.skpcp.elista.base.ob.BaseOB;
 import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
 public class RolaOB extends BaseOB  {
     @Column(unique = true)
     private String nazwa;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "UPRAWNIENIE_ID", referencedColumnName = "ID")
     private List<UprawnienieOB> uprawnienia;
 
@@ -23,6 +24,12 @@ public class RolaOB extends BaseOB  {
     }
 
     public RolaOB(String nazwa, List<UprawnienieOB> uprawnienia) {
+        this.nazwa = nazwa;
+        this.uprawnienia = uprawnienia;
+    }
+
+    public RolaOB(Long aId, Date techDate, String nazwa, List<UprawnienieOB> uprawnienia) {
+        super(aId, techDate);
         this.nazwa = nazwa;
         this.uprawnienia = uprawnienia;
     }

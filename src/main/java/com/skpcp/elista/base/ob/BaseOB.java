@@ -23,6 +23,11 @@ public abstract class BaseOB implements Serializable{
         public BaseOB() {
         }
 
+        public BaseOB(Long aId, Date techDate) {
+                this.id = aId;
+                this.techDate = techDate;
+        }
+
         public Long getId() {
                 return id;
         }

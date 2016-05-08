@@ -1,6 +1,6 @@
 package com.skpcp.elista.utils.converters;
 
-import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.dto.*;
 import com.skpcp.elista.grupa.ob.GrupaOB;
 
 /**
@@ -9,10 +9,45 @@ import com.skpcp.elista.grupa.ob.GrupaOB;
 public class GrupaConverter {
 
    public static GrupaOB grupaDTOdoGrupyOB(GrupaDTO aGrupaDTO){
-       return new GrupaOB(aGrupaDTO.getNazwa(),UzytkownikConverter.uzytDTOdoUzytkOB(aGrupaDTO.getLider()),UzytkownikConverter.listUzytkDTOdoUzytkOB(aGrupaDTO.getUzytkownicy()));
+       if(aGrupaDTO == null) return null;
+       GrupaOB pGrupaOB = new GrupaOB(aGrupaDTO.getNazwa(),UzytkownikConverter.uzytDTOdoUzytkOB(aGrupaDTO.getLider()));
+       pGrupaOB.setId(aGrupaDTO.getId());
+       pGrupaOB.setTechDate(aGrupaDTO.getTechDate());
+       return pGrupaOB;
    }
 
     public static GrupaDTO grupaOBdoGrupyDTO(GrupaOB aGrupaOB){
-        return new GrupaDTO(aGrupaOB.getId(),aGrupaOB.getTechDate(),aGrupaOB.getNazwa(),UzytkownikConverter.uzytOBdoUzytkDTO(aGrupaOB.getLider()),UzytkownikConverter.listUzytkOBdoUzytkDTO(aGrupaOB.getUzytkownicy()));
+        if(aGrupaOB == null) return  null;
+        return new GrupaDTO(aGrupaOB.getId(),aGrupaOB.getTechDate(),aGrupaOB.getNazwa(),UzytkownikConverter.uzytOBdoUzytkDTO(aGrupaOB.getLider()));
+    }
+
+    public static GrupaDTO grupaDTOBezIdTechDatedoGrupaDTO(GrupaDTOBezIdTechDate aGrupaDTO){
+        if(aGrupaDTO == null) return null;
+        return new GrupaDTO(aGrupaDTO.getNazwa(),UzytkownikConverter.uzytkownikDTOPodDoUzytkownikDTO(aGrupaDTO.getLider()));
+    }
+
+    public static GrupaDTO grupaDTOBezLideraDoGrupaDTO(GrupaDTOBezLidera aGrupaDTO){
+        if(aGrupaDTO == null) return null;
+        return new GrupaDTO(aGrupaDTO.getNazwa(),null);
+    }
+
+    public static GrupaDTOBezLidera grupaOBDoGrupaDTOBezLider(GrupaOB aGrupaOB){
+        if(aGrupaOB ==null) return null;
+        return new GrupaDTOBezLidera(aGrupaOB.getNazwa());
+    }
+
+    public static GrupaDTOBezLidera grupaDTOdoGrupaDTOBezLidera(GrupaDTO aGrupaDTO){
+        if(aGrupaDTO == null) return null;
+        return new GrupaDTOBezLidera(aGrupaDTO.getNazwa());
+    }
+
+    public static GrupaDTONazwaLider grupaDTOdoGrupaDTONazwaLider(GrupaDTO aGrupaDTO){
+        if(aGrupaDTO == null) return null;
+        return new GrupaDTONazwaLider(aGrupaDTO.getId(),aGrupaDTO.getTechDate(),aGrupaDTO.getNazwa(),UzytkownikConverter.uzytkownikDTOdoUzytkownikDTOBezHasla(aGrupaDTO.getLider()));
+    }
+
+    public static GrupaDTOBezLiderAleZIdTechDate grupaDTOdoGrupaDTOBezLiderAleZIdTechDate(GrupaDTO aGrupaDTO){
+        if(aGrupaDTO == null) return null;
+        return new GrupaDTOBezLiderAleZIdTechDate(aGrupaDTO.getId(),aGrupaDTO.getTechDate(),aGrupaDTO.getNazwa());
     }
 }

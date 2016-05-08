@@ -1,6 +1,7 @@
 package com.skpcp.elista.uzytkownik.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
+import com.skpcp.elista.grupa.dto.GrupaDTO;
 import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import io.swagger.annotations.ApiModel;
@@ -11,9 +12,9 @@ import java.util.Date;
 /**
  * Created by  Tomek on 2016-03-20.
  */
-//Walidacja danych w DTO ,
+
 @ApiModel
-public class UzytkownikDTO extends BaseDTO implements Serializable{
+public class UzytkownikDTO extends BaseDTO{
     private String imie;
     private String nazwisko;
     private String email;
@@ -21,27 +22,13 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
     private String telefon;
     private EStan aktywnosc;
     private RolaDTO rola;
+    private GrupaDTO grupa;
+
 
     public UzytkownikDTO() {
     }
 
-    public UzytkownikDTO(String email,String haslo){
-        this.email = email;
-        this.haslo = haslo;
-    }
-
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc) {
-        super(id, techDate);
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.email = email;
-        this.haslo = haslo;
-        this.telefon = telefon;
-        this.aktywnosc = aktywnosc;
-
-    }
-
-    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
+    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTO grupa) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
@@ -49,9 +36,10 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
         this.rola = rola;
+        this.grupa = grupa;
     }
 
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola) {
+    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTO grupa) {
         super(id, techDate);
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -60,6 +48,25 @@ public class UzytkownikDTO extends BaseDTO implements Serializable{
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
         this.rola = rola;
+        this.grupa = grupa;
+    }
+
+    public UzytkownikDTO(String nazwisko, String imie, String email, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTO grupa) {
+        this.nazwisko = nazwisko;
+        this.imie = imie;
+        this.email = email;
+        this.telefon = telefon;
+        this.aktywnosc = aktywnosc;
+        this.rola = rola;
+        this.grupa = grupa;
+    }
+
+    public GrupaDTO getGrupa() {
+        return grupa;
+    }
+
+    public void setGrupa(GrupaDTO grupa) {
+        this.grupa = grupa;
     }
 
     public String getImie() {

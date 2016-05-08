@@ -14,21 +14,18 @@ import java.util.List;
 @Table(name = "grupy")
 @SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_GRUPA_ID")
 public class GrupaOB extends BaseOB {
+    @Column(unique = true)
     String nazwa;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LIDER_ID", referencedColumnName = "ID")
     UzytkownikOB lider;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name ="GRUPA_ID",referencedColumnName = "ID")
-    List<UzytkownikOB> uzytkownicy;
 
     public GrupaOB() {
     }
 
-    public GrupaOB(String nazwa, UzytkownikOB lider, List<UzytkownikOB> uzytkownicy) {
+    public GrupaOB(String nazwa, UzytkownikOB lider) {
         this.nazwa = nazwa;
         this.lider = lider;
-        this.uzytkownicy = uzytkownicy;
     }
 
     public String getNazwa() {
@@ -47,11 +44,4 @@ public class GrupaOB extends BaseOB {
         this.lider = lider;
     }
 
-    public List<UzytkownikOB> getUzytkownicy() {
-        return uzytkownicy;
-    }
-
-    public void setUzytkownicy(List<UzytkownikOB> uzytkownicy) {
-        this.uzytkownicy = uzytkownicy;
-    }
 }

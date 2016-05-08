@@ -1,6 +1,7 @@
 package com.skpcp.elista.uzytkownik.ob;
 
 import com.skpcp.elista.base.ob.BaseOB;
+import com.skpcp.elista.grupa.ob.GrupaOB;
 import com.skpcp.elista.rola.ob.RolaOB;
 import com.skpcp.elista.uzytkownik.EStan;
 
@@ -21,17 +22,26 @@ public class UzytkownikOB extends BaseOB {
     @Column(length = 14)
     private String telefon;
     private EStan aktywnosc;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ROLA_ID", referencedColumnName = "ID")
     private RolaOB rola;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "GRUPA_ID", referencedColumnName = "ID")
+    private GrupaOB grupa;
+
+    public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaOB rola, GrupaOB grupa) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.email = email;
+        this.haslo = haslo;
+        this.telefon = telefon;
+        this.aktywnosc = aktywnosc;
+        this.rola = rola;
+        this.grupa = grupa;
+    }
 
     public UzytkownikOB() {
 
-    }
-
-    public UzytkownikOB(String email,String haslo){
-        this.email = email;
-        this.haslo = haslo;
     }
 
     public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc) {
@@ -41,17 +51,15 @@ public class UzytkownikOB extends BaseOB {
         this.haslo = haslo;
         this.telefon = telefon;
         this.aktywnosc = aktywnosc;
-
     }
 
-    public UzytkownikOB(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaOB rola) {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.email = email;
-        this.haslo = haslo;
-        this.telefon = telefon;
-        this.aktywnosc = aktywnosc;
-        this.rola = rola;
+
+    public GrupaOB getGrupa() {
+        return grupa;
+    }
+
+    public void setGrupa(GrupaOB grupa) {
+        this.grupa = grupa;
     }
 
     public String getImie() {

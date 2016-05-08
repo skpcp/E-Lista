@@ -1,6 +1,8 @@
 package com.skpcp.elista.rola.service.impl;
 
 import com.skpcp.elista.rola.dto.RolaDTO;
+import com.skpcp.elista.rola.dto.RolaDTOBezUprawnien;
+import com.skpcp.elista.rola.dto.RolaDTOZmiana;
 import com.skpcp.elista.rola.ob.RolaOB;
 import com.skpcp.elista.rola.respository.IRolaRepository;
 import com.skpcp.elista.rola.service.IRolaService;
@@ -27,7 +29,7 @@ public class RolaServiceImpl implements IRolaService {
     @Override
     public RolaDTO znajdzRolePoNazwie(String aNazwa) throws MyServerException
     {
-        RolaOB pRolaOB = iRolaRepository.znajdzPoNazwieGrupy(aNazwa);
+        RolaOB pRolaOB = iRolaRepository.znajdzPoNazwieRoli(aNazwa);
         if (pRolaOB == null)
             throw new MyServerException("Nie znaleziono takiej roli", HttpStatus.NOT_FOUND,new HttpHeaders());
         return RolaConverter.rolaOBdoRolaDTO(pRolaOB);
@@ -43,6 +45,15 @@ public class RolaServiceImpl implements IRolaService {
         return wynik;
     }
 
+    @Override
+    public RolaDTO edytujNazweRoli(RolaDTOZmiana aRolaDTO) throws MyServerException {
+        RolaOB pRolaOB = aRolaDTO.getRola() == null ? null : iRolaRepository.znajdzPoNazwieRoli(aRolaDTO.getRola());
+        if(pRolaOB == null) throw new MyServerException("Nie ma takiej roli",HttpStatus.NOT_FOUND,new HttpHeaders());
+        RolaOB pRolaOBZmiana = aRolaDTO.getRolaDoZmiany() == null ? null : iRolaRepository.znajdzPoNazwieRoli(aRolaDTO.getRolaDoZmiany());
+        if(pRolaOBZmiana != null) throw  new MyServerException("Nie istnieje juz rola o podanej nazwie",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());
+        pRolaOB.setNazwa(aRolaDTO.getRolaDoZmiany());
+        return  RolaConverter.rolaOBdoRolaDTO(iRolaRepository.save(pRolaOB));
+    }
 
     @Override
     public void usunRole(Long aId) {

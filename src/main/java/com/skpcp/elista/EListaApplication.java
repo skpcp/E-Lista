@@ -1,6 +1,8 @@
 package com.skpcp.elista;
 
 
+import com.skpcp.elista.grupa.ob.GrupaOB;
+import com.skpcp.elista.grupa.repository.IGrupaRepository;
 import com.skpcp.elista.rola.ob.RolaOB;
 import com.skpcp.elista.rola.respository.IRolaRepository;
 import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;
@@ -30,7 +32,7 @@ public class EListaApplication {
 }
 
 	@Bean
-	public CommandLineRunner demoUzytkownik(IUzytkownikRepository uzytkownikRepository, IRolaRepository grupaRespository, IUprawnienieRepository uprawnienieRepository)  {
+	public CommandLineRunner demoUzytkownik(IUzytkownikRepository uzytkownikRepository, IRolaRepository rolaRepository, IUprawnienieRepository uprawnienieRepository, IGrupaRepository grupaRepository)  {
 		List<UprawnienieOB> listaUprawnien = new ArrayList<>();
 		UprawnienieOB uprawnienieAdmina =new UprawnienieOB("ADMIN");
 		UprawnienieOB uprawnienieLidera = new UprawnienieOB("LIDER");
@@ -41,10 +43,18 @@ public class EListaApplication {
 		if(uprawnienieRepository.count()==0) uprawnienieRepository.save(listaUprawnien);
 		else return null;
 		RolaOB rolaOB = new RolaOB();
-		List<UprawnienieOB> listaUprawnienDlaGrupy = new ArrayList<>();
-		listaUprawnienDlaGrupy.add(uprawnienieAdmina);
+		List<UprawnienieOB> listaUprawnienDlaRoli = new ArrayList<>();
+		listaUprawnienDlaRoli.add(uprawnienieAdmina);
+		listaUprawnienDlaRoli.add(uprawnienieLidera);
+		listaUprawnienDlaRoli.add(uprawnieniePracownika);
 		rolaOB.setNazwa("Szef");
-		rolaOB.setUprawnienia(listaUprawnienDlaGrupy);
+		rolaOB.setUprawnienia(listaUprawnienDlaRoli);
+
+		List<UprawnienieOB> listaUprawnienDlaLidera = new ArrayList<>();
+		listaUprawnienDlaLidera.add(uprawnienieLidera);
+		listaUprawnienDlaLidera.add(uprawnieniePracownika);
+		RolaOB rolaDlaLidera = new RolaOB("Kierownik działu Programistów",listaUprawnienDlaLidera);
+
 
 		RolaOB pgrupaOB = new RolaOB();
 		pgrupaOB.setNazwa("Pracownik");
@@ -52,10 +62,11 @@ public class EListaApplication {
 		listaPracownicza.add(uprawnieniePracownika);
 		pgrupaOB.setUprawnienia(listaPracownicza);
 
-		List<RolaOB> listaGrup = new ArrayList<>();
-		listaGrup.add(rolaOB);
-		listaGrup.add(pgrupaOB);
-		if(grupaRespository.count()==0) grupaRespository.save(listaGrup);
+		List<RolaOB> listaRol = new ArrayList<>();
+		listaRol.add(rolaOB);
+		listaRol.add(pgrupaOB);
+		listaRol.add(rolaDlaLidera);
+		if(rolaRepository.count()==0) rolaRepository.save(listaRol);
 		else return null;
 		UzytkownikOB uzytkownikOB = new UzytkownikOB();
 		uzytkownikOB.setAktywnosc(EStan.AKTYWNY);
@@ -66,6 +77,10 @@ public class EListaApplication {
 		uzytkownikOB.setHaslo("123");
 		uzytkownikOB.setTelefon("444-444-444");
 		if(uzytkownikRepository.count()==0) uzytkownikRepository.save(uzytkownikOB);
+		GrupaOB grupaPracownicza = new GrupaOB();
+		grupaPracownicza.setNazwa("Pracownicy Firmy");
+		grupaPracownicza.setLider(uzytkownikOB);
+		if(grupaRepository.count()==0) grupaRepository.save(grupaPracownicza);
 		return null;
 	}
 

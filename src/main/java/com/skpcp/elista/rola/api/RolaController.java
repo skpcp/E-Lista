@@ -2,11 +2,14 @@ package com.skpcp.elista.rola.api;
 
 
 import com.skpcp.elista.rola.dto.RolaDTO;
+import com.skpcp.elista.rola.dto.RolaDTOBezUprawnien;
+import com.skpcp.elista.rola.dto.RolaDTOZmiana;
 import com.skpcp.elista.rola.service.IRolaService;
 import com.skpcp.elista.utils.exceptions.MyServerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,6 +54,17 @@ public class RolaController
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/edytujNazweRoli" , method = RequestMethod.POST, consumes = "application/json",produces = "application/json" )
+    @ResponseBody
+    public ResponseEntity<RolaDTO> edytujNazweRoli(@RequestBody RolaDTOZmiana aRolaDTO){
+        try{
+            return new ResponseEntity<>(serwisRola.edytujNazweRoli(aRolaDTO),HttpStatus.OK);
+        }catch(MyServerException e)
+        {
+          return  new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+    }
 
 }
 

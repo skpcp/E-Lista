@@ -12,12 +12,11 @@ import java.util.List;
 public class UprawnienieConverter {
     public static UprawnienieOB uprawnienieDTOdoUprawnienOB(UprawnienieDTO aUprawnienieDTO){
         UprawnienieOB pUprawnienieOB = new UprawnienieOB(aUprawnienieDTO.getNazwa());
-        pUprawnienieOB.setId(aUprawnienieDTO.getId());
-        pUprawnienieOB.setTechDate(aUprawnienieDTO.getTechDate());
+
         return pUprawnienieOB;
     }
     public static UprawnienieDTO uprawnienieOBdoUprawnienieDTO(UprawnienieOB aUprawnienieOB){
-        return new UprawnienieDTO(aUprawnienieOB.getId(),aUprawnienieOB.getTechDate(),aUprawnienieOB.getNazwa());
+        return new UprawnienieDTO(aUprawnienieOB.getNazwa());
     }
 
     public static List<UprawnienieOB> uprawnienieListDTOdoUprwnienOB(List<UprawnienieDTO> aListaUprawnienDTO){

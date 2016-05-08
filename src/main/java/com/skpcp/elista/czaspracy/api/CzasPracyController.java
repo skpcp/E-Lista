@@ -1,11 +1,12 @@
 package com.skpcp.elista.czaspracy.api;
 
-import com.skpcp.elista.czaspracy.dto.CzasPracyDTO;
+import com.skpcp.elista.czaspracy.dto.*;
 import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import com.skpcp.elista.utils.exceptions.MyServerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,17 +23,18 @@ public class CzasPracyController {
     @Autowired
     ICzasPracyService serwisCzasPracy;
 
+
     @RequestMapping(value = "/pobierzWszystkieCzasyPracyUzytkownika/{uzytkownik.id}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<List<CzasPracyDTO>> pobierzCzasPracyUzytkownika(@PathVariable("uzytkownik.id") Long aIdUzytkownika){
+    public ResponseEntity<List<CzasPracyDTOBezUzytkownika>> pobierzCzasPracyUzytkownika(@PathVariable("uzytkownik.id") Long aIdUzytkownika){
         return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasyPracyPoUzytkowniku(aIdUzytkownika),HttpStatus.OK);
     }
 
-   
 
+    @PreAuthorize("#aCzasPracyDTO.uzytkownik.email == authentication.name AND hasAuthority('PRACOWNIK') OR hasAnyAuthority('ADMIN,LIDER')")
     @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> zapiszCzasPracy(@RequestBody CzasPracyDTO aCzasPracyDTO){
+    public ResponseEntity<CzasPracyDTOUzytkownik> zapiszCzasPracy(@RequestBody CzasPracyDTOBezIdTechDate aCzasPracyDTO){
         try {
             return new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracy(aCzasPracyDTO), HttpStatus.OK);
         }catch (MyServerException e){
@@ -40,10 +42,10 @@ public class CzasPracyController {
         }
     }
 
-
+    @PreAuthorize("#aCzasPracyDTO.uzytkownik == authentication.name AND hasAuthority('PRACOWNIK') OR hasAnyAuthority('ADMIN,LIDER')")
     @RequestMapping(value = "/zapiszCzasPracyWedlugPlanu",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTO aCzasPracyDTO){
+    public ResponseEntity<CzasPracyDTOUzytkownik> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTOWedlugPlanu aCzasPracyDTO){
           try{
               return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(aCzasPracyDTO),HttpStatus.CREATED);
           }catch (MyServerException e){
@@ -51,16 +53,18 @@ public class CzasPracyController {
           }
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN,LIDER')")
     @RequestMapping(value = "usunCzasPracy/{id}",method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<Void> usunCzasPracy(@PathVariable("id") Long aId){
             serwisCzasPracy.usunCzasPracy(aId);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.OK);
     }
+
 
     @RequestMapping(value = "pobierzCzasPracy/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<CzasPracyDTO> pobierzCzasPracy(@PathVariable("id") Long aId){
+    public ResponseEntity<CzasPracyDTOUzytkownik> pobierzCzasPracy(@PathVariable("id") Long aId){
         try {
             return new ResponseEntity<>(serwisCzasPracy.znajdzCzasPracyPoId(aId), HttpStatus.OK);
         }catch (MyServerException e){

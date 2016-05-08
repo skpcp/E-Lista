@@ -16,9 +16,11 @@ public interface IGrupaRepository extends JpaRepository<GrupaOB, Long> {
     @Query("SELECT g FROM GrupaOB g WHERE g.nazwa = ?1")
     GrupaOB znajdzGrupePoNazwie(String aNazwa);
     @Query("SELECT g FROM GrupaOB g WHERE g.lider.id =?1")
-    GrupaOB znajdzGrupePoIdLidera(Long aId);
+    List<GrupaOB> znajdzGrupePoIdLidera(Long aId);
     @Query("SELECT g FROM GrupaOB g WHERE g.id = ?1 AND g.nazwa = ?2")
-    GrupaOB znajdzGrupePoIdOrazNazwie(Long aId,String nazwa);
+    List<GrupaOB> znajdzGrupePoIdOrazNazwie(Long aId,String nazwa);
+    @Query("SELECT g FROM GrupaOB g where g.lider.email = ?1")
+    List<GrupaOB> znajdzGrupePoEmailuLidera(String aEmail);
 //    @Query("UPDATE GrupaOB g SET g. WHERE g.id = ?2")
 //    GrupaOB dodajUzytkownikaDoGrupy(List<UzytkownikOB> aUzytkownicy, Long aId);
 }

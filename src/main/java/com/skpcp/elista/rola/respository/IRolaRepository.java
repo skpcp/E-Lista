@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface IRolaRepository extends JpaRepository <RolaOB, Long>
 {
     @Query("SELECT u FROM RolaOB u WHERE u.nazwa LIKE ?1")
-    RolaOB znajdzPoNazwieGrupy(String aNazwa);
+    RolaOB znajdzPoNazwieRoli(String aNazwa);
 
 }
