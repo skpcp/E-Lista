@@ -30,7 +30,9 @@ Metoda | Funkcjonalnosć | Opis
 Podsumowując serwis  „Użytkownik Controller” przeznaczony jest do wykonywania operacji związanych z użytkownikiem. Podstawową operacją jest stworzenie nowego użytkownika. Dzięki temu użytkownik będzie mógł korzystać z aplikacji ale także być przypisanym do grupy użytkowników odpowiedzialnych za wykonywanie pewnych obowiązków. Oprócz tego możemy w systemie znaleźć użytkownika na kilka różnych sposobów. 
 </br>
 b)Czas Pracy Controller:</br>
-Metoda | Funkcjonalnosć | Opis
+
+Metoda | Funkcjonalność | Opis 
  --- | --- | --- 
-*/pobierzWszystkieCzasyPracyUżytkownika* | Pobierz czas pracy użytkownika | Umożliwia pobranie czasu pracy dla użytkownika po przez podanie numeru id w pole użytkownik.id. Pole to jest polem kluczowym więc musi zostać wypełnione. Jeżeli nie będzie zostanie to zaznaczone przez system. Po znalezieniu użytkownika zostaną wyświetlone on nim wszystkie informacje. Czasu pracy zostaną pobrane na te dniu na które są zapisane godziny pracy z dziennika planów.
+
+
 
