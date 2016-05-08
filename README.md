@@ -36,6 +36,8 @@ Metoda | Funkcjonalność | Opis
  --- | --- | --- 
 */pobierzWszystkieCzasyPracyUżytkownika* | Pobierz czas pracy użytkownika | Umożliwia pobranie czasu pracy dla użytkownika po przez podanie numeru id w pole użytkownik.id. Pole to jest polem kluczowym więc musi zostać wypełnione. Jeżeli nie będzie zostanie to zaznaczone przez system. Po znalezieniu użytkownika zostaną wyświetlone on nim wszystkie informacje. Czasu pracy zostaną pobrane na te dniu na które są zapisane godziny pracy z dziennika planów. 
 */zapiszCzasPracy* | Zapisz czas pracy | Umożliwia zmianę godzin pracy bez potrzeby brania z dziennika planów. Użytkownik może sobie zmienić tylko godziny pracy.
+*/zapiszCzasPracyWedlugPlanu* | Zapisz czas pracy według planu | Umożliwia zapis czasu pracy według dziennika planów. W części użytkownika wpisywany jest jego numer co powoduje pobranie jego czasu pracy. Pokazane zostaną są wszystkie informacje związane z dziennikiem planów, informacje o użytkowniku dla którego jest szukany czas pracy. W tym momencie edycja czasu pracy możliwa jest tylko po przez dziennik planów ponieważ z niego są pobierane informacje o czasie pracy. Zapis czas pracy według dziennika planów zapisuje czas pracy według dnia tygodnia np.  poniedziałek, wtedy pobieramy godziny pracy z poniedziałkowego dziennika planów. Może być tylko jeden czas pracy na dzień. Jeżeli będzie próba zapisu drugiego na ten sam dzień to ponowna próba nie zostanie wykonana, gdyż dziennik jest już zapisy. 
+/*pobierzCzasPracy* | Pobierz czas pracy | Nie posiada żadnych pól kluczowych. Czasy pracy zostaną pobrane dla użytkowników, którzy mają zapisany czas pracy. Wraz z tymi informacjami zostaną pobrane informacje o użytkownikach. 
 
 
 
