@@ -12,16 +12,16 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  * Created by Tomasz Komoszeski on 2016-04-22.
  */
 @Configuration
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/elista/uzytkownicy/zarejestrujUzytkownika").permitAll()
-//                .anyRequest().fullyAuthenticated().and().
-                .anyRequest().permitAll().and().
+                .anyRequest().fullyAuthenticated().and().
+//                .anyRequest().permitAll().and().
                 httpBasic().and().
                 csrf().disable();
     }

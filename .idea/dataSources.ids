@@ -1,6 +1,420 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="PostgreSQL - elista@localhost" uuid="ee7ff5ea-9dc2-48c6-9af1-65a2ec33f64a">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="PostgreSQL" version="9.4.6" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.5">
+      <database id="1" name="elista"/>
+      <schema id="2" parent="1" name="public">
+        <object-id>2200</object-id>
+        <comment>standard public schema</comment>
+        <introspection-state-number>38038</introspection-state-number>
+        <introspection-timestamp>2016-05-09.16:17:13.415</introspection-timestamp>
+      </schema>
+      <sequence id="3" parent="2" name="gen_czas_pracy_id">
+        <object-id>97792</object-id>
+        <state-number>38032</state-number>
+      </sequence>
+      <sequence id="4" parent="2" name="gen_dziennik_planow_id">
+        <object-id>97794</object-id>
+        <state-number>38033</state-number>
+      </sequence>
+      <sequence id="5" parent="2" name="gen_grupa_id">
+        <object-id>97796</object-id>
+        <state-number>38034</state-number>
+      </sequence>
+      <sequence id="6" parent="2" name="gen_grupy_id">
+        <object-id>78289</object-id>
+        <state-number>27754</state-number>
+      </sequence>
+      <sequence id="7" parent="2" name="gen_nieobecnosc_id">
+        <object-id>97798</object-id>
+        <state-number>38035</state-number>
+      </sequence>
+      <sequence id="8" parent="2" name="gen_rola_id">
+        <object-id>97800</object-id>
+        <state-number>38036</state-number>
+      </sequence>
+      <sequence id="9" parent="2" name="gen_uprawnienie_id">
+        <object-id>97802</object-id>
+        <state-number>38037</state-number>
+      </sequence>
+      <sequence id="10" parent="2" name="gen_uzytkownik_id">
+        <object-id>97804</object-id>
+        <state-number>38038</state-number>
+      </sequence>
+      <table id="11" parent="2" name="czasypracy">
+        <object-id>97698</object-id>
+        <state-number>38024</state-number>
+      </table>
+      <table id="12" parent="2" name="dziennikiplanow">
+        <object-id>97704</object-id>
+        <state-number>38025</state-number>
+      </table>
+      <table id="13" parent="2" name="grupy">
+        <object-id>97710</object-id>
+        <state-number>38030</state-number>
+      </table>
+      <table id="14" parent="2" name="nieobecnosci">
+        <object-id>97716</object-id>
+        <state-number>38027</state-number>
+      </table>
+      <table id="15" parent="2" name="role">
+        <object-id>97722</object-id>
+        <state-number>38031</state-number>
+      </table>
+      <table id="16" parent="2" name="role_uprawnienia">
+        <object-id>97728</object-id>
+        <state-number>38029</state-number>
+      </table>
+      <table id="17" parent="2" name="uprawnienia">
+        <object-id>97731</object-id>
+        <state-number>38028</state-number>
+      </table>
+      <table id="18" parent="2" name="uzytkownicy">
+        <object-id>97737</object-id>
+        <state-number>38031</state-number>
+      </table>
+      <column id="19" parent="11" name="id">
+        <state-number>38013</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="20" parent="11" name="techdate">
+        <state-number>38013</state-number>
+        <data-type>timestamp</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="21" parent="11" name="dzien">
+        <state-number>38013</state-number>
+        <data-type>date</data-type>
+      </column>
+      <column id="22" parent="11" name="rozpoczecie">
+        <state-number>38013</state-number>
+        <data-type>time</data-type>
+      </column>
+      <column id="23" parent="11" name="zakonczenie">
+        <state-number>38013</state-number>
+        <data-type>time</data-type>
+      </column>
+      <column id="24" parent="11" name="zakres_pracy">
+        <state-number>38013</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="25" parent="11" name="uzytkownik_id">
+        <state-number>38013</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <index id="26" parent="11" name="czasypracy_pkey">
+        <object-id>97702</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="27" parent="11" name="czasypracy_pkey">
+        <columns>id</columns>
+        <underlying-index>czasypracy_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="28" parent="11" name="fk_nl6bwa0pcda99vynxvbm8ymd5">
+        <columns>uzytkownik_id</columns>
+        <ref-key>~.uzytkownicy.uzytkownicy_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="29" parent="12" name="id">
+        <state-number>38014</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="30" parent="12" name="techdate">
+        <state-number>38014</state-number>
+        <data-type>timestamp</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="31" parent="12" name="dzien_tygodnia">
+        <state-number>38014</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="32" parent="12" name="plan_do">
+        <state-number>38014</state-number>
+        <data-type>time</data-type>
+      </column>
+      <column id="33" parent="12" name="plan_od">
+        <state-number>38014</state-number>
+        <data-type>time</data-type>
+      </column>
+      <column id="34" parent="12" name="uzytkownik_id">
+        <state-number>38014</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <index id="35" parent="12" name="dziennikiplanow_pkey">
+        <object-id>97708</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="36" parent="12" name="dziennikiplanow_pkey">
+        <columns>id</columns>
+        <underlying-index>dziennikiplanow_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="37" parent="12" name="fk_ftgbbxsy3bkkfdbcccyurypfq">
+        <columns>uzytkownik_id</columns>
+        <ref-key>~.uzytkownicy.uzytkownicy_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="38" parent="13" name="id">
+        <state-number>38015</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="39" parent="13" name="techdate">
+        <state-number>38015</state-number>
+        <data-type>timestamp</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="40" parent="13" name="nazwa">
+        <state-number>38015</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="41" parent="13" name="lider_id">
+        <state-number>38015</state-number>
+        <data-type>bigint</data-type>
+      </column>
+      <index id="42" parent="13" name="grupy_pkey">
+        <object-id>97714</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="43" parent="13" name="uk_rnmbosps3chxa7qva1nuk9560">
+        <object-id>97746</object-id>
+        <columns>nazwa</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="44" parent="13" name="grupy_pkey">
+        <columns>id</columns>
+        <underlying-index>grupy_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <key id="45" parent="13" name="uk_rnmbosps3chxa7qva1nuk9560">
+        <columns>nazwa</columns>
+        <underlying-index>uk_rnmbosps3chxa7qva1nuk9560</underlying-index>
+      </key>
+      <foreign-key id="46" parent="13" name="fk_p3dhmecw73jnxxs6amyais12m">
+        <columns>lider_id</columns>
+        <ref-key>~.uzytkownicy.uzytkownicy_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="47" parent="14" name="id">
+        <state-number>38016</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="48" parent="14" name="techdate">
+        <state-number>38016</state-number>
+        <data-type>timestamp</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="49" parent="14" name="data">
+        <state-number>38016</state-number>
+        <data-type>date</data-type>
+      </column>
+      <column id="50" parent="14" name="ilosc_godzin">
+        <state-number>38016</state-number>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="51" parent="14" name="typ">
+        <state-number>38016</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="52" parent="14" name="uzytkownik_id">
+        <state-number>38016</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <index id="53" parent="14" name="nieobecnosci_pkey">
+        <object-id>97720</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="54" parent="14" name="nieobecnosci_pkey">
+        <columns>id</columns>
+        <underlying-index>nieobecnosci_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="55" parent="14" name="fk_m63u9s5tqbk6pwg48mpt8uglm">
+        <columns>uzytkownik_id</columns>
+        <ref-key>~.uzytkownicy.uzytkownicy_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="56" parent="15" name="id">
+        <state-number>38017</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="57" parent="15" name="techdate">
+        <state-number>38017</state-number>
+        <data-type>timestamp</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="58" parent="15" name="nazwa">
+        <state-number>38017</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="59" parent="15" name="role_pkey">
+        <object-id>97726</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="60" parent="15" name="uk_2n8dkhuj5req6452pnevi2nrw">
+        <object-id>97748</object-id>
+        <columns>nazwa</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="61" parent="15" name="role_pkey">
+        <columns>id</columns>
+        <underlying-index>role_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <key id="62" parent="15" name="uk_2n8dkhuj5req6452pnevi2nrw">
+        <columns>nazwa</columns>
+        <underlying-index>uk_2n8dkhuj5req6452pnevi2nrw</underlying-index>
+      </key>
+      <column id="63" parent="16" name="role_id">
+        <state-number>38018</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="64" parent="16" name="uprawnienia_id">
+        <state-number>38018</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <foreign-key id="65" parent="16" name="fk_bvcedvtjrqgdy1sn15oqsd615">
+        <columns>role_id</columns>
+        <ref-key>~.role.role_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="66" parent="16" name="fk_f1583km70rs4ymdf5aer4l7ri">
+        <columns>uprawnienia_id</columns>
+        <ref-key>~.uprawnienia.uprawnienia_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="67" parent="17" name="id">
+        <state-number>38019</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="68" parent="17" name="techdate">
+        <state-number>38019</state-number>
+        <data-type>timestamp</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="69" parent="17" name="nazwa">
+        <state-number>38019</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="70" parent="17" name="uprawnienia_pkey">
+        <object-id>97735</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="71" parent="17" name="uprawnienia_pkey">
+        <columns>id</columns>
+        <underlying-index>uprawnienia_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="72" parent="18" name="id">
+        <state-number>38020</state-number>
+        <mandatory>1</mandatory>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="73" parent="18" name="techdate">
+        <state-number>38020</state-number>
+        <data-type>timestamp</data-type>
+        <default-expression>now()</default-expression>
+      </column>
+      <column id="74" parent="18" name="aktywnosc">
+        <state-number>38020</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="75" parent="18" name="email">
+        <state-number>38020</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="76" parent="18" name="haslo">
+        <state-number>38020</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="77" parent="18" name="imie">
+        <state-number>38020</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="78" parent="18" name="nazwisko">
+        <state-number>38020</state-number>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="79" parent="18" name="telefon">
+        <state-number>38020</state-number>
+        <data-type>varchar(14)</data-type>
+      </column>
+      <column id="80" parent="18" name="grupa_id">
+        <state-number>38020</state-number>
+        <data-type>bigint</data-type>
+      </column>
+      <column id="81" parent="18" name="rola_id">
+        <state-number>38020</state-number>
+        <data-type>bigint</data-type>
+      </column>
+      <index id="82" parent="18" name="uzytkownicy_pkey">
+        <object-id>97744</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="83" parent="18" name="uk_8iuohbnyba1i25m8ktbox9oqe">
+        <object-id>97750</object-id>
+        <columns>email</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="84" parent="18" name="uzytkownicy_pkey">
+        <columns>id</columns>
+        <underlying-index>uzytkownicy_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <key id="85" parent="18" name="uk_8iuohbnyba1i25m8ktbox9oqe">
+        <columns>email</columns>
+        <underlying-index>uk_8iuohbnyba1i25m8ktbox9oqe</underlying-index>
+      </key>
+      <foreign-key id="86" parent="18" name="fk_4pn05vodt7gbbctuyga8d2trn">
+        <columns>grupa_id</columns>
+        <ref-key>~.grupy.grupy_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="87" parent="18" name="fk_a0w56i4tt9wlvd6ybwvoibs0q">
+        <columns>rola_id</columns>
+        <ref-key>~.role.role_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
   </data-source>
 </component>

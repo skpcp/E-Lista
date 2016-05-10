@@ -5,6 +5,7 @@ import com.skpcp.elista.base.ob.BaseOB;
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * Created by Tomasz Komoszeski on 2016-04-16.
@@ -19,6 +20,11 @@ public class UprawnienieOB extends BaseOB {
     }
 
     public UprawnienieOB(String nazwa) {
+        this.nazwa = nazwa;
+    }
+
+    public UprawnienieOB(Long aId, Date techDate, String nazwa) {
+        super(aId, techDate);
         this.nazwa = nazwa;
     }
 
