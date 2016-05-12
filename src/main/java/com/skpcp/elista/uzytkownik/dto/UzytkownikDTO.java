@@ -2,6 +2,7 @@ package com.skpcp.elista.uzytkownik.dto;
 
 import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.grupa.dto.GrupaDTO;
+import com.skpcp.elista.grupa.dto.GrupaDTOUzytkownik;
 import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.uzytkownik.EStan;
 import io.swagger.annotations.ApiModel;
@@ -22,13 +23,13 @@ public class UzytkownikDTO extends BaseDTO{
     private String telefon;
     private EStan aktywnosc;
     private RolaDTO rola;
-    private GrupaDTO grupa;
+    private GrupaDTOUzytkownik grupa;
 
 
     public UzytkownikDTO() {
     }
 
-    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTO grupa) {
+    public UzytkownikDTO(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTOUzytkownik grupa) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
@@ -39,7 +40,7 @@ public class UzytkownikDTO extends BaseDTO{
         this.grupa = grupa;
     }
 
-    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTO grupa) {
+    public UzytkownikDTO(Long id, Date techDate, String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTOUzytkownik grupa) {
         super(id, techDate);
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -51,38 +52,20 @@ public class UzytkownikDTO extends BaseDTO{
         this.grupa = grupa;
     }
 
-    public UzytkownikDTO(String nazwisko, String imie, String email, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTO grupa) {
-        this.nazwisko = nazwisko;
-        this.imie = imie;
-        this.email = email;
-        this.telefon = telefon;
-        this.aktywnosc = aktywnosc;
-        this.rola = rola;
-        this.grupa = grupa;
-    }
-
-    public GrupaDTO getGrupa() {
-        return grupa;
-    }
-
-    public void setGrupa(GrupaDTO grupa) {
-        this.grupa = grupa;
-    }
-
     public String getImie() {
         return imie;
     }
 
-    public void setImie(String aImie) {
-        this.imie = aImie;
+    public void setImie(String imie) {
+        this.imie = imie;
     }
 
     public String getNazwisko() {
         return nazwisko;
     }
 
-    public void setNazwisko(String aNazwisko) {
-        this.nazwisko = aNazwisko;
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
     public String getEmail() {
@@ -123,5 +106,13 @@ public class UzytkownikDTO extends BaseDTO{
 
     public void setRola(RolaDTO rola) {
         this.rola = rola;
+    }
+
+    public GrupaDTOUzytkownik getGrupa() {
+        return grupa;
+    }
+
+    public void setGrupa(GrupaDTOUzytkownik grupa) {
+        this.grupa = grupa;
     }
 }

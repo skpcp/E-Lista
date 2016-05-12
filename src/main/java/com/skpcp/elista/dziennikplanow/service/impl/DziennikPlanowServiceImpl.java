@@ -1,6 +1,5 @@
 package com.skpcp.elista.dziennikplanow.service.impl;
 
-import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
 import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTOBezTechDate;
 import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTOBezUzytkownika;
 import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTOUzytkownik;
@@ -9,9 +8,6 @@ import com.skpcp.elista.dziennikplanow.repository.IDziennikPlanowRepository;
 import com.skpcp.elista.dziennikplanow.service.IDziennikPlanowService;
 import com.skpcp.elista.utils.converters.DziennikPlanowConverter;
 import com.skpcp.elista.utils.exceptions.MyServerException;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOBezHasla;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,10 +60,8 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
 
     @Override
     public DziennikPlanowDTOUzytkownik zapiszDziennikPlanow(DziennikPlanowDTOBezTechDate aDziennikPlanowDTO) throws MyServerException {//CREATE and EDIT
-        UzytkownikDTOEmail pUzytkownikDTO = aDziennikPlanowDTO.getUzytkownik();
-        if (pUzytkownikDTO == null)  throw new MyServerException("Nie znaleziono pola uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
-        UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getEmail() == null ? null :
-               iUzytkownikRepository.znajdzPoEmailu(pUzytkownikDTO.getEmail());
+
+        UzytkownikOB pUzytkownikOB = aDziennikPlanowDTO.getUzytkownikId() == null ? null : iUzytkownikRepository.findOne(aDziennikPlanowDTO.getUzytkownikId());
         if(pUzytkownikOB == null)  throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders()); //gdy nie istnieje użytkownik nie ma sensu przechodzić dalej!
 
         DziennikPlanowOB pDziennikPlanowOB = aDziennikPlanowDTO.getId() == null ? null :

@@ -1,7 +1,5 @@
 package com.skpcp.elista.nieobecnosci.dto;
 
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
@@ -14,7 +12,7 @@ import java.util.Date;
 @ApiModel
 public class NieobecnoscDTOBezTechDate implements Serializable {
     private Long id;
-    private UzytkownikDTOEmail uzytkownik;
+    private Long uzytkownikId;
     private Date data;
     private Long ilosc;
     private String typ;
@@ -23,9 +21,9 @@ public class NieobecnoscDTOBezTechDate implements Serializable {
 
     }
 
-    public NieobecnoscDTOBezTechDate(Long id, UzytkownikDTOEmail uzytkownik, Date data, Long ilosc, String typ) {
+    public NieobecnoscDTOBezTechDate(Long id, Long uzytkownikId, Date data, Long ilosc, String typ) {
         this.id = id;
-        this.uzytkownik = uzytkownik;
+        this.uzytkownikId = uzytkownikId;
         this.data = data;
         this.ilosc = ilosc;
         this.typ = typ;
@@ -39,12 +37,12 @@ public class NieobecnoscDTOBezTechDate implements Serializable {
         this.id = id;
     }
 
-    public UzytkownikDTOEmail getUzytkownik() {
-        return uzytkownik;
+    public Long getUzytkownikId() {
+        return uzytkownikId;
     }
 
-    public void setUzytkownik(UzytkownikDTOEmail uzytkownik) {
-        this.uzytkownik = uzytkownik;
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
     public Date getData() {

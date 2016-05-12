@@ -1,11 +1,8 @@
 package com.skpcp.elista.czaspracy.dto;
 
 
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import io.swagger.annotations.ApiModel;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Date;
 

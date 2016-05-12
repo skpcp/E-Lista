@@ -166,10 +166,10 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
             return UzytkownikConverter.uzytkownikOBDoUzytkownikaDTOBezHasla(pUzytkownikOB);
         }
         //edytuj istniejącego imie nazwisko telefon
-        RolaOB rolaOB = aUzytkownikDTO.getRola().getNazwa() == null ? null : iRolaRepository.znajdzPoNazwieRoli(aUzytkownikDTO.getRola().getNazwa());
+        RolaOB rolaOB = aUzytkownikDTO.getRola() == null ? null : iRolaRepository.znajdzPoNazwieRoli(aUzytkownikDTO.getRola());
         if(rolaOB == null ) throw new MyServerException("Nie ma takiej roli!",HttpStatus.NOT_FOUND,new HttpHeaders()); //nie znalazło no to null! xD
         pUzytkownikOB.setRola(rolaOB);
-        GrupaOB grupaOB = aUzytkownikDTO.getGrupa().getNazwa() == null ? null : iGrupaRepository.znajdzGrupePoNazwie(aUzytkownikDTO.getGrupa().getNazwa());
+        GrupaOB grupaOB = aUzytkownikDTO.getGrupa() == null ? null : iGrupaRepository.znajdzGrupePoNazwie(aUzytkownikDTO.getGrupa());
         if(grupaOB == null) throw new MyServerException("Nie ma takiej grupy",HttpStatus.NOT_FOUND,new HttpHeaders());
         UzytkownikOB lider = grupaOB.getLider();
         if(lider.getId() == pUzytkownikOB.getId()) throw new MyServerException("Nie możesz dołączyc do grupy w której jestes liderem",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());

@@ -3,7 +3,6 @@ package com.skpcp.elista.nieobecnosci.service.impl;
 
 import com.skpcp.elista.czaspracy.ob.CzasPracyOB;
 import com.skpcp.elista.czaspracy.repository.ICzasPracyRepository;
-import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTO;
 import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTOBezTechDate;
 import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTOBezUzytkownika;
 import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTOUzytkownik;
@@ -12,10 +11,7 @@ import com.skpcp.elista.nieobecnosci.repository.INieobecnoscRepository;
 import com.skpcp.elista.nieobecnosci.service.INieobecnoscService;
 
 import com.skpcp.elista.utils.converters.NieobecnoscConverter;
-import com.skpcp.elista.utils.converters.UzytkownikConverter;
 import com.skpcp.elista.utils.exceptions.MyServerException;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 
@@ -48,14 +44,14 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
     public NieobecnoscDTOUzytkownik znajdzNieobecnoscPoId(Long aId) throws MyServerException{
         NieobecnoscOB pNieobecnosciOB = iNieobecnosciRepository.findOne(aId);
         if(pNieobecnosciOB == null) throw new MyServerException("Nie ma takiej nieobecnosci", HttpStatus.NOT_FOUND,new HttpHeaders());
-        return NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOUzytkownik(NieobecnoscConverter.nieoOBdonieoDTO(pNieobecnosciOB));
+        return NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOUzytkownik(pNieobecnosciOB);
     }
 
     @Override
     public List<NieobecnoscDTOUzytkownik> znajdzWszystkieNieobecnosci(){
         List<NieobecnoscDTOUzytkownik> listaWynikowaNieobecnosciDTO = new ArrayList<>();
         List<NieobecnoscOB> listaNieobecnosciOB = iNieobecnosciRepository.findAll();
-        for(NieobecnoscOB nieobecnosci : listaNieobecnosciOB) listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOUzytkownik(NieobecnoscConverter.nieoOBdonieoDTO(nieobecnosci)));
+        for(NieobecnoscOB nieobecnosci : listaNieobecnosciOB) listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOUzytkownik(nieobecnosci));
 
         return listaWynikowaNieobecnosciDTO;
     }
@@ -64,14 +60,15 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         List<NieobecnoscDTOUzytkownik> listaWynikowaNieobecnosciDTO = new ArrayList<>();
         List<NieobecnoscOB> listaNieobecnosciOB = iNieobecnosciRepository.znajdzNieobecnosciPoUzytkowniku(aIdUzytkownika);
         for(NieobecnoscOB nieobecnoscOB : listaNieobecnosciOB)
-        listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOUzytkownik(NieobecnoscConverter.nieoOBdonieoDTO(nieobecnoscOB)));
+        listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOUzytkownik(nieobecnoscOB));
         return listaWynikowaNieobecnosciDTO;
     }
+
     @Override
     public NieobecnoscDTOBezUzytkownika znajdzNieobecnoscPoDacieIUzytkowniku(Date aData, Long aIdUzytkownika) throws MyServerException{
         NieobecnoscOB pNieobecnoscOB = iNieobecnosciRepository.znajdzNieobecnoscPoDacieIUzytkowniku(aData,aIdUzytkownika);//zwróc mi wszystkie nieobecności
         if(pNieobecnoscOB == null)  throw new MyServerException("Nie ma takiej nieobecnosci", HttpStatus.NOT_FOUND,new HttpHeaders());
-        return NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOBezUzytkownika(NieobecnoscConverter.nieoOBdonieoDTO(pNieobecnoscOB));
+        return NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOBezUzytkownika(pNieobecnoscOB);
 
     }
     @Override
@@ -79,8 +76,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         List<NieobecnoscDTOUzytkownik> listaWynikowaNieobecnosciDTO = new ArrayList<>();//utworzenie pojemnika
         List<NieobecnoscOB> listaNieobecnosciOB = iNieobecnosciRepository.znajdzNieboecnosciPoTypie(aTyp);//zwróc mi wszystkie nieobecności
         //przepisanie moich nieobecnosci
-        for(NieobecnoscOB nieobecnosc : listaNieobecnosciOB) listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOUzytkownik(NieobecnoscConverter.nieoOBdonieoDTO(nieobecnosc))); //zmień każdą instancję NieobecnosciOB do instancji DTO
-
+        for(NieobecnoscOB nieobecnosc : listaNieobecnosciOB) listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOUzytkownik(nieobecnosc)); //zmień każdą instancję NieobecnosciOB do instancji DTO
         return listaWynikowaNieobecnosciDTO;//zwróć DTO
 
     }
@@ -90,8 +86,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         List<NieobecnoscDTOBezUzytkownika> listaWynikowaNieobecnosciDTO = new ArrayList<>();//utworzenie pojemnika
         List<NieobecnoscOB> listaNieobecnosciOB = iNieobecnosciRepository.znajdzPoTypieNieobecnosciIUzytkowniku(aTyp,aIdUzytkownika);//zwróc mi wszystkie nieobecności
         //przepisanie moich nieobecnosci
-        for(NieobecnoscOB nieobecnosc : listaNieobecnosciOB) listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOBezUzytkownika(NieobecnoscConverter.nieoOBdonieoDTO(nieobecnosc)));
-
+        for(NieobecnoscOB nieobecnosc : listaNieobecnosciOB) listaWynikowaNieobecnosciDTO.add(NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOBezUzytkownika(nieobecnosc));
         return listaWynikowaNieobecnosciDTO;//zwróć DTO
     }
     @Override
@@ -100,10 +95,8 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
             throw new MyServerException("Brak pola nieobecnosc",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
 
-        UzytkownikDTOEmail pUzytkownikDTO = aNieobecnosciDTO.getUzytkownik() == null ? null : aNieobecnosciDTO.getUzytkownik();
-        if(pUzytkownikDTO == null) throw new MyServerException("Nie ma takiego użytkownika", HttpStatus.NOT_FOUND,new HttpHeaders());// coś poszło nie tak
-        //skoro nie jest nullem przystępujemy do pracy
-        UzytkownikOB pUztkownikOB = pUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(pUzytkownikDTO.getEmail());
+
+        UzytkownikOB pUztkownikOB = aNieobecnosciDTO.getUzytkownikId() == null ? null : iUzytkownikRepository.findOne(aNieobecnosciDTO.getId());
         if(pUztkownikOB == null){
             throw new MyServerException("Nie ma takiego użytkownika", HttpStatus.NOT_FOUND,new HttpHeaders()); //coś poszło nie tak
         }
@@ -124,7 +117,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         if(pNieobecnosciOB == null){//gdy nie ma takiego to zapisz
             if(flaga) throw new MyServerException("Nie mozna zapisac nieobecnosci, gdyz istnieje juz zapisana nieobecnosc na ten dzien, dla danego uzytkownika",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders()); //nieuprawnione dodanie tego samego dnia kolejnej nieobecnosci do tego samego uzytkownika , ej!
             pNieobecnosciOB = new NieobecnoscOB(pUztkownikOB,aNieobecnosciDTO.getData(),aNieobecnosciDTO.getIlosc(),aNieobecnosciDTO.getTyp());
-            return NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOUzytkownik(NieobecnoscConverter.nieoOBdonieoDTO(iNieobecnosciRepository.save(pNieobecnosciOB)));
+            return NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOUzytkownik(iNieobecnosciRepository.save(pNieobecnosciOB));
         }
 
         //edytuj istniejącego
@@ -132,7 +125,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         pNieobecnosciOB.setData(aNieobecnosciDTO.getData());
         pNieobecnosciOB.setIloscGodzin(aNieobecnosciDTO.getIlosc());
         pNieobecnosciOB.setTyp(aNieobecnosciDTO.getTyp());
-        return NieobecnoscConverter.nieobecnoscDTOdoNieobecnoscDTOUzytkownik(NieobecnoscConverter.nieoOBdonieoDTO(iNieobecnosciRepository.save(pNieobecnosciOB)));
+        return NieobecnoscConverter.nieobecnoscOBDoNieobecnoscDTOUzytkownik(iNieobecnosciRepository.save(pNieobecnosciOB));
 
     }
     @Override

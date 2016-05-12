@@ -1,8 +1,6 @@
 package com.skpcp.elista.grupa.dto;
 
 
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;

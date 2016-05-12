@@ -10,23 +10,16 @@ import com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB;
  */
 public class NieobecnoscConverter {
 
-    public static NieobecnoscOB nieoDTOdoNieoOB(NieobecnoscDTO aNieobecnoscDTO){
 
-        return new NieobecnoscOB(UzytkownikConverter.uzytDTOdoUzytkOB(aNieobecnoscDTO.getUzytkownik()), aNieobecnoscDTO.getData(), aNieobecnoscDTO.getIlosc(), aNieobecnoscDTO.getTyp());
-    }
-    public static NieobecnoscDTO nieoOBdonieoDTO (NieobecnoscOB aNieobecnoscOB){
-        if (aNieobecnoscOB == null)
-            return null;
-        return new NieobecnoscDTO(aNieobecnoscOB.getId(), aNieobecnoscOB.getTechDate(),UzytkownikConverter.uzytOBdoUzytkDTO(aNieobecnoscOB.getUzytkownik()), aNieobecnoscOB.getData(), aNieobecnoscOB.getIloscGodzin(), aNieobecnoscOB.getTyp());
+    public static NieobecnoscDTOUzytkownik nieobecnoscOBDoNieobecnoscDTOUzytkownik(NieobecnoscOB aNieobecnoscOB){
+        if(aNieobecnoscOB == null) return null;
+        return new NieobecnoscDTOUzytkownik(aNieobecnoscOB.getId(),aNieobecnoscOB.getTechDate(),UzytkownikConverter.uzytkownikOBDoUzytkownikaDTOBezHasla(aNieobecnoscOB.getUzytkownik()),aNieobecnoscOB.getData(),aNieobecnoscOB.getIloscGodzin(),aNieobecnoscOB.getTyp());
     }
 
-    public static NieobecnoscDTOUzytkownik nieobecnoscDTOdoNieobecnoscDTOUzytkownik(NieobecnoscDTO aNieobecnoscDTO){
-        if(aNieobecnoscDTO == null) return null;
-        return new NieobecnoscDTOUzytkownik(aNieobecnoscDTO.getId(),aNieobecnoscDTO.getTechDate(),UzytkownikConverter.uzytkownikDTOdoUzytkownikDTOBezHasla(aNieobecnoscDTO.getUzytkownik()),aNieobecnoscDTO.getData(),aNieobecnoscDTO.getIlosc(),aNieobecnoscDTO.getTyp());
+    public static NieobecnoscDTOBezUzytkownika nieobecnoscOBDoNieobecnoscDTOBezUzytkownika(NieobecnoscOB aNieobecnoscOB){
+        if(aNieobecnoscOB == null) return null;
+        return new NieobecnoscDTOBezUzytkownika(aNieobecnoscOB.getId(),aNieobecnoscOB.getTechDate(),aNieobecnoscOB.getData(),aNieobecnoscOB.getIloscGodzin(),aNieobecnoscOB.getTyp());
     }
 
-    public static NieobecnoscDTOBezUzytkownika nieobecnoscDTOdoNieobecnoscDTOBezUzytkownika(NieobecnoscDTO aNieobecnoscDTO){
-        if(aNieobecnoscDTO == null) return null;
-        return new NieobecnoscDTOBezUzytkownika(aNieobecnoscDTO.getId(),aNieobecnoscDTO.getTechDate(),aNieobecnoscDTO.getData(),aNieobecnoscDTO.getIlosc(),aNieobecnoscDTO.getTyp());
-    }
+
 }

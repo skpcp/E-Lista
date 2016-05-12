@@ -3,6 +3,7 @@ package com.skpcp.elista.uzytkownik.dto;
 
 import com.skpcp.elista.grupa.dto.GrupaDTOBezIdTechDate;
 import com.skpcp.elista.grupa.dto.GrupaDTOBezLidera;
+import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.rola.dto.RolaDTOBezUprawnien;
 import com.skpcp.elista.uzytkownik.EStan;
 import io.swagger.annotations.ApiModel;
@@ -21,14 +22,14 @@ public class UzytkownikDTOBezIdTechDate implements Serializable {
     private String haslo;
     private String telefon;
     private EStan aktywnosc;
-    private RolaDTOBezUprawnien rola;
-    private GrupaDTOBezLidera grupa;
+    private String rola;
+    private String grupa;
 
     public UzytkownikDTOBezIdTechDate(){
 
     }
 
-    public UzytkownikDTOBezIdTechDate(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, RolaDTOBezUprawnien rola, GrupaDTOBezLidera grupa) {
+    public UzytkownikDTOBezIdTechDate(String imie, String nazwisko, String email, String haslo, String telefon, EStan aktywnosc, String rola, String grupa) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
@@ -87,19 +88,19 @@ public class UzytkownikDTOBezIdTechDate implements Serializable {
         this.aktywnosc = aktywnosc;
     }
 
-    public RolaDTOBezUprawnien getRola() {
+    public String getRola() {
         return rola;
     }
 
-    public void setRola(RolaDTOBezUprawnien rola) {
+    public void setRola(String rola) {
         this.rola = rola;
     }
 
-    public GrupaDTOBezLidera getGrupa() {
+    public String getGrupa() {
         return grupa;
     }
 
-    public void setGrupa(GrupaDTOBezLidera grupa) {
+    public void setGrupa(String grupa) {
         this.grupa = grupa;
     }
 }

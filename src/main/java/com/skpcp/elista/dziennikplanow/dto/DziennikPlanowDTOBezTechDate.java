@@ -1,6 +1,5 @@
 package com.skpcp.elista.dziennikplanow.dto;
 
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
@@ -12,16 +11,16 @@ import java.util.Date;
 @ApiModel
 public class DziennikPlanowDTOBezTechDate implements Serializable {
     private Long id;
-    private UzytkownikDTOEmail uzytkownik;
+    private Long uzytkownikId;
     private Date planOd;
     private Date planDo;
 
     public DziennikPlanowDTOBezTechDate() {
     }
 
-    public DziennikPlanowDTOBezTechDate(Long id, UzytkownikDTOEmail uzytkownik, Date planOd, Date planDo) {
+    public DziennikPlanowDTOBezTechDate(Long id, Long uzytkownikId, Date planOd, Date planDo) {
         this.id = id;
-        this.uzytkownik = uzytkownik;
+        this.uzytkownikId = uzytkownikId;
         this.planOd = planOd;
         this.planDo = planDo;
     }
@@ -34,12 +33,12 @@ public class DziennikPlanowDTOBezTechDate implements Serializable {
         this.id = id;
     }
 
-    public UzytkownikDTOEmail getUzytkownik() {
-        return uzytkownik;
+    public Long getUzytkownikId() {
+        return uzytkownikId;
     }
 
-    public void setUzytkownik(UzytkownikDTOEmail uzytkownik) {
-        this.uzytkownik = uzytkownik;
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
     public Date getPlanOd() {

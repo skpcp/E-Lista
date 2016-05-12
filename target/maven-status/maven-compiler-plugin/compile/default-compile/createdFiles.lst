@@ -3,7 +3,6 @@ com\skpcp\elista\uzytkownik\EStan.class
 com\skpcp\elista\czaspracy\repository\ICzasPracyRepository.class
 com\skpcp\elista\rola\dto\RolaDTOZmiana.class
 com\skpcp\elista\utils\converters\CzasPracyConverter.class
-com\skpcp\elista\grupa\dto\GrupaDTOLider.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTOWedlugPlanu.class
 com\skpcp\elista\grupa\dto\GrupaDTOBezLidera.class
 com\skpcp\elista\utils\converters\NieobecnoscConverter.class
@@ -11,7 +10,6 @@ com\skpcp\elista\nieobecnosci\api\NieobecnoscController.class
 com\skpcp\elista\grupa\service\IGrupaService.class
 com\skpcp\elista\utils\converters\DziennikPlanowConverter.class
 com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOBezTechDate.class
-com\skpcp\elista\uzytkownik\dto\UzytkownikDTOEmail.class
 com\skpcp\elista\uzytkownik\repository\IUzytkownikRepository.class
 com\skpcp\elista\uzytkownik\service\impl\UzytkownikServiceImpl.class
 com\skpcp\elista\uprawnienia\api\UprawnienieController.class
@@ -59,10 +57,10 @@ com\skpcp\elista\WebSecurityConfig.class
 com\skpcp\elista\grupa\service\impl\GrupaServiceImpl.class
 com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTOBezUzytkownika.class
 com\skpcp\elista\grupa\dto\GrupaDTOBezLiderAleZIdTechDate.class
-com\skpcp\elista\grupa\dto\GrupaDTONazwaLider.class
 com\skpcp\elista\dziennikplanow\repository\IDziennikPlanowRepository.class
 com\skpcp\elista\nieobecnosci\ob\NieobecnoscOB.class
 com\skpcp\elista\uzytkownik\api\UzytkownikController.class
+com\skpcp\elista\grupa\dto\GrupaDTOUzytkownik.class
 com\skpcp\elista\rola\respository\IRolaRepository.class
 com\skpcp\elista\rola\ob\RolaOB.class
 com\skpcp\elista\uprawnienia\service\IUprawnienieService.class

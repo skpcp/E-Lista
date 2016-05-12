@@ -47,8 +47,6 @@ public class GrupaController {
     }
 
 
-
-
     @RequestMapping(value = "/pobierzGrupePoNazwie/{nazwa}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<GrupaDTOUzytkownik> znajdzGrupePoNazwie(@PathVariable("nazwa") String aNazwa){

@@ -4,6 +4,7 @@ package com.skpcp.elista.uzytkownik.dto;
 import com.skpcp.elista.base.dto.BaseDTO;
 import com.skpcp.elista.grupa.dto.GrupaDTO;
 import com.skpcp.elista.grupa.dto.GrupaDTOBezLidera;
+import com.skpcp.elista.grupa.dto.GrupaDTOUzytkownik;
 import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.rola.dto.RolaDTOBezUprawnien;
 import com.skpcp.elista.uzytkownik.EStan;
@@ -21,14 +22,14 @@ public class UzytkownikDTOBezHasla extends BaseDTO {
     private String email;
     private String telefon;
     private EStan aktywnosc;
-    private RolaDTOBezUprawnien rola;
-    private GrupaDTOBezLidera grupa;
+    private RolaDTO rola;
+    private GrupaDTOUzytkownik grupa;
 
     public UzytkownikDTOBezHasla(){
 
     }
 
-    public UzytkownikDTOBezHasla(String imie, String nazwisko, String email, String telefon, EStan aktywnosc, RolaDTOBezUprawnien rola, GrupaDTOBezLidera grupa) {
+    public UzytkownikDTOBezHasla(String imie, String nazwisko, String email, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTOUzytkownik grupa) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
@@ -38,7 +39,7 @@ public class UzytkownikDTOBezHasla extends BaseDTO {
         this.grupa = grupa;
     }
 
-    public UzytkownikDTOBezHasla(Long id, Date techDate, String imie, String nazwisko, String email, String telefon, EStan aktywnosc, RolaDTOBezUprawnien rola, GrupaDTOBezLidera grupa) {
+    public UzytkownikDTOBezHasla(Long id, Date techDate, String imie, String nazwisko, String email, String telefon, EStan aktywnosc, RolaDTO rola, GrupaDTOUzytkownik grupa) {
         super(id, techDate);
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -89,19 +90,19 @@ public class UzytkownikDTOBezHasla extends BaseDTO {
         this.aktywnosc = aktywnosc;
     }
 
-    public RolaDTOBezUprawnien getRola() {
+    public RolaDTO getRola() {
         return rola;
     }
 
-    public void setRola(RolaDTOBezUprawnien rola) {
+    public void setRola(RolaDTO rola) {
         this.rola = rola;
     }
 
-    public GrupaDTOBezLidera getGrupa() {
+    public GrupaDTOUzytkownik getGrupa() {
         return grupa;
     }
 
-    public void setGrupa(GrupaDTOBezLidera grupa) {
+    public void setGrupa(GrupaDTOUzytkownik grupa) {
         this.grupa = grupa;
     }
 }
