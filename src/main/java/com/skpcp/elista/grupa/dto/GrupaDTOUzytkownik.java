@@ -12,19 +12,19 @@ import java.util.Date;
  * Created by Tomasz Komoszeski on 2016-05-08.
  */
 @ApiModel
-public class GrupaDTONazwaLider extends BaseDTO {
+public class GrupaDTOUzytkownik extends BaseDTO {
     String nazwa;
     UzytkownikDTOBezHasla lider;
 
-    public GrupaDTONazwaLider() {
+    public GrupaDTOUzytkownik() {
     }
 
-    public GrupaDTONazwaLider(String nazwa, UzytkownikDTOBezHasla lider) {
+    public GrupaDTOUzytkownik(String nazwa, UzytkownikDTOBezHasla lider) {
         this.nazwa = nazwa;
         this.lider = lider;
     }
 
-    public GrupaDTONazwaLider(Long id, Date techDate, String nazwa, UzytkownikDTOBezHasla lider) {
+    public GrupaDTOUzytkownik(Long id, Date techDate, String nazwa, UzytkownikDTOBezHasla lider) {
         super(id, techDate);
         this.nazwa = nazwa;
         this.lider = lider;

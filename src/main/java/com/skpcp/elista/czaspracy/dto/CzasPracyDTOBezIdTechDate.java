@@ -3,7 +3,9 @@ package com.skpcp.elista.czaspracy.dto;
 
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import io.swagger.annotations.ApiModel;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,7 +15,7 @@ import java.util.Date;
 @ApiModel
 public class CzasPracyDTOBezIdTechDate implements Serializable {
     private Long id;
-    private UzytkownikDTOEmail uzytkownik;
+    private Long uzytkownikId;
     private Date dzien;
     private Date rozpoczecie;
     private Date zakonczenie;
@@ -22,9 +24,9 @@ public class CzasPracyDTOBezIdTechDate implements Serializable {
     public CzasPracyDTOBezIdTechDate() {
     }
 
-    public CzasPracyDTOBezIdTechDate(Long id, UzytkownikDTOEmail uzytkownik, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
+    public CzasPracyDTOBezIdTechDate(Long id, Long uzytkownikId, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
         this.id = id;
-        this.uzytkownik = uzytkownik;
+        this.uzytkownikId = uzytkownikId;
         this.dzien = dzien;
         this.rozpoczecie = rozpoczecie;
         this.zakonczenie = zakonczenie;
@@ -39,12 +41,12 @@ public class CzasPracyDTOBezIdTechDate implements Serializable {
         this.id = id;
     }
 
-    public UzytkownikDTOEmail getUzytkownik() {
-        return uzytkownik;
+    public Long getUzytkownikId() {
+        return uzytkownikId;
     }
 
-    public void setUzytkownik(UzytkownikDTOEmail uzytkownik) {
-        this.uzytkownik = uzytkownik;
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
     public Date getDzien() {

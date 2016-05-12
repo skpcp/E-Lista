@@ -1,6 +1,5 @@
 package com.skpcp.elista.czaspracy.dto;
 
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
@@ -12,16 +11,16 @@ import java.util.Date;
 @ApiModel
 public class CzasPracyDTOWedlugPlanu implements Serializable {
     private Long id;
-    private UzytkownikDTOEmail uzytkownik;
+    private Long uzytkownikId;
     private Date dzien;
     private String zakresPracy;
 
     public CzasPracyDTOWedlugPlanu() {
     }
 
-    public CzasPracyDTOWedlugPlanu(Long id, UzytkownikDTOEmail uzytkownik, Date dzien, String zakresPracy) {
+    public CzasPracyDTOWedlugPlanu(Long id, Long uzytkownikId, Date dzien, String zakresPracy) {
         this.id = id;
-        this.uzytkownik = uzytkownik;
+        this.uzytkownikId = uzytkownikId;
         this.dzien = dzien;
         this.zakresPracy = zakresPracy;
     }
@@ -34,12 +33,12 @@ public class CzasPracyDTOWedlugPlanu implements Serializable {
         this.id = id;
     }
 
-    public UzytkownikDTOEmail getUzytkownik() {
-        return uzytkownik;
+    public Long getUzytkownikId() {
+        return uzytkownikId;
     }
 
-    public void setUzytkownik(UzytkownikDTOEmail uzytkownik) {
-        this.uzytkownik = uzytkownik;
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
     public Date getDzien() {

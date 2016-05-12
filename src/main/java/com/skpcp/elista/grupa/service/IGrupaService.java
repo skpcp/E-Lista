@@ -11,10 +11,12 @@ import java.util.List;
  */
 public interface IGrupaService {
 
-    GrupaDTONazwaLider zapiszGrupe(GrupaDTOBezIdTechDate aGrupa) throws MyServerException;
-    GrupaDTONazwaLider znajdzGrupePoId(Long aId) throws MyServerException;
+    GrupaDTOUzytkownik zapiszGrupe(GrupaDTOBezIdTechDate aGrupa) throws MyServerException;
+    GrupaDTOUzytkownik znajdzGrupePoId(Long aId) throws MyServerException;
 
-    GrupaDTONazwaLider znajdzGrupePoNazwie(String aNazwa) throws MyServerException;
+
+    GrupaDTOUzytkownik znajdzGrupePoNazwie(String aNazwa) throws MyServerException;
+    List<GrupaDTOUzytkownik> znajdzWszystkieGrupy();
     List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoIdLidera(Long aIdLidera)throws MyServerException;
     List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoNazwieLidera(String aEmail) ;
     void usunGrupePoId(Long aId);

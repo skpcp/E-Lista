@@ -42,15 +42,13 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
     public DziennikPlanowDTOUzytkownik znajdzDziennikPlanowPoId(Long aId) throws MyServerException{
         DziennikPlanowOB pDziennikPlanowOB = iDziennikPlanowRepository.findOne(aId);//znajdź po ID, i zwróc instancje obiektu UzytkownikOB
         if(pDziennikPlanowOB == null) throw new MyServerException("Nie znaleziono dziennika planow", HttpStatus.NOT_FOUND,new HttpHeaders()); //jeżeli nic nie znajdziesz, to oznacza null (wartość domyślną) to zwróc tego nulla
-        return DziennikPlanowConverter.dziennikPlanowDTOdoDziennikPlanowDTOUzytkownik(DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(pDziennikPlanowOB));
+        return DziennikPlanowConverter.dziennikPlanowOBDoDziennikPlanowDTOUzytkownik(pDziennikPlanowOB);
     }
     @Override
     public List<DziennikPlanowDTOUzytkownik> znajdzWszystkieDziennikiPlanow(){
         List<DziennikPlanowDTOUzytkownik> listaWynikowaDziennikowPlanowDTO = new ArrayList<>();//utworzenie pojemnika
         List<DziennikPlanowOB> listaDziennikowPlanowOB = iDziennikPlanowRepository.findAll();
-
-        for(DziennikPlanowOB dziennik : listaDziennikowPlanowOB) listaWynikowaDziennikowPlanowDTO .add(DziennikPlanowConverter.dziennikPlanowDTOdoDziennikPlanowDTOUzytkownik(DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(dziennik)));
-
+        for(DziennikPlanowOB dziennik : listaDziennikowPlanowOB) listaWynikowaDziennikowPlanowDTO .add(DziennikPlanowConverter.dziennikPlanowOBDoDziennikPlanowDTOUzytkownik(dziennik));
         return listaWynikowaDziennikowPlanowDTO ;//działa
 
     }
@@ -58,9 +56,7 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
     public List<DziennikPlanowDTOBezUzytkownika> znajdzDziennikiPlanowPoUzytkowniku(Long aIdUzytkownika){//READ po
         List<DziennikPlanowOB> listaDziennikowPlanowOB = iDziennikPlanowRepository.znajdzDziennikiPlanowPoUzytkowniku(aIdUzytkownika);
         List<DziennikPlanowDTOBezUzytkownika> listaWynikowaDziennikowPlanowDTO = new ArrayList<>();
-        //if(listaDziennikowPlanowOB == null) return null;
-        for(DziennikPlanowOB dziennik : listaDziennikowPlanowOB) listaWynikowaDziennikowPlanowDTO .add(DziennikPlanowConverter.dziennikPlanowDTOdoDziennikPlanowDTOBezUzytkownika(DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(dziennik)));
-
+        for(DziennikPlanowOB dziennik : listaDziennikowPlanowOB) listaWynikowaDziennikowPlanowDTO .add(DziennikPlanowConverter.dziennikPlanowOBDodziennikPlanowDTOBezUzytkownika(dziennik));
         return listaWynikowaDziennikowPlanowDTO ;
 
     }
@@ -81,7 +77,7 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
         }
         pDziennikPlanowOB.setPlanOd(aDziennikPlanowDTO.getPlanOd()); //zmieniam dane!
         pDziennikPlanowOB.setPlanDo(aDziennikPlanowDTO.getPlanDo());//zmieniam dane!
-        return DziennikPlanowConverter.dziennikPlanowDTOdoDziennikPlanowDTOUzytkownik(DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(iDziennikPlanowRepository.save(pDziennikPlanowOB)));
+        return DziennikPlanowConverter.dziennikPlanowOBDoDziennikPlanowDTOUzytkownik(iDziennikPlanowRepository.save(pDziennikPlanowOB));
     }
 
     @Override
@@ -89,16 +85,6 @@ public class DziennikPlanowServiceImpl implements IDziennikPlanowService{
         iDziennikPlanowRepository.delete(aId);
     }//DELETE
 
-//    @Override
-//    public DziennikPlanowDTO dopiszUzytkownikaDoDziennikaPlanow(Long aId, UzytkownikDTO aUzytkownik) {
-//        DziennikPlanowOB pDziennikPlanowOB = iDziennikPlanowRepository.findOne(aId);
-//        if(pDziennikPlanowOB == null){
-//            return null;
-//        }
-//
-//        //nie obchodzi mnie co w nim jest, chce go dodać do dziennika
-//        pDziennikPlanowOB.setUzytkownik(UzytkownikConverter.uzytDTOdoUzytkOB(aUzytkownik));//wpisanie użytkownika do bazy danych
-//        return DziennikPlanowConverter.dziennikplanowOBdoDziennikPlanowowDTO(pDziennikPlanowOB);//mam zwrócić DTO dziennikPlanów już zmodyfikowany
-//    }
+
 
 }

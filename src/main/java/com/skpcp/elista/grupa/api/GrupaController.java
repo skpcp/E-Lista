@@ -27,7 +27,7 @@ public class GrupaController {
 
     @RequestMapping(value = "/pobierzGrupePoId/{id}", method = RequestMethod.GET)
     @ResponseBody
-    ResponseEntity<GrupaDTONazwaLider> znajdzGrupePoId(@PathVariable("id") Long aId){
+    ResponseEntity<GrupaDTOUzytkownik> znajdzGrupePoId(@PathVariable("id") Long aId){
         try {
             return new ResponseEntity<>(iGrupaService.znajdzGrupePoId(aId), HttpStatus.OK);
         }catch (MyServerException e){
@@ -38,7 +38,7 @@ public class GrupaController {
     @PreAuthorize("hasAuthority('ADMIN') OR aGrupa.lider.email == authentication.name AND hasAuthority('LIDER')")
     @RequestMapping(value = "/zapiszGrupe",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<GrupaDTONazwaLider> zapiszGrupe(@RequestBody GrupaDTOBezIdTechDate aGrupa){
+    public ResponseEntity<GrupaDTOUzytkownik> zapiszGrupe(@RequestBody GrupaDTOBezIdTechDate aGrupa){
         try {
             return new ResponseEntity<>(iGrupaService.zapiszGrupe(aGrupa), HttpStatus.OK);
         }catch (MyServerException e){
@@ -51,7 +51,7 @@ public class GrupaController {
 
     @RequestMapping(value = "/pobierzGrupePoNazwie/{nazwa}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<GrupaDTONazwaLider> znajdzGrupePoNazwie(@PathVariable("nazwa") String aNazwa){
+    public ResponseEntity<GrupaDTOUzytkownik> znajdzGrupePoNazwie(@PathVariable("nazwa") String aNazwa){
         try{
         return new ResponseEntity<>(iGrupaService.znajdzGrupePoNazwie(aNazwa), HttpStatus.OK);
         }catch (MyServerException e){
@@ -82,6 +82,10 @@ public class GrupaController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
+    @RequestMapping(value = "/pobierzWszystkieGrupy",method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<List<GrupaDTOUzytkownik>> znajdzWszystkieGrupy(){
+        return new ResponseEntity<>(iGrupaService.znajdzWszystkieGrupy(),HttpStatus.OK);
+    }
 
 }

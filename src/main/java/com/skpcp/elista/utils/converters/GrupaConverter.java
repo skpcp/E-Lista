@@ -21,9 +21,9 @@ public class GrupaConverter {
         return new GrupaDTO(aGrupaOB.getId(),aGrupaOB.getTechDate(),aGrupaOB.getNazwa(),UzytkownikConverter.uzytOBdoUzytkDTO(aGrupaOB.getLider()));
     }
 
-    public static GrupaDTO grupaDTOBezIdTechDatedoGrupaDTO(GrupaDTOBezIdTechDate aGrupaDTO){
-        if(aGrupaDTO == null) return null;
-        return new GrupaDTO(aGrupaDTO.getNazwa(),UzytkownikConverter.uzytkownikDTOPodDoUzytkownikDTO(aGrupaDTO.getLider()));
+    public static GrupaDTOUzytkownik grupaOBDoGrupaDTOUzytkownik(GrupaOB aGrupaOB){
+        if(aGrupaOB == null) return null;
+        return new GrupaDTOUzytkownik(aGrupaOB.getId(),aGrupaOB.getTechDate(),aGrupaOB.getNazwa(),UzytkownikConverter.uzytkownikOBDoUzytkownikaDTOBezHasla(aGrupaOB.getLider()));
     }
 
     public static GrupaDTO grupaDTOBezLideraDoGrupaDTO(GrupaDTOBezLidera aGrupaDTO){
@@ -41,13 +41,8 @@ public class GrupaConverter {
         return new GrupaDTOBezLidera(aGrupaDTO.getNazwa());
     }
 
-    public static GrupaDTONazwaLider grupaDTOdoGrupaDTONazwaLider(GrupaDTO aGrupaDTO){
-        if(aGrupaDTO == null) return null;
-        return new GrupaDTONazwaLider(aGrupaDTO.getId(),aGrupaDTO.getTechDate(),aGrupaDTO.getNazwa(),UzytkownikConverter.uzytkownikDTOdoUzytkownikDTOBezHasla(aGrupaDTO.getLider()));
-    }
-
-    public static GrupaDTOBezLiderAleZIdTechDate grupaDTOdoGrupaDTOBezLiderAleZIdTechDate(GrupaDTO aGrupaDTO){
-        if(aGrupaDTO == null) return null;
-        return new GrupaDTOBezLiderAleZIdTechDate(aGrupaDTO.getId(),aGrupaDTO.getTechDate(),aGrupaDTO.getNazwa());
+    public static GrupaDTOBezLiderAleZIdTechDate grupaOBDoGrupaDTOBezLiderAleZIdTechDate(GrupaOB aGrupaOB){
+        if(aGrupaOB == null) return null;
+        return new GrupaDTOBezLiderAleZIdTechDate(aGrupaOB.getId(),aGrupaOB.getTechDate(),aGrupaOB.getNazwa());
     }
 }

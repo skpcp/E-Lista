@@ -1,6 +1,7 @@
 package com.skpcp.elista.grupa.dto;
 
 
+import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
 import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import io.swagger.annotations.ApiModel;
 
@@ -12,13 +13,12 @@ import java.io.Serializable;
 @ApiModel
 public class GrupaDTOBezIdTechDate implements Serializable {
     String nazwa;
-    UzytkownikDTOEmail lider;
+    Long lider;
 
-    public GrupaDTOBezIdTechDate(){
-
+    public GrupaDTOBezIdTechDate() {
     }
 
-    public GrupaDTOBezIdTechDate(String nazwa, UzytkownikDTOEmail lider) {
+    public GrupaDTOBezIdTechDate(String nazwa, Long lider) {
         this.nazwa = nazwa;
         this.lider = lider;
     }
@@ -31,11 +31,13 @@ public class GrupaDTOBezIdTechDate implements Serializable {
         this.nazwa = nazwa;
     }
 
-    public UzytkownikDTOEmail getLider() {
+    public Long getLider() {
         return lider;
     }
 
-    public void setLider(UzytkownikDTOEmail lider) {
+    public void setLider(Long lider) {
         this.lider = lider;
     }
 }
+
+

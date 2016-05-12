@@ -11,9 +11,6 @@ import com.skpcp.elista.nieobecnosci.ob.NieobecnoscOB;
 import com.skpcp.elista.nieobecnosci.repository.INieobecnoscRepository;
 import com.skpcp.elista.utils.converters.CzasPracyConverter;
 import com.skpcp.elista.utils.exceptions.MyServerException;
-import com.skpcp.elista.utils.converters.UzytkownikConverter;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTO;
-import com.skpcp.elista.uzytkownik.dto.UzytkownikDTOEmail;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 
@@ -51,7 +48,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         List<CzasPracyDTOBezUzytkownika> pListCzasyPracyDTO = new ArrayList<>();
         List<CzasPracyOB> pListCzasyPracyOB = iCzasPracyRepository.znajdzCzasPracyPoUzytkowniku(aIdUzytkownika);
         for (CzasPracyOB czasPracy : pListCzasyPracyOB) {
-            pListCzasyPracyDTO.add(CzasPracyConverter.czasPracyDTOdoCzasPracyDTOBezUzytkownika(CzasPracyConverter.czprOBdoCzprDTO(czasPracy)));
+            pListCzasyPracyDTO.add(CzasPracyConverter.czasPracyOBdoCzasPracyDTOBezUzytkownika(czasPracy));
         }
         return pListCzasyPracyDTO;
     }
@@ -59,10 +56,8 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     @Override
     public CzasPracyDTOUzytkownik zapiszCzasPracyWedlugPlanu(CzasPracyDTOWedlugPlanu aCzasPracyDTO) throws MyServerException {
         if (aCzasPracyDTO == null) throw new MyServerException("Puste pole czas pracy",HttpStatus.NOT_FOUND,new HttpHeaders());
-        UzytkownikDTOEmail pUzytkownikDTO = aCzasPracyDTO.getUzytkownik() == null ? null : aCzasPracyDTO.getUzytkownik();
-        if (pUzytkownikDTO == null) throw new MyServerException("Puste pole uzytkownik",HttpStatus.NOT_FOUND,new HttpHeaders());
         //skoro nie jest nullem przystępujemy do pracy
-        UzytkownikOB pUztkownikOB = pUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(pUzytkownikDTO.getEmail());
+        UzytkownikOB pUztkownikOB = aCzasPracyDTO.getUzytkownikId() == null ? null : iUzytkownikRepository.findOne(aCzasPracyDTO.getUzytkownikId());
         if (pUztkownikOB == null) {
             throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
@@ -99,7 +94,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
             if(flaga) throw new MyServerException("Istnieje juz zapisany ten dzien pracy dla danego uzytkownika",HttpStatus.METHOD_NOT_ALLOWED, new HttpHeaders());
             pCzasPracyOB = new CzasPracyOB(pUztkownikOB,aCzasPracyDTO.getDzien(),dRozpoczecie,dZakonczenie,aCzasPracyDTO.getZakresPracy());
 
-            return CzasPracyConverter.czasPracyDTOdoCzasPracyDTOUzytkownik(CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(pCzasPracyOB)));
+            return CzasPracyConverter.czasPracyOBdoCzasuPracyDTOUzytkownik(iCzasPracyRepository.save(pCzasPracyOB));
         }
         //edytuje istniejący
         pCzasPracyOB.setUzytkownik(pUztkownikOB);
@@ -107,15 +102,13 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         pCzasPracyOB.setRozpoczecie(dRozpoczecie);
         pCzasPracyOB.setZakonczenie(dZakonczenie);
         pCzasPracyOB.setZakresPracy(aCzasPracyDTO.getZakresPracy());
-        return CzasPracyConverter.czasPracyDTOdoCzasPracyDTOUzytkownik(CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(pCzasPracyOB)));
+        return CzasPracyConverter.czasPracyOBdoCzasuPracyDTOUzytkownik(iCzasPracyRepository.save(pCzasPracyOB));
     }
 
     @Override
     public CzasPracyDTOUzytkownik zapiszCzasPracy(CzasPracyDTOBezIdTechDate aCzasPracyDTO) throws MyServerException {
-        if (aCzasPracyDTO == null) throw new MyServerException("Puste pole czas pracy",HttpStatus.NOT_FOUND,new HttpHeaders());
-        if (aCzasPracyDTO.getUzytkownik() == null) throw new MyServerException("Puste pole uzytkownik",HttpStatus.NOT_FOUND,new HttpHeaders());
-        UzytkownikDTOEmail pUzytkownikDTO = aCzasPracyDTO.getUzytkownik();
-        UzytkownikOB pUzytkownikOB = pUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(pUzytkownikDTO.getEmail());
+
+        UzytkownikOB pUzytkownikOB = aCzasPracyDTO.getUzytkownikId() == null ? null : iUzytkownikRepository.findOne(aCzasPracyDTO.getUzytkownikId());
         if (pUzytkownikOB == null) {
             throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
@@ -137,7 +130,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
             if(flaga)  throw new MyServerException("Istnieje juz zapisany ten dzien pracy dla danego uzytkownika",HttpStatus.METHOD_NOT_ALLOWED, new HttpHeaders()); //czas pracy zapisujemy tylko raz, jednego konkretnego dnia dla jednego konkretnego uzytkownika
             //jeżeli takiego nie ma to zapisujemy
             pCzasPracyOB = new CzasPracyOB(pUzytkownikOB,aCzasPracyDTO.getDzien(),aCzasPracyDTO.getRozpoczecie(),aCzasPracyDTO.getZakonczenie(),aCzasPracyDTO.getZakresPracy());
-            return CzasPracyConverter.czasPracyDTOdoCzasPracyDTOUzytkownik(CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(pCzasPracyOB)));
+            return CzasPracyConverter.czasPracyOBdoCzasuPracyDTOUzytkownik(iCzasPracyRepository.save(pCzasPracyOB));
         }
         pCzasPracyOB.setUzytkownik(pUzytkownikOB);
         pCzasPracyOB.setDzien(aCzasPracyDTO.getDzien());
@@ -147,7 +140,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         //teraz edytuje istniejący
 
         pCzasPracyOB.setZakresPracy(aCzasPracyDTO.getZakresPracy());
-        return CzasPracyConverter.czasPracyDTOdoCzasPracyDTOUzytkownik(CzasPracyConverter.czprOBdoCzprDTO(iCzasPracyRepository.save(pCzasPracyOB)));
+        return CzasPracyConverter.czasPracyOBdoCzasuPracyDTOUzytkownik(iCzasPracyRepository.save(pCzasPracyOB));
     }
 
     @Override
@@ -161,6 +154,6 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         if (pCzasPracyOB == null) {
             throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
-        return CzasPracyConverter.czasPracyDTOdoCzasPracyDTOUzytkownik(CzasPracyConverter.czprOBdoCzprDTO(pCzasPracyOB));
+        return CzasPracyConverter.czasPracyOBdoCzasuPracyDTOUzytkownik(pCzasPracyOB);
     }
 }
