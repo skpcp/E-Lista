@@ -156,4 +156,12 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
         }
         return CzasPracyConverter.czasPracyOBdoCzasuPracyDTOUzytkownik(pCzasPracyOB);
     }
+
+    @Override
+    public CzasPracyDTOBezUzytkownika wyswietlCzasPracyUzytkownikaPoDacieIPoUzytkowniku(Date aDate, Long aId) throws MyServerException {
+        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
+        if(pUzytkownikOB == null) throw new MyServerException("Nie istnieje taki uzytkownik",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());
+        CzasPracyOB pCzasPracyOB = iCzasPracyRepository.znajdzCzasPracyPoDacieOrazUzytkowniku(aId,aDate);
+        return CzasPracyConverter.czasPracyOBdoCzasPracyDTOBezUzytkownika(pCzasPracyOB);
+    }
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -67,6 +68,17 @@ public class CzasPracyController {
     public ResponseEntity<CzasPracyDTOUzytkownik> pobierzCzasPracy(@PathVariable("id") Long aId){
         try {
             return new ResponseEntity<>(serwisCzasPracy.znajdzCzasPracyPoId(aId), HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+    }
+
+    @RequestMapping(value = "/pobierzCzasPracyPoDacieIUzytkowniku/{uzytkownik.id},{dzien}",method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<CzasPracyDTOBezUzytkownika> pobierzCzasPracyUzytkownikaPoIdOrazDniu(@PathVariable("uzytkownik.id") Long aId,@PathVariable("dzien") Date aDate)
+    {
+        try{
+            return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasPracyUzytkownikaPoDacieIPoUzytkowniku(aDate,aId),HttpStatus.OK);
         }catch (MyServerException e){
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
