@@ -39,10 +39,7 @@ Metoda | Funkcjonalnosć | Opis
 */pobierzPoUzytkownikowPoIdGrupy* | Znajdź użytkowników po id grupy | Pozwala wyświetlić użytkowników danej grupy za pomocą numeru id grupy. Pole to jest polem kluczowym i musi być wypełnione. Jeżeli będzie puste to system nam to pokaże. Jeżeli popełnimy jakiś błąd to system pokaże nam odpowiedni komunikat dotyczący tego błędu.
 */pobierzUzytkownikowPoGrupieIPoAktywności* | Znajdź użytkowników po nazwie grupy oraz aktywności | Pozwala nam na wyszukanie użytkowników należących do odpowiedniej grupy z podaną aktywnością. Nazwa grupy i aktywność muszą zostać podane i pola te nie mogą zostać puste. Jeśli popełnimy jakiś błąd system wskarze nam jego rodzaj.
 </br>
-Co mogą robić poszeczegulni użytkownicy systemu: </br>
--Admin możesz wszystko. </br> 
--Lider może pobrać użytkowników za pomocą nazwy grupy i aktywności. </br>
--Pracownik może tylko się zarejestrować. </br>
+
 Podsumowując serwis  „Użytkownik Controller” przeznaczony jest do wykonywania operacji związanych z użytkownikiem. Podstawową operacją jest stworzenie nowego użytkownika. Dzięki temu użytkownik będzie mógł korzystać z aplikacji ale także być przypisanym do grupy użytkowników odpowiedzialnych za wykonywanie pewnych obowiązków. Oprócz tego możemy w systemie znaleźć użytkownika na kilka różnych sposobów. </br>
 
 b)Czas Pracy Controller:</br>
@@ -55,11 +52,7 @@ Metoda | Funkcjonalność | Opis
 /*pobierzCzasPracy* | Pobierz czas pracy | Nie posiada żadnych pól kluczowych. Czasy pracy zostaną pobrane dla użytkowników, którzy mają zapisany czas pracy. Wraz z tymi informacjami zostaną pobrane informacje o użytkownikach. 
 */usunCzasPracy* | Usuń czas pracy | Pozwala na usunięcie danego czasu pracy. Polem tym jest numer id czasu pracy. Pole nie może pozostać puste. Jeżeli będzie puste system nam to zgłosi. W przypadku popełnienia jakiegoś błędu otrzymamy odpowiedni komunikat.
 </br>
-Co mogą robić poszeczegulni użytkownicy systemu: </br>
--Admin możesz wszystko. </br>
--Lider może usunąć czas pracy, zapisz czas pracy a także zapisać czas pracy z dziennika planów. </br>
--Pracownik może zapisywać czas pracy lub zapisać czas pracy za pomocą dziennika planów. </br>
-</br>
+
 Wszystko zawarte w serwisie jest łatwe i czytelne. Użytkownik może łatwo edytować swoje godziny pracy. Umożliwia to wprowadzanie elastycznego czasu pracy, ale czas pracy jest określony na pewną liczbę godzin. </br>
 
 c)Dziennik Planow Controller:</br>
@@ -72,10 +65,7 @@ Metoda | Funkcjonalność | Opis
 */zapiszDziennikPlanow* | Zapisz dziennik planow | Służy do zapisu edytowanego dziennika planów. Samego dziennika planów nie możemy stworzyć od nowa ponieważ jest on tworzony automatycznie pod czas tworzenia użytkownika w systemie. Edycje możemy przeprowadzić po przez wpisanie w drugim polu id: wpisanie numeru dotyczącego dziennika planów. Jeżeli to wprowadzimy do danego dziennika planów w pola „PlanOd” i „PlanDo” wpisujemy datę i godzinę oraz w pole techData kiedy modyfikacja miała miejsce. Do tego jeszcze w części kodu dotyczącego użytkownika musimy wpisać id które określi nam użytkownika dla którego modyfikacja zostanie wprowadzona. To nam umożliwia zmianę dziennika planów dla użytkownika. Największą korzyścią jest to że każdemu z naszych użytkowników możemy na każdy dzień roboczy tygodnia zmienić godziny jego pracy.
 */usunPoId* | Usuń dziennik planów | Pozwala na usunięcie dziennika planów za pomocą jego numeru id. Jest to pole kluczowe, które musi zostać wypełnione. W przypadku braku tego pola system nam to pokarze. Popełnienie jakiego kolwiek błędu będzie wskazane odpowiednim komunikatem. 
 </br>
-Co mogą robić poszeczegulni użytkownicy systemu: </br>
--Admin możesz wszystko. </br>
--Lider może zapisać dziennik planów i może też usunąć dziennik planów. </br>
--Pracownik może tylko zapisać dziennik planów. </br>
+
 Dziennik planów jest serwisem załatwiającym nam harmonogram. Każdy ma swój dziennik i może go edytować jeżeli to konieczne. Jest jasno pokazany czas pracy a także są oddzielone dni tygodnia. </br>
 
 d)Nieobecnosc Controller:</br>
@@ -91,10 +81,7 @@ Metoda | Funkcjonalność | Opis
 */zapiszNieobecnosc* | Zapisz nieobecnosc | Użytkownik może zapisać swoje nieobecności po przez podanie daty i ilości godzin w części nieobecności. Do tego dopisuje typ swojej nieobecności a także id w części użytkownika. Wszystko zostanie dla niego zapisane. Jeżeli zapisze już jedną nieobecność na dany dzień to nie może jej nadpisać. Po zapisaniu nieobecności zostaną wyświetlone wszystkie dane związane z jego nieobecnością a także informacje o samym użytkowniku dla, którego zostało to zrobione.
 */usunPoId* | Usuń nieobecność | Pozwala na usunięcie nieobecności po przez podanie numeru id nieobecności. Pole to jest polem kluczowym i musi zostać wypełnione. Jego brak spowoduje pokazanie nam że pole to jest polem pustym. Jeżeli popełnimy błąd zostanie wyświetlony odpowiedni komunikat.
  </br>
- Co mogą robić poszeczegulni użytkownicy systemu: </br>
--Admin możesz wszystko. </br>
--Lider może zapisać nieobcność. </br>
--Pracownik tak jak lider może tylko zapisać nieobecność. </br>
+
  Serwis pozwala na łatwe przeglądanie tego czy nasi pracownicy mają jakieś nieobecności. Do niej jest zapisywany typ tej nieobecności co umożliwia automatyczny podgląd na daną sytuację. </br>
  
  e)Grupa Controller:</br>
@@ -109,10 +96,7 @@ Metoda | Funkcjonalność | Opis
 */pobierzGrupePoId* | Znajdź grupę po id | Pozwala na odszukanie grupy za pomocą numeru id grupy. Pole to jest polem wymaganym w trakcie wyszukiwania i nie może zostać puste. Jeżeli w trakcie zostanie popełniony błąd zostanie wyświetlony komunikat o popełnionym błędzie.
 */pobierzPoEmailuLidera* | Znajdź grupę po liderze | Pozwala odszukać grupę za pomocą maila lidera. Pole to jest polem koniecznym. Jeżeli go nie uzupełnimy system nam to wypomni. Jeżeli popełnimy błąd system nam przekaże odpowiedni komunikat. Po zanlezieu zostanie pokazana grupa, której liderem jest użytkownik o podanym mailu.
 </br>
- Co mogą robić poszeczegulni użytkownicy systemu: </br>
--Admin możesz wszystko. </br>
--Lider zapisać grupę. </br>
--Pracownik nie ma praw. </br>
+
 Serwis pozwala łączyć użytkowników w grupy, które są odpowiedzialne za odpowiednie zadania. </br>
 
 f)Rola Controller:</br>
@@ -123,9 +107,7 @@ Metoda | Funkcjonalność | Opis
 */pobierzWszystkieRole* | Znajdz wszystkie role | Umożliwia wyszukanie wszystkich ról i pokazanie jakie uprwanienia ma dana rola. 
 */znajdzRolePoNazwie* | Znajdz rolę po nazwie | Umożliwia znalezienie roli po przez wpisanie jej nazwy. Pole nazwa jest kluczowe i musi być wypełnione. Jego brak pokaże nam system. Inne błędy w czasie wyszukiwania zostaną pokazane przez odpowiednie komunikaty.
 </br>
- Co mogą robić poszeczegulni użytkownicy systemu: </br>
--Admin możesz wszystko. </br>
--Lider i pracownik nie mają praw </br>
+
 Serwis pokazujący role poszeczegulnych użytkowników systemu.
 
 Schemat bazy danych: </br>
