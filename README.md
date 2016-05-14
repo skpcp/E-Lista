@@ -116,5 +116,5 @@ Metoda | Funkcjonalność | Opis
 Serwis pozwala łączyć użytkowników w grupy, które są odpowiedzialne za odpowiednie zadania. </br>
 
 f)Rola Controller:</br>
- Metoda | Funkcjonalność | Opis 
+Metoda | Funkcjonalność | Opis 
  --- | --- | --- 
