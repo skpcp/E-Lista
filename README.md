@@ -122,3 +122,8 @@ Metoda | Funkcjonalność | Opis
 */edytujNazweRoli* | Edytuj nazwę roli | Umożliwia edytowanie istniejących ról ale nie pozawala na tworzenie nowych. Polega na wpisaniu starej roli i podaniu nowej nazwy. Jeżeli popełnimy jakiś błąd to system nam pokaże odpowiedni komunikat o błędzie. 
 */pobierzWszystkieRole* | Znajdz wszystkie role | Umożliwia wyszukanie wszystkich ról i pokazanie jakie uprwanienia ma dana rola. 
 */znajdzRolePoNazwie* | Znajdz rolę po nazwie | Umożliwia znalezienie roli po przez wpisanie jej nazwy. Pole nazwa jest kluczowe i musi być wypełnione. Jego brak pokaże nam system. Inne błędy w czasie wyszukiwania zostaną pokazane przez odpowiednie komunikaty.
+</br>
+ Co mogą robić poszeczegulni użytkownicy systemu: </br>
+-Admin możesz wszystko. </br>
+-Lider i pracownik nie mają praw </br>
+Serwis pokazujący role poszeczegulnych użytkowników systemu.
