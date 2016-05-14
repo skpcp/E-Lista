@@ -41,8 +41,8 @@ Metoda | Funkcjonalnosć | Opis
 </br>
 Co mogą robić poszeczegulni użytkownicy systemu: </br>
 -Admin możesz wszystko. </br> 
--Lider może pobrać użytkowników za pomocą nazwy grupy i aktywności </br>
--Pracownik może tylko się zarejestrować </br>
+-Lider może pobrać użytkowników za pomocą nazwy grupy i aktywności. </br>
+-Pracownik może tylko się zarejestrować. </br>
 Podsumowując serwis  „Użytkownik Controller” przeznaczony jest do wykonywania operacji związanych z użytkownikiem. Podstawową operacją jest stworzenie nowego użytkownika. Dzięki temu użytkownik będzie mógł korzystać z aplikacji ale także być przypisanym do grupy użytkowników odpowiedzialnych za wykonywanie pewnych obowiązków. Oprócz tego możemy w systemie znaleźć użytkownika na kilka różnych sposobów. </br>
 
 b)Czas Pracy Controller:</br>
@@ -53,6 +53,12 @@ Metoda | Funkcjonalność | Opis
 */zapiszCzasPracy* | Zapisz czas pracy | Umożliwia zmianę godzin pracy bez potrzeby brania z dziennika planów. Użytkownik może sobie zmienić tylko godziny pracy.
 */zapiszCzasPracyWedlugPlanu* | Zapisz czas pracy według planu | Umożliwia zapis czasu pracy według dziennika planów. W części użytkownika wpisywany jest jego numer co powoduje pobranie jego czasu pracy. Pokazane zostaną są wszystkie informacje związane z dziennikiem planów, informacje o użytkowniku dla którego jest szukany czas pracy. W tym momencie edycja czasu pracy możliwa jest tylko po przez dziennik planów ponieważ z niego są pobierane informacje o czasie pracy. Zapis czas pracy według dziennika planów zapisuje czas pracy według dnia tygodnia np.  poniedziałek, wtedy pobieramy godziny pracy z poniedziałkowego dziennika planów. Może być tylko jeden czas pracy na dzień. Jeżeli będzie próba zapisu drugiego na ten sam dzień to ponowna próba nie zostanie wykonana, gdyż dziennik jest już zapisy. 
 /*pobierzCzasPracy* | Pobierz czas pracy | Nie posiada żadnych pól kluczowych. Czasy pracy zostaną pobrane dla użytkowników, którzy mają zapisany czas pracy. Wraz z tymi informacjami zostaną pobrane informacje o użytkownikach. 
+*/usunCzasPracy* | Usuń czas pracy | Pozwala na usunięcie danego czasu pracy. Polem tym jest numer id czasu pracy.
+</br>
+Co mogą robić poszeczegulni użytkownicy systemu: </br>
+-Admin możesz wszystko. </br>
+-Lider może usunąć czas pracy, zapisz czas pracy a także zapisać czas pracy z dziennika planów. </br>
+-Pracownik może zapisywać czas pracy lub zapisać czas pracy za pomocą dziennika planów. </br>
 </br>
 Wszystko zawarte w serwisie jest łatwe i czytelne. Użytkownik może łatwo edytować swoje godziny pracy. Umożliwia to wprowadzanie elastycznego czasu pracy, ale czas pracy jest określony na pewną liczbę godzin. </br>
 
