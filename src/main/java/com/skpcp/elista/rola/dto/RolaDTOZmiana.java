@@ -2,28 +2,30 @@ package com.skpcp.elista.rola.dto;
 
 import io.swagger.annotations.ApiModel;
 
+import java.io.Serializable;
+
 /**
  * Created by Tomasz Komoszeski on 2016-05-08.
  */
 @ApiModel
-public class RolaDTOZmiana {
-    private String rola;
+public class RolaDTOZmiana implements Serializable {
+    private Long id;
     private String rolaDoZmiany;
 
     public RolaDTOZmiana() {
     }
 
-    public RolaDTOZmiana(String rola, String rolaDoZmiany) {
-        this.rola = rola;
+    public RolaDTOZmiana(Long id, String rolaDoZmiany) {
+        this.id = id;
         this.rolaDoZmiany = rolaDoZmiany;
     }
 
-    public String getRola() {
-        return rola;
+    public Long getId() {
+        return id;
     }
 
-    public void setRola(String rola) {
-        this.rola = rola;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getRolaDoZmiany() {
