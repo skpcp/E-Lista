@@ -127,3 +127,4 @@ Metoda | Funkcjonalność | Opis
 -Admin możesz wszystko. </br>
 -Lider i pracownik nie mają praw </br>
 Serwis pokazujący role poszeczegulnych użytkowników systemu.
+
