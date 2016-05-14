@@ -101,3 +101,10 @@ Metoda | Funkcjonalność | Opis
  
  Metoda | Funkcjonalność | Opis 
   --- | --- | --- 
+*/zapiszGrupe* | Zapisz grupe | Umożliwia utworzenie nowej grupy po przez podanie numeru id lidera oraz wpisanie nazwy grupy. Jeżeli popełnimy jakiś błąd sysytem pokaże nam odpowiedni komunikat.
+*/usunGrupePoId* | Usuń grupę po id | Po przez podanie numer id grupy możemy ją usunąć. Pole to jest polem kluczowym i musi zostać wypełnione aby usunąć grupę. Jeżeli w trakcie zostanie popełniony jakiś błąd system pokaże odpowiedni komunikat.
+*/pobierzWszystkieGrupy* | Znajdź wszystkie grupy | Pozwala na wyświetlenie wszystkich grup jakie są utworzone w systemie, wraz ze wszystkimi informacjami jakie dotyczą grup.
+*/pobierzGrupePoNazwie* | Znajdź grupe po nazwie | Pozwala na wyszukanie grupy po nazwie. Pole nazwa grupy jest polem obowiązkowym i musi być wypełnione. Pozostawienie go pustym z powoduje że system nam każe je wypełnić. Jeżeli popełnimy błąd zostanie wyświetlony odpowiedni komunikat o błędzie. 
+*/pobierzGrupePoLiderze* | Znajdź grupę po liderze | Wyszukanie pozwala odnaleść grupę przypisaną do lidera. Aby to zrobić trzeba uzupełnić pole lider id. Odpowiada ono numerowi id tego użytkownika, który jest liderem danej grupy. Pozostawienie tego pola pustym spowoduje że system każe nam je wypełnić. Jeżeli w trakcie zostanie popełniony błąd system też nam to pokaże w odpowiednim komunikacie.
+*/pobierzGrupePoId* | Znajdź grupę po id | Pozwala na odszukanie grupy za pomocą numeru id grupy. Pole to jest polem wymaganym w trakcie wyszukiwania i nie może zostać puste. Jeżeli w trakcie zostanie popełniony błąd zostanie wyświetlony komunikat o popełnionym błędzie.
+*/pobierzPoEmailuLidera* | Znajdź grupę po liderze | Pozwala odszukać grupę za pomocą maila lidera. Pole to jest polem koniecznym. Jeżeli go nie uzupełnimy system nam to wypomni. Jeżeli popełnimy błąd system nam przekaże odpowiedni komunikat. Po zanlezieu zostanie pokazana grupa, której liderem jest użytkownik o podanym mailu.
