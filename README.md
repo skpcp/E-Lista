@@ -89,7 +89,12 @@ Metoda | Funkcjonalność | Opis
 */pobierzPoTypie* | Znajdz po typie | Użytkownik chcąc wyszukać nieobecności musi podać jej typ. Jest to pole, które nie może zostać puste. Nieobecności zostaną wyświetlone dla tych użytkowników co będą posiadali wpisany typ. Wraz z nią zostaną podane informacje o tych użytkownikach, którzy posiadają nieobecności wpisanego w wyszukiwanie typu. 
 */pobierzPoTypieIUzytkowniku* | Znajdz po typie i uzytkowniku | Umożliwia pobranie nieobecności po typie nieobecności i użytkowniku. Pola te są polami obowiązkowymi więc trzeba je wpisać. Informacje które zostaną wyświetlone będą dotyczyły osoby, której id zostało wtedy użyte. 
 */zapiszNieobecnosc* | Zapisz nieobecnosc | Użytkownik może zapisać swoje nieobecności po przez podanie daty i ilości godzin w części nieobecności. Do tego dopisuje typ swojej nieobecności a także id w części użytkownika. Wszystko zostanie dla niego zapisane. Jeżeli zapisze już jedną nieobecność na dany dzień to nie może jej nadpisać. Po zapisaniu nieobecności zostaną wyświetlone wszystkie dane związane z jego nieobecnością a także informacje o samym użytkowniku dla, którego zostało to zrobione.
+*/usunPoId* | Usuń nieobecność | Pozwala na usunięcie nieobecności po przez podanie numeru id nieobecności. Pole to jest polem kluczowym i musi zostać wypełnione. Jego brak spowoduje pokazanie nam że pole to jest polem pustym. Jeżeli popełnimy błąd zostanie wyświetlony odpowiedni komunikat.
  </br>
+ Co mogą robić poszeczegulni użytkownicy systemu: </br>
+-Admin możesz wszystko. </br>
+-Lider może zapisać nieobcność. </br>
+-Pracownik tak jak lider może tylko zapisać nieobecność. </br>
  Serwis pozwala na łatwe przeglądanie tego czy nasi pracownicy mają jakieś nieobecności. Do niej jest zapisywany typ tej nieobecności co umożliwia automatyczny podgląd na daną sytuację. </br>
  
  e)Grupa Controller:</br>
