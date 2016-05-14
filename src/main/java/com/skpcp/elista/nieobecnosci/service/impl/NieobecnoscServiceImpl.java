@@ -96,7 +96,7 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
         }
 
 
-        UzytkownikOB pUztkownikOB = aNieobecnosciDTO.getUzytkownikId() == null ? null : iUzytkownikRepository.findOne(aNieobecnosciDTO.getId());
+        UzytkownikOB pUztkownikOB = aNieobecnosciDTO.getUzytkownikId() == null ? null : iUzytkownikRepository.findOne(aNieobecnosciDTO.getUzytkownikId());
         if(pUztkownikOB == null){
             throw new MyServerException("Nie ma takiego użytkownika", HttpStatus.NOT_FOUND,new HttpHeaders()); //coś poszło nie tak
         }

@@ -4,6 +4,8 @@ com\skpcp\elista\czaspracy\repository\ICzasPracyRepository.class
 com\skpcp\elista\rola\dto\RolaDTOZmiana.class
 com\skpcp\elista\utils\converters\CzasPracyConverter.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTOWedlugPlanu.class
+com\skpcp\elista\springsecurity\config\WebSecurityConfig.class
+com\skpcp\elista\springsecurity\config\WebSecurityConfiguration.class
 com\skpcp\elista\grupa\dto\GrupaDTOBezLidera.class
 com\skpcp\elista\utils\converters\NieobecnoscConverter.class
 com\skpcp\elista\nieobecnosci\api\NieobecnoscController.class
@@ -19,7 +21,6 @@ com\skpcp\elista\grupa\dto\GrupaDTOBezIdTechDate.class
 com\skpcp\elista\nieobecnosci\service\impl\NieobecnoscServiceImpl.class
 com\skpcp\elista\nieobecnosci\service\INieobecnoscService.class
 com\skpcp\elista\czaspracy\api\CzasPracyController.class
-com\skpcp\elista\WebSecurityConfiguration$1.class
 com\skpcp\elista\utils\converters\RolaConverter.class
 com\skpcp\elista\rola\service\IRolaService.class
 com\skpcp\elista\rola\dto\RolaDTO.class
@@ -27,6 +28,7 @@ com\skpcp\elista\uzytkownik\dto\UzytkownikDTO.class
 com\skpcp\elista\dziennikplanow\service\impl\DziennikPlanowServiceImpl.class
 com\skpcp\elista\base\dto\BaseDTO.class
 com\skpcp\elista\rola\dto\RolaDTOBezUprawnien.class
+com\skpcp\elista\springsecurity\config\WebSecurityConfiguration$1.class
 com\skpcp\elista\grupa\repository\IGrupaRepository.class
 com\skpcp\elista\utils\converters\UprawnienieConverter.class
 com\skpcp\elista\uzytkownik\ob\UzytkownikOB.class
@@ -37,7 +39,6 @@ com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOBezUzytkownika.class
 com\skpcp\elista\nieobecnosci\repository\INieobecnoscRepository.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezRoliGrupyZHaslem.class
 com\skpcp\elista\base\ob\BaseOB.class
-com\skpcp\elista\WebSecurityConfiguration.class
 com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOUzytkownik.class
 com\skpcp\elista\utils\converters\GrupaConverter.class
 com\skpcp\elista\dziennikplanow\api\DziennikPlanowController.class
@@ -53,7 +54,6 @@ com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTO.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTOBezIdTechDate.class
 com\skpcp\elista\EListaApplication.class
 com\skpcp\elista\grupa\dto\GrupaDTO.class
-com\skpcp\elista\WebSecurityConfig.class
 com\skpcp\elista\grupa\service\impl\GrupaServiceImpl.class
 com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTOBezUzytkownika.class
 com\skpcp\elista\grupa\dto\GrupaDTOBezLiderAleZIdTechDate.class

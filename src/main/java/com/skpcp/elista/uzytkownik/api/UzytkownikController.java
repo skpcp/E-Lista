@@ -8,7 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -20,6 +31,11 @@ public class UzytkownikController {
     @Autowired
     IUzytkownikService serwisUzytkownika;
 
+    @Autowired
+    UserDetailsService userDetailsService;
+
+//    @Autowired
+//    AuthenticationManager authenticationManager;
 
 
     @RequestMapping(value = "pobierzPoId/{id}",method = RequestMethod.GET)
@@ -184,4 +200,10 @@ public class UzytkownikController {
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
     }
+
+//    @RequestMapping(value = "/zaloguj",method = RequestMethod.POST)
+//    @ResponseBody
+//    public ResponseEntity<Void> zalogujUzytkownika(){
+//
+//    }
 }

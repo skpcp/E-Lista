@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -75,12 +77,19 @@ public class CzasPracyController {
 
     @RequestMapping(value = "/pobierzCzasPracyPoDacieIUzytkowniku/{uzytkownik.id},{dzien}",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<CzasPracyDTOBezUzytkownika> pobierzCzasPracyUzytkownikaPoIdOrazDniu(@PathVariable("uzytkownik.id") Long aId,@PathVariable("dzien") Date aDate)
+    public ResponseEntity<CzasPracyDTOBezUzytkownika> pobierzCzasPracyUzytkownikaPoIdOrazDniu(@PathVariable("uzytkownik.id") Long aId,@PathVariable("dzien") String aDate)
     {
+        SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+
         try{
-            return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasPracyUzytkownikaPoDacieIPoUzytkowniku(aDate,aId),HttpStatus.OK);
-        }catch (MyServerException e){
-            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+         Date dzien = format.parse(aDate);
+            try{
+                return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasPracyUzytkownikaPoDacieIPoUzytkowniku(dzien,aId),HttpStatus.OK);
+            }catch (MyServerException e){
+                return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+            }
+        }catch (ParseException e){
+            return new ResponseEntity<>(HttpStatus.METHOD_NOT_ALLOWED);
         }
     }
 }

@@ -1,6 +1,6 @@
-package com.skpcp.elista;
+package com.skpcp.elista.springsecurity.config;
 
-import com.skpcp.elista.grupa.ob.GrupaOB;
+
 import com.skpcp.elista.rola.ob.RolaOB;
 import com.skpcp.elista.uprawnienia.ob.UprawnienieOB;
 import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
@@ -11,13 +11,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
