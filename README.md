@@ -108,3 +108,13 @@ Metoda | Funkcjonalność | Opis
 */pobierzGrupePoLiderze* | Znajdź grupę po liderze | Wyszukanie pozwala odnaleść grupę przypisaną do lidera. Aby to zrobić trzeba uzupełnić pole lider id. Odpowiada ono numerowi id tego użytkownika, który jest liderem danej grupy. Pozostawienie tego pola pustym spowoduje że system każe nam je wypełnić. Jeżeli w trakcie zostanie popełniony błąd system też nam to pokaże w odpowiednim komunikacie.
 */pobierzGrupePoId* | Znajdź grupę po id | Pozwala na odszukanie grupy za pomocą numeru id grupy. Pole to jest polem wymaganym w trakcie wyszukiwania i nie może zostać puste. Jeżeli w trakcie zostanie popełniony błąd zostanie wyświetlony komunikat o popełnionym błędzie.
 */pobierzPoEmailuLidera* | Znajdź grupę po liderze | Pozwala odszukać grupę za pomocą maila lidera. Pole to jest polem koniecznym. Jeżeli go nie uzupełnimy system nam to wypomni. Jeżeli popełnimy błąd system nam przekaże odpowiedni komunikat. Po zanlezieu zostanie pokazana grupa, której liderem jest użytkownik o podanym mailu.
+</br>
+ Co mogą robić poszeczegulni użytkownicy systemu: </br>
+-Admin możesz wszystko. </br>
+-Lider zapisać grupę. </br>
+-Pracownik nie ma praw. </br>
+Serwis pozwala łączyć użytkowników w grupy, które są odpowiedzialne za odpowiednie zadania. </br>
+
+f)Rola Controller:</br>
+ Metoda | Funkcjonalność | Opis 
+ --- | --- | --- 
