@@ -39,6 +39,10 @@ Metoda | Funkcjonalnosć | Opis
 */pobierzPoUzytkownikowPoIdGrupy* | Znajdź użytkowników po id grupy | Pozwala wyświetlić użytkowników danej grupy za pomocą numeru id grupy. Pole to jest polem kluczowym i musi być wypełnione. Jeżeli będzie puste to system nam to pokaże. Jeżeli popełnimy jakiś błąd to system pokaże nam odpowiedni komunikat dotyczący tego błędu.
 */pobierzUzytkownikowPoGrupieIPoAktywności* | Znajdź użytkowników po nazwie grupy oraz aktywności | Pozwala nam na wyszukanie użytkowników należących do odpowiedniej grupy z podaną aktywnością. Nazwa grupy i aktywność muszą zostać podane i pola te nie mogą zostać puste. Jeśli popełnimy jakiś błąd system wskarze nam jego rodzaj.
 </br>
+Co mogą robić poszeczegulni użytkownicy systemu: </br>
+-Admin możesz wszystko. </br> 
+-Lider może pobrać użytkowników za pomocą nazwy grupy i aktywności </br>
+-Pracownik może tylko się zarejestrować </br>
 Podsumowując serwis  „Użytkownik Controller” przeznaczony jest do wykonywania operacji związanych z użytkownikiem. Podstawową operacją jest stworzenie nowego użytkownika. Dzięki temu użytkownik będzie mógł korzystać z aplikacji ale także być przypisanym do grupy użytkowników odpowiedzialnych za wykonywanie pewnych obowiązków. Oprócz tego możemy w systemie znaleźć użytkownika na kilka różnych sposobów. </br>
 
 b)Czas Pracy Controller:</br>
