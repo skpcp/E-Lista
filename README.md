@@ -111,4 +111,4 @@ Metoda | Funkcjonalność | Opis
 Serwis pokazujący role poszeczegulnych użytkowników systemu.
 
 Schemat bazy danych: </br>
-![alt text](https://github.com/skpcp/E-Lista/blob/programuje_w_nocy/schemat%20bazy%20danych%20elista.png)
+![alt text](https://github.com/skpcp/E-Lista/blob/programuje_w_nocy/shcemat%20bazy%20danych%20elistan%202.jpg)
