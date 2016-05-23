@@ -33,6 +33,7 @@ com\skpcp\elista\grupa\repository\IGrupaRepository.class
 com\skpcp\elista\utils\converters\UprawnienieConverter.class
 com\skpcp\elista\uzytkownik\ob\UzytkownikOB.class
 com\skpcp\elista\uprawnienia\ob\UprawnienieOB.class
+com\skpcp\elista\springsecurity\config\RestAuthenticationEntryPoint.class
 com\skpcp\elista\rola\api\RolaController.class
 com\skpcp\elista\uprawnienia\repository\IUprawnienieRepository.class
 com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOBezUzytkownika.class
@@ -65,6 +66,7 @@ com\skpcp\elista\rola\respository\IRolaRepository.class
 com\skpcp\elista\rola\ob\RolaOB.class
 com\skpcp\elista\uprawnienia\service\IUprawnienieService.class
 com\skpcp\elista\czaspracy\ob\CzasPracyOB.class
+com\skpcp\elista\springsecurity\config\MySavedRequestAwareAuthenticationSuccessHandler.class
 com\skpcp\elista\uzytkownik\service\IUzytkownikService.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezHasla.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezIdTechDate.class
