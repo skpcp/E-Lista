@@ -34,6 +34,7 @@ com\skpcp\elista\grupa\repository\IGrupaRepository.class
 com\skpcp\elista\utils\converters\UprawnienieConverter.class
 com\skpcp\elista\uzytkownik\ob\UzytkownikOB.class
 com\skpcp\elista\uprawnienia\ob\UprawnienieOB.class
+com\skpcp\elista\czaspracy\dto\CzasPracyDTODatyString.class
 com\skpcp\elista\rola\api\RolaController.class
 com\skpcp\elista\uprawnienia\repository\IUprawnienieRepository.class
 com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOBezUzytkownika.class
@@ -47,6 +48,7 @@ com\skpcp\elista\czaspracy\service\impl\CzasPracyServiceImpl.class
 com\skpcp\elista\dziennikplanow\ob\DziennikPlanowOB.class
 com\skpcp\elista\grupa\ob\GrupaOB.class
 com\skpcp\elista\grupa\api\GrupaController.class
+com\skpcp\elista\czaspracy\dto\CzasPracyDTOPlanString.class
 com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTOUzytkownik.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTO.class
 com\skpcp\elista\uprawnienia\dto\UprawnienieDTO.class

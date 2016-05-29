@@ -11,13 +11,16 @@ import java.util.Date;
  */
 @ApiModel
 public class CzasPracyDTOUzytkownik extends BaseDTO {
-    UzytkownikDTOBezHasla uzytkownik;
-    private Date dzien;
-    private Date rozpoczecie;
-    private Date zakonczenie;
+    private UzytkownikDTOBezHasla uzytkownik;
+    private String dzien;
+    private String rozpoczecie;
+    private String zakonczenie;
     private String zakresPracy;
 
-    public CzasPracyDTOUzytkownik(UzytkownikDTOBezHasla uzytkownik, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
+    public CzasPracyDTOUzytkownik() {
+    }
+
+    public CzasPracyDTOUzytkownik(UzytkownikDTOBezHasla uzytkownik, String dzien, String rozpoczecie, String zakonczenie, String zakresPracy) {
         this.uzytkownik = uzytkownik;
         this.dzien = dzien;
         this.rozpoczecie = rozpoczecie;
@@ -25,7 +28,7 @@ public class CzasPracyDTOUzytkownik extends BaseDTO {
         this.zakresPracy = zakresPracy;
     }
 
-    public CzasPracyDTOUzytkownik(Long id, Date techDate, UzytkownikDTOBezHasla uzytkownik, Date dzien, Date rozpoczecie, Date zakonczenie, String zakresPracy) {
+    public CzasPracyDTOUzytkownik(Long id, Date techDate, UzytkownikDTOBezHasla uzytkownik, String dzien, String rozpoczecie, String zakonczenie, String zakresPracy) {
         super(id, techDate);
         this.uzytkownik = uzytkownik;
         this.dzien = dzien;
@@ -42,27 +45,27 @@ public class CzasPracyDTOUzytkownik extends BaseDTO {
         this.uzytkownik = uzytkownik;
     }
 
-    public Date getDzien() {
+    public String getDzien() {
         return dzien;
     }
 
-    public void setDzien(Date dzien) {
+    public void setDzien(String dzien) {
         this.dzien = dzien;
     }
 
-    public Date getRozpoczecie() {
+    public String getRozpoczecie() {
         return rozpoczecie;
     }
 
-    public void setRozpoczecie(Date rozpoczecie) {
+    public void setRozpoczecie(String rozpoczecie) {
         this.rozpoczecie = rozpoczecie;
     }
 
-    public Date getZakonczenie() {
+    public String getZakonczenie() {
         return zakonczenie;
     }
 
-    public void setZakonczenie(Date zakonczenie) {
+    public void setZakonczenie(String zakonczenie) {
         this.zakonczenie = zakonczenie;
     }
 

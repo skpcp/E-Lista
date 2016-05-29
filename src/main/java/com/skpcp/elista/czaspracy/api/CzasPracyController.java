@@ -4,6 +4,7 @@ import com.skpcp.elista.czaspracy.dto.*;
 import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import com.skpcp.elista.utils.exceptions.MyServerException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -37,9 +39,26 @@ public class CzasPracyController {
     @PreAuthorize("#aCzasPracyDTO.uzytkownik.email == authentication.name AND hasAuthority('PRACOWNIK') OR hasAnyAuthority('ADMIN,LIDER')")
     @RequestMapping(value = "/zapiszCzasPracy",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<CzasPracyDTOUzytkownik> zapiszCzasPracy(@RequestBody CzasPracyDTOBezIdTechDate aCzasPracyDTO){
+    public ResponseEntity<CzasPracyDTOUzytkownik> zapiszCzasPracy(@RequestBody CzasPracyDTODatyString aCzasPracyDTO){
+        SimpleDateFormat dzienPracy = new SimpleDateFormat("YYYY-MM-dd");
+        SimpleDateFormat czas = new SimpleDateFormat("HH:mm");
+        Date dzien;
+        Date rozpoczecie;
+        Date zakonczenie;
+        try{
+               dzien = aCzasPracyDTO.getDzien() == null ? null : dzienPracy.parse(aCzasPracyDTO.getDzien());
+               rozpoczecie = aCzasPracyDTO.getRozpoczecie() == null ? null : czas.parse(aCzasPracyDTO.getRozpoczecie());
+               zakonczenie = aCzasPracyDTO.getZakonczenie() == null ? null : czas.parse(aCzasPracyDTO.getZakonczenie());
+        }catch (ParseException e)
+        {
+
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }
+        CzasPracyDTOBezIdTechDate pCzasPracyDTO = new CzasPracyDTOBezIdTechDate(aCzasPracyDTO.getId(),aCzasPracyDTO.getUzytkownikId(),dzien,rozpoczecie,zakonczenie,aCzasPracyDTO.getZakresPracy());
         try {
-            return new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracy(aCzasPracyDTO), HttpStatus.OK);
+            return new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracy(pCzasPracyDTO), HttpStatus.OK);
         }catch (MyServerException e){
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
@@ -48,9 +67,22 @@ public class CzasPracyController {
     @PreAuthorize("#aCzasPracyDTO.uzytkownik == authentication.name AND hasAuthority('PRACOWNIK') OR hasAnyAuthority('ADMIN,LIDER')")
     @RequestMapping(value = "/zapiszCzasPracyWedlugPlanu",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<CzasPracyDTOUzytkownik> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTOWedlugPlanu aCzasPracyDTO){
+    public ResponseEntity<CzasPracyDTOUzytkownik> zapiszCzasPracyWedlugPlanu(@RequestBody CzasPracyDTOPlanString aCzasPracyDTO){
+        SimpleDateFormat dzienPracy = new SimpleDateFormat("YYYY-MM-dd");
+
+        Date dzien;
+
+        try{
+            dzien = aCzasPracyDTO.getDzien() == null ? null : dzienPracy.parse(aCzasPracyDTO.getDzien());
+        }catch (ParseException e)
+        {
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }
+        CzasPracyDTOWedlugPlanu pCzasPracyDTO = new CzasPracyDTOWedlugPlanu(aCzasPracyDTO.getId(),aCzasPracyDTO.getUzytkownikId(),dzien,aCzasPracyDTO.getZakresPracy());
           try{
-              return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(aCzasPracyDTO),HttpStatus.CREATED);
+              return  new ResponseEntity<>(serwisCzasPracy.zapiszCzasPracyWedlugPlanu(pCzasPracyDTO),HttpStatus.CREATED);
           }catch (MyServerException e){
               return new ResponseEntity<>(e.getHeaders(),e.getStatus());
           }
@@ -77,13 +109,23 @@ public class CzasPracyController {
 
     @RequestMapping(value = "/pobierzCzasPracyPoDacieIUzytkowniku/{uzytkownik.id},{dzien}",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<CzasPracyDTOBezUzytkownika> pobierzCzasPracyUzytkownikaPoIdOrazDniu(@PathVariable("uzytkownik.id") Long aId,@PathVariable("dzien") Date aDate)
+    public ResponseEntity<CzasPracyDTOBezUzytkownika> pobierzCzasPracyUzytkownikaPoIdOrazDniu(@PathVariable("uzytkownik.id") Long aId,@PathVariable("dzien") String aDate)
     {
-            try{
-                return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasPracyUzytkownikaPoDacieIPoUzytkowniku(aDate,aId),HttpStatus.OK);
-            }catch (MyServerException e) {
+        SimpleDateFormat dzienPracy = new SimpleDateFormat("YYYY-MM-dd");
+        Date dzien;
+        try {
+            dzien = dzienPracy.parse(aDate);
+        }catch (ParseException e){
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }
+
+        try{
+                return new ResponseEntity<>(serwisCzasPracy.wyswietlCzasPracyUzytkownikaPoDacieIPoUzytkowniku(dzien,aId),HttpStatus.OK);
+        }catch (MyServerException e) {
                 return new ResponseEntity<>(e.getHeaders(), e.getStatus());
-            }
+        }
 
     }
 }

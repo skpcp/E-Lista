@@ -1,37 +1,48 @@
 package com.skpcp.elista.czaspracy.dto;
 
-import com.skpcp.elista.base.dto.BaseDTO;
 import io.swagger.annotations.ApiModel;
 
-import java.util.Date;
+import java.io.Serializable;
 
 /**
- * Created by Tomasz Komoszeski on 2016-05-08.
+ * Created by Tomasz Komoszeski on 2016-05-29.
  */
 
 @ApiModel
-public class CzasPracyDTOBezUzytkownika extends BaseDTO{
+public class CzasPracyDTODatyString implements Serializable {
+    private Long id;
+    private Long uzytkownikId;
     private String dzien;
     private String rozpoczecie;
     private String zakonczenie;
     private String zakresPracy;
 
-    public CzasPracyDTOBezUzytkownika() {
-    }
-
-    public CzasPracyDTOBezUzytkownika(String dzien, String rozpoczecie, String zakonczenie, String zakresPracy) {
+    public CzasPracyDTODatyString(Long id, Long uzytkownikId, String dzien, String rozpoczecie, String zakonczenie, String zakresPracy) {
+        this.id = id;
+        this.uzytkownikId = uzytkownikId;
         this.dzien = dzien;
         this.rozpoczecie = rozpoczecie;
         this.zakonczenie = zakonczenie;
         this.zakresPracy = zakresPracy;
     }
 
-    public CzasPracyDTOBezUzytkownika(Long id, Date techDate, String dzien, String rozpoczecie, String zakonczenie, String zakresPracy) {
-        super(id, techDate);
-        this.dzien = dzien;
-        this.rozpoczecie = rozpoczecie;
-        this.zakonczenie = zakonczenie;
-        this.zakresPracy = zakresPracy;
+    public CzasPracyDTODatyString() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUzytkownikId() {
+        return uzytkownikId;
+    }
+
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
     public String getDzien() {
