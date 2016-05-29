@@ -13,18 +13,21 @@ import java.util.Date;
 @ApiModel
 public class NieobecnoscDTOUzytkownik extends BaseDTO {
     private UzytkownikDTOBezHasla uzytkownik;
-    private Date data;
+    private String data;
     private Long ilosc;
     private String typ;
 
-    public NieobecnoscDTOUzytkownik(UzytkownikDTOBezHasla uzytkownik, Date data, Long ilosc, String typ) {
+    public NieobecnoscDTOUzytkownik() {
+    }
+
+    public NieobecnoscDTOUzytkownik(UzytkownikDTOBezHasla uzytkownik, String data, Long ilosc, String typ) {
         this.uzytkownik = uzytkownik;
         this.data = data;
         this.ilosc = ilosc;
         this.typ = typ;
     }
 
-    public NieobecnoscDTOUzytkownik(Long id, Date techDate, UzytkownikDTOBezHasla uzytkownik, Date data, Long ilosc, String typ) {
+    public NieobecnoscDTOUzytkownik(Long id, Date techDate, UzytkownikDTOBezHasla uzytkownik, String data, Long ilosc, String typ) {
         super(id, techDate);
         this.uzytkownik = uzytkownik;
         this.data = data;
@@ -40,11 +43,11 @@ public class NieobecnoscDTOUzytkownik extends BaseDTO {
         this.uzytkownik = uzytkownik;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

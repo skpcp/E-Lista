@@ -14,15 +14,8 @@ public class CzasPracyDTOWedlugPlanu implements Serializable {
     private Long uzytkownikId;
     private Date dzien;
     private String zakresPracy;
-    private String dzienTygodnia;
 
-    public CzasPracyDTOWedlugPlanu(Long id, Long uzytkownikId, Date dzien, String zakresPracy, String dzienTygodnia) {
-        this.id = id;
-        this.uzytkownikId = uzytkownikId;
-        this.dzien = dzien;
-        this.zakresPracy = zakresPracy;
-        this.dzienTygodnia = dzienTygodnia;
-    }
+
 
     public CzasPracyDTOWedlugPlanu() {
     }
@@ -67,11 +60,5 @@ public class CzasPracyDTOWedlugPlanu implements Serializable {
     }
 
 
-    public String getDzienTygodnia() {
-        return dzienTygodnia;
-    }
 
-    public void setDzienTygodnia(String dzienTygodnia) {
-        this.dzienTygodnia = dzienTygodnia;
-    }
 }

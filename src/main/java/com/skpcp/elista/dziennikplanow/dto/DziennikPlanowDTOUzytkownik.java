@@ -14,20 +14,20 @@ import java.util.Date;
 public class DziennikPlanowDTOUzytkownik extends BaseDTO {
     private UzytkownikDTOBezHasla uzytkownik;
     private String dzienTygodnia;
-    private Date planOd;
-    private Date planDo;
+    private String planOd;
+    private String planDo;
 
     public DziennikPlanowDTOUzytkownik() {
     }
 
-    public DziennikPlanowDTOUzytkownik(UzytkownikDTOBezHasla uzytkownik, String dzienTygodnia, Date planOd, Date planDo) {
+    public DziennikPlanowDTOUzytkownik(UzytkownikDTOBezHasla uzytkownik, String dzienTygodnia, String planOd, String planDo) {
         this.uzytkownik = uzytkownik;
         this.dzienTygodnia = dzienTygodnia;
         this.planOd = planOd;
         this.planDo = planDo;
     }
 
-    public DziennikPlanowDTOUzytkownik(Long id, Date techDate, UzytkownikDTOBezHasla uzytkownik, String dzienTygodnia, Date planOd, Date planDo) {
+    public DziennikPlanowDTOUzytkownik(Long id, Date techDate, UzytkownikDTOBezHasla uzytkownik, String dzienTygodnia, String planOd, String planDo) {
         super(id, techDate);
         this.uzytkownik = uzytkownik;
         this.dzienTygodnia = dzienTygodnia;
@@ -51,19 +51,19 @@ public class DziennikPlanowDTOUzytkownik extends BaseDTO {
         this.dzienTygodnia = dzienTygodnia;
     }
 
-    public Date getPlanOd() {
+    public String getPlanOd() {
         return planOd;
     }
 
-    public void setPlanOd(Date planOd) {
+    public void setPlanOd(String planOd) {
         this.planOd = planOd;
     }
 
-    public Date getPlanDo() {
+    public String getPlanDo() {
         return planDo;
     }
 
-    public void setPlanDo(Date planDo) {
+    public void setPlanDo(String planDo) {
         this.planDo = planDo;
     }
 }

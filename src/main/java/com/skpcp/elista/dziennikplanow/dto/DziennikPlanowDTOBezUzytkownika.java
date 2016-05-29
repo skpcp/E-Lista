@@ -12,19 +12,19 @@ import java.util.Date;
 @ApiModel
 public class DziennikPlanowDTOBezUzytkownika extends BaseDTO {
     private String dzienTygodnia;
-    private Date planOd;
-    private Date planDo;
+    private String planOd;
+    private String planDo;
 
     public DziennikPlanowDTOBezUzytkownika() {
     }
 
-    public DziennikPlanowDTOBezUzytkownika(String dzienTygodnia, Date planOd, Date planDo) {
+    public DziennikPlanowDTOBezUzytkownika(String dzienTygodnia, String planOd, String planDo) {
         this.dzienTygodnia = dzienTygodnia;
         this.planOd = planOd;
         this.planDo = planDo;
     }
 
-    public DziennikPlanowDTOBezUzytkownika(Long id, Date techDate, String dzienTygodnia, Date planOd, Date planDo) {
+    public DziennikPlanowDTOBezUzytkownika(Long id, Date techDate, String dzienTygodnia, String planOd, String planDo) {
         super(id, techDate);
         this.dzienTygodnia = dzienTygodnia;
         this.planOd = planOd;
@@ -39,19 +39,19 @@ public class DziennikPlanowDTOBezUzytkownika extends BaseDTO {
         this.dzienTygodnia = dzienTygodnia;
     }
 
-    public Date getPlanOd() {
+    public String getPlanOd() {
         return planOd;
     }
 
-    public void setPlanOd(Date planOd) {
+    public void setPlanOd(String planOd) {
         this.planOd = planOd;
     }
 
-    public Date getPlanDo() {
+    public String getPlanDo() {
         return planDo;
     }
 
-    public void setPlanDo(Date planDo) {
+    public void setPlanDo(String planDo) {
         this.planDo = planDo;
     }
 }

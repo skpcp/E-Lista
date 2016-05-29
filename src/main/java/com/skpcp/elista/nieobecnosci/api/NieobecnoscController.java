@@ -1,20 +1,22 @@
 package com.skpcp.elista.nieobecnosci.api;
 
 
-import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTO;
+import com.skpcp.elista.nieobecnosci.dto.*;
 
-import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTOBezTechDate;
-import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTOBezUzytkownika;
-import com.skpcp.elista.nieobecnosci.dto.NieobecnoscDTOUzytkownik;
 import com.skpcp.elista.nieobecnosci.service.INieobecnoscService;
 import com.skpcp.elista.utils.exceptions.MyServerException;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -53,9 +55,29 @@ public class NieobecnoscController {
 
     @RequestMapping(value ="/pobierzPoDacie/{data},{uzytkownik.id}",method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<NieobecnoscDTOBezUzytkownika> znajdzPoDacie(@PathVariable("data")Date aData, @PathVariable("uzytkownik.id") Long aIdUzytkownika ){
+    public ResponseEntity<NieobecnoscDTOBezUzytkownika> znajdzPoDacie(@PathVariable("data") String aData, @PathVariable("uzytkownik.id") Long aIdUzytkownika ){
+        SimpleDateFormat dzienPracy = new SimpleDateFormat("YYYY-MM-dd");
+        DateTime jodaData;
+        Date dzienWalidacja;
+        Date dzien;
+
         try{
-        return new ResponseEntity<>(serwisNieobecnosc.znajdzNieobecnoscPoDacieIUzytkowniku(aData,aIdUzytkownika),HttpStatus.OK);
+            dzienWalidacja = dzienPracy.parse(aData);
+            jodaData = DateTime.parse(aData, DateTimeFormat.forPattern("YYYY-MM-dd"));
+            dzien = jodaData.toDate();
+
+        }catch (ParseException e)
+        {
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format daty");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }catch (IllegalArgumentException e){
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }
+        try{
+        return new ResponseEntity<>(serwisNieobecnosc.znajdzNieobecnoscPoDacieIUzytkowniku(dzien,aIdUzytkownika),HttpStatus.OK);
         }catch (MyServerException e){
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
@@ -75,10 +97,31 @@ public class NieobecnoscController {
     @PreAuthorize("#aNieobecnosciDTO.uzytkownik.email == authentication.name AND hasAuthority('PRACOWNIK') OR hasAnyAuthority('ADMIN,LIDER')")
     @RequestMapping(value = "/zapiszNieobecnosci",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-    public ResponseEntity<NieobecnoscDTOUzytkownik> zapiszNieobecnosci(@RequestBody NieobecnoscDTOBezTechDate aNieobecnosciDTO){
+    public ResponseEntity<NieobecnoscDTOUzytkownik> zapiszNieobecnosci(@RequestBody NieobecnoscDTOString aNieobecnosciDTO){
+        SimpleDateFormat dzienPracy = new SimpleDateFormat("YYYY-MM-dd");
+        DateTime jodaData;
+        Date dzienWalidacja;
+        Date dzien;
+
+        try{
+            dzienWalidacja = aNieobecnosciDTO.getData() == null ? null : dzienPracy.parse(aNieobecnosciDTO.getData());
+            jodaData = aNieobecnosciDTO.getData() == null ? null : DateTime.parse(aNieobecnosciDTO.getData(), DateTimeFormat.forPattern("YYYY-MM-dd"));
+            dzien = jodaData.toDate();
+
+        }catch (ParseException e)
+        {
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }catch (IllegalArgumentException e){
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }
+        NieobecnoscDTOBezTechDate pNieboecnoscDTO = new NieobecnoscDTOBezTechDate(aNieobecnosciDTO.getId(),aNieobecnosciDTO.getUzytkownikId(),dzien,aNieobecnosciDTO.getIlosc(),aNieobecnosciDTO.getTyp());
         try
         {
-            return new ResponseEntity<>(serwisNieobecnosc.zapiszNieobecnosc(aNieobecnosciDTO),HttpStatus.OK);
+            return new ResponseEntity<>(serwisNieobecnosc.zapiszNieobecnosc(pNieboecnoscDTO),HttpStatus.OK);
         }catch (MyServerException e){
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }

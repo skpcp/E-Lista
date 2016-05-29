@@ -14,15 +14,7 @@ public class CzasPracyDTOPlanString implements Serializable {
     private Long uzytkownikId;
     private String dzien;
     private String zakresPracy;
-    private String dzienTygodnia;
 
-    public CzasPracyDTOPlanString(Long id, Long uzytkownikId, String dzien, String zakresPracy, String dzienTygodnia) {
-        this.id = id;
-        this.uzytkownikId = uzytkownikId;
-        this.dzien = dzien;
-        this.zakresPracy = zakresPracy;
-        this.dzienTygodnia = dzienTygodnia;
-    }
 
     public CzasPracyDTOPlanString() {
     }
