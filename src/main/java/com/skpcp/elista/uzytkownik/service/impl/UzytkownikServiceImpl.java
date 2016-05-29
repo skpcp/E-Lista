@@ -23,6 +23,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.print.DocFlavor;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -266,10 +267,14 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
 
 
     @Override
-    public void zmienHasloUzytkownika(Long aIdUzytkownika, String haslo) throws MyServerException {
-        UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aIdUzytkownika);
+    public void zmienHasloUzytkownika(UzytkownikDTOZmianaHasla aUzytkownikDTO) throws MyServerException {
+        UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(aUzytkownikDTO.getEmail());
         if(pUzytkownikOB == null) throw new MyServerException("Nie ma takiego uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
-        pUzytkownikOB.setHaslo(haslo);
+        String hasloZBazy = pUzytkownikOB.getHaslo();
+        String hasloPodane = aUzytkownikDTO.getHaslo();
+        if(hasloPodane == null || hasloZBazy == null || aUzytkownikDTO.getNoweHaslo() == null) throw new MyServerException("Nie znaleziono hasla",HttpStatus.NOT_FOUND,new HttpHeaders());
+        if (hasloZBazy.hashCode() != hasloPodane.hashCode()) throw new MyServerException("Złe hasło",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());
+        pUzytkownikOB.setHaslo(aUzytkownikDTO.getNoweHaslo());
         iUzytkownikRepository.save(pUzytkownikOB);
     }
 
@@ -311,6 +316,17 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
         if(pRolaOB == null) throw new MyServerException("Nie ma takiej roli",HttpStatus.NOT_FOUND,new HttpHeaders());
         pUzytkownikOB.setRola(pRolaOB);
         return UzytkownikConverter.uzytkownikOBDoUzytkownikaDTOBezHasla(iUzytkownikRepository.save(pUzytkownikOB));
+    }
+
+    @Override
+    public UzytkownikDTOLog zalogujMnie(UzytkownikDTOZaloguj aUzytkownikDTO) throws MyServerException {
+        UzytkownikOB pUzytkownikOB = aUzytkownikDTO.getEmail() == null ? null : iUzytkownikRepository.znajdzPoEmailu(aUzytkownikDTO.getEmail());
+        if (pUzytkownikOB == null) throw new MyServerException("Nie ma takiego uzytkownka",HttpStatus.NOT_FOUND,new HttpHeaders());
+        String hasloZBazy = pUzytkownikOB.getHaslo();
+        String hasloPodane = aUzytkownikDTO.getHaslo();
+        if(hasloPodane == null || hasloZBazy == null) throw new MyServerException("Nie znaleziono hasla",HttpStatus.NOT_FOUND,new HttpHeaders());
+        if (hasloZBazy.hashCode() != hasloPodane.hashCode()) throw new MyServerException("Złe hasło",HttpStatus.METHOD_NOT_ALLOWED,new HttpHeaders());
+        return UzytkownikConverter.uzytkownikOBdoUzytkownikDTOLog(pUzytkownikOB);
     }
 }
 

@@ -1,5 +1,6 @@
 com\skpcp\elista\rola\dto\RolaDTOBezIdTechDate.class
 com\skpcp\elista\uzytkownik\EStan.class
+com\skpcp\elista\uzytkownik\dto\UzytkownikDTOZaloguj.class
 com\skpcp\elista\czaspracy\repository\ICzasPracyRepository.class
 com\skpcp\elista\rola\dto\RolaDTOZmiana.class
 com\skpcp\elista\utils\converters\CzasPracyConverter.class
@@ -33,7 +34,6 @@ com\skpcp\elista\grupa\repository\IGrupaRepository.class
 com\skpcp\elista\utils\converters\UprawnienieConverter.class
 com\skpcp\elista\uzytkownik\ob\UzytkownikOB.class
 com\skpcp\elista\uprawnienia\ob\UprawnienieOB.class
-com\skpcp\elista\springsecurity\config\RestAuthenticationEntryPoint.class
 com\skpcp\elista\rola\api\RolaController.class
 com\skpcp\elista\uprawnienia\repository\IUprawnienieRepository.class
 com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOBezUzytkownika.class
@@ -58,6 +58,7 @@ com\skpcp\elista\grupa\dto\GrupaDTO.class
 com\skpcp\elista\grupa\service\impl\GrupaServiceImpl.class
 com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTOBezUzytkownika.class
 com\skpcp\elista\grupa\dto\GrupaDTOBezLiderAleZIdTechDate.class
+com\skpcp\elista\uzytkownik\dto\UzytkownikDTOLog.class
 com\skpcp\elista\dziennikplanow\repository\IDziennikPlanowRepository.class
 com\skpcp\elista\nieobecnosci\ob\NieobecnoscOB.class
 com\skpcp\elista\uzytkownik\api\UzytkownikController.class
@@ -66,7 +67,6 @@ com\skpcp\elista\rola\respository\IRolaRepository.class
 com\skpcp\elista\rola\ob\RolaOB.class
 com\skpcp\elista\uprawnienia\service\IUprawnienieService.class
 com\skpcp\elista\czaspracy\ob\CzasPracyOB.class
-com\skpcp\elista\springsecurity\config\MySavedRequestAwareAuthenticationSuccessHandler.class
 com\skpcp\elista\uzytkownik\service\IUzytkownikService.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezHasla.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezIdTechDate.class
@@ -76,5 +76,6 @@ com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezRoliGrupy.class
 com\skpcp\elista\dziennikplanow\service\IDziennikPlanowService.class
 com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTO.class
 com\skpcp\elista\SwaggerConfig.class
+com\skpcp\elista\uzytkownik\dto\UzytkownikDTOZmianaHasla.class
 com\skpcp\elista\utils\exceptions\MyServerException.class
 com\skpcp\elista\uprawnienia\service\impl\IUprawnienieServiceImpl.class

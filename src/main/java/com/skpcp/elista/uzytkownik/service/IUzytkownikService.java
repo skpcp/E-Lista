@@ -29,10 +29,11 @@ public interface IUzytkownikService {
     //EDIT SAVE
     UzytkownikDTOBezHasla zapiszUzytkownika(UzytkownikDTOBezIdTechDate aUzytkownikDTO) throws MyServerException ;
     UzytkownikDTOBezHasla zmienAdresEmailUzytkownika(Long aIdUzytkownika, String aEmail) throws MyServerException;
-    void zmienHasloUzytkownika(Long aIdUzytkownika,String haslo) throws MyServerException;
+    void zmienHasloUzytkownika(UzytkownikDTOZmianaHasla aUzytkowniKDTO) throws MyServerException;
 
     UzytkownikDTOBezRoliGrupy rejestracjaUzytkownika(UzytkownikDTOBezRoliGrupyZHaslem aUzytkownikDTO) throws MyServerException;
     List<UzytkownikDTOBezHasla> znajdzUzytkownikowWGrupiePoAktywnosci(String aNazwaGrupy, EStan aktywnosc);
     UzytkownikDTOBezHasla ustawGrupeDlaUzytkownika(Long aIdUzytkownika,String aNazwaGrupy) throws MyServerException;
     UzytkownikDTOBezHasla ustawRoleDlaUzytkownika(Long aIdUzytkownika,String aNazwaRoli) throws MyServerException;
+    UzytkownikDTOLog zalogujMnie(UzytkownikDTOZaloguj aUzytkownikDTO) throws MyServerException;
 }

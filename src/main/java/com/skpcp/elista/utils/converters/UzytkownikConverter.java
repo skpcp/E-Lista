@@ -36,6 +36,10 @@ public class UzytkownikConverter {
         return new UzytkownikDTOBezRoliGrupy(aUzytkownikOB.getId(),aUzytkownikOB.getTechDate(),aUzytkownikOB.getImie(),aUzytkownikOB.getNazwisko(),aUzytkownikOB.getEmail(),aUzytkownikOB.getTelefon(),aUzytkownikOB.getAktywnosc());
     }
 
+    public static UzytkownikDTOLog uzytkownikOBdoUzytkownikDTOLog(UzytkownikOB aUzytkownikOB){
+        return aUzytkownikOB == null ? null : new UzytkownikDTOLog(aUzytkownikOB.getId());
+    }
+
 
 
 }

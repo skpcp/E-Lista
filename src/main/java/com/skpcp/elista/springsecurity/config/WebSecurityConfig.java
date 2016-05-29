@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/elista/uzytkownicy/zarejestrujUzytkownika").permitAll()
 //                .anyRequest().fullyAuthenticated().and().
                 .anyRequest().permitAll().and().
-        httpBasic().and().
+                httpBasic().and().
                 csrf().disable();
     }
 

@@ -147,11 +147,11 @@ public class UzytkownikController {
     }
 
 
-    @RequestMapping(value = "zmienHaslo/{id},{haslo}",method = RequestMethod.POST)
+    @RequestMapping(value = "zmienHaslo/",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Void> zmienHasloUzytkownika(@PathVariable("id") Long aIdUzytkownika,@PathVariable("haslo") String aHaslo){
+    public ResponseEntity<Void> zmienHasloUzytkownika(@RequestBody UzytkownikDTOZmianaHasla aUzytkownikDTO){
        try{
-           serwisUzytkownika.zmienHasloUzytkownika(aIdUzytkownika, aHaslo);
+           serwisUzytkownika.zmienHasloUzytkownika(aUzytkownikDTO);
            return new ResponseEntity<>(HttpStatus.OK);
        }catch (MyServerException e){
            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
@@ -201,9 +201,14 @@ public class UzytkownikController {
         }
     }
 
-//    @RequestMapping(value = "/zaloguj",method = RequestMethod.POST)
-//    @ResponseBody
-//    public ResponseEntity<Void> zalogujUzytkownika(){
-//
-//    }
+    @RequestMapping(value = "/zaloguj",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<UzytkownikDTOLog> zalogujUzytkownika(@RequestBody UzytkownikDTOZaloguj aUzytkownikDTO){
+        try{
+            return new ResponseEntity<>(serwisUzytkownika.zalogujMnie(aUzytkownikDTO),HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+
+    }
 }
