@@ -59,12 +59,14 @@ public class DziennikPlanowController {
             return  new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
     }
-    @PreAuthorize("hasAnyAuthority('ADMIN,LIDER')")
-    @RequestMapping(value = "usunPoId/{id}", method = RequestMethod.PUT)
-    @ResponseBody
-    public ResponseEntity<Void> usunDziennikPlanow(@PathVariable("id")Long aId){
-        serwisDziennikaPlanow.usunDziennikPlanow(aId);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+
+
+  //  @PreAuthorize("hasAnyAuthority('ADMIN,LIDER')")
+  //  @RequestMapping(value = "usunPoId/{id}", method = RequestMethod.PUT)
+  //  @ResponseBody
+  //  public ResponseEntity<Void> usunDziennikPlanow(@PathVariable("id")Long aId){
+  //      serwisDziennikaPlanow.usunDziennikPlanow(aId);
+  //      return new ResponseEntity<>(HttpStatus.OK);
+  //  }
 }
 

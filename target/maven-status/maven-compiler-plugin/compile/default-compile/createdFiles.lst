@@ -27,6 +27,7 @@ com\skpcp\elista\rola\service\IRolaService.class
 com\skpcp\elista\rola\dto\RolaDTO.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTO.class
 com\skpcp\elista\dziennikplanow\service\impl\DziennikPlanowServiceImpl.class
+com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTOString.class
 com\skpcp\elista\base\dto\BaseDTO.class
 com\skpcp\elista\rola\dto\RolaDTOBezUprawnien.class
 com\skpcp\elista\springsecurity\config\WebSecurityConfiguration$1.class
@@ -41,6 +42,7 @@ com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOBezUzytkownika.class
 com\skpcp\elista\nieobecnosci\repository\INieobecnoscRepository.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezRoliGrupyZHaslem.class
 com\skpcp\elista\base\ob\BaseOB.class
+com\skpcp\elista\base\dto\ResponsDTO.class
 com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOUzytkownik.class
 com\skpcp\elista\utils\converters\GrupaConverter.class
 com\skpcp\elista\dziennikplanow\api\DziennikPlanowController.class

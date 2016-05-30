@@ -1,5 +1,6 @@
 package com.skpcp.elista.uzytkownik.api;
 
+import com.skpcp.elista.base.dto.ResponsDTO;
 import com.skpcp.elista.utils.exceptions.MyServerException;
 import com.skpcp.elista.uzytkownik.EStan;
 import com.skpcp.elista.uzytkownik.dto.*;
@@ -98,18 +99,22 @@ public class UzytkownikController {
 
     @RequestMapping(value = "dezaktywujPoId/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Void> dezaktywujPoId(@PathVariable("id")Long aId){
-        serwisUzytkownika.dezaktywujUzytkownika(aId);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<ResponsDTO> dezaktywujPoId(@PathVariable("id")Long aId){
+        try {
+            serwisUzytkownika.dezaktywujUzytkownika(aId);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+        return new ResponseEntity<>(new ResponsDTO("dezaktywowano"),HttpStatus.OK);
     }
     @RequestMapping(value = "aktywujPoId/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Void> aktywujUzytkownika(@PathVariable("id")Long aId) {
+    public ResponseEntity<ResponsDTO> aktywujUzytkownika(@PathVariable("id")Long aId) {
         try{
             serwisUzytkownika.aktywujUzytkownika(aId);
-            return new ResponseEntity<Void>(HttpStatus.CREATED);
+            return new ResponseEntity<>(new ResponsDTO("Aktywowano uzytkownika"),HttpStatus.OK);
         }catch (MyServerException e){
-            return new ResponseEntity<Void>(e.getHeaders(),e.getStatus());
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
 
     }
@@ -149,10 +154,10 @@ public class UzytkownikController {
 
     @RequestMapping(value = "zmienHaslo/",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Void> zmienHasloUzytkownika(@RequestBody UzytkownikDTOZmianaHasla aUzytkownikDTO){
+    public ResponseEntity<ResponsDTO> zmienHasloUzytkownika(@RequestBody UzytkownikDTOZmianaHasla aUzytkownikDTO){
        try{
            serwisUzytkownika.zmienHasloUzytkownika(aUzytkownikDTO);
-           return new ResponseEntity<>(HttpStatus.OK);
+           return new ResponseEntity<>(new ResponsDTO("Zmieniono haslo"),HttpStatus.OK);
        }catch (MyServerException e){
            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
        }

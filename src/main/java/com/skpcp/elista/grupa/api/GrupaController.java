@@ -1,5 +1,6 @@
 package com.skpcp.elista.grupa.api;
 
+import com.skpcp.elista.base.dto.ResponsDTO;
 import com.skpcp.elista.grupa.dto.*;
 import com.skpcp.elista.grupa.service.IGrupaService;
 import com.skpcp.elista.utils.exceptions.MyServerException;
@@ -75,9 +76,13 @@ public class GrupaController {
 
     @RequestMapping(value = "/usunGrupePoId/{id}",method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<Void> usunGrupePoId(@PathVariable("id")Long aId){
-        iGrupaService.usunGrupePoId(aId);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<ResponsDTO> usunGrupePoId(@PathVariable("id")Long aId){
+        try {
+            iGrupaService.usunGrupePoId(aId);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+        return new ResponseEntity<>(new ResponsDTO("Wszystko Ok"),HttpStatus.OK);
     }
 
     @RequestMapping(value = "/pobierzWszystkieGrupy",method = RequestMethod.GET)

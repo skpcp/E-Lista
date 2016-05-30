@@ -1,6 +1,7 @@
 package com.skpcp.elista.nieobecnosci.api;
 
 
+import com.skpcp.elista.base.dto.ResponsDTO;
 import com.skpcp.elista.nieobecnosci.dto.*;
 
 import com.skpcp.elista.nieobecnosci.service.INieobecnoscService;
@@ -129,9 +130,13 @@ public class NieobecnoscController {
 
     @RequestMapping(value = "usunPoId/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<Void> usunNieobecnosci(@PathVariable("id")Long aId){
-        serwisNieobecnosc.usunNieobecnosci(aId);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<ResponsDTO> usunNieobecnosci(@PathVariable("id")Long aId){
+        try {
+            serwisNieobecnosc.usunNieobecnosci(aId);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+        return new ResponseEntity<>(new ResponsDTO("Wszystko ok"),HttpStatus.OK);
     }
 
 

@@ -14,6 +14,6 @@ public interface ICzasPracyService {
     CzasPracyDTOBezUzytkownika wyswietlCzasPracyUzytkownikaPoDacieIPoUzytkowniku(Date aDate, Long aId) throws MyServerException;
     CzasPracyDTOUzytkownik zapiszCzasPracyWedlugPlanu(CzasPracyDTOWedlugPlanu aCzasPracyDTO) throws MyServerException;
     CzasPracyDTOUzytkownik zapiszCzasPracy(CzasPracyDTOBezIdTechDate aCzasPracyDTO) throws  MyServerException;
-    void usunCzasPracy(Long aId);
+    void usunCzasPracy(Long aId) throws MyServerException;
     CzasPracyDTOUzytkownik znajdzCzasPracyPoId(Long aId) throws MyServerException;
 }

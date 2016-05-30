@@ -22,7 +22,7 @@ public interface INieobecnoscService {
     List<NieobecnoscDTOUzytkownik> znajdzNieobecnosciPoTypie(String aTyp);
     List<NieobecnoscDTOBezUzytkownika> znajdzNieobecnosciPoTypieIUzytkowniku(String aTyp, Long aIdUzytkownika);
     NieobecnoscDTOUzytkownik zapiszNieobecnosc(NieobecnoscDTOBezTechDate aNieobecnosciDTO) throws MyServerException;
-    void usunNieobecnosci(Long aId);
+    void usunNieobecnosci(Long aId) throws MyServerException;
 //    NieobecnoscDTO zmienTypNiebecnosciPoId(EJednostka aID);
 //    NieobecnoscDTO zmienIloscNieobecnosciPoId(Integer aID);
 //    NieobecnoscDTO zmienDateNieobecnosciPoId(Date aID);

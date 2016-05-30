@@ -1,5 +1,6 @@
 package com.skpcp.elista.czaspracy.api;
 
+import com.skpcp.elista.base.dto.ResponsDTO;
 import com.skpcp.elista.czaspracy.dto.*;
 import com.skpcp.elista.czaspracy.service.ICzasPracyService;
 import com.skpcp.elista.utils.exceptions.MyServerException;
@@ -112,9 +113,14 @@ public class CzasPracyController {
     @PreAuthorize("hasAnyAuthority('ADMIN,LIDER')")
     @RequestMapping(value = "usunCzasPracy/{id}",method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<Void> usunCzasPracy(@PathVariable("id") Long aId){
+    public ResponseEntity<ResponsDTO> usunCzasPracy(@PathVariable("id") Long aId){
+        try {
             serwisCzasPracy.usunCzasPracy(aId);
-            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+
+        return new ResponseEntity<>(new ResponsDTO("Wszystko OK"),HttpStatus.OK);
     }
 
 

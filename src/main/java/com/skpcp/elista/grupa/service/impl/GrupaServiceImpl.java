@@ -85,7 +85,9 @@ public class GrupaServiceImpl implements IGrupaService {
     }
 
     @Override
-    public void usunGrupePoId(Long aId) {
+    public void usunGrupePoId(Long aId) throws MyServerException {
+        GrupaOB pGrupaOB = grupaRepository.findOne(aId);
+        if(pGrupaOB == null) throw new MyServerException("Nie znaleziono grupy",HttpStatus.NOT_FOUND,new HttpHeaders());
         grupaRepository.delete(aId);
     }
 

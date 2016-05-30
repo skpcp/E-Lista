@@ -19,5 +19,5 @@ public interface IGrupaService {
     List<GrupaDTOUzytkownik> znajdzWszystkieGrupy();
     List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoIdLidera(Long aIdLidera)throws MyServerException;
     List<GrupaDTOBezLiderAleZIdTechDate> znajdzGrupePoNazwieLidera(String aEmail) ;
-    void usunGrupePoId(Long aId);
+    void usunGrupePoId(Long aId) throws MyServerException;
 }

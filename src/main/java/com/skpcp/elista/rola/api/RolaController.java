@@ -1,6 +1,7 @@
 package com.skpcp.elista.rola.api;
 
 
+import com.skpcp.elista.base.dto.ResponsDTO;
 import com.skpcp.elista.rola.dto.RolaDTO;
 import com.skpcp.elista.rola.dto.RolaDTOBezUprawnien;
 import com.skpcp.elista.rola.dto.RolaDTOZmiana;
@@ -48,10 +49,14 @@ public class RolaController
 
     @RequestMapping(value = "usunRole/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity<Void> usunRole(@PathVariable("id")Long aId)
+    public ResponseEntity<ResponsDTO> usunRole(@PathVariable("id")Long aId)
     {
-        serwisRola.usunRole(aId);
-        return new ResponseEntity<>(HttpStatus.OK);
+        try {
+            serwisRola.usunRole(aId);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+        return new ResponseEntity<>(new ResponsDTO("Wszystko ok"),HttpStatus.OK);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")

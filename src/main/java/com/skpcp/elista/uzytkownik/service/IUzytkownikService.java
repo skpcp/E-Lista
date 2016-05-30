@@ -24,7 +24,7 @@ public interface IUzytkownikService {
     UzytkownikDTOBezHasla znajdzUzytkownikaPoEmailu(String aEmail) throws  MyServerException;
     List<UzytkownikDTOBezHasla> znajdzUzytkownikowPoNazwieGrupy(String aNazwaGrupy);
     List<UzytkownikDTOBezHasla> znajdzUzytkownikowPoIdGrupy(Long aIdGrupy);
-    void dezaktywujUzytkownika(Long aId);
+    void dezaktywujUzytkownika(Long aId)throws MyServerException ;
     void aktywujUzytkownika(Long aId) throws MyServerException;
     //EDIT SAVE
     UzytkownikDTOBezHasla zapiszUzytkownika(UzytkownikDTOBezIdTechDate aUzytkownikDTO) throws MyServerException ;

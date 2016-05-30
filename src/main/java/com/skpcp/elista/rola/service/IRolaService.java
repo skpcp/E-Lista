@@ -16,7 +16,7 @@ public interface IRolaService
 {
     RolaDTO znajdzRolePoNazwie(String aNazwa)throws MyServerException;
     List<RolaDTO> znajdzWszystkieRole();
-    void usunRole(Long aId);
+    void usunRole(Long aId) throws MyServerException;
     RolaDTO edytujNazweRoli(RolaDTOZmiana aRolaDTO) throws  MyServerException;
 
 }

@@ -144,7 +144,11 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     }
 
     @Override
-    public void usunCzasPracy(Long aId) {
+    public void usunCzasPracy(Long aId)throws MyServerException {
+        CzasPracyOB pCzasPracyOB = iCzasPracyRepository.findOne(aId);
+        if (pCzasPracyOB == null) {
+            throw new MyServerException("Nie znaleziono czasu pracy",HttpStatus.NOT_FOUND,new HttpHeaders());
+        }
         iCzasPracyRepository.delete(aId);
     }
 
@@ -152,7 +156,7 @@ public class CzasPracyServiceImpl implements ICzasPracyService {
     public CzasPracyDTOUzytkownik znajdzCzasPracyPoId(Long aId) throws MyServerException {
         CzasPracyOB pCzasPracyOB = iCzasPracyRepository.findOne(aId);
         if (pCzasPracyOB == null) {
-            throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
+            throw new MyServerException("Nie znaleziono czasu pracy",HttpStatus.NOT_FOUND,new HttpHeaders());
         }
         return CzasPracyConverter.czasPracyOBdoCzasuPracyDTOUzytkownik(pCzasPracyOB);
     }

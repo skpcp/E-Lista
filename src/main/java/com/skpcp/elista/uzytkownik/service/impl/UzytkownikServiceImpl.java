@@ -192,8 +192,9 @@ public class UzytkownikServiceImpl implements IUzytkownikService {
     }
 
     @Override
-    public void dezaktywujUzytkownika(Long aId) {
+    public void dezaktywujUzytkownika(Long aId) throws MyServerException{
         UzytkownikOB pUzytkownikOB = iUzytkownikRepository.findOne(aId);
+        if(pUzytkownikOB == null) throw new MyServerException("Nie znaleziono uzytkownika",HttpStatus.NOT_FOUND,new HttpHeaders());
         pUzytkownikOB.setAktywnosc(EStan.NIEAKTYWNY);
         iUzytkownikRepository.save(pUzytkownikOB);
     }

@@ -56,7 +56,9 @@ public class RolaServiceImpl implements IRolaService {
     }
 
     @Override
-    public void usunRole(Long aId) {
+    public void usunRole(Long aId) throws MyServerException {
+        RolaOB pRolaOB = iRolaRepository.findOne(aId);
+        if(pRolaOB == null) throw new MyServerException("Nie znaleziono roli",HttpStatus.NOT_FOUND,new HttpHeaders());
         iRolaRepository.delete(aId);
     }
 }

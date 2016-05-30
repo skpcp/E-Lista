@@ -21,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -129,7 +130,10 @@ public class NieobecnoscServiceImpl implements INieobecnoscService {
 
     }
     @Override
-    public void usunNieobecnosci(Long aId) {
+    public void usunNieobecnosci(Long aId) throws MyServerException {
+
+        NieobecnoscOB pNieobecnosciOB = iNieobecnosciRepository.findOne(aId);
+        if(pNieobecnosciOB == null) throw new MyServerException("Nieobecnosc nie istnieje",HttpStatus.NOT_FOUND,new HttpHeaders());
         iNieobecnosciRepository.delete(aId);
     }
 
