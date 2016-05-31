@@ -7,6 +7,7 @@ com\skpcp\elista\utils\converters\CzasPracyConverter.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTOWedlugPlanu.class
 com\skpcp\elista\springsecurity\config\WebSecurityConfig.class
 com\skpcp\elista\springsecurity\config\WebSecurityConfiguration.class
+com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOString.class
 com\skpcp\elista\grupa\dto\GrupaDTOBezLidera.class
 com\skpcp\elista\utils\converters\NieobecnoscConverter.class
 com\skpcp\elista\nieobecnosci\api\NieobecnoscController.class
@@ -38,6 +39,7 @@ com\skpcp\elista\uprawnienia\ob\UprawnienieOB.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTODatyString.class
 com\skpcp\elista\rola\api\RolaController.class
 com\skpcp\elista\uprawnienia\repository\IUprawnienieRepository.class
+com\skpcp\elista\czaspracy\dto\CzasPracyDTOBezUzytkownika.class
 com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTOBezUzytkownika.class
 com\skpcp\elista\nieobecnosci\repository\INieobecnoscRepository.class
 com\skpcp\elista\uzytkownik\dto\UzytkownikDTOBezRoliGrupyZHaslem.class

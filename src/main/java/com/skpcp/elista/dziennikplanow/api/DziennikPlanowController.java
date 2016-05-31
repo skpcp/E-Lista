@@ -1,11 +1,9 @@
 package com.skpcp.elista.dziennikplanow.api;
-import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTOBezTechDate;
-import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTOBezUzytkownika;
-import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTOUzytkownik;
+import com.skpcp.elista.dziennikplanow.dto.*;
 import com.skpcp.elista.dziennikplanow.service.IDziennikPlanowService;
-import com.skpcp.elista.dziennikplanow.dto.DziennikPlanowDTO;
 import com.skpcp.elista.utils.exceptions.MyServerException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 /**
  * Created by bidzis on 2016-03-22.
@@ -47,15 +48,31 @@ public class DziennikPlanowController {
      return new ResponseEntity<>(serwisDziennikaPlanow.znajdzDziennikiPlanowPoUzytkowniku(aIdUzytkownika), HttpStatus.OK);
  }
 
-    @PreAuthorize("#aDziennikPlanowDTO.uzytkownik.email == authentication.name AND hasAuthority('PRACOWNIK') OR hasAnyAuthority('ADMIN,LIDER')")
+
     @RequestMapping(value = "/zapiszDziennikPlanow",method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     @ResponseBody
-
-    public ResponseEntity<DziennikPlanowDTOUzytkownik> zapiszDziennikPlanow(@RequestBody DziennikPlanowDTOBezTechDate aDziennikPlanowDTO){
-        try {
-            return new ResponseEntity<>(serwisDziennikaPlanow.zapiszDziennikPlanow(aDziennikPlanowDTO), HttpStatus.OK);
-        }catch (MyServerException e)
+    public ResponseEntity<DziennikPlanowDTOUzytkownik> zapiszDziennikPlanow(@RequestBody DziennikPlanowDTOString aDziennikPlanowDTO){
+        SimpleDateFormat czas = new SimpleDateFormat("HH:mm");
+        Date rozpoczecie;
+        Date zakonczenie;
+        try{
+            rozpoczecie = aDziennikPlanowDTO.getPlanOd() == null ? null : czas.parse(aDziennikPlanowDTO.getPlanOd());
+            zakonczenie = aDziennikPlanowDTO.getPlanDo() == null ? null : czas.parse(aDziennikPlanowDTO.getPlanDo());
+        }catch (ParseException e)
         {
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }catch(IllegalArgumentException e){
+            HttpHeaders hedery = new HttpHeaders();
+            hedery.add("stan:","Zly format dat lub czasu");
+            return new ResponseEntity<>(hedery,HttpStatus.METHOD_NOT_ALLOWED);
+        }
+        DziennikPlanowDTOBezTechDate pDziennikPlanowDTO = new DziennikPlanowDTOBezTechDate(aDziennikPlanowDTO.getId(),aDziennikPlanowDTO.getUzytkownikId(),rozpoczecie,zakonczenie);
+        try {
+            return new ResponseEntity<>(serwisDziennikaPlanow.zapiszDziennikPlanow(pDziennikPlanowDTO), HttpStatus.OK);
+        }catch (MyServerException e)
+            {
             return  new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
     }
