@@ -32,7 +32,6 @@ com\skpcp\elista\czaspracy\service\impl\CzasPracyServiceImpl.class
 com\skpcp\elista\dziennikplanow\ob\DziennikPlanowOB.class
 com\skpcp\elista\grupa\ob\GrupaOB.class
 com\skpcp\elista\grupa\api\GrupaController.class
-com\skpcp\elista\grupa\dto\GrupaUzytkownikDTO.class
 com\skpcp\elista\czaspracy\dto\CzasPracyDTO.class
 com\skpcp\elista\uprawnienia\dto\UprawnienieDTO.class
 com\skpcp\elista\czaspracy\service\ICzasPracyService.class

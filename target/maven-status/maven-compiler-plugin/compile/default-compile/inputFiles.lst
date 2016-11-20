@@ -1,45 +1,62 @@
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\EListaApplication.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\api\DziennikPlanowController.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\api\UzytkownikController.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\dto\NieobecnosciDTO.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\repository\IDziennikPlanowRepository.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\utils\UzytkownikConverter.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\base\dto\BaseDTO.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\czaspracy\api\CzasPracyController.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\czaspracy\ob\CzasPracyOB.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\base\package-info.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\repository\IUzytkownikRepository.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\service\IDziennikPlanowService.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\SwaggerConfig.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\utils\DziennikPlanowConverter.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\utils\GrupyConverter.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\grupy\ob\GrupyOB.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\base\ob\BaseOB.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\czaspracy\repository\ICzasPracyRepository.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\ob\UzytkownikOB.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\package-info.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\EDniTygodnia.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\service\impl\DziennikPlanowServiceImpl.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\czaspracy\service\impl\CzasPracyServiceImpl.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\EJednostka.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\service\IUzytkownikService.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\EStan.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\package-info.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\service\impl\UzytkownikServiceImpl.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\czaspracy\package-info.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTO.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\grupy\service\impl\GrupyServiceImpl.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\grupy\dto\GrupyDTO.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\grupy\service\IGrupyService.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\grupy\respository\IGrupyRespository.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\repository\INieobecnosciRepository.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\dto\UzytkownikDTO.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\czaspracy\dto\CzasPracyDTO.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\grupy\package-info.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\package-info.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\utils\NieobecnosciConverter.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\ob\DziennikPlanowOB.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\ob\NieobecnosciOB.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\czaspracy\service\ICzasPracyService.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\grupy\api\GrupyController.java
-C:\Users\Tomasz Komoszeski\Documents\Studia\Semestr II\Przedmiot Fakultatywny\Fakultet\E-Lista\src\main\java\com\skpcp\elista\utils\CzasPracyConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uprawnienia\repository\IUprawnienieRepository.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uprawnienia\api\UprawnienieController.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\rola\service\IRolaService.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\converters\NieobecnoscConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\base\package-info.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\czaspracy\ob\CzasPracyOB.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\rola\ob\RolaOB.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\repository\INieobecnoscRepository.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\repository\IUzytkownikRepository.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uprawnienia\service\impl\IUprawnienieServiceImpl.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\converters\UzytkownikConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\rola\service\impl\RolaServiceImpl.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\repository\IDziennikPlanowRepository.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\grupa\package-info.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uprawnienia\service\IUprawnienieService.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\api\NieobecnoscController.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\EStan.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\dto\UzytkownikDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\rola\api\RolaController.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\api\UzytkownikController.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\rola\dto\RolaDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\converters\CzasPracyConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\czaspracy\service\impl\CzasPracyServiceImpl.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\czaspracy\service\ICzasPracyService.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\service\impl\DziennikPlanowServiceImpl.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\service\INieobecnoscService.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\czaspracy\api\CzasPracyController.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\grupa\dto\GrupaDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\dto\DziennikPlanowDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\service\IUzytkownikService.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\service\IDziennikPlanowService.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\base\dto\BaseDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\ob\DziennikPlanowOB.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\grupa\ob\GrupaOB.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\package-info.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\grupa\repository\IGrupaRepository.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\grupa\api\GrupaController.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\rola\package-info.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\converters\UprawnienieConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\api\DziennikPlanowController.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\converters\DziennikPlanowConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\dto\NieobecnoscDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\rola\respository\IRolaRepository.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\exceptions\MyServerException.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\grupa\service\IGrupaService.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\grupa\service\impl\GrupaServiceImpl.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\dziennikplanow\package-info.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uprawnienia\dto\UprawnienieDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\ob\NieobecnoscOB.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uprawnienia\package-info.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\czaspracy\package-info.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\nieobecnosci\service\impl\NieobecnoscServiceImpl.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\service\impl\UzytkownikServiceImpl.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\converters\RolaConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\EListaApplication.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\base\ob\BaseOB.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\czaspracy\repository\ICzasPracyRepository.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uzytkownik\ob\UzytkownikOB.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\czaspracy\dto\CzasPracyDTO.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\utils\converters\GrupaConverter.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\SwaggerConfig.java
+C:\JavaProjects\Intelijea\E-Lista\src\main\java\com\skpcp\elista\uprawnienia\ob\UprawnienieOB.java

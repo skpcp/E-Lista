@@ -10,6 +10,8 @@ import com.skpcp.elista.uzytkownik.ob.UzytkownikOB;
 import com.skpcp.elista.uzytkownik.repository.IUzytkownikRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
 
@@ -18,15 +20,15 @@ import java.util.List;
 
 
 @SpringBootApplication
-public class EListaApplication {
+public class EListaApplication extends SpringBootServletInitializer {
 
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(EListaApplication.class);
+    }
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(EListaApplication.class, args);
-
-
-
 }
 
 	@Bean

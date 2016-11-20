@@ -2,6 +2,7 @@ package com.skpcp.elista;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
@@ -15,6 +16,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
  * Created by Tomek on 2016-03-16.
  */
 @Configuration
+@EnableWebMvc
 @EnableSwagger2
 public class SwaggerConfig {
     @Bean
